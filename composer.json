@@ -2,5 +2,15 @@
     "require-dev": {
         "filp/whoops": "^2.14",
         "symfony/var-dumper": "^6.2"
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Core\\" : "core/",
+            "App\\" : "src/"
+        }
     }
 }
+
