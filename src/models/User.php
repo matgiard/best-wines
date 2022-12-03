@@ -94,4 +94,19 @@ class User
     {
         $this->is_employee = $is_employee;
     }
+
+    /**
+     * Insérer un utilisateur dans la BDD
+     * @return int|false  l'id du dernier élément inséré ou false dans le cas d'échec
+     */
+    public function insert(): int|false
+    {
+        $stmt = $this->pdo->prepare("INSERT INTO user (`email`, `password`) VALUES (:email, :password)");
+
+        $stmt->execute([
+            "email" => $this->email,
+            "password" => password_hash($this->password, PASSWORD_ARGON2ID)
+        ]);
+        return $this->pdo->lastInsertId();
+    }
 }
