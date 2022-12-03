@@ -36,3 +36,5 @@
     </div>
 
 </form>
+
+<div class='home'>Ceci est un test scss</div>
