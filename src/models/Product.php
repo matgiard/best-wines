@@ -232,4 +232,25 @@ class Product
     {
         $this->id_comment = $id_comment;
     }
+    /**
+     * Insérer un produit dans la BDD
+     * @return int|false  l'id du dernier élément inséré ou false dans le cas d'échec
+     */
+    public function insert(): int|false
+    {
+        $stmt = $this->pdo->prepare("INSERT INTO product (`description`, `photo`,`stock`,`alcohol_percentage`,`id_region`,`id_cepage`,`id_taste`,`id_association`) VALUES (:description, :photo,:stock,:alcohol_percentage,:id_region,id_cepage,:id_taste,:id_association)");
+
+        $stmt->execute([
+            "description" => $this->description,
+            "photo" => $this->photo,
+            "stock" => $this->stock,
+            "alcohol_percentage" => $this->alcohol_percentage,
+            "id_region" => $this->id_region,
+            "id_cepage" => $this->cepage,
+            "id_taste" => $this->id_taste,
+            "id_association" => $this->id_association,
+
+        ]);
+        return $this->pdo->lastInsertId();
+    }
 }
