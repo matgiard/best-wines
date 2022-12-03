@@ -1,19 +1,24 @@
 <?php
 
-class Product
+namespace App\Models;
+use Core\Model;
+
+class Product extends Model
 {
 
     private int $id;
+    private string $name;
     private string $description;
     private float $note; //float ?
     private string $photo;
     private int $stock;
-    private float $alcohol_pourcentage;
+    private float $alcohol_percentage;
     private int $id_region;
     private int $id_cepage;
     private int $id_taste;
     private int $id_association;
     private int $id_comment;
+    
 
     /**
      * Get the value of id
@@ -22,6 +27,27 @@ class Product
     public function getId(): int
     {
         return $this->id;
+    }
+
+     /**
+     * Get the value of name
+     * @return string
+     */ 
+    public function getName():string
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set the value of name
+     * @param string $name
+     * @return void
+     */ 
+    public function setName(string $name):void
+    {
+        $this->name = $name;
+
+       
     }
 
     /**
@@ -110,23 +136,23 @@ class Product
     }
 
     /**
-     * Get the value of alcohol_pourcentage
+     * Get the value of alcohol_percentage
      * @return float
      */
-    public function getAlcohol_pourcentage(): float
+    public function getAlcohol_percentage(): float
     {
-        return $this->alcohol_pourcentage;
+        return $this->alcohol_percentage;
     }
 
     /**
-     * Set the value of alcohol_pourcentage
+     * Set the value of alcohol_percentage
      *
-     * @param float $alcohol_pourcentage
+     * @param float $alcohol_percentage
      * @return void
      */
-    public function setAlcohol_pourcentage(float $alcohol_pourcentage): void
+    public function setAlcohol_percentage(float $alcohol_percentage): void
     {
-        $this->alcohol_pourcentage = $alcohol_pourcentage;
+        $this->alcohol_percentage = $alcohol_percentage;
     }
 
     /**
@@ -238,19 +264,22 @@ class Product
      */
     public function insert(): int|false
     {
-        $stmt = $this->pdo->prepare("INSERT INTO product (`description`, `photo`,`stock`,`alcohol_percentage`,`id_region`,`id_cepage`,`id_taste`,`id_association`) VALUES (:description, :photo,:stock,:alcohol_percentage,:id_region,id_cepage,:id_taste,:id_association)");
+        $stmt = $this->pdo->prepare("INSERT INTO product (`name`,`description`, `photo`,`stock`,`alcohol_percentage`) VALUES (:name,:description, :photo,:stock,:alcohol_percentage)");
 
         $stmt->execute([
+            "name" => $this->name,
             "description" => $this->description,
             "photo" => $this->photo,
             "stock" => $this->stock,
             "alcohol_percentage" => $this->alcohol_percentage,
-            "id_region" => $this->id_region,
-            "id_cepage" => $this->cepage,
-            "id_taste" => $this->id_taste,
-            "id_association" => $this->id_association,
+            // "id_region" => $this->id_region,
+            // "id_cepage" => $this->cepage,
+            // "id_taste" => $this->id_taste,
+            // "id_association" => $this->id_association,
 
         ]);
         return $this->pdo->lastInsertId();
     }
+
+   
 }

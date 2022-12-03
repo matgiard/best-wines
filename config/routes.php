@@ -14,7 +14,7 @@ Router::register('/task/add', 'TaskController::insert');
 Router::register('/task/edit', 'TaskController::edit');
 
 // product
-Router::register('/product/add', 'ProductController::insert');
+Router::register('/product/insert', 'ProductController::insert');
 Router::register('/product/delete', 'ProductController::delete');
 Router::register('/product/update', 'ProductController::update');
 

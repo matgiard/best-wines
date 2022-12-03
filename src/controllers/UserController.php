@@ -26,6 +26,12 @@ class UserController extends Controller
         echo "ceci est la méthode " . __FUNCTION__;
     }
 
+
+    /**
+     * Insérer un nouvel utilsiateur
+     *
+     * @return void
+     */
     public function insert()
     {
 

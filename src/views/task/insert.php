@@ -13,6 +13,10 @@
         <label for="to_do_at">Date:</label>
         <input type="datetime-local" name="to_do_at" id="to_do_at">
     </div>
+    <div>
+        <label for="to_do_at">Date:</label>
+        <input type="datetime-local" name="to_do_at" id="to_do_at">
+    </div>
 
     <div>
         <input type="submit" name="submit" value="Enregistrer">
