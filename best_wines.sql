@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : ven. 02 déc. 2022 à 16:18
--- Version du serveur : 10.4.24-MariaDB
--- Version de PHP : 8.0.19
+-- Host: localhost:3306
+-- Generation Time: Dec 03, 2022 at 05:42 PM
+-- Server version: 10.11.0-MariaDB-log
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `best_wines`
+-- Database: `best_wines`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `article`
+-- Table structure for table `article`
 --
 
 CREATE TABLE `article` (
@@ -33,34 +33,34 @@ CREATE TABLE `article` (
   `content` text NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   `id_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `association`
+-- Table structure for table `association`
 --
 
 CREATE TABLE `association` (
   `id` int(11) NOT NULL,
   `association_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `cepage`
+-- Table structure for table `cepage`
 --
 
 CREATE TABLE `cepage` (
   `id` int(11) NOT NULL,
   `cepage_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `comment`
+-- Table structure for table `comment`
 --
 
 CREATE TABLE `comment` (
@@ -69,44 +69,52 @@ CREATE TABLE `comment` (
   `text_comment` text NOT NULL,
   `id_product` int(11) NOT NULL,
   `id_sale` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `order_tracking`
+-- Table structure for table `order_tracking`
 --
 
 CREATE TABLE `order_tracking` (
   `id` int(11) NOT NULL,
   `order_state` varchar(255) NOT NULL,
   `id_receipt` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `product`
+-- Table structure for table `product`
 --
 
 CREATE TABLE `product` (
   `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `note_final` float NOT NULL,
+  `note_final` float DEFAULT NULL,
   `photo` varchar(255) NOT NULL,
   `stock` int(11) NOT NULL,
   `alcohol_percentage` float NOT NULL,
-  `id_region` int(11) NOT NULL,
-  `id_cepage` int(11) NOT NULL,
-  `id_taste` int(11) NOT NULL,
-  `id_association` int(11) NOT NULL,
-  `id_comment` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_region` int(11) DEFAULT NULL,
+  `id_cepage` int(11) DEFAULT NULL,
+  `id_taste` int(11) DEFAULT NULL,
+  `id_association` int(11) DEFAULT NULL,
+  `id_comment` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `name`, `description`, `note_final`, `photo`, `stock`, `alcohol_percentage`, `id_region`, `id_cepage`, `id_taste`, `id_association`, `id_comment`) VALUES
+(1, 'xbxbx xfklnxlkn', 'fdg', NULL, 'kjgiughjgj', 30, 20, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `receipt`
+-- Table structure for table `receipt`
 --
 
 CREATE TABLE `receipt` (
@@ -114,23 +122,23 @@ CREATE TABLE `receipt` (
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   `total_price` float NOT NULL,
   `id_sale` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `region`
+-- Table structure for table `region`
 --
 
 CREATE TABLE `region` (
   `id` int(11) NOT NULL,
   `region_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `sale`
+-- Table structure for table `sale`
 --
 
 CREATE TABLE `sale` (
@@ -139,23 +147,23 @@ CREATE TABLE `sale` (
   `id_user` int(11) NOT NULL,
   `quantity_sold` int(11) NOT NULL,
   `price` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `taste`
+-- Table structure for table `taste`
 --
 
 CREATE TABLE `taste` (
   `id` int(11) NOT NULL,
   `taste_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -164,33 +172,40 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT 0,
   `is_employee` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
--- Index pour les tables déchargées
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `email`, `password`, `is_admin`, `is_employee`) VALUES
+(1, 'dfdfdf@ghgfhf', '$argon2id$v=19$m=65536,t=4,p=1$SlB3WFNwR1FPbjhYWElNUw$SVbrQw3e2wf5IWleunDFnz5CwgWEkVqYrqRvyg6HZ1M', 0, 0);
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `article`
+-- Indexes for table `article`
 --
 ALTER TABLE `article`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Index pour la table `association`
+-- Indexes for table `association`
 --
 ALTER TABLE `association`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `cepage`
+-- Indexes for table `cepage`
 --
 ALTER TABLE `cepage`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `comment`
+-- Indexes for table `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`),
@@ -198,14 +213,14 @@ ALTER TABLE `comment`
   ADD KEY `id_sale` (`id_sale`);
 
 --
--- Index pour la table `order_tracking`
+-- Indexes for table `order_tracking`
 --
 ALTER TABLE `order_tracking`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_receipt` (`id_receipt`);
 
 --
--- Index pour la table `product`
+-- Indexes for table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
@@ -216,20 +231,20 @@ ALTER TABLE `product`
   ADD KEY `id_comment` (`id_comment`);
 
 --
--- Index pour la table `receipt`
+-- Indexes for table `receipt`
 --
 ALTER TABLE `receipt`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_sale` (`id_sale`);
 
 --
--- Index pour la table `region`
+-- Indexes for table `region`
 --
 ALTER TABLE `region`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `sale`
+-- Indexes for table `sale`
 --
 ALTER TABLE `sale`
   ADD PRIMARY KEY (`id`),
@@ -237,112 +252,112 @@ ALTER TABLE `sale`
   ADD KEY `id_user` (`id_user`);
 
 --
--- Index pour la table `taste`
+-- Indexes for table `taste`
 --
 ALTER TABLE `taste`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `article`
+-- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `association`
+-- AUTO_INCREMENT for table `association`
 --
 ALTER TABLE `association`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `cepage`
+-- AUTO_INCREMENT for table `cepage`
 --
 ALTER TABLE `cepage`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `comment`
+-- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `order_tracking`
+-- AUTO_INCREMENT for table `order_tracking`
 --
 ALTER TABLE `order_tracking`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `product`
+-- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `receipt`
+-- AUTO_INCREMENT for table `receipt`
 --
 ALTER TABLE `receipt`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `region`
+-- AUTO_INCREMENT for table `region`
 --
 ALTER TABLE `region`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `sale`
+-- AUTO_INCREMENT for table `sale`
 --
 ALTER TABLE `sale`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `taste`
+-- AUTO_INCREMENT for table `taste`
 --
 ALTER TABLE `taste`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `article`
+-- Constraints for table `article`
 --
 ALTER TABLE `article`
   ADD CONSTRAINT `article_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `comment`
+-- Constraints for table `comment`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`id_sale`) REFERENCES `sale` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `order_tracking`
+-- Constraints for table `order_tracking`
 --
 ALTER TABLE `order_tracking`
   ADD CONSTRAINT `order_tracking_ibfk_1` FOREIGN KEY (`id_receipt`) REFERENCES `receipt` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `product`
+-- Constraints for table `product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`id_region`) REFERENCES `region` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -352,13 +367,13 @@ ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_5` FOREIGN KEY (`id_taste`) REFERENCES `taste` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `receipt`
+-- Constraints for table `receipt`
 --
 ALTER TABLE `receipt`
   ADD CONSTRAINT `receipt_ibfk_1` FOREIGN KEY (`id_sale`) REFERENCES `sale` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `sale`
+-- Constraints for table `sale`
 --
 ALTER TABLE `sale`
   ADD CONSTRAINT `sale_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
