@@ -22,6 +22,8 @@ Router::register('/product/update', 'ProductController::update');
 Router::register('/login', 'UserController::login');
 Router::register('/register', 'UserController::register');
 Router::register('/logout', 'UserController::logout');
+Router::register('/user/add', 'UserController::insert');
+Router::register('/logout', 'UserController::logout');
 
 //article 
 Router::register('/article/add', 'ArticleController::insert');

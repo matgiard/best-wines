@@ -1,6 +1,9 @@
 <?php
 
-class User
+namespace App\Models;
+use Core\Model;
+
+class User extends Model
 {
     private int $id;
     private string $email;
