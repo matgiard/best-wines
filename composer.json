@@ -1,7 +1,7 @@
 {
     "require-dev": {
         "filp/whoops": "^2.14",
-        "symfony/var-dumper": "^6.2"
+        "symfony/var-dumper": "^6.0"
     },
     "require": {
         "vlucas/phpdotenv": "^5.5"
@@ -13,4 +13,3 @@
         }
     }
 }
-
