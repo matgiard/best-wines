@@ -6,23 +6,24 @@ use Core\Controller;
 
 
 
-class UserController extends Controller
+class ProductController extends Controller
 {
 
     public function insert()
     {
 
-        echo "ceci est la méthode insert";
+        echo "ceci est la méthode insert produit";
     }
 
     public function update()
     {
-        echo "ceci est la méthode update";
+        echo "ceci est la méthode update produit";
     }
 
 
     public function delete()
     {
-        echo "ceci est la méthode " . __FUNCTION__;
+        echo "ceci est la méthode " . __FUNCTION__ .
+            " produit";
     }
 }
