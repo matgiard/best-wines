@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "parcel": "^2.8.0"
+  },
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": " parcel build index.html"
+  },
+  "dependencies": {
+    "sass": "^1.56.1"
+  }
+}
