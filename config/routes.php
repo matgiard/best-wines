@@ -5,18 +5,20 @@ require_once 'core/Router.php';
 
 use Core\Router;
 
-Router::register('/test/all', 'TestController::delete');
+Router::register('/', 'HomeController::show');
 
 
-Router::register('/task/delete', 'TaskController::delete');
-Router::register('/task/', 'TaskController::show');
-Router::register('/task/add', 'TaskController::insert');
-Router::register('/task/edit', 'TaskController::edit');
+// Router::register('/task/delete', 'TaskController::delete');
+// Router::register('/task/', 'TaskController::show');
+// Router::register('/task/add', 'TaskController::insert');
+// Router::register('/task/edit', 'TaskController::edit');
 
 // product
 Router::register('/product/insert', 'ProductController::insert');
 Router::register('/product/delete', 'ProductController::delete');
 Router::register('/product/update', 'ProductController::update');
+Router::register('/product/show', 'ProductController::update');
+Router::register('/product/show/all', 'ProductController::update');
 
 // user
 Router::register('/login', 'UserController::login');
