@@ -9,7 +9,7 @@ class HomeController extends Controller{
 public function show()
     {
 
-        echo "ceci est la page d'accueil";
+        $this->renderView('home/index'); // Afficher page home depuis view/home/index.php
     }
 
 }

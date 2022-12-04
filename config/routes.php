@@ -1,17 +1,9 @@
 <?php
 
-
-require_once 'core/Router.php';
-
 use Core\Router;
 
+//Home
 Router::register('/', 'HomeController::show');
-
-
-// Router::register('/task/delete', 'TaskController::delete');
-// Router::register('/task/', 'TaskController::show');
-// Router::register('/task/add', 'TaskController::insert');
-// Router::register('/task/edit', 'TaskController::edit');
 
 // product
 Router::register('/product/insert', 'ProductController::insert');
@@ -31,3 +23,27 @@ Router::register('/logout', 'UserController::logout');
 Router::register('/article/add', 'ArticleController::insert');
 Router::register('/article/show', 'ArticleController::show');
 Router::register('/article/edit', 'ArticleController::edit');
+
+
+
+//
+// - Home (http://bestwines.fr)
+// - Nos vins (http://bestwines.fr/nos-vins)
+// - Nos coffrets (http://bestwines.fr/nos-coffrets)
+// - Nos fournisseurs (http://bestwines.fr/nos-fournisseurs)
+// - Qui sommes-nous ? (http://bestwines.fr/qui-sommes-nous)
+// - Blog (http://bestwines.fr/blog)
+// - Espace Client (http://bestwines.fr/mon-compte)
+// En plus de ces pages principales, les pages suivantes doivent être accessibles depuis le footer :
+// - Nos vins (http://bestwines.fr/nos-vins)
+// o Nos rouges
+// o Nos blancs
+// o Nos champagnes
+// - Nos coffrets (http://bestwines.fr/nos-coffrets)
+// - Aide
+// o FAQ
+// o Mentions légales (http://bestwines.fr/mentions-legales)
+// o Contact (http://bestwines.fr/nous-contacter)
+// - Presse (http://bestwines.fr/presse)
+// - Qui sommes-nous ? (http://bestwines.fr/qui-sommes-nous)
+// - Blog (http://bestwines.fr/blog)
