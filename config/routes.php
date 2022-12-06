@@ -10,7 +10,21 @@ Router::register('/product/insert', 'ProductController::insert');
 Router::register('/product/delete', 'ProductController::delete');
 Router::register('/product/update', 'ProductController::update');
 Router::register('/product/show', 'ProductController::update');
-Router::register('/product/show/all', 'ProductController::update');
+
+
+ // show all products 
+Router::register('/nos-vins', 'ProductController::showAllWines');
+Router::register('/nos-coffrets', 'ProductController::showAllboxes');
+
+// product box
+Router::register('/nos-coffrets/vin-blanc', 'ProductController::showAllWhiteBox');
+Router::register('/nos-coffrets/vin-rouge', 'ProductController::showAllRedBox');
+Router::register('/nos-coffrets/nos-champagne', 'ProductController::showAllChampagneBox');
+
+// product whines
+Router::register('/nos-vins/blanc', 'ProductController::showAllWhiteWines');
+Router::register('/nos-vins/rouge', 'ProductController::showAllRedWines');
+Router::register('/nos-vins/nos-champagne', 'ProductController::showAllChampagne');
 
 // user
 Router::register('/login', 'UserController::login');

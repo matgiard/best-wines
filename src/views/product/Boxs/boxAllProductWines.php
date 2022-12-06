@@ -1,0 +1,1 @@
+<div>Page présentation générale pour tous les coffrets</div>
