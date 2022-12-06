@@ -15,3 +15,5 @@ Chose à faire et ou à discutter ensemble
 <!-- #7 Modifier BDD ,Gout / Cepage / ASsociation à définir sous forme de booléen (List à fournir). + à push sur github. + mettre à jour en local -->
 
 <!-- #8 Ajouter catégories pour les differents produits : Rouge / Blanc / Champagne / Coffret. -->
+
+#9 Ajouter prix_unitaire à la table product (SINON ON PERDS DE L'ARGENT)
