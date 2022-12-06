@@ -4,7 +4,7 @@
     </div>
 
 <?php endif; ?>
-<form action="<?=BASE_DIR ?>/product/insert" method="post">
+<form action="<?= BASE_DIR ?>/product/insert" method="post">
     <div>
         <label for="name">Nom</label>
         <input type="text" name="name" id="name">

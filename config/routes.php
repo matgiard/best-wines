@@ -5,7 +5,6 @@ use Core\Router;
 //Home
 Router::register('/', 'HomeController::show');
 
-
 // product  for employee
 Router::register('/product/insert', 'ProductController::insert');
 Router::register('/product/delete', 'ProductController::delete');
@@ -24,7 +23,6 @@ Router::register('/nos-coffrets/nos-champagne', 'ProductController::showAllChamp
 Router::register('/nos-vins/blanc', 'ProductController::showAllWhiteWines');
 Router::register('/nos-vins/rouge', 'ProductController::showAllRedWines');
 Router::register('/nos-vins/nos-champagne', 'ProductController::showAllChampagne');
-
 
 // Fournisseur 
 Router::register('/nos-fournisseurs', 'SupplierController::showFournisseur');
@@ -51,7 +49,6 @@ Router::register('/employe', 'EmployeeController::index');
 // espace employé Commandes
 Router::register('/employe/commandes', 'OrderTrackingController::showAll');
 Router::register('/employe/commandes/details', 'OrderTrackingController::showOne');
-
 
 // Gestion des paiements
 Router::register('/employe/paiements', 'PaiementsController::index');
