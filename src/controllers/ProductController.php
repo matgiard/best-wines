@@ -55,10 +55,16 @@ class ProductController extends Controller
         echo "ceci est la méthode " . __FUNCTION__ .
             " produit";
     }
-    public function showAllWines()
-
+    /**
+     * afficher la liste des produits
+     * @return void
+     */
+    public function showAllWines(): void
     {
+        $product = new Product();
 
-        $this->renderView('product/wines/AllProductWines');
+        $products = $product->findAll('id_user');
+
+        $this->renderView('product/wines/AllProductWines', compact('products'));
     }
 }
