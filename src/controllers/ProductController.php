@@ -55,4 +55,54 @@ class ProductController extends Controller
         echo "ceci est la méthode " . __FUNCTION__ .
             " produit";
     }
+
+
+    //Tous les coffrets 
+    public function showAllBoxes()
+    {
+        $this->renderView('product/Boxs/boxAllProduct');
+    }
+    
+    //Tous les coffrets vins rouges
+    public function showAllRedBox()
+    {
+        $this->renderView('product/Boxs/boxProductRed');
+    }
+    
+    //Tous les coffrets vins blancs
+    public function showAllWhiteBox()
+    {
+        $this->renderView('product/Boxs/boxProductWhite');
+    }
+    
+    //tous les coffrets champagnes
+    public function showAllChampagneBox()
+    {
+        $this->renderView('product/Boxs/boxProductChampagnes');
+    }
+    
+    //Tous les vins
+    public function showAllWines()
+    {
+        $this->renderView('product/wines/allProductWines');
+    }
+    
+    // tous les vins rouges
+    public function showAllRedWines()
+    {
+        $this->renderView('product/wines/allProductRed');
+    }
+    
+
+    // tous les vins blancs
+    public function showAllWhiteWines()
+    {
+        $this->renderView('product/wines/allProductWhite');
+    }
+
+    // tous les champagnes
+    public function showAllChampagne()
+    {
+        $this->renderView('product/wines/allProductChampagnes');
+    }
 }

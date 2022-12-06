@@ -17,12 +17,12 @@ Router::register('/nos-coffrets', 'ProductController::showAllboxes');
 // product box
 Router::register('/nos-coffrets/vin-blanc', 'ProductController::showAllWhiteBox');
 Router::register('/nos-coffrets/vin-rouge', 'ProductController::showAllRedBox');
-Router::register('/nos-coffrets/nos-champagne', 'ProductController::showAllChampagneBox');
+Router::register('/nos-coffrets/nos-champagnes', 'ProductController::showAllChampagneBox');
 
 // product wines
 Router::register('/nos-vins/blanc', 'ProductController::showAllWhiteWines');
 Router::register('/nos-vins/rouge', 'ProductController::showAllRedWines');
-Router::register('/nos-vins/nos-champagne', 'ProductController::showAllChampagne');
+Router::register('/nos-vins/nos-champagnes', 'ProductController::showAllChampagne');
 
 // Fournisseur 
 Router::register('/nos-fournisseurs', 'SupplierController::showFournisseur');
