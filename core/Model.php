@@ -7,11 +7,14 @@ abstract class Model
     protected \PDO $pdo;
 
     protected string $table_name;
+    protected string $region = 'region ON product.id_region=region.id';
 
     public function __construct()
     {
         $this->pdo = Database::getPdo();
     }
+
+
 
     /**
      * @param int $id l'identifiant de l'élément à afficher
@@ -35,9 +38,19 @@ abstract class Model
      * @param boolean $is_array s'il est à true on aura les résultats sous format d'un tableau associatif, si non c'est le format du model
      * @return array|false
      */
+
+
     public function findAll(): array
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM {$this->table_name} JOIN region ON product.id_region=region.id");
+
+        $stmt = $this->pdo->prepare(
+            "SELECT * FROM {$this->table_name} JOIN $this->region
+        -- JOIN taste ON product.id_taste=taste.id
+        -- JOIN cepage ON product.id_cepage=cepage.id
+        -- JOIN association ON product.id_association=association.id
+        -- JOIN type_product ON product.id_type=type_product.id_type
+        "
+        );
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
         $stmt->execute();
         return $stmt->fetchAll();
@@ -50,7 +63,7 @@ abstract class Model
      */
     public function delete(int $id): void
     {
-        $stmt = $this->pdo->prepare("DELETE FROM {$this->table_name} WHERE id = :id");
+        $stmt = $this->pdo->prepare("DELETE FROM {$this->table_name} WHERE id = :id JOIN ");
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
