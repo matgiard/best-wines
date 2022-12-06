@@ -1,0 +1,1 @@
+<div>Ceci est la page du blog avec tous les articles.</div>

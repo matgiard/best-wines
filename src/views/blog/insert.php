@@ -1,0 +1,1 @@
+<div>Ceci est la page du blog pour insérer un article</div>

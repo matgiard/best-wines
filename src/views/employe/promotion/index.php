@@ -1,0 +1,1 @@
+<div>Ceci est la page index des codes de promo</div>

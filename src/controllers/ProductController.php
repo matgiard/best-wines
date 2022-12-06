@@ -17,11 +17,11 @@ class ProductController extends Controller
     public function insert()
     {
 
-        if (isset($_POST['submit'])){
+        if (isset($_POST['submit'])) {
 
 
             $product = new Product();
-            
+
             $product->setName(htmlentities($_POST['name']));
             $product->setDescription(htmlentities($_POST['description']));
             $product->setPhoto(htmlentities($_POST['photo']));
@@ -32,15 +32,14 @@ class ProductController extends Controller
 
             $result = $product->insert();
 
-            if ($result ){
+            if ($result) {
                 $message =  "insertion bien effectuée";
-            }else {
+            } else {
                 $message =  "échec";
             }
             $this->renderView('product/insert', [
                 'message' => $message
             ]);
-
         }
         $this->renderView('product/insert');
     }
@@ -55,5 +54,11 @@ class ProductController extends Controller
     {
         echo "ceci est la méthode " . __FUNCTION__ .
             " produit";
+    }
+    public function showAllWines()
+
+    {
+
+        $this->renderView('product/wines/AllProductWines');
     }
 }

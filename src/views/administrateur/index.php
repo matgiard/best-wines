@@ -1,0 +1,1 @@
+<div>Ceci est la page Index des employées géré par l'admin</div>

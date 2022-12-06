@@ -5,14 +5,13 @@ use Core\Router;
 //Home
 Router::register('/', 'HomeController::show');
 
-// product
+
+// product  for employee
 Router::register('/product/insert', 'ProductController::insert');
 Router::register('/product/delete', 'ProductController::delete');
-Router::register('/product/update', 'ProductController::update');
-Router::register('/product/show', 'ProductController::update');
+Router::register('/product/edit', 'ProductController::edit');
 
-
- // show all products 
+// show all products 
 Router::register('/nos-vins', 'ProductController::showAllWines');
 Router::register('/nos-coffrets', 'ProductController::showAllboxes');
 
@@ -21,22 +20,66 @@ Router::register('/nos-coffrets/vin-blanc', 'ProductController::showAllWhiteBox'
 Router::register('/nos-coffrets/vin-rouge', 'ProductController::showAllRedBox');
 Router::register('/nos-coffrets/nos-champagne', 'ProductController::showAllChampagneBox');
 
-// product whines
+// product wines
 Router::register('/nos-vins/blanc', 'ProductController::showAllWhiteWines');
 Router::register('/nos-vins/rouge', 'ProductController::showAllRedWines');
 Router::register('/nos-vins/nos-champagne', 'ProductController::showAllChampagne');
 
+
+// Fournisseur 
+Router::register('/nos-fournisseurs', 'SupplierController::showFournisseur');
+
+// Qui-sommes-nous
+Router::register('/qui-sommes-nous/contact', 'PresentationController::showContact');
+Router::register('/qui-sommes-nous/faq', 'PresentationController::showFaq');
+Router::register('/qui-sommes-nous/mentions-legales', 'PresentationController::showMention');
+Router::register('/qui-sommes-nous/presse', 'PresentationController::showPresse');
+
+// Blog / articles
+Router::register('/blog', 'BlogController::showArticle');
+Router::register('/blog/insert', 'BlogController::insertArticle');
+Router::register('/blog/edit', 'BlogController::editArticle');
+
 // user
 Router::register('/login', 'UserController::login');
-Router::register('/register', 'UserController::register');
-Router::register('/logout', 'UserController::logout');
-Router::register('/user/add', 'UserController::insert');
+Router::register('/register', 'UserController::insert');
 Router::register('/logout', 'UserController::logout');
 
-//article 
-Router::register('/article/add', 'ArticleController::insert');
-Router::register('/article/show', 'ArticleController::show');
-Router::register('/article/edit', 'ArticleController::edit');
+// Accueil espace employé
+Router::register('/employe', 'EmployeeController::index');
+
+// espace employé Commandes
+Router::register('/employe/commandes', 'OrderTrackingController::showAll');
+Router::register('/employe/commandes/details', 'OrderTrackingController::showOne');
+
+
+// Gestion des paiements
+Router::register('/employe/paiements', 'PaiementsController::index');
+
+// Gestion des stocks
+Router::register('/employe/stock', 'StockController::showAll');
+Router::register('/employe/stock/insert', 'StockController::insert');
+Router::register('/employe/stock/edit', 'StockController::edit');
+
+// Gestion des codes promos
+Router::register('/employe/promotion', 'PromotionController::showAll');
+Router::register('/employe/promotion/insert', 'PromotionController::insert');
+Router::register('/employe/promotion/edit', 'PromotionController::edit');
+
+// Gestion des salariés
+
+Router::register('/administrateur', 'AdminController::showAll');
+Router::register('/administrateur/insert', 'AdminController::insert');
+Router::register('/administrateur/edit', 'AdminController::edit');
+
+
+
+
+
+
+
+
+
 
 
 
