@@ -3,13 +3,18 @@
 namespace App\Controllers;
 
 use Core\Controller;
+use App\Models\Product;
 
-class HomeController extends Controller{
+class HomeController extends Controller
+{
 
-public function show()
+
+    public function show(): void
     {
+        $product = new Product();
 
-        $this->renderView('home/index'); // Afficher page home depuis view/home/index.php
+        $products = $product->findAll();
+
+        $this->renderView('home/index', compact('products'));
     }
-
 }
