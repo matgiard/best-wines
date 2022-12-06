@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 06 déc. 2022 à 11:25
+-- Généré le : mar. 06 déc. 2022 à 11:33
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.0.19
 
@@ -73,7 +73,7 @@ CREATE TABLE `cepage` (
 --
 
 INSERT INTO `cepage` (`id`, `cepage_name`) VALUES
-(1, ''),
+(1, 'Riesling'),
 (2, 'Chardonnay'),
 (3, 'Sauvignon blanc'),
 (4, 'Pinot blanc'),
@@ -247,10 +247,8 @@ CREATE TABLE `type_product` (
 INSERT INTO `type_product` (`id_type`, `type_name`) VALUES
 (1, 'white'),
 (2, 'red'),
-(3, 'white'),
-(4, 'red'),
-(5, 'champagne'),
-(6, 'box');
+(3, 'champagne'),
+(4, 'box');
 
 -- --------------------------------------------------------
 
