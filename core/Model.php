@@ -37,7 +37,7 @@ abstract class Model
      */
     public function findAll(): array
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM {$this->table_name}");
+        $stmt = $this->pdo->prepare("SELECT * FROM {$this->table_name} JOIN region ON product.id_region=region.id");
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
         $stmt->execute();
         return $stmt->fetchAll();
