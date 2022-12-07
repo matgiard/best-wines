@@ -5,6 +5,10 @@ namespace App\Controllers;
 use App\Models\Product;
 use Core\Controller;
 use App\Models\Region;
+use App\Models\Cepage;
+use App\Models\Taste;
+use App\Models\Association;
+use App\Models\TypeProduct;
 
 
 class ProductController extends Controller
@@ -20,9 +24,24 @@ class ProductController extends Controller
     public function insert()
     {
 
+
         $region = new Region();
         $regions = $region->findAllByRegion();
-        $this->renderView('employe/stock/insert', compact('regions'));
+
+        $cepage = new Cepage();
+        $cepages = $cepage->findAllByCepage();
+
+        $taste = new Taste();
+        $tastes = $taste->findAllByTaste();
+
+        $association = new Association();
+        $associations = $association->findAllByAssociation();
+
+        $type_product = new TypeProduct();
+        $type_products = $type_product->findAllByType();
+
+        $this->renderView('employe/stock/insert', compact('regions', 'cepages', 'tastes', 'associations', 'type_products'));
+
 
         if (isset($_POST['submit'])) {
 
@@ -32,11 +51,15 @@ class ProductController extends Controller
 
             $product->setName(htmlentities($_POST['name']));
             $product->setDescription(htmlentities($_POST['description']));
-            // $product->setPhoto(htmlentities($_POST['photo']));
-            $product->setId_region($_POST['region_id']);
-            // $product->setNote(htmlentities($_POST['note']));
             $product->setStock(htmlentities($_POST['stock']));
             $product->setAlcohol_percentage(htmlentities($_POST['alcohol_percentage']));
+            $product->setId_region($_POST['id_region']);
+            $product->setId_cepage($_POST['id_cepage']);
+            $product->setId_taste($_POST['id_taste']);
+            $product->setId_association($_POST['id_association']);
+            $product->setId_type($_POST['id_type']);
+            $product->setPrice($_POST['price']);
+            // $product->setPhoto($_POST['photo']);
 
             $result = $product->insert();
 

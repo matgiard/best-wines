@@ -1,10 +1,15 @@
 <?php
 
-class Taste
+namespace App\Models;
+
+use Core\Model;
+
+class Taste extends Model
 {
 
     private int $id;
     private string $taste_name;
+    protected string $table_name = "taste";
 
     /**
      * Get the value of id

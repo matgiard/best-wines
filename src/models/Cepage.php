@@ -1,10 +1,15 @@
 <?php
 
-class Cepage
+namespace App\Models;
+
+use Core\Model;
+
+class Cepage extends Model
 {
 
     private int $id;
     private string $cepage_name;
+    protected string $table_name = "cepage";
 
     /**
      * Get the value of id

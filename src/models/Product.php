@@ -305,7 +305,7 @@ class Product extends Model
      */
     public function insert(): int|false
     {
-        $stmt = $this->pdo->prepare("INSERT INTO product (`name`,`description`,`stock`,`alcohol_percentage`,`id_region`) VALUES (:name,:description,:stock,:alcohol_percentage,:id_region)");
+        $stmt = $this->pdo->prepare("INSERT INTO product (`name`,`description`,`stock`,`alcohol_percentage`,`id_region`,`id_cepage`,`id_taste`,`id_association`,`id_type`,`price`) VALUES (:name,:description,:stock,:alcohol_percentage,:id_region,:id_cepage,:id_taste,:id_association,:id_type,:price)");
 
         $stmt->execute([
             "name" => $this->name,
@@ -313,10 +313,12 @@ class Product extends Model
             // "photo" => $this->photo,
             "stock" => $this->stock,
             "alcohol_percentage" => $this->alcohol_percentage,
-            "id_region" => $this->id_region
-            // "id_cepage" => $this->cepage,
-            // "id_taste" => $this->id_taste,
-            // "id_association" => $this->id_association,
+            "id_region" => $this->id_region,
+            "id_cepage" => $this->id_cepage,
+            "id_taste" => $this->id_taste,
+            "id_association" => $this->id_association,
+            "id_type" => $this->id_type,
+            "price" => $this->price
 
         ]);
         return $this->pdo->lastInsertId();

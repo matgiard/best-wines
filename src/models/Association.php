@@ -1,10 +1,15 @@
 <?php
 
-class Association
+namespace App\Models;
+
+use Core\Model;
+
+class Association extends Model
 {
 
     private int $id;
     private string $association_name;
+    protected string $table_name = "association";
 
     /**
      * Get the value of id

@@ -65,6 +65,52 @@ abstract class Model
         return $stmt->fetchAll();
     }
 
+    public function findAllByTaste(): array
+    {
+        $stmt = $this->pdo->prepare(
+            "SELECT * FROM {$this->table_name}"
+
+        );
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+    public function findAllByCepage(): array
+    {
+        $stmt = $this->pdo->prepare(
+            "SELECT * FROM {$this->table_name}"
+
+        );
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+    public function findAllByAssociation(): array
+    {
+        $stmt = $this->pdo->prepare(
+            "SELECT * FROM {$this->table_name}"
+
+        );
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function findAllByType(): array
+    {
+        $stmt = $this->pdo->prepare(
+            "SELECT * FROM {$this->table_name}"
+
+        );
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
 
     /**
      * delete an item
