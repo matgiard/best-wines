@@ -31,7 +31,7 @@ class StockController extends Controller
     {
 
         $region = new Region();
-        $regions = $region->findAllByRegion();
+        $regions = $region->findAll();
         $this->renderView('employe/stock/insert', compact('regions'));
     }
 }

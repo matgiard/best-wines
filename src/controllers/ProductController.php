@@ -2,14 +2,14 @@
 
 namespace App\Controllers;
 
-use App\Models\Product;
 use Core\Controller;
+
 use App\Models\Region;
 use App\Models\Cepage;
 use App\Models\Taste;
 use App\Models\Association;
 use App\Models\TypeProduct;
-
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -23,22 +23,20 @@ class ProductController extends Controller
 
     public function insert()
     {
-
-
         $region = new Region();
-        $regions = $region->findAllByRegion();
+        $regions = $region->findAll();
 
         $cepage = new Cepage();
-        $cepages = $cepage->findAllByCepage();
+        $cepages = $cepage->findAll();
 
         $taste = new Taste();
-        $tastes = $taste->findAllByTaste();
+        $tastes = $taste->findAll();
 
         $association = new Association();
-        $associations = $association->findAllByAssociation();
+        $associations = $association->findAll();
 
         $type_product = new TypeProduct();
-        $type_products = $type_product->findAllByType();
+        $type_products = $type_product->findAll();
 
         $this->renderView('employe/stock/insert', compact('regions', 'cepages', 'tastes', 'associations', 'type_products'));
 
@@ -47,7 +45,6 @@ class ProductController extends Controller
 
 
             $product = new Product();
-
 
             $product->setName(htmlentities($_POST['name']));
             $product->setDescription(htmlentities($_POST['description']));
@@ -92,7 +89,7 @@ class ProductController extends Controller
     public function showAllBoxes()
     {
         $product = new Product();
-        $products = $product->findAllBy(['id_type' => 4]);
+        $products = $product->findAllProductBy(['id_type' => 4]);
         $this->renderView('product/Boxs/boxAllProduct', compact('products'));
     }
 
@@ -102,7 +99,7 @@ class ProductController extends Controller
     {
         $product = new Product();
 
-        $products = $product->findAll();
+        $products = $product->findAllProduct();
         $this->renderView('product/wines/allProductWines', compact('products'));
     }
 
@@ -112,7 +109,7 @@ class ProductController extends Controller
     {
 
         $product = new Product();
-        $products = $product->findAllBy(['id_type' => 2, 'id_cepage' => 9]);
+        $products = $product->findAllProductBy(['id_type' => 2, 'id_cepage' => 9]);
         $this->renderView('product/wines/allProductRed', compact('products'));
     }
 
@@ -121,7 +118,7 @@ class ProductController extends Controller
     public function showAllWhiteWines()
     {
         $product = new Product();
-        $products = $product->findAllBy(['id_type' => 1]);
+        $products = $product->findAllProductBy(['id_type' => 1]);
         $this->renderView('product/wines/allProductWhite', compact('products'));
     }
 
@@ -129,7 +126,7 @@ class ProductController extends Controller
     public function showAllChampagne()
     {
         $product = new Product();
-        $products = $product->findAllBy(['id_type' => 3]);
+        $products = $product->findAllProductBy(['id_type' => 3]);
         $this->renderView('product/wines/allProductChampagnes', compact('products'));
     }
 }

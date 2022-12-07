@@ -45,6 +45,18 @@ abstract class Model
     public function findAll(): array
     {
         $stmt = $this->pdo->prepare(
+            "SELECT * FROM {$this->table_name}"
+
+        );
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function findAllProduct(): array
+    {
+        $stmt = $this->pdo->prepare(
             "SELECT * FROM {$this->table_name} JOIN {$this->regionJoin} JOIN {$this->cepage} JOIN {$this->association} JOIN {$this->type_product} JOIN {$this->taste}"
 
         );
@@ -53,65 +65,7 @@ abstract class Model
         $stmt->execute();
         return $stmt->fetchAll();
     }
-    public function findAllByRegion(): array
-    {
-        $stmt = $this->pdo->prepare(
-            "SELECT * FROM {$this->table_name}"
-
-        );
-        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
-
-    public function findAllByTaste(): array
-    {
-        $stmt = $this->pdo->prepare(
-            "SELECT * FROM {$this->table_name}"
-
-        );
-        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
-    public function findAllByCepage(): array
-    {
-        $stmt = $this->pdo->prepare(
-            "SELECT * FROM {$this->table_name}"
-
-        );
-        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
-    public function findAllByAssociation(): array
-    {
-        $stmt = $this->pdo->prepare(
-            "SELECT * FROM {$this->table_name}"
-
-        );
-        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
-
-    public function findAllByType(): array
-    {
-        $stmt = $this->pdo->prepare(
-            "SELECT * FROM {$this->table_name}"
-
-        );
-        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
-
-
+    
     /**
      * delete an item
      * @param int $id
@@ -131,6 +85,29 @@ abstract class Model
      * @return array|false
      */
     public function findAllBy(array $criteria,): array
+    {
+        if (empty($criteria)) {
+            throw  new \Exception("Il faut passer au moins un critère");
+        }
+
+        $sql_query = "SELECT * FROM {$this->table_name} WHERE ";
+        $count = 0;
+        foreach ($criteria as $key => $value) {
+            $count++;
+            if ($count > 1) {
+                $sql_query .= " AND ";
+            }
+            $sql_query .= " $key = :$key ";
+        }
+
+        $stmt = $this->pdo->prepare($sql_query);
+
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        $stmt->execute($criteria);
+        return $stmt->fetchAll();
+    }
+
+    public function findAllProductBy(array $criteria,): array
     {
         if (empty($criteria)) {
             throw  new \Exception("Il faut passer au moins un critère");
