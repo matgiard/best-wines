@@ -6,7 +6,7 @@
     </div>
 
 <?php endif; ?>
-<form action="<?= BASE_DIR ?>/product/insert" method="post">
+<form method="post" action="<?= BASE_DIR ?>/employe/stock/insert">
     <div>
         <label for="name">Nom</label>
         <input type="text" name="name" id="name">
@@ -28,16 +28,15 @@
         <input type="number" name="alcohol_percentage" id="alcohol_percentage">
     </div>
     <div>
-        <label for="id_region">Region</label>
-        <select class="form-select" aria-label="Default select example">
+        <label for="region_id">Region</label>
+        <select name="region_id" class="form-select" aria-label="Default select example">
             <option selected>Choisissez la région</option>
             <?php foreach ($regions as $region) : ?>
-                <option value="<?= $region['id'] ?>"><?= $region['region_name'] ?></option>
+                <option name="<?= $region['id'] ?>" value="<?= $region['id'] ?>"><?= $region['region_name'] ?></option>
             <?php endforeach ?>
 
         </select>
     </div>
-
     <div>
         <input type="submit" name="submit" value="Enregistrer">
     </div>

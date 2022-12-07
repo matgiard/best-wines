@@ -6,7 +6,8 @@ use Core\Router;
 Router::register('/', 'HomeController::show');
 
 // product  for employee
-Router::register('/product/insert', 'ProductController::insert');
+// Router::register('/stock/insert', 'StockController::showAllRegion');
+Router::register('/employe/stock/insert', 'ProductController::insert');
 Router::register('/product/delete', 'ProductController::delete');
 Router::register('/product/edit', 'ProductController::edit');
 
@@ -53,7 +54,7 @@ Router::register('/employe/paiements', 'PaiementsController::index');
 
 // Gestion des stocks
 Router::register('/employe/stock', 'StockController::showAll');
-Router::register('/employe/stock/insert', 'StockController::insert');
+// Router::register('/employe/stock/insert', 'StockController::insert');
 Router::register('/employe/stock/edit', 'StockController::edit');
 
 // Gestion des codes promos

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Product;
 use Core\Controller;
+use App\Models\Region;
 
 
 class ProductController extends Controller
@@ -14,18 +15,25 @@ class ProductController extends Controller
      *
      * @return void
      */
+
+
     public function insert()
     {
+
+        $region = new Region();
+        $regions = $region->findAllByRegion();
+        $this->renderView('employe/stock/insert', compact('regions'));
 
         if (isset($_POST['submit'])) {
 
 
             $product = new Product();
 
+
             $product->setName(htmlentities($_POST['name']));
             $product->setDescription(htmlentities($_POST['description']));
-            $product->setPhoto(htmlentities($_POST['photo']));
-
+            // $product->setPhoto(htmlentities($_POST['photo']));
+            $product->setId_region($_POST['region_id']);
             // $product->setNote(htmlentities($_POST['note']));
             $product->setStock(htmlentities($_POST['stock']));
             $product->setAlcohol_percentage(htmlentities($_POST['alcohol_percentage']));
@@ -35,13 +43,13 @@ class ProductController extends Controller
             if ($result) {
                 $message =  "insertion bien effectuée";
             } else {
-                $message =  "échec";
+                $message =  "échec de l'insertion";
             }
-            $this->renderView('product/insert', [
+            $this->renderView('employe/stock/insert', [
                 'message' => $message
             ]);
         }
-        $this->renderView('product/insert');
+        $this->renderView('employe/stock/insert');
     }
 
     public function update()
@@ -68,12 +76,11 @@ class ProductController extends Controller
 
     //Tous les vins
     public function showAllWines()
-    { {
-            $product = new Product();
+    {
+        $product = new Product();
 
-            $products = $product->findAll();
-            $this->renderView('product/wines/allProductWines', compact('products'));
-        }
+        $products = $product->findAll();
+        $this->renderView('product/wines/allProductWines', compact('products'));
     }
 
 

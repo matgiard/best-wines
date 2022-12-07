@@ -5,17 +5,12 @@ namespace App\Controllers;
 use Core\Controller;
 
 use App\Models\Region;
+use App\Models\Product;
 
 
 
 class StockController extends Controller
 {
-
-    public function insert()
-    {
-
-        $this->renderView('employe/stock/insert');
-    }
 
     public function showAll()
     {
@@ -34,13 +29,7 @@ class StockController extends Controller
     {
 
         $region = new Region();
-
-
-
         $regions = $region->findAllByRegion();
-
-
-
         $this->renderView('employe/stock/insert', compact('regions'));
     }
 }
