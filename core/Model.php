@@ -8,7 +8,6 @@ abstract class Model
 
     protected string $table_name;
     protected string $region = 'region ON product.id_region=region.id';
-
     protected string $cepage = 'cepage ON product.id_cepage=cepage.id';
     protected string $association = 'association ON product.id_association=association.id';
     protected string $type_product = 'type_product ON product.id_type=type_product.id_type';
@@ -41,10 +40,8 @@ abstract class Model
     /**
      * get all elements
      * @param boolean $is_array s'il est à true on aura les résultats sous format d'un tableau associatif, si non c'est le format du model
-     * @return array|false
+     * @return array
      */
-
-
     public function findAll(): array
     {
 

@@ -10,16 +10,17 @@ class Product extends Model
     private int $id;
     private string $name;
     private string $description;
-    // private float $note; //float ?
+    private float $note; //float ?
     private string $photo;
     private int $stock;
     private float $alcohol_percentage;
     private int $id_region;
-    // private int $id_cepage;
-    // private int $id_taste;
-    // private int $id_association;
-    // private int $id_comment;
+    private int $id_cepage;
+    private int $id_taste;
+    private int $id_association;
+    private int $id_comment;
     private int $id_type;
+    private float $price;
     protected string $table_name = "product";
 
 
@@ -267,6 +268,26 @@ class Product extends Model
     public function getId_type(): int
     {
         return $this->id_type;
+    }
+
+    /**
+     * Get the value of price
+     * @return float
+     */
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set the value of price
+     * @param float $price
+     *
+     * @return void
+     */
+    public function setPrice(float $price): void
+    {
+        $this->price = $price;
     }
 
     /**

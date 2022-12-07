@@ -7,7 +7,7 @@ class Sale
     private int $id_product;
     private int $id_user;
     private int $quantity_sold;
-    private float $price;
+    private float $price_total_product;
 
     /**
      * Get the value of id
@@ -77,22 +77,22 @@ class Sale
     }
 
     /**
-     * Get the value of price
+     * Get the value of $price_total_product
      * @return float
      */
-    public function getPrice(): float
+    public function getPrice_Total_Product(): float
     {
-        return $this->price;
+        return $this->price_total_product;
     }
 
     /**
-     * Set the value of price
-     * @param float $price
+     * Set the value of price_total_product
+     * @param float $price_total_product
      *
      * @return  void
      */
-    public function setPrice(float $price): void
+    public function setPrice_Total_Product(float $price_total_product): void
     {
-        $this->price = $price;
+        $this->$price_total_product = $price_total_product;
     }
 }
