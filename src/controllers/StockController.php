@@ -15,8 +15,10 @@ class StockController extends Controller
     public function showAll()
     {
 
+        $product = new Product();
 
-        $this->renderView('employe/stock/index');
+        $products = $product->findAll();
+        $this->renderView('employe/stock/index', compact('products'));
     }
 
 
