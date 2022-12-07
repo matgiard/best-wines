@@ -1,1 +1,0 @@
-<div>Page présentation générale pour les coffrets champagnes</div>

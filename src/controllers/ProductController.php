@@ -60,49 +60,46 @@ class ProductController extends Controller
     //Tous les coffrets 
     public function showAllBoxes()
     {
-        $this->renderView('product/Boxs/boxAllProduct');
+        $product = new Product();
+        $products = $product->findAllBy(['id_type' => 4]);
+        $this->renderView('product/Boxs/boxAllProduct', compact('products'));
     }
-    
-    //Tous les coffrets vins rouges
-    public function showAllRedBox()
-    {
-        $this->renderView('product/Boxs/boxProductRed');
-    }
-    
-    //Tous les coffrets vins blancs
-    public function showAllWhiteBox()
-    {
-        $this->renderView('product/Boxs/boxProductWhite');
-    }
-    
-    //tous les coffrets champagnes
-    public function showAllChampagneBox()
-    {
-        $this->renderView('product/Boxs/boxProductChampagnes');
-    }
-    
+
+
     //Tous les vins
     public function showAllWines()
-    {
-        $this->renderView('product/wines/allProductWines');
+    { {
+            $product = new Product();
+
+            $products = $product->findAll();
+            $this->renderView('product/wines/allProductWines', compact('products'));
+        }
     }
-    
-    // tous les vins rouges
+
+
+    // tous les vins rouges  id_type = 2 
     public function showAllRedWines()
     {
-        $this->renderView('product/wines/allProductRed');
+
+        $product = new Product();
+        $products = $product->findAllBy(['id_type' => 2]);
+        $this->renderView('product/wines/allProductRed', compact('products'));
     }
-    
+
 
     // tous les vins blancs
     public function showAllWhiteWines()
     {
-        $this->renderView('product/wines/allProductWhite');
+        $product = new Product();
+        $products = $product->findAllBy(['id_type' => 1]);
+        $this->renderView('product/wines/allProductWhite', compact('products'));
     }
 
     // tous les champagnes
     public function showAllChampagne()
     {
-        $this->renderView('product/wines/allProductChampagnes');
+        $product = new Product();
+        $products = $product->findAllBy(['id_type' => 3]);
+        $this->renderView('product/wines/allProductChampagnes', compact('products'));
     }
 }

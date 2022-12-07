@@ -14,10 +14,6 @@ Router::register('/product/edit', 'ProductController::edit');
 Router::register('/nos-vins', 'ProductController::showAllWines');
 Router::register('/nos-coffrets', 'ProductController::showAllboxes');
 
-// product box
-Router::register('/nos-coffrets/vin-blanc', 'ProductController::showAllWhiteBox');
-Router::register('/nos-coffrets/vin-rouge', 'ProductController::showAllRedBox');
-Router::register('/nos-coffrets/nos-champagnes', 'ProductController::showAllChampagneBox');
 
 // product wines
 Router::register('/nos-vins/blanc', 'ProductController::showAllWhiteWines');

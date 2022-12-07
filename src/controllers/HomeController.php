@@ -9,13 +9,6 @@ class HomeController extends Controller
 {
 
 
-    public function show(): void
-    {
-        $product = new Product();
+    // public function show(): void
 
-        $products = $product->findAll();
-
-
-        $this->renderView('home/index', compact('products'));
-    }
 }

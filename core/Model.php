@@ -46,7 +46,7 @@ abstract class Model
     {
 
         $stmt = $this->pdo->prepare(
-            "SELECT * FROM {$this->table_name} JOIN {$this->region}"
+            "SELECT * FROM {$this->table_name} JOIN {$this->region} JOIN {$this->cepage} JOIN {$this->association} JOIN {$this->type_product} JOIN {$this->taste}"
         );
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
         $stmt->execute();
@@ -71,13 +71,13 @@ abstract class Model
      * @param boolean $is_array s'il est à true on aura les résultats sous format d'un tableau associatif, si non c'est le format du model
      * @return array|false
      */
-    public function findAllBy(array $criteria, bool $is_array = false): array|false
+    public function findAllBy(array $criteria,): array
     {
         if (empty($criteria)) {
             throw  new \Exception("Il faut passer au moins un critère");
         }
 
-        $sql_query = "SELECT * FROM {$this->table_name} WHERE ";
+        $sql_query = "SELECT * FROM {$this->table_name} JOIN {$this->region} JOIN {$this->cepage} JOIN {$this->association}  JOIN {$this->taste} WHERE ";
         $count = 0;
         foreach ($criteria as $key => $value) {
             $count++;
@@ -89,10 +89,7 @@ abstract class Model
 
         $stmt = $this->pdo->prepare($sql_query);
 
-        if ($is_array)
-            $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-        else
-            $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
         $stmt->execute($criteria);
         return $stmt->fetchAll();
     }
