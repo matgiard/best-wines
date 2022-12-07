@@ -13,18 +13,14 @@
         <label for="description">Description</label>
         <input type="text" name="description" id="description">
     </div>
-    <!-- <div>
-        <label for="note">Note</label>
-        <input type="number" name="note" id="note">
-    </div> -->
     <div>
         <label for="stock">stock</label>
         <input type="number" name="stock" id="stock">
     </div>
-    <div>
+    <!-- <div>
         <label for="photo">photo</label>
         <input type="text" name="photo" id="photo">
-    </div>
+    </div> -->
     <div>
         <label for="alcohol_percentage">alcohol_percentage</label>
         <input type="number" name="alcohol_percentage" id="alcohol_percentage">

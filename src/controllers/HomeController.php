@@ -9,6 +9,10 @@ class HomeController extends Controller
 {
 
 
-    // public function show(): void
+    public function show(): void
+    {
 
+
+        $this->renderView('home/index');
+    }
 }

@@ -7,7 +7,7 @@ abstract class Model
     protected \PDO $pdo;
 
     protected string $table_name;
-    protected string $region = 'region ON product.id_region=region.id';
+    protected string $regionJoin = 'region ON product.id_region=region.id';
     protected string $cepage = 'cepage ON product.id_cepage=cepage.id';
     protected string $association = 'association ON product.id_association=association.id';
     protected string $type_product = 'type_product ON product.id_type=type_product.id_type';
@@ -44,14 +44,27 @@ abstract class Model
      */
     public function findAll(): array
     {
-
         $stmt = $this->pdo->prepare(
-            "SELECT * FROM {$this->table_name} JOIN {$this->region} JOIN {$this->cepage} JOIN {$this->association} JOIN {$this->type_product} JOIN {$this->taste}"
+            "SELECT * FROM {$this->table_name} JOIN {$this->regionJoin} JOIN {$this->cepage} JOIN {$this->association} JOIN {$this->type_product} JOIN {$this->taste}"
+
         );
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+
         $stmt->execute();
         return $stmt->fetchAll();
     }
+    public function findAllByRegion(): array
+    {
+        $stmt = $this->pdo->prepare(
+            "SELECT * FROM {$this->table_name}"
+
+        );
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
 
     /**
      * delete an item
@@ -77,7 +90,7 @@ abstract class Model
             throw  new \Exception("Il faut passer au moins un critère");
         }
 
-        $sql_query = "SELECT * FROM {$this->table_name} JOIN {$this->region} JOIN {$this->cepage} JOIN {$this->association}  JOIN {$this->taste} WHERE ";
+        $sql_query = "SELECT * FROM {$this->table_name} JOIN {$this->regionJoin} JOIN {$this->cepage} JOIN {$this->association}  JOIN {$this->taste}  WHERE ";
         $count = 0;
         foreach ($criteria as $key => $value) {
             $count++;

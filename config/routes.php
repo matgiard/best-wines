@@ -39,6 +39,7 @@ Router::register('/blog/edit', 'BlogController::editArticle');
 Router::register('/login', 'UserController::login');
 Router::register('/register', 'UserController::insert');
 Router::register('/logout', 'UserController::logout');
+Router::register('/region', 'StockController::showAllRegion');
 
 // Accueil espace employé
 Router::register('/employe', 'EmployeeController::index');

@@ -1,4 +1,23 @@
 <div>Page présentation générale pour les vins</div>
+<form action="" method="get">
+    <div id="filter">
+        <div id="criteria">Type de vin</div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="rouge" id="inlineRadio1">
+            <label class="form-check-label" for="inlineRadio1">Vin Rouge</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="white-wines" id="inlineRadio2" value="1">
+            <label class="form-check-label" for="inlineRadio2">Vin Blanc</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Champagne" id="inlineRadio2" value="3">
+            <label class="form-check-label" for="inlineRadio2">Champagne</label>
+        </div>
+    </div>
+    <button type="submit">Filtrer</button>
+</form>
+
 
 <?php foreach ($products as $product) : ?>
     <div class="card" style="width: 18rem;">

@@ -1,10 +1,15 @@
 <?php
 
-class Region
+namespace App\Models;
+
+use Core\Model;
+
+class Region extends Model
 {
 
     private int $id;
     private string $region_name;
+    protected string $table_name = "region";
 
     /**
      * Get the value of id

@@ -82,7 +82,7 @@ class ProductController extends Controller
     {
 
         $product = new Product();
-        $products = $product->findAllBy(['id_type' => 2]);
+        $products = $product->findAllBy(['id_type' => 2, 'id_cepage' => 9]);
         $this->renderView('product/wines/allProductRed', compact('products'));
     }
 
