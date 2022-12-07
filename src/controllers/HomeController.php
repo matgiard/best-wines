@@ -15,6 +15,7 @@ class HomeController extends Controller
 
         $products = $product->findAll();
 
+
         $this->renderView('home/index', compact('products'));
     }
 }

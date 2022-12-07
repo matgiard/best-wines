@@ -28,10 +28,11 @@ Router::register('/nos-vins/nos-champagnes', 'ProductController::showAllChampagn
 Router::register('/nos-fournisseurs', 'SupplierController::showFournisseur');
 
 // Qui-sommes-nous
-Router::register('/qui-sommes-nous/contact', 'PresentationController::showContact');
-Router::register('/qui-sommes-nous/faq', 'PresentationController::showFaq');
-Router::register('/qui-sommes-nous/mentions-legales', 'PresentationController::showMention');
-Router::register('/qui-sommes-nous/presse', 'PresentationController::showPresse');
+Router::register('/nous-contacter', 'PresentationController::showContact');
+Router::register('/faq', 'PresentationController::showFaq');
+Router::register('/mentions-legales', 'PresentationController::showMention');
+Router::register('/presse', 'PresentationController::showPresse');
+Router::register('/qui-sommes-nous', 'PresentationController::showAboutUS');
 
 // Blog / articles
 Router::register('/blog', 'BlogController::showArticle');
@@ -71,6 +72,8 @@ Router::register('/administrateur/edit', 'AdminController::edit');
 
 
 
+
+// A rajouter & | à modifier
 
 
 

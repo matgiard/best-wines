@@ -25,4 +25,8 @@ class PresentationController extends Controller
     {
         $this->renderView('presentation/presse');
     }
+    public function showAboutUS()
+    {
+        $this->renderView('presentation/aboutUS');
+    }
 }

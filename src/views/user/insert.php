@@ -4,7 +4,7 @@
     </div>
 
 <?php endif; ?>
-<form action="<?=BASE_DIR ?>/user/add" method="post">
+<form action="<?= BASE_DIR ?>/register" method="post">
     <div>
         <label for="email">email:</label>
         <input type="text" name="email" id="email">

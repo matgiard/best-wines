@@ -35,25 +35,24 @@ class UserController extends Controller
     public function insert()
     {
 
-        if (isset($_POST['submit'])){
+        if (isset($_POST['submit'])) {
 
 
             $user = new User();
-            
+
             $user->setEmail(htmlentities($_POST['email']));
             $user->setPassword(htmlentities($_POST['password']));
 
             $result = $user->insert();
 
-            if ($result ){
+            if ($result) {
                 $message =  "insertion bien effectuée";
-            }else {
+            } else {
                 $message =  "échec";
             }
             $this->renderView('user/insert', [
                 'message' => $message
             ]);
-
         }
         $this->renderView('user/insert');
     }
