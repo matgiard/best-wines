@@ -56,6 +56,7 @@ Router::register('/employe/paiements', 'PaiementsController::index');
 Router::register('/employe/stock', 'StockController::showAll');
 // Router::register('/employe/stock/insert', 'StockController::insert');
 Router::register('/employe/stock/edit', 'StockController::edit');
+Router::register('/employe/stock/delete', 'StockController::deleteFromStock');
 
 // Gestion des codes promos
 Router::register('/employe/promotion', 'PromotionController::showAll');

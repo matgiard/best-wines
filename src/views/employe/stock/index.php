@@ -3,7 +3,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col"></th>
+            
             <th scope="col">Référence</th>
             <th scope="col">Nom</th>
             <th scope="col">Stock</th>
@@ -22,10 +22,10 @@
                     <td><?= $product['stock'] ?></td>
 
                     <td>
-                        <a href="edit.php?id=<?= $product['id'] ?>" class="btn btn-warning">Modifier</a>
+                        <a href="<?= BASE_DIR ?>/employe/stock/edit?id=<?= $product['id'] ?>" class="btn btn-warning">Modifier</a>
                     </td>
                     <td>
-                        <a href="delete.php?id=<?= $product['id'] ?>" class="btn btn-danger">Supprimer</a>
+                        <a href="<?= BASE_DIR ?>/employe/stock/delete?id=<?= $product['id'] ?>" class="btn btn-danger">Supprimer</a>
                     </td>
 
                 </tr>

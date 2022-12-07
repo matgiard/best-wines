@@ -73,7 +73,7 @@ abstract class Model
      */
     public function delete(int $id): void
     {
-        $stmt = $this->pdo->prepare("DELETE FROM {$this->table_name} WHERE id = :id JOIN ");
+        $stmt = $this->pdo->prepare("DELETE FROM {$this->table_name} WHERE id = :id ");
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
