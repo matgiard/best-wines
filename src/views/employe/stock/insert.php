@@ -6,6 +6,7 @@
     </div>
 
 <?php endif; ?>
+<a class='btn btn-success' href=" <?= BASE_DIR ?>/employe/stock">Index</a>
 <form method="post" action="<?= BASE_DIR ?>/employe/stock/insert">
     <div>
         <label for="name">Nom</label>
