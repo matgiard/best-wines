@@ -33,7 +33,7 @@ class StockController extends Controller
         $id = $_GET['id'];
         $to_edit = new Product;
         $to_edit->findOneBy(['id' => $id]);
-        $arraytest = $to_edit->findOneBy(['id' => $id]);
+        $edit_temp= $to_edit->findOneBy(['id' => $id]);
 
         $region = new Region();
         $regions = $region->findAll();
@@ -51,7 +51,7 @@ class StockController extends Controller
         $type_product = new TypeProduct();
         $type_products = $type_product->findAll();
 
-        $this->renderView('employe/stock/edit', compact('id', 'arraytest', 'regions', 'cepages', 'tastes', 'associations', 'type_products'));
+        $this->renderView('employe/stock/edit', compact('id', 'edit_temp', 'regions', 'cepages', 'tastes', 'associations', 'type_products'));
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $id = $_GET['id'];
             $to_edit->edit($id);
