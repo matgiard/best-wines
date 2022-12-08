@@ -5,17 +5,9 @@ use Core\Router;
 //Home
 Router::register('/', 'HomeController::show');
 
-// product  for employee
-// Router::register('/stock/insert', 'StockController::showAllRegion');
-Router::register('/employe/stock/insert', 'ProductController::insert');
-Router::register('/product/delete', 'ProductController::delete');
-// Router::register('/product/edit', 'ProductController::edit');
-
 // show all products 
 Router::register('/nos-vins', 'ProductController::showAllWines');
 Router::register('/nos-coffrets', 'ProductController::showAllboxes');
-
-
 // product wines
 Router::register('/nos-vins/blanc', 'ProductController::showAllWhiteWines');
 Router::register('/nos-vins/rouge', 'ProductController::showAllRedWines');
@@ -54,9 +46,9 @@ Router::register('/employe/paiements', 'PaiementsController::index');
 
 // Gestion des stocks
 Router::register('/employe/stock', 'StockController::showAll');
-// Router::register('/employe/stock/insert', 'StockController::insert');
+Router::register('/employe/stock/insert', 'StockController::insert');
 Router::register('/employe/stock/edit', 'StockController::edit');
-Router::register('/employe/stock/delete', 'StockController::deleteFromStock');
+Router::register('/employe/stock/delete', 'StockController::delete');
 
 // Gestion des codes promos
 Router::register('/employe/promotion', 'PromotionController::showAll');
@@ -64,24 +56,11 @@ Router::register('/employe/promotion/insert', 'PromotionController::insert');
 Router::register('/employe/promotion/edit', 'PromotionController::edit');
 
 // Gestion des salariés
-
 Router::register('/administrateur', 'AdminController::showAll');
 Router::register('/administrateur/insert', 'AdminController::insert');
 Router::register('/administrateur/edit', 'AdminController::edit');
 
-
-
-
 // A rajouter & | à modifier
-
-
-
-
-
-
-
-
-
 //
 // - Home (http://bestwines.fr)
 // - Nos vins (http://bestwines.fr/nos-vins)

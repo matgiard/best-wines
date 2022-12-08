@@ -189,7 +189,7 @@ abstract class Model
         $stmt->execute([
             'id' => $to_edit
         ]);
-        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-        return $stmt->fetch();
+        // $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        // return $stmt->fetch();
     }
 }

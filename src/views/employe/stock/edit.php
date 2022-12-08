@@ -1,11 +1,5 @@
 <div>Ceci est la page edit du stock</div>
 
-<?php
-
-use App\Controllers\StockController;
-
-require_once "./src/controllers/StockController.php" ?>
-
 <?php if (isset($message)) : ?>
     <div>
         <span><?= $message ?></span>
@@ -18,7 +12,7 @@ require_once "./src/controllers/StockController.php" ?>
 <form method="post" action="<?= BASE_DIR ?>/employe/stock/edit?id=<?= $id ?>">
     <div>
         <label for="name">Nom</label>
-        <input type="text" name="name" id="name" value="<?= $edit_temp['description'] ?>">
+        <input type="text" name="name" id="name" value="<?= $edit_temp['name'] ?>">
     </div>
     <div>
         <label for=" description">Description</label>
