@@ -30,21 +30,11 @@
     <div>
         <label for="id_region">Region</label>
         <select name="id_region" class="form-select" aria-label="Default select example">
-            <option selected><? $arraytest['id_region'] ?></option>
-            <select name="id_region" class="form-select" aria-label="Default select example">
-                <?= $arraytest['id_region'] ?>
-
-                <?php foreach ($regions as $region) : ?>
-
-                    <option name=region value="<?= $region['region_name'] ?>">
-                        <?= $region['region_name'] ?>
-                    </option>
-
-
-                <?php endforeach ?>
-
-
-            </select>
+            <option selected>Choisissez une option</option>
+            <?php foreach ($regions as $region) : ?>
+                <option name="<?= $region['id'] ?>" value="<?= $region['id'] ?>"><?= $region['region_name'] ?></option>
+            <?php endforeach ?>
+        </select>
 
     </div>
     <div>
