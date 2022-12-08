@@ -187,11 +187,13 @@ abstract class Model
 
 
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-        return $stmt->fetch();
+        return $stmt->fetchAll();
 
-        $stmt = $this->pdo->prepare("SELECT * FROM product WHERE id = :id");
-        $stmt->execute([
-            'id' => $to_edit
-        ]);
+        $stmt = $this->pdo->prepare("SELECT * FROM {$this->table_name} WHERE id = :id ");
+        $stmt->bindParam(':id', $id);
+            $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+    
+        $stmt->execute();
+        return $stmt->fetch();
     }
 }
