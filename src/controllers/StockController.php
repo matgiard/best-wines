@@ -31,13 +31,13 @@ class StockController extends Controller
     public function edit()
     {
         $id = $_GET['id'];
+
         $to_edit = new Product;
         $to_edit->findOneBy(['id' => $id]);
-        $edit_temp= $to_edit->findOneBy(['id' => $id]);
+        $edit_temp = $to_edit->findOneBy(['id' => $id]);
 
         $region = new Region();
         $regions = $region->findAll();
-
 
         $cepage = new Cepage();
         $cepages = $cepage->findAll();
@@ -51,11 +51,24 @@ class StockController extends Controller
         $type_product = new TypeProduct();
         $type_products = $type_product->findAll();
 
-        $this->renderView('employe/stock/edit', compact('id', 'edit_temp', 'regions', 'cepages', 'tastes', 'associations', 'type_products'));
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $id = $_GET['id'];
+
+
+        if (isset($_POST['submit'])) {
             $to_edit->edit($id);
+            $result = $to_edit->edit($id);
+            if ($result) {
+                $message =  "edit bien effectuée";
+            } else {
+                $message =  "échec de l'édit";
+            };
+            $to_edit->findOneBy(['id' => $id]);
+            $edit_temp = $to_edit->findOneBy(['id' => $id]);
+            $this->renderView(
+                'employe/stock/edit',
+                compact('message', 'id', 'edit_temp', 'regions', 'cepages', 'tastes', 'associations', 'type_products')
+            );
         }
+        $this->renderView('employe/stock/edit', compact('id', 'edit_temp', 'regions', 'cepages', 'tastes', 'associations', 'type_products'));
     }
 
     public function deleteFromStock()

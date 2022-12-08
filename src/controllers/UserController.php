@@ -36,10 +36,7 @@ class UserController extends Controller
     {
 
         if (isset($_POST['submit'])) {
-
-
             $user = new User();
-
             $user->setEmail(htmlentities($_POST['email']));
             $user->setPassword(htmlentities($_POST['password']));
 
