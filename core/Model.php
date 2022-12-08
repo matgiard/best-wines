@@ -65,7 +65,7 @@ abstract class Model
         $stmt->execute();
         return $stmt->fetchAll();
     }
-    
+
     /**
      * delete an item
      * @param int $id
@@ -156,11 +156,42 @@ abstract class Model
         foreach ($criteria as $key => $value) {
             $stmt->bindParam(":$key", $value);
         }
-        if ($is_array)
-            $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-        else
-            $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
+        // if ($is_array)
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        // else
+        //     $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
+
         $stmt->execute();
         return $stmt->fetch();
+    }
+
+    public function edit(int $to_edit)
+    {
+
+        $stmt = $this->pdo->prepare("UPDATE product SET `name` = :new_name, `description` = :new_description, `stock` = :new_stock,`alcohol_percentage` = :new_alcohol_percentage, `id_region`= :new_id_region,`id_cepage`=:new_id_cepage, `id_taste`=:new_id_taste, `id_association`=:new_id_association,`id_type`=:new_id_type,`price`=:new_price WHERE id = :id");
+
+        $stmt->execute(array(
+            'new_name' => $_POST['name'],
+            'new_description' => $_POST['description'],
+            // 'new_photo'=>$_POST['photo'],
+            'new_stock' => $_POST['stock'],
+            'new_alcohol_percentage' => $_POST['alcohol_percentage'],
+            'new_id_region' => $_POST['id_region'],
+            'new_id_cepage' => $_POST['id_cepage'],
+            'new_id_taste' => $_POST['id_taste'],
+            'new_id_association' => $_POST['id_association'],
+            'new_id_type' => $_POST['id_type'],
+            'new_price' => $_POST['price'],
+            'id' => $to_edit
+        ));
+
+
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        return $stmt->fetch();
+
+        $stmt = $this->pdo->prepare("SELECT * FROM product WHERE id = :id");
+        $stmt->execute([
+            'id' => $to_edit
+        ]);
     }
 }

@@ -9,7 +9,7 @@ Router::register('/', 'HomeController::show');
 // Router::register('/stock/insert', 'StockController::showAllRegion');
 Router::register('/employe/stock/insert', 'ProductController::insert');
 Router::register('/product/delete', 'ProductController::delete');
-Router::register('/product/edit', 'ProductController::edit');
+// Router::register('/product/edit', 'ProductController::edit');
 
 // show all products 
 Router::register('/nos-vins', 'ProductController::showAllWines');

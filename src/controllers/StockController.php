@@ -7,6 +7,12 @@ use Core\Controller;
 use App\Models\Region;
 use App\Models\Product;
 
+use App\Models\Cepage;
+use App\Models\Taste;
+use App\Models\Association;
+use App\Models\TypeProduct;
+
+
 
 
 class StockController extends Controller
@@ -24,16 +30,39 @@ class StockController extends Controller
 
     public function edit()
     {
-        //dd($_SERVER['QUERY_STRING']);
-        dd($_GET);
-        $this->renderView('employe/stock/edit');
+        $id = $_GET['id'];
+        $to_edit = new Product;
+        $to_edit->findOneBy(['id' => $id]);
+        $arraytest = $to_edit->findOneBy(['id' => $id]);
+
+        $region = new Region();
+        $regions = $region->findAll();
+
+
+        $cepage = new Cepage();
+        $cepages = $cepage->findAll();
+
+        $taste = new Taste();
+        $tastes = $taste->findAll();
+
+        $association = new Association();
+        $associations = $association->findAll();
+
+        $type_product = new TypeProduct();
+        $type_products = $type_product->findAll();
+
+        $this->renderView('employe/stock/edit', compact('id', 'arraytest', 'regions', 'cepages', 'tastes', 'associations', 'type_products'));
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $id = $_GET['id'];
+            $to_edit->edit($id);
+        }
     }
 
     public function deleteFromStock()
     {
         //dd($_SERVER['QUERY_STRING']);
-       
-        $id=$_GET['id'];
+
+        $id = $_GET['id'];
         // dd($id);
         $to_delete = new Product;
         $to_delete->delete($id);

@@ -20,10 +20,12 @@
         <label for="stock">stock</label>
         <input type="number" name="stock" id="stock">
     </div>
-    <!-- <div>
-        <label for="photo">photo</label>
-        <input type="text" name="photo" id="photo">
-    </div> -->
+    <div>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            Ajouter photo vin:
+            <input type="file" name="file">
+        </form>
+    </div>
     <div>
         <label for="alcohol_percentage">alcohol_percentage</label>
         <input type="number" name="alcohol_percentage" id="alcohol_percentage">
@@ -65,7 +67,7 @@
         </select>
     </div>
     <div>
-        <label for="id_type">Type de produit</label>
+        <label for="id_type">Choissisez le type de produit</label>
         <select name="id_type" class="form-select" aria-label="Default select example">
             <option selected>Choisissez l'accord</option>
             <?php foreach ($type_products as $type_product) : ?>
