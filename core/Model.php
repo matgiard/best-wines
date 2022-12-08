@@ -185,9 +185,6 @@ abstract class Model
             'id' => $to_edit
         ));
 
-
-
-
         $stmt = $this->pdo->prepare("SELECT * FROM product WHERE id = :id");
         $stmt->execute([
             'id' => $to_edit

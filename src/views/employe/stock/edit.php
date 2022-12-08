@@ -1,5 +1,10 @@
 <div>Ceci est la page edit du stock</div>
 
+<?php
+
+use App\Controllers\StockController;
+
+require_once "./src/controllers/StockController.php" ?>
 
 <?php if (isset($message)) : ?>
     <div>
@@ -103,6 +108,10 @@
         <label for="price">Prix</label>
         <input type="number" name="price" id="price" value="<?= $edit_temp['price'] ?>">
     </div>
+    <?php if (isset($message)) : ?>
+
+        <div> <?= $message ?></div>
+    <?php endif ?>
     <div>
         <input type="submit" name="submit" value="Enregistrer">
     </div>

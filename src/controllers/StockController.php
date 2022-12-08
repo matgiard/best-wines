@@ -71,6 +71,7 @@ class StockController extends Controller
         $this->renderView('employe/stock/edit', compact('id', 'edit_temp', 'regions', 'cepages', 'tastes', 'associations', 'type_products'));
     }
 
+
     public function deleteFromStock()
     {
         //dd($_SERVER['QUERY_STRING']);
@@ -89,4 +90,24 @@ class StockController extends Controller
         $regions = $region->findAll();
         $this->renderView('employe/stock/insert', compact('regions'));
     }
+
+
+    // if (isset($_POST['submit'])) {
+    //     $id = $_GET['id'];
+    //     $to_edit->edit($id);
+    //     $result = $to_edit->edit($id);
+    //     if ($result) {
+    //         $message =  "edit bien effectuée";
+    //     } else {
+    //         $message =  "échec de l'édit";
+    //     }
+    //     $this->renderView(
+    //         'employe/stock/edit',
+    //         compact('message', 'id', 'edit_temp', 'regions', 'cepages', 'tastes', 'associations', 'type_products')
+    //     );
+    // }
+
+    // $this->renderView('employe/stock/edit', compact('id', 'edit_temp', 'regions', 'cepages', 'tastes', 'associations', 'type_products'));
+    // }
+
 }
