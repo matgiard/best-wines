@@ -143,7 +143,8 @@ abstract class Model
         if (empty($criteria)) {
             throw  new \Exception("Il faut passer au moins un critère");
         }
-        $sql_query = "SELECT * FROM {$this->table_name} WHERE ";
+        $sql_query = "SELECT * FROM {$this->table_name} JOIN {$this->regionJoin} JOIN {$this->cepage} JOIN {$this->association}  JOIN {$this->taste}  WHERE ";
+
         $count = 0;
         foreach ($criteria as $key => $value) {
             $count++;
@@ -157,6 +158,7 @@ abstract class Model
         foreach ($criteria as $key => $value) {
             $stmt->bindParam(":$key", $value);
         }
+
         // if ($is_array)
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
         // else
