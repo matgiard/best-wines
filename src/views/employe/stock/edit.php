@@ -38,7 +38,7 @@
             <option selected>Choisissez une option</option>
             <?php foreach ($regions as $region) : ?>
                 <?php if ($edit_temp['id_region'] == $region['id']) : ?>
-                    <option <?= "selected" ?> name="<?= $region['id'] ?>" value="<?= $region['id'] ?>"><?= $region['region_name'] ?></option>
+                    <option selected name="<?= $region['id'] ?>" value="<?= $region['id'] ?>"><?= $region['region_name'] ?></option>
                 <?php else : ?>
                     <option name="<?= $region['id'] ?>" value="<?= $region['id'] ?>"><?= $region['region_name'] ?></option>
                 <?php endif ?>
@@ -52,7 +52,7 @@
             <option selected>Choisissez une option</option>
             <?php foreach ($cepages as $cepage) : ?>
                 <?php if ($edit_temp['id_cepage'] == $cepage['id']) : ?>
-                    <option <?= "selected" ?> name="<?= $cepage['id'] ?>" value="<?= $cepage['id'] ?>"><?= $cepage['cepage_name'] ?></option>
+                    <option selected name="<?= $cepage['id'] ?>" value="<?= $cepage['id'] ?>"><?= $cepage['cepage_name'] ?></option>
                 <?php else : ?>
                     <option name="<?= $cepage['id'] ?>" value="<?= $cepage['id'] ?>"><?= $cepage['cepage_name'] ?></option>
                 <?php endif ?>
@@ -66,7 +66,7 @@
             <option selected>Choisissez le goût</option>
             <?php foreach ($tastes as $taste) : ?>
                 <?php if ($edit_temp['id_taste'] == $taste['id']) : ?>
-                    <option <?= "selected" ?> name="<?= $taste['id'] ?>" value="<?= $taste['id'] ?>"><?= $taste['taste_name'] ?></option>
+                    <option selected name="<?= $taste['id'] ?>" value="<?= $taste['id'] ?>"><?= $taste['taste_name'] ?></option>
                 <?php else : ?>
                     <option name="<?= $taste['id'] ?>" value="<?= $taste['id'] ?>"><?= $taste['taste_name'] ?></option>
                 <?php endif ?>
@@ -79,7 +79,7 @@
             <option selected>Choisissez l'accord</option>
             <?php foreach ($associations as $association) : ?>
                 <?php if ($edit_temp['id_association'] == $association['id']) : ?>
-                    <option <?= "selected" ?> name="<?= $association['id'] ?>" value="<?= $association['id'] ?>"><?= $association['association_name'] ?></option>
+                    <option selected name="<?= $association['id'] ?>" value="<?= $association['id'] ?>"><?= $association['association_name'] ?></option>
                 <?php else : ?>
                     <option name="<?= $association['id'] ?>" value="<?= $association['id'] ?>"><?= $association['association_name'] ?></option>
                 <?php endif ?>
@@ -92,7 +92,7 @@
             <option selected>Choisissez l'accord</option>
             <?php foreach ($type_products as $type_product) : ?>
                 <?php if ($edit_temp['id_type'] == $type_product['id_type']) : ?>
-                    <option <?= "selected" ?> name="<?= $type_product['id_type'] ?>" value="<?= $type_product['id_type'] ?>"><?= $type_product['type_name'] ?></option>
+                    <option selected name="<?= $type_product['id_type'] ?>" value="<?= $type_product['id_type'] ?>"><?= $type_product['type_name'] ?></option>
                 <?php else : ?>
                     <option name="<?= $type_product['id_type'] ?>" value="<?= $type_product['id_type'] ?>"><?= $type_product['type_name'] ?></option>
                 <?php endif ?> <?php endforeach ?>
