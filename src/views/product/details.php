@@ -1,1 +1,1 @@
-<div>test</div>
+<div><?= $products['name'] ?> </div>
