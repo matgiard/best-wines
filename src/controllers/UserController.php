@@ -12,13 +12,14 @@ class UserController extends Controller
     public function login()
     {
 
-        $errors = CheckLog::errors();
+        $errors = null;
 
         echo "ceci est la méthode login";
 
         CheckLog::checkIsNotLogged();
 
         if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password'])) {
+
 
 
 
@@ -45,9 +46,10 @@ class UserController extends Controller
                     $_SESSION['errors'][] = "Le mot de passe est erroné";
                 }
             }
-        } else {
-            $_SESSION['errors'][] = "Tous les champs sont obligatoires";
-        }
+         }// else {
+        //     // $_SESSION['errors'][] = "Tous les champs sont obligatoires";
+        // }
+        $errors = CheckLog::errors();
 
         $this->renderView('user/login', compact('errors'));
     }
@@ -63,7 +65,7 @@ class UserController extends Controller
         if (!empty($_SESSION['user']['is_logged'])) {
             CheckLog::destroySession();
             echo "Bye";
-        }else{
+        } else {
             echo "Vous n'êtes même pas connecté ! ";
         }
         $this->renderView('user/logout');

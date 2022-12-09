@@ -143,8 +143,8 @@ abstract class Model
         if (empty($criteria)) {
             throw  new \Exception("Il faut passer au moins un critère");
         }
-        // JOIN {$this->regionJoin} JOIN {$this->cepage} JOIN {$this->association}  JOIN {$this->taste}
-        $sql_query = "SELECT * FROM {$this->table_name}   WHERE ";
+        // erreur edit stock
+        $sql_query = "SELECT * FROM {$this->table_name} JOIN {$this->regionJoin} JOIN {$this->cepage} JOIN {$this->association}  JOIN {$this->taste}  WHERE ";
 
         $count = 0;
         foreach ($criteria as $key => $value) {

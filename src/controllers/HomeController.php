@@ -3,11 +3,6 @@
 namespace App\Controllers;
 
 use Core\Controller;
-use App\Models\Region;
-use App\Models\Cepage;
-use App\Models\Taste;
-use App\Models\Association;
-use App\Models\TypeProduct;
 use App\Models\Product;
 
 class HomeController extends Controller
