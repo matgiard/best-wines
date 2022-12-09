@@ -151,7 +151,7 @@ abstract class Model
             }
             $sql_query .= " $key = :$key ";
         }
-
+       
         $stmt = $this->pdo->prepare($sql_query);
         foreach ($criteria as $key => $value) {
             $stmt->bindParam(":$key", $value);
@@ -165,6 +165,34 @@ abstract class Model
         return $stmt->fetch();
     }
 
+    public function findLastBy(array $criteria): object|array|false
+    {
+        if (empty($criteria)) {
+            throw  new \Exception("Il faut passer au moins un critère");
+        }
+        $sql_query = "SELECT * FROM {$this->table_name} WHERE ";
+        $count = 0;
+        foreach ($criteria as $key => $value) {
+            $count++;
+            if ($count > 1) {
+                $sql_query .= " AND ";
+            }
+            $sql_query .= " $key = :$key ";
+        }
+        $sql_query2= $sql_query.'ORDER BY id DESC LIMIT 1';
+        $stmt = $this->pdo->prepare($sql_query2);
+        foreach ($criteria as $key => $value) {
+            $stmt->bindParam(":$key", $value);
+        }
+        // if ($is_array)
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        // else
+        //     $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
+
+        $stmt->execute();
+        return $stmt->fetch();
+        
+    }
     public function edit(int $to_edit)
     {
 
