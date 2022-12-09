@@ -9,9 +9,9 @@
 
 <a class='btn btn-success' href=" <?= BASE_DIR ?>/employe/stock">Index</a>
 
-<form method="post" action="<?= BASE_DIR ?>/employe/stock/edit?id=<?= $id ?>">
+<form method="post" action="<?= BASE_DIR ?>/employe/stock/edit?id=<?= $id ?>" enctype="multipart/form-data">
     <div>
-        <label for="name">Nom</label>
+        <label for=" name">Nom</label>
         <input type="text" name="name" id="name" value="<?= $edit_temp['name'] ?>">
     </div>
     <div>

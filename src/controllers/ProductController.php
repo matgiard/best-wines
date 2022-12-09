@@ -58,16 +58,29 @@ class ProductController extends Controller
         $this->renderView('product/wines/allProductChampagnes', compact('products'));
     }
 
+
+    public function showLast()
+    {
+        $product = new Product();
+        $lastWhiteWine = $product->findLastBy(['id_type' => 1]);
+        $lastRedWine = $product->findLastBy(['id_type' => 2]);
+        $lastChampagne = $product->findLastBy(['id_type' => 3]);
+        $lastBox = $product->findLastBy(['id_type' => 4]);
+        $this->renderView('home/index', compact('lastWhiteWine', 'lastRedWine', 'lastChampagne', 'lastBox'));
+    }
     public function showOne()
     {
-
         $name = $_GET['name'];
-
         $product = new Product();
+
+        $lastWhiteWine = $product->findLastBy(['id_type' => 1],['id' => 'id-1']);
+        $lastRedWine = $product->findLastBy(['id_type' => 2]);
+        $lastChampagne = $product->findLastBy(['id_type' => 3]);
+        $lastBox = $product->findLastBy(['id_type' => 4]);
+
+        
         $products = $product->findOneBy(['name' => $name]);
-        $this->renderView(
-            'product/details',
-            compact('name', 'products')
-        );
+
+        $this->renderView('product/details', compact('products','lastWhiteWine', 'lastRedWine', 'lastChampagne', 'lastBox'));
     }
 }
