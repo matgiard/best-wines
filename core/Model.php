@@ -173,7 +173,7 @@ abstract class Model
         $stmt->execute(array(
             'new_name' => $_POST['name'],
             'new_description' => $_POST['description'],
-            // 'new_photo'=>$_POST['photo'],
+            // 'new_photo' => $_POST['image'],
             'new_stock' => $_POST['stock'],
             'new_alcohol_percentage' => $_POST['alcohol_percentage'],
             'new_id_region' => $_POST['id_region'],

@@ -63,7 +63,26 @@ class StockController extends Controller
             $product->setId_association($_POST['id_association']);
             $product->setId_type($_POST['id_type']);
             $product->setPrice($_POST['price']);
-            // $product->setPhoto($_POST['photo']);
+            $product->setPhoto($_FILES['image']['name']);
+
+
+
+
+            if (count($_FILES) > 0) {
+                $allowed[] = "image/jpeg";
+                $allowed[] = "image/png";
+
+                if ($_FILES['image']['error'] == 0 && in_array($_FILES['image']['type'], $allowed)) {
+
+                    $folder = "uploads/";
+                    if (!file_exists($folder)) {
+                        mkdir($folder, 0777, true);
+                    }
+                    $destination = $folder . $_FILES['image']['name'];
+                    move_uploaded_file($_FILES['image']['tmp_name'], $destination);
+                    $_POST['image'] = $destination;
+                }
+            }
 
             $result = $product->insert();
 

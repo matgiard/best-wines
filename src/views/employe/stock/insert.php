@@ -7,7 +7,7 @@
 
 <?php endif; ?>
 <a class='btn btn-success' href=" <?= BASE_DIR ?>/employe/stock">Index</a>
-<form method="post" action="<?= BASE_DIR ?>/employe/stock/insert">
+<form method="post" action="<?= BASE_DIR ?>/employe/stock/insert" enctype="multipart/form-data">
     <div>
         <label for="name">Nom</label>
         <input type="text" name="name" id="name">
@@ -20,13 +20,6 @@
         <label for="stock">stock</label>
         <input type="number" name="stock" id="stock">
     </div>
-    
-    <!-- <div>
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-            Ajouter photo vin:
-            <input type="file" name="file">
-        </form>
-    </div> -->
     <div>
         <label for="alcohol_percentage">alcohol_percentage</label>
         <input type="number" name="alcohol_percentage" id="alcohol_percentage">
@@ -84,4 +77,20 @@
         <input type="submit" name="submit" value="Enregistrer">
     </div>
 
+    <div>Ajouter photo vin:
+        <label for="image_browser">
+            <img src="<?php $image ?>">
+            <input onchange="display_image_name(this.files[0].name)" id="image_browser" type="file" name="image" style="display:none">
+            Chercher l'image
+        </label>
+        <br>
+        <small class="file_info text-muted"></small>
+    </div>
+
 </form>
+
+<script>
+    function display_image_name(file_name) {
+        document.querySelector(".file_info").innerHTML = '<b>Fichier choisi:</b><br>' + file_name;
+    }
+</script>

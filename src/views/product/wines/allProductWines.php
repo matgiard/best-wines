@@ -63,7 +63,7 @@
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="<?= BASE_DIR ?>/src/views/product/wines//vin200a400png/vin.png" class="img-fluid rounded-start">
+                        <img src="uploads/<?= $product['photo'] ?>" alt="" srcset="" class="img-fluid rounded-start">
                     </div>
                     <div class="col-md-8">
                         <h5 class="card-title"><?= $product['name'] ?></h5>
@@ -72,6 +72,7 @@
                         <p class="card-text">Région: <?= $product['region_name'] ?></p>
                         <p class="card-text">Prix Unitaire: <?= $product['price'] ?>€</p>
                         <a href="<?= BASE_DIR ?>/product/wines/singleProduct?id=<?= $product['id'] ?>" class="btn btn-primary">Détails</a>
+
                     </div>
                 </div>
             </div>

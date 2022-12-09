@@ -305,12 +305,12 @@ class Product extends Model
      */
     public function insert(): int|false
     {
-        $stmt = $this->pdo->prepare("INSERT INTO product (`name`,`description`,`stock`,`alcohol_percentage`,`id_region`,`id_cepage`,`id_taste`,`id_association`,`id_type`,`price`) VALUES (:name,:description,:stock,:alcohol_percentage,:id_region,:id_cepage,:id_taste,:id_association,:id_type,:price)");
+        $stmt = $this->pdo->prepare("INSERT INTO product (`name`,`description`,`photo`,`stock`,`alcohol_percentage`,`id_region`,`id_cepage`,`id_taste`,`id_association`,`id_type`,`price`) VALUES (:name,:description,:photo,:stock,:alcohol_percentage,:id_region,:id_cepage,:id_taste,:id_association,:id_type,:price)");
 
         $stmt->execute([
             "name" => $this->name,
             "description" => $this->description,
-            // "photo" => $this->photo,
+            "photo" => $this->photo,
             "stock" => $this->stock,
             "alcohol_percentage" => $this->alcohol_percentage,
             "id_region" => $this->id_region,
