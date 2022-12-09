@@ -60,13 +60,4 @@ class ProductController extends Controller
 
     // dernier vin blanc ajouté 
 
-    public function showLast()
-    {
-    $product = new Product();
-    $lastWhiteWine = $product->findLastBy(['id_type' => 1]);
-    $lastRedWine = $product->findLastBy(['id_type' => 2]);
-    $lastChampagne = $product->findLastBy(['id_type' => 3]);
-    $lastBox = $product->findLastBy(['id_type' => 4]);
-    $this->renderView('home/index', compact('lastWhiteWine','lastRedWine','lastChampagne','lastBox'));
-
-    }}
+   }

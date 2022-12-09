@@ -171,7 +171,7 @@ abstract class Model
         if (empty($criteria)) {
             throw  new \Exception("Il faut passer au moins un critère");
         }
-        $sql_query = "SELECT * FROM {$this->table_name} WHERE ";
+        $sql_query = "SELECT * FROM {$this->table_name} JOIN {$this->regionJoin} JOIN {$this->cepage} JOIN {$this->association}  JOIN {$this->taste}  WHERE ";
         $count = 0;
         foreach ($criteria as $key => $value) {
             $count++;
@@ -180,7 +180,8 @@ abstract class Model
             }
             $sql_query .= " $key = :$key ";
         }
-        $sql_query2= $sql_query.'ORDER BY id DESC LIMIT 1';
+   
+        $sql_query2= $sql_query."ORDER BY product.id DESC LIMIT 1";
         $stmt = $this->pdo->prepare($sql_query2);
         foreach ($criteria as $key => $value) {
             $stmt->bindParam(":$key", $value);
