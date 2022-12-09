@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\User;
 use Core\Controller;
-
+use Core\Partials\CheckLog ;
 
 class UserController extends Controller
 {
@@ -12,7 +12,43 @@ class UserController extends Controller
     public function login()
     {
 
+        $errors = CheckLog::errors();
+
         echo "ceci est la méthode login";
+
+        if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password'])) {
+
+
+
+            $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+        
+        
+        
+            $user = UserController::findOneByEmail($email);
+            
+        
+            if (!$user) {
+                $_SESSION['errors'][] = "nous n'avons pas un compte avec cette adresse";
+            } else {
+                if (password_verify(htmlspecialchars($_POST['password']), $user->password)) {
+                    $_SESSION['user'] = [
+                        'is_logged' => TRUE,
+                        'email' => $user->email,
+                        'id' => $user->id
+                    ];
+        
+                    header('Location: /best-wines');
+                    exit;
+                } else {
+                    $_SESSION['errors'][] = "Le mot de passe est erroné";
+                }
+            }
+        } else {
+            $_SESSION['errors'][] = "Tous les champs sont obligatoires";
+        }
+
+        $this->renderView('user/login', compact('errors'));
+        
     }
 
     public function register()
@@ -34,7 +70,6 @@ class UserController extends Controller
      */
     public function insert()
     {
-
         if (isset($_POST['submit'])) {
             $user = new User();
             $user->setEmail(htmlentities($_POST['email']));
@@ -52,5 +87,15 @@ class UserController extends Controller
             ]);
         }
         $this->renderView('user/insert');
+    }
+
+    public static function findOneByEmail(string $email) :object
+    {
+        //test
+        $user_to_find = new User();
+        $user = $user_to_find->findOneUserBy(['email' => $email]);
+        
+        
+        return $user;
     }
 }

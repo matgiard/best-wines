@@ -11,6 +11,7 @@ class User extends Model
     private string $password;
     private bool $is_admin;
     private bool $is_employee;
+    protected string $table_name = "user";
 
     /**
      * Get the value of id
@@ -37,6 +38,9 @@ class User extends Model
      */
     public function setEmail(string $email): void
     {
+        // if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        //     throw new \Exception("adresse mail non valide");
+        // }
         $this->email = $email;
     }
 
@@ -57,6 +61,9 @@ class User extends Model
      */
     public function setPassword(string $password): void
     {
+        // if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/", $password)) {
+        //     throw new Exception("Le mot de passe doit contenir au moins 8 caractères dont une minuscule, une majuscule, un chiffre et un caractère spécial");
+        // }
         $this->password = $password;
     }
 
@@ -113,4 +120,5 @@ class User extends Model
         ]);
         return $this->pdo->lastInsertId();
     }
+    
 }

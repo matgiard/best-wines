@@ -24,7 +24,6 @@ class ProductController extends Controller
     //Tous les vins
     public function showAllWines()
     {
-
         $product = new Product();
         $id_products = $product->findAll();
         $products = $product->findAllProduct();
