@@ -152,7 +152,7 @@ abstract class Model
             }
             $sql_query .= " $key = :$key ";
         }
-       
+
         $stmt = $this->pdo->prepare($sql_query);
         foreach ($criteria as $key => $value) {
             $stmt->bindParam(":$key", $value);
@@ -180,7 +180,8 @@ abstract class Model
             }
             $sql_query .= " $key = :$key ";
         }
-        $sql_query2= $sql_query.'ORDER BY id DESC LIMIT 1';
+        $sql_query2 = $sql_query . 'ORDER BY id DESC LIMIT 1';
+
         $stmt = $this->pdo->prepare($sql_query2);
         foreach ($criteria as $key => $value) {
             $stmt->bindParam(":$key", $value);
@@ -192,17 +193,16 @@ abstract class Model
 
         $stmt->execute();
         return $stmt->fetch();
-        
     }
     public function edit(int $to_edit)
     {
 
-        $stmt = $this->pdo->prepare("UPDATE product SET `name` = :new_name, `description` = :new_description, `stock` = :new_stock,`alcohol_percentage` = :new_alcohol_percentage, `id_region`= :new_id_region,`id_cepage`=:new_id_cepage, `id_taste`=:new_id_taste, `id_association`=:new_id_association,`id_type`=:new_id_type,`price`=:new_price WHERE id = :id");
+        $stmt = $this->pdo->prepare("UPDATE product SET `name` = :new_name, `description` = :new_description,`photo`=:new_photo, `stock` = :new_stock,`alcohol_percentage` = :new_alcohol_percentage, `id_region`= :new_id_region,`id_cepage`=:new_id_cepage, `id_taste`=:new_id_taste, `id_association`=:new_id_association,`id_type`=:new_id_type,`price`=:new_price WHERE id = :id");
 
         $stmt->execute(array(
             'new_name' => $_POST['name'],
             'new_description' => $_POST['description'],
-            // 'new_photo' => $_POST['image'],
+            'new_photo' => $_FILES['image']['name'],
             'new_stock' => $_POST['stock'],
             'new_alcohol_percentage' => $_POST['alcohol_percentage'],
             'new_id_region' => $_POST['id_region'],

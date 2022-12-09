@@ -58,10 +58,10 @@
 </div>
 
 <div class="container mt-5">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
+    <div class="row row-cols-1 row-cols-lg-4 g-4">
         <?php foreach ($products as $product) : ?>
 
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
                         <img src="uploads/<?= $product['photo'] ?>" alt="<?= $product['name'] ?>" srcset="" class="img-fluid rounded-start">
