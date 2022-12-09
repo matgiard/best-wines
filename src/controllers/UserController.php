@@ -16,6 +16,8 @@ class UserController extends Controller
 
         echo "ceci est la méthode login";
 
+        CheckLog::checkIsNotLogged();
+
         if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password'])) {
 
 
@@ -60,6 +62,10 @@ class UserController extends Controller
     public function logout()
     {
         echo "ceci est la méthode " . __FUNCTION__;
+        CheckLog::destroySession();
+        $this->renderView('user/logout');
+
+       
     }
 
 

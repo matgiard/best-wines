@@ -19,7 +19,6 @@ class HomeController extends Controller
     {
         $product = new Product();
 
-
         $lastWhiteWine = $product->findLastBy(['id_type' => 1]);
         $lastRedWine = $product->findLastBy(['id_type' => 2]);
         $lastChampagne = $product->findLastBy(['id_type' => 3]);
