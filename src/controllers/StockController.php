@@ -78,7 +78,9 @@ class StockController extends Controller
                     if (!file_exists($folder)) {
                         mkdir($folder, 0777, true);
                     }
-                    $destination = $folder . $_FILES['image']['name'];
+                    $randomno = rand(0, 100000);
+                    $rename = 'Upload' . date('Ymd') . $randomno;
+                    $destination = $folder . $_FILES['image'][$rename];
                     move_uploaded_file($_FILES['image']['tmp_name'], $destination);
                     $_POST['image'] = $destination;
                 }
