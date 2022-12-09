@@ -67,11 +67,11 @@
                     </div>
                     <div class="col-md-8">
                         <h5 class="card-title"><?= $product['name'] ?></h5>
-                        <p class="card-text">description <?= $product['description'] ?></p>
-                        <p class="card-text">Pourcentage d'alcool <?= $product['alcohol_percentage'] ?>%</p>
-                        <p class="card-text">region de provenance <?= $product['region_name'] ?></p>
-                        <p class="card-text">Prix Unitaire <?= $product['price'] ?>€</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <p class="card-text">description: <?= $product['description'] ?></p>
+                        <p class="card-text">Pourcentage d'alcool: <?= $product['alcohol_percentage'] ?>%</p>
+                        <p class="card-text">Région: <?= $product['region_name'] ?></p>
+                        <p class="card-text">Prix Unitaire: <?= $product['price'] ?>€</p>
+                        <a href="<?= BASE_DIR ?>/product/wines/singleProduct?id=<?= $product['id'] ?>" class="btn btn-primary">Détails</a>
                     </div>
                 </div>
             </div>
