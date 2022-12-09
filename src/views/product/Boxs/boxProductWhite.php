@@ -1,1 +1,0 @@
-<div>Page présentation générale pour les coffrets blancs</div>

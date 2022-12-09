@@ -62,6 +62,7 @@ abstract class Model
         );
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
 
+
         $stmt->execute();
         return $stmt->fetchAll();
     }

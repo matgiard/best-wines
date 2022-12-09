@@ -24,10 +24,13 @@ class ProductController extends Controller
     //Tous les vins
     public function showAllWines()
     {
-        $product = new Product();
 
+        $product = new Product();
+        $id_products = $product->findAll();
         $products = $product->findAllProduct();
-        $this->renderView('product/wines/allProductWines', compact('products'));
+
+
+        $this->renderView('product/wines/allProductWines', compact('products', 'id_products'));
     }
 
     // tous les vins rouges  id_type = 2 
@@ -53,5 +56,18 @@ class ProductController extends Controller
         $product = new Product();
         $products = $product->findAllProductBy(['id_type' => 3]);
         $this->renderView('product/wines/allProductChampagnes', compact('products'));
+    }
+
+    public function showOne()
+    {
+
+        $name = $_GET['name'];
+
+        $product = new Product();
+        $products = $product->findOneBy(['name' => $name]);
+        $this->renderView(
+            'product/details',
+            compact('name', 'products')
+        );
     }
 }

@@ -23,12 +23,6 @@
         <input type="number" name="stock" id="stock" value="<?= $edit_temp['stock'] ?>">
     </div>
     <div>
-        <!-- <form action="upload.php" method="post" enctype="multipart/form-data">
-            Ajouter photo vin:
-            <input type="file" name="file">
-        </form> -->
-    </div>
-    <div>
         <label for="alcohol_percentage">alcohol_percentage</label>
         <input type="number" name="alcohol_percentage" id="alcohol_percentage" value="<?= $edit_temp['alcohol_percentage'] ?>">
     </div>
@@ -110,4 +104,20 @@
         <input type="submit" name="submit" value="Enregistrer">
     </div>
 
+    <div>Ajouter photo vin:
+        <label for="image_browser">
+            <img src="<?php $image ?>">
+            <input onchange="display_image_name(this.files[0].name)" id="image_browser" type="file" name="image" style="display:none">
+            Chercher l'image
+        </label>
+        <br>
+        <small class="file_info text-muted"></small>
+    </div>
+
 </form>
+
+<script>
+    function display_image_name(file_name) {
+        document.querySelector(".file_info").innerHTML = '<b>Fichier choisi:</b><br>' + file_name;
+    }
+</script>
