@@ -4,7 +4,7 @@ use App\Controllers\ProductController;
 use Core\Router;
 
 //Home
-Router::register('/', 'HomeController::show');
+Router::register('/', 'HomeController::showLast');
 
 // show all products 
 Router::register('/nos-vins', 'ProductController::showAllWines');
