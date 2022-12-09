@@ -122,6 +122,21 @@ class StockController extends Controller
         $type_products = $type_product->findAll();
 
 
+        // if (count($_FILES) > 0) {
+        //     $allowed[] = "image/jpeg";
+        //     $allowed[] = "image/png";
+
+        //     if ($_FILES['image']['error'] == 0 && in_array($_FILES['image']['type'], $allowed)) {
+
+        //         $folder = "uploads/";
+        //         if (!file_exists($folder)) {
+        //             mkdir($folder, 0777, true);
+        //         }
+        //         $destination = $folder . $_FILES['image']['name'];
+        //         move_uploaded_file($_FILES['image']['tmp_name'], $destination);
+        //         $_POST['image'] = $destination;
+        //     }
+        // }
 
         if (isset($_POST['submit'])) {
             $to_edit->edit($id);

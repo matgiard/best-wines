@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\ProductController;
 use Core\Router;
 
 //Home
@@ -12,6 +13,7 @@ Router::register('/nos-coffrets', 'ProductController::showAllboxes');
 Router::register('/nos-vins/blanc', 'ProductController::showAllWhiteWines');
 Router::register('/nos-vins/rouge', 'ProductController::showAllRedWines');
 Router::register('/nos-vins/nos-champagnes', 'ProductController::showAllChampagne');
+Router::register('/nos-vins/detail', 'ProductController::showOne');
 
 // Fournisseur 
 Router::register('/nos-fournisseurs', 'SupplierController::showFournisseur');

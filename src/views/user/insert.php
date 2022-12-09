@@ -13,9 +13,9 @@
         <label for="password">mot de passe:</label>
         <input type="texte" name="password" id="password">
     </div>
-
     <div>
         <input type="submit" name="submit" value="Enregistrer">
     </div>
+
 
 </form>
