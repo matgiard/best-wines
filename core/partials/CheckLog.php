@@ -20,7 +20,7 @@ class CheckLog {
 
         // StartSession::start();        
         if (!isset($_SESSION['user']['is_logged']) || !$_SESSION['user']['is_logged']) {
-            // header('Location: login.php');
+            header('Location: /best-wines/login');
             exit;
         }
     }
