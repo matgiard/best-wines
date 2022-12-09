@@ -28,7 +28,7 @@
 
 <div class="container d-grid gap-3 mt-5">
     <p class="mb-3 mx-auto"> Si vous n'avez pas encore de compte, vous pouvez en créer un maintenant.</p>
-    <a class="btn btn-primary mb-3 mx-auto" role="button" aria-disabled="true" href="register.php">Créer un compte</a>
+    <a class="btn btn-primary mb-3 mx-auto" role="button" aria-disabled="true" href="register">Créer un compte</a>
 </div>
 
 <?php

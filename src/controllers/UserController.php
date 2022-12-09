@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\User;
 use Core\Controller;
-use Core\Partials\CheckLog ;
+use Core\Partials\CheckLog;
 
 class UserController extends Controller
 {
@@ -23,12 +23,12 @@ class UserController extends Controller
 
 
             $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
-        
-        
-        
+
+
+
             $user = UserController::findOneByEmail($email);
-            
-        
+
+
             if (!$user) {
                 $_SESSION['errors'][] = "nous n'avons pas un compte avec cette adresse";
             } else {
@@ -38,7 +38,7 @@ class UserController extends Controller
                         'email' => $user->email,
                         'id' => $user->id
                     ];
-        
+
                     header('Location: /best-wines');
                     exit;
                 } else {
@@ -50,7 +50,6 @@ class UserController extends Controller
         }
 
         $this->renderView('user/login', compact('errors'));
-        
     }
 
     public function register()
@@ -61,11 +60,13 @@ class UserController extends Controller
 
     public function logout()
     {
-        echo "ceci est la méthode " . __FUNCTION__;
-        CheckLog::destroySession();
+        if (!empty($_SESSION['user']['is_logged'])) {
+            CheckLog::destroySession();
+            echo "Bye";
+        }else{
+            echo "Vous n'êtes même pas connecté ! ";
+        }
         $this->renderView('user/logout');
-
-       
     }
 
 
@@ -95,13 +96,11 @@ class UserController extends Controller
         $this->renderView('user/insert');
     }
 
-    public static function findOneByEmail(string $email) :object
+    public static function findOneByEmail(string $email): object|array|false
     {
-        //test
         $user_to_find = new User();
         $user = $user_to_find->findOneUserBy(['email' => $email]);
-        
-        
+
         return $user;
     }
 }
