@@ -26,8 +26,8 @@
                     </div>
                 </div>
                 <div class="col col-lg-3">
-                    <label for="customRange3" class="form-label">Trier par prix</label>
-                    <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+                    <label for="customRange" class="col-3 mb-3"> Trier par prix maximum : <span id="rangeValue">1</span>  €</label>
+                    <input type="range" name="filterPrice" value="1" min="1" max="1000" class="form-range" id="customRange" onchange="rangeSlide(this.value)">
                 </div>
                 <div class="col col-lg-3">
 
@@ -82,3 +82,8 @@
     </div>
 
 </div>
+<script>
+    const rangeSlide = (value) => {
+        document.getElementById("rangeValue").innerHTML = value;
+    }
+</script>
