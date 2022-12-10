@@ -2,12 +2,22 @@
 
 <!-- Create the editor container -->
 <form action="" method="POST">
-    <div id="editor">
+    <input type="text" name="title" placeholder="Titre"></input>
+    <div id="editor" name="content">
         <p>Hello World!</p>
         <p>Some initial <strong>bold</strong> text</p>
         <p><br /></p>
     </div>
-    <button type="submit">Enregister l'article</button>
+    <div>Ajouter une photo:
+        <label for="image_browser">
+            <img src="<?php $image ?>">
+            <input onchange="display_image_name(this.files[0].name)" id="image_browser" type="file" name="image" style="display:none">
+            Chercher l'image
+        </label>
+        <br>
+        <small class="file_info text-muted"></small>
+    </div>
+    <button type=" submit">Enregister l'article</button>
 </form>
 
 <!-- Include the Quill library -->
@@ -28,4 +38,8 @@
         placeholder: 'Ecrivez votre article',
         theme: 'snow'
     });
+
+    function display_image_name(file_name) {
+        document.querySelector(".file_info").innerHTML = '<b>Fichier choisi:</b><br>' + file_name;
+    }
 </script>
