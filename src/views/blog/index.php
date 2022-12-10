@@ -5,3 +5,8 @@
     </div>
 
 <?php endif; ?>
+
+<?php foreach ($articles as $article) : ?>
+    <?= $article['title'] ?>
+    <?= $article['content'] ?>
+<?php endforeach ?>

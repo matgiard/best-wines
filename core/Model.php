@@ -42,12 +42,11 @@ abstract class Model
      * @param boolean $is_array s'il est à true on aura les résultats sous format d'un tableau associatif, si non c'est le format du model
      * @return array
      */
-    public function findAll(): array
-    {
-        $stmt = $this->pdo->prepare(
-            "SELECT * FROM {$this->table_name}"
 
-        );
+    public function findAll(bool $is_array = false): array|false
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM {$this->table_name}");
+
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
 
         $stmt->execute();
