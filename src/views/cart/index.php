@@ -1,7 +1,7 @@
 <div id="shopping-cart">
 <div class="txt-heading">Shopping Cart</div>
 
-<a id="btnEmpty" href="index.php?action=empty">Empty Cart</a>
+<a id="btnEmpty" href="cart/empty">Empty Cart</a>
 <?php
 if(isset($_SESSION["cart_item"])){
     $total_quantity = 0;
@@ -11,7 +11,7 @@ if(isset($_SESSION["cart_item"])){
 <tbody>
 <tr>
 <th style="text-align:left;">Name</th>
-<th style="text-align:left;">Code</th>
+<th style="text-align:left;">Id</th>
 <th style="text-align:right;" width="5%">Quantity</th>
 <th style="text-align:right;" width="10%">Unit Price</th>
 <th style="text-align:right;" width="10%">Price</th>
@@ -23,11 +23,11 @@ if(isset($_SESSION["cart_item"])){
 		?>
 				<tr>
 				<td><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
-				<td><?php echo $item["code"]; ?></td>
+				<td><?php echo $item["name"]; ?></td>
 				<td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
 				<td  style="text-align:right;"><?php echo "$ ".$item["price"]; ?></td>
 				<td  style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
-				<td style="text-align:center;"><a href="index.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
+				<td style="text-align:center;"><a href="/best-wines/cart/remove?name=<?php echo $item["name"]; ?>" class="btnRemoveAction"><img src="uploads/icon-delete.png" alt="Remove Item" /></a></td>
 				</tr>
 				<?php
 				$total_quantity += $item["quantity"];
@@ -52,25 +52,5 @@ if(isset($_SESSION["cart_item"])){
 ?>
 </div>
 
-<div id="product-grid">
-	<div class="txt-heading">Products</div>
-	<?php
-	$product_array = $db_handle->runQuery("SELECT * FROM tblproduct ORDER BY id ASC");
-	if (!empty($product_array)) { 
-		foreach($product_array as $key=>$value){
-	?>
-		<div class="product-item">
-			<form method="post" action="index.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
-			<div class="product-image"><img src="<?php echo $product_array[$key]["image"]; ?>"></div>
-			<div class="product-tile-footer">
-			<div class="product-title"><?php echo $product_array[$key]["name"]; ?></div>
-			<div class="product-price"><?php echo "$".$product_array[$key]["price"]; ?></div>
-			<div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
-			</div>
-			</form>
-		</div>
-	<?php
-		}
-	}
-	?>
+		
 </div>
