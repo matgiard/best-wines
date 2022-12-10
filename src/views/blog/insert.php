@@ -1,12 +1,15 @@
 <div>Ceci est la page du blog pour insérer un article</div>
+<?php if (isset($message)) : ?>
+    <div>
+        <span><?= $message ?></span>
+    </div>
+
+<?php endif; ?>
 
 <!-- Create the editor container -->
-<form action="" method="POST">
+<form action="<?= BASE_DIR ?>/blog/insert" method="POST" enctype="multipart/form-data">
     <input type="text" name="title" placeholder="Titre"></input>
     <div id="editor" name="content">
-        <p>Hello World!</p>
-        <p>Some initial <strong>bold</strong> text</p>
-        <p><br /></p>
     </div>
     <div>Ajouter une photo:
         <label for="image_browser">

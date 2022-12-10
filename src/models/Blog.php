@@ -12,6 +12,7 @@ class Blog extends Model
     private string $date;
     private string $photo_article;
     private int $id_user;
+    protected string $table_name = "blog";
 
     /**
      * Get the value of id
@@ -120,15 +121,16 @@ class Blog extends Model
 
     public function insertArticle(): int|false
     {
-        $stmt = $this->pdo->prepare("INSERT INTO article (`title`, `content`, `date`, `id_user`, `photo_article`) VALUES (:title, :content, :date, :id_user, :photo_article)");
+        $stmt = $this->pdo->prepare("INSERT INTO article (`title`, `content`, `photo_article`) VALUES (:title, :content,:photo_article)");
 
         $stmt->execute([
             "title" => $this->title,
             "content" => $this->content,
-            "date" => $this->date,
-            "id_user" => $this->id_user,
+            // "date" => $this->date,
+            // "id_user" => $this->id_user,
             "photo_article" => $this->photo_article,
         ]);
+
         return $this->pdo->lastInsertId();
     }
 }
