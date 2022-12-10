@@ -15,6 +15,9 @@ Router::register('/nos-vins/rouge', 'ProductController::showAllRedWines');
 Router::register('/nos-vins/nos-champagnes', 'ProductController::showAllChampagne');
 Router::register('/nos-vins/detail', 'ProductController::showOne');
 
+//product cart
+Router::register('/cart', 'CartController::addProduct');
+
 // Fournisseur 
 Router::register('/nos-fournisseurs', 'SupplierController::showFournisseur');
 
