@@ -7,7 +7,7 @@
         <p>Some initial <strong>bold</strong> text</p>
         <p><br /></p>
     </div>
-
+    <button type="submit">Enregister l'article</button>
 </form>
 
 <!-- Include the Quill library -->
@@ -26,6 +26,6 @@
             ]
         },
         placeholder: 'Ecrivez votre article',
-        theme: 'snow' // or 'bubble'
+        theme: 'snow'
     });
 </script>
