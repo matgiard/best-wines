@@ -10,6 +10,11 @@ use App\Models\Product;
 class CartController extends Controller
 {
 
+	public function index()
+    {
+        $this->renderView('cart/index');
+    }
+
     public function addProduct()
     { 
         $product = new Product; 
@@ -19,10 +24,7 @@ class CartController extends Controller
         if(!empty($_POST["qty"])) {
 			$productByName = $product->findOneItemBy(['name' => $name]);
 
-            
 			$itemArray = array($productByName->name => array('name'=>$productByName->name, 'name'=>$productByName->name, 'quantity'=>$_POST["qty"], 'price'=>$productByName->price, 'image'=>$productByName->photo));
-
-            
 
 			if(!empty($_SESSION["cart_item"])) {
 				if(in_array($productByName->name,array_keys($_SESSION["cart_item"]))) {
@@ -43,17 +45,9 @@ class CartController extends Controller
 			}
 		}
 
-        
 		header('Location: /best-wines/cart');
 		exit;
        
-    }
-
-	
-
-    public function index()
-    {
-        $this->renderView('cart/index');
     }
 
 
@@ -83,9 +77,4 @@ class CartController extends Controller
 		exit;
     }
 
-    // public function numRows($query) {
-	// 	$result  = mysqli_query($this->conn,$query);
-	// 	$rowcount = mysqli_num_rows($result);
-	// 	return $rowcount;	
-	// }
 }
