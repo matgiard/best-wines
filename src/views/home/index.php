@@ -2,6 +2,7 @@
 <a class='btn btn-danger' href="register">ajout utilisateur dans BDD</a>
 <a class='btn btn-success' href="employe/stock/insert">ajout produit dans BDD</a>
 <a class='btn btn-success' href="nos-vins">Nos Vins</a>
+<a class='btn btn-success' href="blog">blog</a>
 
 
 <div class="container mt-5">
