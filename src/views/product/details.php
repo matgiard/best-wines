@@ -13,7 +13,7 @@
             <h2 class="product-price"><?= $products['price'] ?>€</h2>
             <h2 class="product-price"><?= $products['region_name'] ?></h2>
             <section>
-                <form action="/best-wines/cart?name=<?=$products['name']?>" method="POST">
+                <form action="/best-wines/cart/add?name=<?=$products['name']?>" method="POST">
                     <p class="qty">
                         <label for="qty">Quantity:</label>
                        
