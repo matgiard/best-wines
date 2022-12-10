@@ -7,9 +7,14 @@
 <?php endif; ?>
 
 <!-- Create the editor container -->
-<form action="<?= BASE_DIR ?>/blog/insert" method="POST" enctype="multipart/form-data">
-    <input type="text" name="title" placeholder="Titre"></input>
-    <div id="editor" name="content">
+<form method="POST" action="<?= BASE_DIR ?>/blog/insert" enctype="multipart/form-data">
+    <div>
+        <label for="titre">Titre</label>
+        <input type="text" name="titre" id="titre" value="titre">
+    </div>
+    <div>
+        <label for="content">Zone de texte</label>
+        <div id="editor" name="content" value="content"></div>
     </div>
     <div>Ajouter une photo:
         <label for="image_browser">
@@ -22,6 +27,10 @@
     </div>
     <button type=" submit">Enregister l'article</button>
 </form>
+
+
+
+
 
 <!-- Include the Quill library -->
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>

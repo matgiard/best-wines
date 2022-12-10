@@ -71,7 +71,7 @@ class StockController extends Controller
             if (count($_FILES) > 0) {
                 $allowed[] = "image/jpeg";
                 $allowed[] = "image/png";
-
+                dd($_FILES);
                 if ($_FILES['image']['error'] == 0 && in_array($_FILES['image']['type'], $allowed)) {
 
                     $folder = "uploads/";
@@ -103,8 +103,7 @@ class StockController extends Controller
         $id = $_GET['id'];
 
         $to_edit = new Product;
-        $to_edit->findOneBy(['id' => $id]);
-        $edit_temp = $to_edit->findOneBy(['id' => $id]);
+        $edit_temp = $to_edit->findOneForEdit(['id' => $id]);
 
         $region = new Region();
         $regions = $region->findAll();
@@ -147,8 +146,8 @@ class StockController extends Controller
             } else {
                 $message =  "échec de l'édit";
             };
-            $to_edit->findOneBy(['id' => $id]);
-            $edit_temp = $to_edit->findOneBy(['id' => $id]);
+            $to_edit->findOneForEdit(['id' => $id]);
+            $edit_temp = $to_edit->findOneForEdit(['id' => $id]);
             $this->renderView(
                 'employe/stock/edit',
                 compact('message', 'id', 'edit_temp', 'regions', 'cepages', 'tastes', 'associations', 'type_products')
