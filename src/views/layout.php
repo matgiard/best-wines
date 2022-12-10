@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/styles/css/style.css">
     <!-- CSS for quill -->
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Best wines</title>
 </head>
@@ -100,105 +100,105 @@
 
     <!-- Footer -->
     <footer class="text-center text-lg-start bg-white text-muted">
-            <!-- Section: Links  -->
+        <!-- Section: Links  -->
         <section class="">
             <div class="container text-center text-md-start mt-5">
-            <!-- Grid row -->
-            <div class="row mt-3">
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                <!-- Content -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                    <i class="fas fa-gem me-3 text-secondary"></i>Best Wines
-                </h6>
-                <p>
-                    Here you can use rows and columns to organize your footer content. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit.
-                </p>
-                <div>
-            <a href="" class="me-4 link-secondary">
-                <i class="fa fa-facebook"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-                <i class="fa fa-twitter"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-                <i class="fa fa-google"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-                <i class="fa fa-instagram"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-                <i class="fa fa-linkedin"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-                <i class="fa fa-github"></i>
-            </a>
-            </div>
-                </div>
-                <!-- Grid column -->
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <i class="fas fa-gem me-3 text-secondary"></i>Best Wines
+                        </h6>
+                        <p>
+                            Here you can use rows and columns to organize your footer content. Lorem ipsum
+                            dolor sit amet, consectetur adipisicing elit.
+                        </p>
+                        <div>
+                            <a href="" class="me-4 link-secondary">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="" class="me-4 link-secondary">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="" class="me-4 link-secondary">
+                                <i class="fa fa-google"></i>
+                            </a>
+                            <a href="" class="me-4 link-secondary">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                            <a href="" class="me-4 link-secondary">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <a href="" class="me-4 link-secondary">
+                                <i class="fa fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Grid column -->
 
-                <!-- Grid column -->
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                    Vins
-                </h6>
-                <p>
-                    <a href="#!" class="text-reset">Rouges</a>
-                </p>
-                <p>
-                    <a href="#!" class="text-reset">Blancs</a>
-                </p>
-                <p>
-                    <a href="#!" class="text-reset">Champagne</a>
-                </p>
-                </div>
-                <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Vins
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">Rouges</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Blancs</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Champagne</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
 
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                    Coffrets
-                </h6>
-                <p>
-                    <a href="#!" class="text-reset">Rouges</a>
-                </p>
-                <p>
-                    <a href="#!" class="text-reset">Blancs</a>
-                </p>
-                <p>
-                    <a href="#!" class="text-reset">Champagne</a>
-                </p>
-                <p>
-                    <a href="#!" class="text-reset">Multi</a>
-                </p>
-                </div>
-                <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Coffrets
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">Rouges</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Blancs</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Champagne</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Multi</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
 
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                    Aide
-                </h6>
-                <p>
-                    <a href="faq" class="text-reset">FAQ</a>
-                </p>
-                <p>
-                    <a href="mentionLegal" class="text-reset">Mentions légales</a>
-                </p>
-                <p>
-                    <a href="presse" class="text-reset">Presse</a>
-                </p>
-                <p>
-                    <a href="#!" class="text-reset">Politique de confidentialité</a>
-                </p>
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Aide
+                        </h6>
+                        <p>
+                            <a href="faq" class="text-reset">FAQ</a>
+                        </p>
+                        <p>
+                            <a href="mentionLegal" class="text-reset">Mentions légales</a>
+                        </p>
+                        <p>
+                            <a href="presse" class="text-reset">Presse</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Politique de confidentialité</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
                 </div>
-                <!-- Grid column -->
-            </div>
-            <!-- Grid row -->
+                <!-- Grid row -->
             </div>
         </section>
         <!-- Section: Links  -->

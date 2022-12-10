@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use Core\Controller;
-use App\Models\Blog;
+use App\Models\Article;
 
 
 class BlogController extends Controller
@@ -25,14 +25,16 @@ class BlogController extends Controller
 
     public function insertArticle()
     {
+
         if (isset($_POST['submit'])) {
-            dd($_POST);
-            $article = new Blog;
+
+
+            $article = new Article;
             $article->setTitle(htmlentities($_POST['title']));
             $article->setContent(htmlentities($_POST['content']));
             // $article->setDate(htmlentities($_POST['date']));
             $article->setPhoto_article($_FILES['image']['name']);
-            dd($_POST);
+
             if (count($_FILES) > 0) {
                 $allowed[] = "image/jpeg";
                 $allowed[] = "image/png";

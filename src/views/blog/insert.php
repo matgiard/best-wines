@@ -10,11 +10,15 @@
 <form method="POST" action="<?= BASE_DIR ?>/blog/insert" enctype="multipart/form-data">
     <div>
         <label for="titre">Titre</label>
-        <input type="text" name="titre" id="titre" value="titre">
+        <input type="text" name="title" id="title">
     </div>
     <div>
         <label for="content">Zone de texte</label>
-        <div id="editor" name="content" value="content"></div>
+        <textarea id="editor" type="text-area" name="content" id="content" rows="30" cols="50"></textarea>
+        <!-- <div id="editor" name="content" id="content"> -->
+
+    </div>
+
     </div>
     <div>Ajouter une photo:
         <label for="image_browser">
@@ -25,7 +29,8 @@
         <br>
         <small class="file_info text-muted"></small>
     </div>
-    <button type=" submit">Enregister l'article</button>
+    <input type="submit" name="submit" value="Enregistrer">
+
 </form>
 
 
