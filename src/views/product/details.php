@@ -13,16 +13,17 @@
             <h2 class="product-price"><?= $products['price'] ?>€</h2>
             <h2 class="product-price"><?= $products['region_name'] ?></h2>
             <section>
-                <form action="">
+                <form action="/best-wines/cart?name=<?=$products['name']?>" method="POST">
                     <p class="qty">
                         <label for="qty">Quantity:</label>
-                        <button class="qtyminus" aria-hidden="true">&minus;</button>
-                        <input type="number" name="qty" id="qty" min="1" max="10" step="1" value="1">
-                        <button class="qtyplus" aria-hidden="true">&plus;</button>
+                       
+                        <input type="number" name="qty" id="qty" min="1" max="30" step="1" value="1">
+                        
+                        <button type="input" class="btn btn-success">Ajouter au panier</button>
                     </p>
                 </form>			
             </section>
-            <a href="#" class="btn btn-success">Ajouter au panier</a>
+            
         </div>
     </div>
 </div>
