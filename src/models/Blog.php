@@ -117,4 +117,18 @@ class Blog extends Model
     {
         $this->id_user = $id_user;
     }
+
+    public function insertArticle(): int|false
+    {
+        $stmt = $this->pdo->prepare("INSERT INTO article (`title`, `content`, `date`, `id_user`, `photo_article`) VALUES (:title, :content, :date, :id_user, :photo_article)");
+
+        $stmt->execute([
+            "title" => $this->title,
+            "content" => $this->content,
+            "date" => $this->date,
+            "id_user" => $this->id_user,
+            "photo_article" => $this->photo_article,
+        ]);
+        return $this->pdo->lastInsertId();
+    }
 }
