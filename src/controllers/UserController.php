@@ -92,7 +92,7 @@ class UserController extends Controller
     public static function findOneByEmail(string $email): object|array|false
     {
         $user_to_find = new User();
-        $user = $user_to_find->findOneUserBy(['email' => $email]);
+        $user = $user_to_find->findOneItemBy(['email' => $email]);
 
         return $user;
     }

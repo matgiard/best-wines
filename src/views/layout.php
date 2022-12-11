@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/styles/css/style.css">
+    <link rel="stylesheet" href="<?= BASE_DIR ?>/assets/styles/css/style.css">
     <!-- CSS for quill -->
     <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,9 +16,9 @@
 
 <!-- A MODIFIER -->
 
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg navbar-custom" >
     <div class="container-fluid">
-        <a class="navbar-brand" href="/best-wines">Best Wines</a>
+        <a class="navbar-brand" href="/best-wines" >Best Wines</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -28,20 +28,18 @@
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-                <li class="nav-item">
-                    <a class="nav-link" href="/best-wines/login">Se connecter</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/best-wines/logout">Se déconnecter</a>
-                </li>
+             
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+                        Menu
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
+                    <li class="dropdown-item">
+                    <a class="nav-link" href="<?= BASE_DIR ?>/login">Se connecter</a>
+                </li>
+                <li class="dropdown-item">
+                    <a class="nav-link" href="<?= BASE_DIR ?>/logout">Se déconnecter</a>
+                </li>
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -51,7 +49,7 @@
         </div>
     </div>
 </nav>
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg navbar-custom" >
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -62,21 +60,17 @@
                     <a class="nav-link dropdown-toggle" href="./nos-vins" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Vins
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="./nos-vins/rouge">Rouges</a></li>
-                        <li><a class="dropdown-item" href="./nos-vins/blanc'">Blancs</a></li>
-                        <li><a class="dropdown-item" href="./nos-vins/nos-champagnes">Champagnes</a></li>
+                    <ul class="dropdown-menu ">
+                        <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/rouge">Rouges</a></li>
+                        <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/blanc">Blancs</a></li>
+                        <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/nos-champagnes">Champagnes</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link" href="./nos-coffrets" role="button" >
                         Coffrets
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+             
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Nos fournisseurs</a>
@@ -99,7 +93,7 @@
     <?= $content ?>
 
     <!-- Footer -->
-    <footer class="text-center text-lg-start bg-white text-muted">
+    <footer class="text-center text-lg-star footer">
         <!-- Section: Links  -->
         <section class="">
             <div class="container text-center text-md-start mt-5">

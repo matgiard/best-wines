@@ -1,9 +1,9 @@
-<div id='home'>ceci est la page d'accueil depuis view/home/index.php</div>
+<div class="text-center p-3">
 <a class='btn btn-danger' href="register">ajout utilisateur dans BDD</a>
-<a class='btn btn-success' href="employe/stock/insert">ajout produit dans BDD</a>
+<a class='btn btn-success' href="employe/stock">BDD PRODUITS</a>
 <a class='btn btn-success' href="nos-vins">Nos Vins</a>
 <a class='btn btn-success' href="blog">blog</a>
-
+</div>
 <div class="container mt-5">
     <div class="row row-cols-1 row-cols-md-4 g-4">
         <div class="card mb-3" style="max-width: 540px; min-height: 300px">
@@ -70,9 +70,10 @@
 
 </div>
 
-<h1 class="p-5"> Nos recommandations</h1>
 
-<div class="container mt-5">
+<div class="bg-danger">
+<h1 class="p-1 text-light"> Nos recommandations</h1>
+<div class="container mt-1 ">
     <div class="row row-cols-1 row-cols-md-4 g-4">
         <div class="card mb-3" style="max-width: 540px; min-height: 300px">
             <div class="row g-0">
@@ -87,7 +88,7 @@
                     <p class="card-text">Prix Unitaire: <?= $featuredWhiteWine['price'] ?>€</p>
                     <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $featuredWhiteWine['name'] ?>" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x ">Détails</a>
                 </div>
-            </div>
+            </div>git 
         </div>
         <div class="card mb-3" style="max-width: 540px; min-height: 300px">
             <div class="row g-0">
@@ -135,5 +136,5 @@
             </div>
         </div>
     </div>
-
+    </div>
 </div>

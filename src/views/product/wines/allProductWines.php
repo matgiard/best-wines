@@ -65,7 +65,7 @@
                 <div class="row g-0">
                     <div class="col-md-4">
                         <img src="uploads/<?= $product['photo'] ?>" alt="<?= $product['name'] ?>" srcset="" class="img-fluid rounded-start">
-
+                        </div>
                         <div class="col-md-8">
                             <h5 class="card-title"><?= $product['name'] ?></h5>
                             <p class="card-text">description: <?= $product['description'] ?></p>
