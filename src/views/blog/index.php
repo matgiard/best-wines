@@ -16,5 +16,6 @@
         <div><?= substr($article['content'], 0, 300) ?></div>
         <a href="<?= BASE_DIR ?>/blog/details?id=<?= $article['id'] ?>">Voir plus</a>
         < <small>Ajouté le <?= $article['date'] ?></small>
+            <a href="<?= BASE_DIR ?>/blog/edit?id=<?= $article['id'] ?>" class="btn btn-warning">Modifier</a>
     </div>
 <?php endforeach ?>

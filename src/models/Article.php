@@ -138,4 +138,24 @@ class Article extends Model
 
         return $this->pdo->lastInsertId();
     }
+
+    public function editArticleBlog(int $article_to_edit)
+    {
+
+        $stmt = $this->pdo->prepare("UPDATE article SET `title` = :new_title, `content` = :new_content,`photo_article`= :new_photo_article WHERE id = :id");
+
+        $stmt->execute(array(
+            'new_title' => $_POST['title'],
+            'new_content' => $_POST['content'],
+            'new_photo_article' => $_FILES['image']['name'],
+            'id' => $article_to_edit
+        ));
+
+        $stmt = $this->pdo->prepare("SELECT * FROM article WHERE id = :id");
+        $stmt->execute([
+            'id' => $article_to_edit
+        ]);
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        return $stmt->fetch();
+    }
 }

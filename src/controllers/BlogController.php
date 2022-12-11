@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use Core\Controller;
-use App\Models\Product;
 use App\Models\Article;
 
 
@@ -35,7 +34,45 @@ class BlogController extends Controller
 
     public function editArticle()
     {
-        $this->renderView('blog/edit');
+        $id = $_GET['id'];
+        $article_to_edit = new Article;
+        $edit_temp = $article_to_edit->findOneForEdit(['id' => $id]);
+
+        if (isset($_POST['submit'])) {
+
+            $article_to_edit->editArticleBlog($id);
+            $result = $article_to_edit->editArticleBlog($id);
+
+            if (count($_FILES) > 0) {
+                $allowed[] = "image/jpeg";
+                $allowed[] = "image/png";
+
+                if ($_FILES['image']['error'] == 0 && in_array($_FILES['image']['type'], $allowed)) {
+
+                    $folder = "uploads/blog/";
+                    if (!file_exists($folder)) {
+                        mkdir($folder, 0777, true);
+                    }
+                    $destination = $folder . $_FILES['image']['name'];
+                    move_uploaded_file($_FILES['image']['tmp_name'], $destination);
+                    $_POST['image'] = $destination;
+                }
+            }
+
+            if ($result) {
+                $message =  "edit bien effectuée";
+            } else {
+                $message =  "échec de l'édit";
+            };
+            $article_to_edit->findOneForEdit(['id' => $id]);
+            $edit_temp = $article_to_edit->findOneForEdit(['id' => $id]);
+            $this->renderView(
+                'blog/edit',
+                compact('message', 'id', 'edit_temp')
+            );
+        }
+
+        $this->renderView('blog/edit', compact('id', 'edit_temp'));
     }
 
 
