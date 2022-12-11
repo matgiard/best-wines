@@ -10,7 +10,8 @@
 <?php foreach ($articles as $article) : ?>
     <div class="border">
         <h2><?= $article['title'] ?></h2>
-        <div><?= substr($article['content'], 0, 100) ?></div>
+        <div><?= substr($article['content'], 0, 300) ?></div>
+        <a href="">Voir plus</a>
         <small>Ajouté le <?= $article['date'] ?></small>
     </div>
 <?php endforeach ?>
