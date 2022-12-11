@@ -20,7 +20,7 @@ class AdminController extends Controller
     {
         $user = new User();
         $all_users = $user->findAll();
-        $this->renderView('administrateur/index', compact(`users`,'all_users'));
+        $this->renderView('administrateur/index', compact('all_users'));
     }
 
 
