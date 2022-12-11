@@ -1,9 +1,9 @@
 
-<div id= "shopping-paypal">
+
   <!-- Replace "test" with your own sandbox Business account app client ID -->
-  <script src="https://www.paypal.com/sdk/js?client-id=Ad3W5NwEIU0dsnq-0ceovxjEu4rMfLjiXByoqs08JqjYGS1rUy7oqwVprP4jWDr91NIe1fC9_kk2Ypbq&currency=USD"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=Ad3W5NwEIU0dsnq-0ceovxjEu4rMfLjiXByoqs08JqjYGS1rUy7oqwVprP4jWDr91NIe1fC9_kk2Ypbq&currency=EUR"></script>
   <!-- Set up a container element for the button -->
-  <div id="paypal-button-container"></div>
+  <div align="center" id="paypal-button-container"></div>
   <script>
     paypal.Buttons({
       // Sets up the transaction when a payment button is clicked
@@ -31,4 +31,3 @@
       }
     }).render('#paypal-button-container');
   </script>
-</div>
