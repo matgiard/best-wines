@@ -1,12 +1,23 @@
-#home {
-  color: #9e121b;
-  background-color: #f3f3f3;
-}
 
+.navbar-brand {
+	color: #FFF;
+}
+.footer{
+	color: #fff;
+	background-color: #9e121b;
+}
+.nav-link {
+	color: #FFF;
+}
+.navbar-custom {
+	color: #fff;
+	background-color: #9e121b;
+}
 body {
 	font-family: Arial;
 	color: #211a1a;
 	font-size: 0.9em;
+	background-color:  #f3f3f3; ;
 }
 
 #shopping-cart {
@@ -75,7 +86,10 @@ body {
 .clear-float {
 	clear: both;
 }
-
+.card{
+max-width: 540px; 
+min-height: 300px;
+}
 .demo-input-box {
 	border-radius: 2px;
 	border: #CCC 1px solid;
@@ -127,5 +141,6 @@ body {
 	clear: both;
 	margin: 38px 0px;
 }
+
 
 /*# sourceMappingURL=style.css.map */
