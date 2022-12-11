@@ -13,7 +13,7 @@ class CartController extends Controller
 	public function index()
     {
 		$_SESSION['last_page'] = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'index.php';
-		
+
         $this->renderView('cart/index');
     }
 
@@ -27,8 +27,9 @@ class CartController extends Controller
         
         if(!empty($_POST["qty"])) {
 			$productByName = $product->findOneItemBy(['name' => $name]);
+			
 
-			$itemArray = array($productByName->name => array('name'=>$productByName->name, 'name'=>$productByName->name, 'quantity'=>$_POST["qty"], 'price'=>$productByName->price, 'image'=>$productByName->photo));
+			$itemArray = array($productByName->name => array('name'=>$productByName->name, 'name'=>$productByName->name, 'id'=>$productByName->id, 'quantity'=>$_POST["qty"], 'price'=>$productByName->price, 'image'=>$productByName->photo));
 
 			if(!empty($_SESSION["cart_item"])) {
 				if(in_array($productByName->name,array_keys($_SESSION["cart_item"]))) {

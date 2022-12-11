@@ -23,7 +23,7 @@
 				?>
 					<tr>
 						<td><img src="/best-wines/uploads/<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
-						<td><?php echo $item["name"]; ?></td>
+						<td><?php echo $item["id"]; ?></td>
 						<td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
 						<td style="text-align:right;"><?php echo $item["price"] . " €"; ?></td>
 						<td style="text-align:right;"><?php echo number_format($item_price, 2) . " €"; ?></td>
