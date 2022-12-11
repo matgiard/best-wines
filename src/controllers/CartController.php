@@ -12,11 +12,15 @@ class CartController extends Controller
 
 	public function index()
     {
+		$_SESSION['last_page'] = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'index.php';
+		
         $this->renderView('cart/index');
     }
 
     public function addProduct()
     { 
+		$_SESSION['last_page'] = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'index.php';
+
         $product = new Product; 
 
         $name = $_GET['name'];
