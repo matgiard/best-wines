@@ -54,7 +54,7 @@ class UserController extends Controller
     public function logout()
     {
         if (!empty($_SESSION['user']['is_logged'])) {
-            CheckLog::destroySession();
+            CheckLog::logoutUser();
             echo "Bye";
         } else {
             echo "Vous n'êtes même pas connecté ! ";

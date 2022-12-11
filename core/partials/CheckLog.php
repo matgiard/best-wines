@@ -29,11 +29,11 @@ class CheckLog
         }
     }
 
-    public static function destroySession(): void
+    public static function logoutUser(): void
     {
 
         if (isset($_SESSION['user']['is_logged']) && $_SESSION['user']['is_logged']) {
-            session_destroy();
+            unset($_SESSION["user"]);
         }
     }
 
