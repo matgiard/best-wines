@@ -323,4 +323,32 @@ class Product extends Model
         ]);
         return $this->pdo->lastInsertId();
     }
+    public function findFeaturedBy(array $criteria): object|array|false
+    {
+        if (empty($criteria)) {
+            throw  new \Exception("Il faut passer au moins un critère");
+        }
+        $sql_query = "SELECT * FROM {$this->table_name} JOIN {$this->regionJoin} JOIN {$this->cepage} JOIN {$this->association}  JOIN {$this->taste}  WHERE ";
+        $count = 0;
+        foreach ($criteria as $key => $value) {
+            $count++;
+            if ($count > 1) {
+                $sql_query .= " AND ";
+            }
+            $sql_query .= " $key = :$key ";
+        }
+
+        $sql_query2 = $sql_query . "AND is_featured = 1 ORDER BY product.id DESC LIMIT 1";
+        $stmt = $this->pdo->prepare($sql_query2);
+        foreach ($criteria as $key => $value) {
+            $stmt->bindParam(":$key", $value);
+        }
+        // if ($is_array)
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        // else
+        //     $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
+
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 }
