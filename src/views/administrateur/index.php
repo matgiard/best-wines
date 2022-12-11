@@ -4,7 +4,6 @@
     <thead>
         <tr>
             <th scope="col">email</th>
-            <th scope="col">employé</th>
             <th scope="col">admin</th>
             <th></th>
         </tr>
@@ -14,11 +13,14 @@
         <form action="" method="POST">
             <?php
             foreach ($all_users as $user) : ?>
-                <?php if ($user['is_employee'] == 1) : ?>
+                <?php if ($user['is_employee'] == "1") : ?>
                     <tr>
                         <td><?= $user['email'] ?></td>
-                        <td><?= $user['is_employee'] ?></td>
-                        <td><?= $user['is_admin'] ?></td>
+                        <?php if ($user['is_admin'] == "1") : ?>
+                            <td>oui</td>
+                        <?php else : ?>
+                            <td>non</td>
+                        <?php endif ?>
                         <td>
                             <a href="<?= BASE_DIR ?>/administrateur/edit?id=<?= $user['id'] ?>" class="btn btn-warning">Modifier</a>
                         </td>

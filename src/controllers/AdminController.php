@@ -26,6 +26,8 @@ class AdminController extends Controller
 
     public function edit()
     {
-        $this->renderView('administrateur/edit');
+
+        
+        $this->renderView('administrateur/index');
     }
 }
