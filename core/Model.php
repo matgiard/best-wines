@@ -29,10 +29,10 @@ abstract class Model
     {
         $stmt = $this->pdo->prepare("SELECT * FROM {$this->table_name} WHERE id = :id ");
         $stmt->bindParam(':id', $id);
-        if ($is_array)
-            $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-        else
-            $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
+        // if ($is_array)
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        // else
+        //     $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
         $stmt->execute();
         return $stmt->fetch();
     }
@@ -250,7 +250,7 @@ abstract class Model
         }
 
         // if ($is_array)
-        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        $stmt->setFetchMode(\PDO::FETCH_OBJ);
         // else
         //     $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
 
