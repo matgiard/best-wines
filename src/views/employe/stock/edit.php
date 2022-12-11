@@ -96,6 +96,19 @@
         <label for="price">Prix</label>
         <input type="number" name="price" id="price" value="<?= $edit_temp['price'] ?>">
     </div>
+    <div> Mettre en vedette</div>
+            
+                    <div class="form-check">
+                        <label class="form-check-label">Non
+                        <input class="form-check-input" name="is_featured" id="is_featured" type="radio" value="0" aria-label="Non">
+                      </label> 
+                </div>
+                <div>
+                      <label class="form-check-label">Oui
+                        <input class="form-check-input" name="is_featured" id="is_featured" type="radio" value="1" aria-label="Oui">
+                      </label>                        
+                    </div>
+    </div>
     <?php if (isset($message)) : ?>
 
         <div> <?= $message ?></div>
@@ -113,6 +126,7 @@
         <br>
         <small class="file_info text-muted"></small>
     </div>
+    
 
 </form>
 

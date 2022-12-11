@@ -260,7 +260,7 @@ abstract class Model
     public function edit(int $to_edit)
     {
 
-        $stmt = $this->pdo->prepare("UPDATE product SET `name` = :new_name, `description` = :new_description,`photo`=:new_photo, `stock` = :new_stock,`alcohol_percentage` = :new_alcohol_percentage, `id_region`= :new_id_region,`id_cepage`=:new_id_cepage, `id_taste`=:new_id_taste, `id_association`=:new_id_association,`id_type`=:new_id_type,`price`=:new_price WHERE id = :id");
+        $stmt = $this->pdo->prepare("UPDATE product SET `name` = :new_name, `description` = :new_description,`photo`=:new_photo, `stock` = :new_stock,`alcohol_percentage` = :new_alcohol_percentage, `id_region`= :new_id_region,`id_cepage`=:new_id_cepage, `id_taste`=:new_id_taste, `id_association`=:new_id_association,`id_type`=:new_id_type,`price`=:new_price, `is_featured`=:new_is_featured WHERE id = :id");
 
         $stmt->execute(array(
             'new_name' => $_POST['name'],
@@ -273,8 +273,10 @@ abstract class Model
             'new_id_taste' => $_POST['id_taste'],
             'new_id_association' => $_POST['id_association'],
             'new_id_type' => $_POST['id_type'],
-            'new_price' => $_POST['price'],
+            'new_price' => $_POST['price'], 
+            'new_is_featured' => $_POST['is_featured'],
             'id' => $to_edit
+           
         ));
 
         $stmt = $this->pdo->prepare("SELECT * FROM product WHERE id = :id");

@@ -74,7 +74,15 @@
         <label for="price">Prix</label>
         <input type="number" name="price" id="price">
     </div>
-
+<div>
+   
+    <div class="form-check">
+      <input class="form-check-input" name='is_featured' type="checkbox" value="1" id="is_featured">
+      <label class="form-check-label" for="is_featured">
+      Mettre en vedette
+      </label>
+    </div>
+</div>
     <div>Ajouter photo vin:
         <label for="image_browser">
             <img src="<?php $image ?>">
