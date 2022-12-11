@@ -7,7 +7,8 @@
 
 <?php endif; ?>
 <a class='btn btn-success' href=" <?= BASE_DIR ?>/employe/stock">Index</a>
-<form method="post" action="<?= BASE_DIR ?>/employe/stock/insert" enctype="multipart/form-data">
+<form method="POST" action="<?= BASE_DIR ?>/employe/stock/insert" enctype="multipart/form-data">
+
     <div>
         <label for="name">Nom</label>
         <input type="text" name="name" id="name">
@@ -73,9 +74,6 @@
         <label for="price">Prix</label>
         <input type="number" name="price" id="price">
     </div>
-    <div>
-        <input type="submit" name="submit" value="Enregistrer">
-    </div>
 
     <div>Ajouter photo vin:
         <label for="image_browser">
@@ -86,6 +84,11 @@
         <br>
         <small class="file_info text-muted"></small>
     </div>
+    <div>
+        <!-- <input type="submit" name="submit" value="Enregistrer"> -->
+        <button type="submit" name="submit">Enregistrer</button>
+    </div>
+
 
 </form>
 

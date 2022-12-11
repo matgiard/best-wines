@@ -31,6 +31,7 @@ class StockController extends Controller
 
     public function insert()
     {
+
         $region = new Region();
         $regions = $region->findAll();
 
@@ -65,13 +66,10 @@ class StockController extends Controller
             $product->setPrice($_POST['price']);
             $product->setPhoto($_FILES['image']['name']);
 
-
-
-
             if (count($_FILES) > 0) {
                 $allowed[] = "image/jpeg";
                 $allowed[] = "image/png";
-                dd($_FILES);
+
                 if ($_FILES['image']['error'] == 0 && in_array($_FILES['image']['type'], $allowed)) {
 
                     $folder = "uploads/";
@@ -95,7 +93,7 @@ class StockController extends Controller
                 'message' => $message
             ]);
         }
-        $this->renderView('employe/stock/insert');
+        $this->renderView('employe/stock/insert', compact('message', 'regions', 'cepages', 'tastes', 'associations', 'type_products'));
     }
 
     public function edit()

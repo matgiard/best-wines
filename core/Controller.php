@@ -9,13 +9,13 @@ abstract class Controller
 
     public function __construct()
     {
-        StartSession::start();        
+        StartSession::start();
     }
 
-    public function renderView(string $view_name, array $params = []) : void
+    public function renderView(string $view_name, array $params = []): void
     {
         extract($params);
-        ob_start() ;
+        ob_start();
         require_once "src/views/$view_name.php";
         // StartSession::start();
         $content = ob_get_clean();

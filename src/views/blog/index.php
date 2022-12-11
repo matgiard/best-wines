@@ -6,7 +6,12 @@
 
 <?php endif; ?>
 
+<h1>Nos Articles</h1>
 <?php foreach ($articles as $article) : ?>
-    <?= $article['title'] ?>
-    <?= $article['content'] ?>
+    <div class="border">
+        <h2><?= $article['title'] ?></h2>
+        <div><?= substr($article['content'], 0, 300) ?></div>
+        <a href="">Voir plus</a>
+        <small>Ajouté le <?= $article['date'] ?></small>
+    </div>
 <?php endforeach ?>
