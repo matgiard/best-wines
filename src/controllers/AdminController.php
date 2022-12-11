@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Core\Controller;
+use App\Models\User;
 
 
 
@@ -17,7 +18,9 @@ class AdminController extends Controller
 
     public function showAll()
     {
-        $this->renderView('administrateur/index');
+        $user = new User();
+        $all_users = $user->findAll();
+        $this->renderView('administrateur/index', compact(`users`,'all_users'));
     }
 
 

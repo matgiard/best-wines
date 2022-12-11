@@ -19,17 +19,8 @@ class UserController extends Controller
         CheckLog::checkIsNotLogged();
 
         if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password'])) {
-
-
-
-
             $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
-
-
-
             $user = UserController::findOneByEmail($email);
-
-
             if (!$user) {
                 $_SESSION['errors'][] = "nous n'avons pas un compte avec cette adresse";
             } else {
@@ -105,4 +96,6 @@ class UserController extends Controller
 
         return $user;
     }
+
+
 }

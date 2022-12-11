@@ -64,6 +64,7 @@ Router::register('/employe/promotion/edit', 'PromotionController::edit');
 Router::register('/administrateur', 'AdminController::showAll');
 Router::register('/administrateur/insert', 'AdminController::insert');
 Router::register('/administrateur/edit', 'AdminController::edit');
+Router::register('/administrateur/delete', 'AdminController::delete');
 
 // A rajouter & | à modifier
 //
