@@ -11,7 +11,7 @@
     <div class="border">
         <h2><?= $article['title'] ?></h2>
         <div><?= substr($article['content'], 0, 300) ?></div>
-        <a href="">Voir plus</a>
+        <a href="<?= BASE_DIR ?>/blog/details?id=<?= $article['id'] ?>">Voir plus</a>
         <small>Ajouté le <?= $article['date'] ?></small>
     </div>
 <?php endforeach ?>

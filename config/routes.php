@@ -36,6 +36,7 @@ Router::register('/qui-sommes-nous', 'PresentationController::showAboutUS');
 Router::register('/blog', 'BlogController::showArticle');
 Router::register('/blog/insert', 'BlogController::insertArticle');
 Router::register('/blog/edit', 'BlogController::editArticle');
+Router::register('/blog/details', 'BlogController::detailArticle');
 
 // user
 Router::register('/login', 'UserController::login');

@@ -191,7 +191,7 @@ abstract class Model
         }
 
         // if ($is_array)
-        $stmt->setFetchMode(\PDO::FETCH_OBJ);
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
         // else
         //     $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
 

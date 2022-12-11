@@ -23,7 +23,15 @@ class BlogController extends Controller
     }
 
 
+    public function detailArticle()
+    {
+        $id = $_GET['id'];
+        $article = new Article;
 
+        $article_blog = $article->findOneItemBy(['id' => $id]);
+
+        $this->renderView('blog/details', compact('article_blog'));
+    }
 
     public function editArticle()
     {
