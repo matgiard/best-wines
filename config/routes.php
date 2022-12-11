@@ -68,7 +68,7 @@ Router::register('/employe/promotion/edit', 'PromotionController::edit');
 
 // Gestion des salariés
 Router::register('/administrateur', 'AdminController::showAll');
-Router::register('/administrateur/insert', 'AdminController::insert');
+Router::register('/administrateur/insert', 'AdminController::insertEmployee');
 Router::register('/administrateur/edit', 'AdminController::edit');
 Router::register('/administrateur/delete', 'AdminController::delete');
 

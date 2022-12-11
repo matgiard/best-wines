@@ -120,5 +120,20 @@ class User extends Model
         ]);
         return $this->pdo->lastInsertId();
     }
-    
+
+    /**
+     * Insérer un employé dans la BDD
+     * @return int|false  l'id du dernier élément inséré ou false dans le cas d'échec
+     */
+    public function insertEmployee(): int|false
+    {
+        $stmt = $this->pdo->prepare("INSERT INTO user (`email`, `password`, `is_employee`) VALUES (:email, :password, :is_employee)");
+
+        $stmt->execute([
+            "email" => $this->email,
+            "password" => password_hash($this->password, PASSWORD_ARGON2ID),
+            "is_employee" => true
+        ]);
+        return $this->pdo->lastInsertId();
+    }
 }
