@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
+
+<div id= "shopping-paypal">
   <!-- Replace "test" with your own sandbox Business account app client ID -->
-  <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=Ad3W5NwEIU0dsnq-0ceovxjEu4rMfLjiXByoqs08JqjYGS1rUy7oqwVprP4jWDr91NIe1fC9_kk2Ypbq&currency=USD"></script>
   <!-- Set up a container element for the button -->
   <div id="paypal-button-container"></div>
   <script>
@@ -15,7 +11,7 @@
         return actions.order.create({
           purchase_units: [{
             amount: {
-              value: '77.44' // Can also reference a variable or function
+              value: '<?= $total ?>' // Can also reference a variable or function
             }
           }]
         });
@@ -35,5 +31,4 @@
       }
     }).render('#paypal-button-container');
   </script>
-</body>
-</html>
+</div>

@@ -33,11 +33,13 @@
 					$total_quantity += $item["quantity"];
 					$total_price += ($item["price"] * $item["quantity"]);
 				}
+				$_SESSION['total_price'] = $total_price ;
 				?>
 
 				<tr>
 					<td colspan="2" align="right">Total:</td>
-					<td align="right"><?php echo $total_quantity; ?></td>
+					<td align="right"><?php
+					 echo $total_quantity; ?></td>
 					<td align="right" colspan="2"><strong><?php echo number_format($total_price, 2) . " €"; ?></strong></td>
 					<td></td>
 				</tr>
@@ -54,7 +56,7 @@
 <div></div>
 <div class="no-records">
 	<?php if (isset($_SESSION["cart_item"])) : ?>
-		<a href="" class="btn btn-danger">Valider commande</a>
+		<a href="/best-wines/pay" class="btn btn-danger">Valider commande</a>
 		
 	<?php endif ?>
 	<a href="<?= $_SESSION['last_page'] ?>" class="btn btn-danger">Revenir aux Articles</a>
