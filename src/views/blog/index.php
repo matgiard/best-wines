@@ -9,9 +9,12 @@
 <h1>Nos Articles</h1>
 <?php foreach ($articles as $article) : ?>
     <div class="border">
+        <div class="col-md-4">
+            <img src="uploads/blog/<?= $article['photo_article']; ?>" alt="" class="img-fluid rounded-start">
+        </div>
         <h2><?= $article['title'] ?></h2>
         <div><?= substr($article['content'], 0, 300) ?></div>
         <a href="<?= BASE_DIR ?>/blog/details?id=<?= $article['id'] ?>">Voir plus</a>
-        <small>Ajouté le <?= $article['date'] ?></small>
+        < <small>Ajouté le <?= $article['date'] ?></small>
     </div>
 <?php endforeach ?>

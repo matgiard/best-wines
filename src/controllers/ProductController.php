@@ -36,7 +36,7 @@ class ProductController extends Controller
     public function showAllRedWines()
     {
         $product = new Product();
-        $products = $product->findAllProductBy(['id_type' => 2, 'id_cepage' => 9]);
+        $products = $product->findAllProductBy(['id_type' => 2]);
         $this->renderView('product/wines/allProductRed', compact('products'));
     }
 

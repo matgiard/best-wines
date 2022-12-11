@@ -19,6 +19,7 @@ class BlogController extends Controller
         $articles = $article->findAll();
 
 
+
         $this->renderView('blog/index', compact('articles'));
     }
 
@@ -59,7 +60,7 @@ class BlogController extends Controller
 
                 if ($_FILES['image']['error'] == 0 && in_array($_FILES['image']['type'], $allowed)) {
 
-                    $folder = "uploads/blog";
+                    $folder = "uploads/blog/";
                     if (!file_exists($folder)) {
                         mkdir($folder, 0777, true);
                     }

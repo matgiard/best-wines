@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="col col-lg-3">
-                    <label for="customRange" class="col-3 mb-3"> Trier par prix maximum : <span id="rangeValue">1</span>  €</label>
+                    <label for="customRange" class="col-3 mb-3"> Trier par prix maximum : <span id="rangeValue">1</span> €</label>
                     <input type="range" name="filterPrice" value="1" min="1" max="1000" class="form-range" id="customRange" onchange="rangeSlide(this.value)">
                 </div>
                 <div class="col col-lg-3">
@@ -65,25 +65,25 @@
                 <div class="row g-0">
                     <div class="col-md-4">
                         <img src="uploads/<?= $product['photo'] ?>" alt="<?= $product['name'] ?>" srcset="" class="img-fluid rounded-start">
-                    </div>
-                    <div class="col-md-8">
-                        <h5 class="card-title"><?= $product['name'] ?></h5>
-                        <p class="card-text">description: <?= $product['description'] ?></p>
-                        <p class="card-text">Pourcentage d'alcool: <?= $product['alcohol_percentage'] ?>%</p>
-                        <p class="card-text">Région: <?= $product['region_name'] ?></p>
-                        <p class="card-text">Prix Unitaire: <?= $product['price'] ?>€</p>
-                        <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $product['name'] ?>" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x ">Détails</a>
+
+                        <div class="col-md-8">
+                            <h5 class="card-title"><?= $product['name'] ?></h5>
+                            <p class="card-text">description: <?= $product['description'] ?></p>
+                            <p class="card-text">Pourcentage d'alcool: <?= $product['alcohol_percentage'] ?>%</p>
+                            <p class="card-text">Région: <?= $product['region_name'] ?></p>
+                            <p class="card-text">Prix Unitaire: <?= $product['price'] ?>€</p>
+                            <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $product['name'] ?>" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x ">Détails</a>
+                        </div>
                     </div>
                 </div>
+
+            <?php endforeach; ?>
+
             </div>
 
-        <?php endforeach; ?>
-
     </div>
-
-</div>
-<script>
-    const rangeSlide = (value) => {
-        document.getElementById("rangeValue").innerHTML = value;
-    }
-</script>
+    <script>
+        const rangeSlide = (value) => {
+            document.getElementById("rangeValue").innerHTML = value;
+        }
+    </script>
