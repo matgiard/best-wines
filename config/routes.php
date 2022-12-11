@@ -16,7 +16,11 @@ Router::register('/nos-vins/nos-champagnes', 'ProductController::showAllChampagn
 Router::register('/nos-vins/detail', 'ProductController::showOne');
 
 //product cart
-Router::register('/cart', 'CartController::addProduct');
+Router::register('/cart', 'CartController::index');
+Router::register('/cart/add', 'CartController::addProduct');
+Router::register('/cart/remove', 'CartController::removeProduct');
+Router::register('/cart/empty', 'CartController::emptyCart');
+
 
 // Fournisseur 
 Router::register('/nos-fournisseurs', 'SupplierController::showFournisseur');

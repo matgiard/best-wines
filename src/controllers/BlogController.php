@@ -3,7 +3,9 @@
 namespace App\Controllers;
 
 use Core\Controller;
+use App\Models\Product;
 use App\Models\Article;
+
 
 
 class BlogController extends Controller
@@ -12,8 +14,15 @@ class BlogController extends Controller
 
     public function showArticle()
     {
-        $this->renderView('blog/index');
+
+        $article = new Article;
+        $articles = $article->findAll();
+
+
+        $this->renderView('blog/index', compact('articles'));
     }
+
+
 
 
     public function editArticle()
@@ -31,9 +40,10 @@ class BlogController extends Controller
 
             $article = new Article;
             $article->setTitle(htmlentities($_POST['title']));
-            $article->setContent(htmlentities($_POST['content']));
+            $article->setContent(($_POST['content']));
             // $article->setDate(htmlentities($_POST['date']));
             $article->setPhoto_article($_FILES['image']['name']);
+
 
             if (count($_FILES) > 0) {
                 $allowed[] = "image/jpeg";

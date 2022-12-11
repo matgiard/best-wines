@@ -12,14 +12,10 @@
         <label for="titre">Titre</label>
         <input type="text" name="title" id="title">
     </div>
-    <div>
-        <label for="content">Zone de texte</label>
-        <textarea id="editor" type="text-area" name="content" id="content" rows="30" cols="50"></textarea>
-        <!-- <div id="editor" name="content" id="content"> -->
+    <label for="content">Votre Article</label>
+    <textarea id="mytextarea" name="content"></textarea>
 
-    </div>
 
-    </div>
     <div>Ajouter une photo:
         <label for="image_browser">
             <img src="<?php $image ?>">
@@ -30,30 +26,11 @@
         <small class="file_info text-muted"></small>
     </div>
     <input type="submit" name="submit" value="Enregistrer">
-
 </form>
-
-
-
-
-
-<!-- Include the Quill library -->
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-
-<!-- Initialize Quill editor -->
+<script src="../../../best-wines/node_modules/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
-    var quill = new Quill('#editor', {
-        modules: {
-            toolbar: [
-                [{
-                    header: [1, 2, false]
-                }],
-                ['bold', 'italic', 'underline'],
-                ['image', 'code-block']
-            ]
-        },
-        placeholder: 'Ecrivez votre article',
-        theme: 'snow'
+    tinymce.init({
+        selector: '#mytextarea'
     });
 
     function display_image_name(file_name) {
