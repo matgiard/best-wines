@@ -28,10 +28,9 @@ class BlogController extends Controller
     {
         $id = $_GET['id'];
         $article = new Article;
-
         $article_blog = $article->find($id);
 
-        $this->renderView('blog/details', compact('article_blog'));
+        $this->renderView('blog/details', compact('article_blog', 'id'));
     }
 
     public function editArticle()
