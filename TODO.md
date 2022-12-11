@@ -17,3 +17,5 @@ Chose à faire et ou à discutter ensemble
 <!-- #8 Ajouter catégories pour les differents produits : Rouge / Blanc / Champagne / Coffret. -->
 
 #9 Ajouter prix_unitaire à la table product (SINON ON PERDS DE L'ARGENT)
+
+10# Repenser la BDD pour lier peut-être user et invoice directement, et comment et user directement sans passer par sales

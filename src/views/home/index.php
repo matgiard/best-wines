@@ -71,7 +71,7 @@
 </div>
 
 
-<div class="bg-danger">
+<div style="background-color: #9e121b">
 <h1 class="p-1 text-light"> Nos recommandations</h1>
 <div class="container mt-1 ">
     <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -88,7 +88,7 @@
                     <p class="card-text">Prix Unitaire: <?= $featuredWhiteWine['price'] ?>€</p>
                     <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $featuredWhiteWine['name'] ?>" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x ">Détails</a>
                 </div>
-            </div>git 
+            </div>
         </div>
         <div class="card mb-3" style="max-width: 540px; min-height: 300px">
             <div class="row g-0">

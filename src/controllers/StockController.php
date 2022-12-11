@@ -65,6 +65,7 @@ class StockController extends Controller
             $product->setId_type($_POST['id_type']);
             $product->setPrice($_POST['price']);
             $product->setPhoto($_FILES['image']['name']);
+            $product->setIsFeatured($_POST['is_featured']);
 
             if (count($_FILES) > 0) {
                 $allowed[] = "image/jpeg";

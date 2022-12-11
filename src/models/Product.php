@@ -21,6 +21,7 @@ class Product extends Model
     private int $id_comment;
     private int $id_type;
     private float $price;
+    private int $is_featured;
     protected string $table_name = "product";
 
 
@@ -289,7 +290,25 @@ class Product extends Model
     {
         $this->price = $price;
     }
+  /**
+     * Get the value of is_featured
+     * @return int
+     */
+    public function getIsFeatured(): int
+    {
+        return $this->is_featured;
+    }
 
+    /**
+     * Set the value of is_featured
+     * @param int is_featured
+     *
+     * @return float
+     */
+    public function setIsFeatured(float $is_featured): void
+    {
+        $this->is_featured = $is_featured;
+    }
     /**
      * Set the value of id_type
      * @param int $id_type
@@ -305,7 +324,7 @@ class Product extends Model
      */
     public function insert(): int|false
     {
-        $stmt = $this->pdo->prepare("INSERT INTO product (`name`,`description`,`photo`,`stock`,`alcohol_percentage`,`id_region`,`id_cepage`,`id_taste`,`id_association`,`id_type`,`price`) VALUES (:name,:description,:photo,:stock,:alcohol_percentage,:id_region,:id_cepage,:id_taste,:id_association,:id_type,:price)");
+        $stmt = $this->pdo->prepare("INSERT INTO product (`name`,`description`,`photo`,`stock`,`alcohol_percentage`,`id_region`,`id_cepage`,`id_taste`,`id_association`,`id_type`,`price`, `is_featured`) VALUES (:name,:description,:photo,:stock,:alcohol_percentage,:id_region,:id_cepage,:id_taste,:id_association,:id_type,:price,:is_featured)");
 
         $stmt->execute([
             "name" => $this->name,
@@ -318,7 +337,8 @@ class Product extends Model
             "id_taste" => $this->id_taste,
             "id_association" => $this->id_association,
             "id_type" => $this->id_type,
-            "price" => $this->price
+            "price" => $this->price,
+            "is_featured" => $this->is_featured
 
         ]);
         return $this->pdo->lastInsertId();
