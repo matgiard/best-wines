@@ -2,8 +2,7 @@
 	<div class="txt-heading">Shopping Cart</div>
 
 	<a id="btnEmpty" href="cart/empty">Empty Cart</a>
-	<?php
-	if (isset($_SESSION["cart_item"])) {
+	<?php	if (isset($_SESSION["cart_item"])) {
 		$total_quantity = 0;
 		$total_price = 0;
 	?>

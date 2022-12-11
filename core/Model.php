@@ -42,11 +42,12 @@ abstract class Model
      * @param boolean $is_array s'il est à true on aura les résultats sous format d'un tableau associatif, si non c'est le format du model
      * @return array
      */
-
-    public function findAll(bool $is_array = false): array|false
+    public function findAll(): array
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM {$this->table_name}");
+        $stmt = $this->pdo->prepare(
+            "SELECT * FROM {$this->table_name}"
 
+        );
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
 
         $stmt->execute();
@@ -142,7 +143,6 @@ abstract class Model
         if (empty($criteria)) {
             throw  new \Exception("Il faut passer au moins un critère");
         }
-        // erreur edit stock
         $sql_query = "SELECT * FROM {$this->table_name} JOIN {$this->regionJoin} JOIN {$this->cepage} JOIN {$this->association}  JOIN {$this->taste}  WHERE ";
 
         $count = 0;
@@ -161,67 +161,6 @@ abstract class Model
 
         // if ($is_array)
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-        // else
-        //     $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
-
-        $stmt->execute();
-        return $stmt->fetch();
-    }
-
-    public function findOneItemBy(array $criteria, bool $is_array = false): object|array|false
-    {
-        if (empty($criteria)) {
-            throw  new \Exception("Il faut passer au moins un critère");
-        }
-        // erreur edit stock
-        $sql_query = "SELECT * FROM {$this->table_name} WHERE ";
-
-        $count = 0;
-        foreach ($criteria as $key => $value) {
-            $count++;
-            if ($count > 1) {
-                $sql_query .= " AND ";
-            }
-            $sql_query .= " $key = :$key ";
-        }
-
-        $stmt = $this->pdo->prepare($sql_query);
-        foreach ($criteria as $key => $value) {
-            $stmt->bindParam(":$key", $value);
-        }
-
-        // if ($is_array)
-        $stmt->setFetchMode(\PDO::FETCH_OBJ);
-        // else
-        //     $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
-
-        $stmt->execute();
-        return $stmt->fetch();
-    }
-
-    public function findOneUserBy(array $criteria, bool $is_array = false): object|array|false
-    {
-        if (empty($criteria)) {
-            throw  new \Exception("Il faut passer au moins un critère");
-        }
-        $sql_query = "SELECT * FROM {$this->table_name}   WHERE ";
-
-        $count = 0;
-        foreach ($criteria as $key => $value) {
-            $count++;
-            if ($count > 1) {
-                $sql_query .= " AND ";
-            }
-            $sql_query .= " $key = :$key ";
-        }
-
-        $stmt = $this->pdo->prepare($sql_query);
-        foreach ($criteria as $key => $value) {
-            $stmt->bindParam(":$key", $value);
-        }
-
-        // if ($is_array)
-        $stmt->setFetchMode(\PDO::FETCH_OBJ);
         // else
         //     $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
 
@@ -245,12 +184,73 @@ abstract class Model
         }
 
         $sql_query2 = $sql_query . "ORDER BY product.id DESC LIMIT 1";
+    
         $stmt = $this->pdo->prepare($sql_query2);
         foreach ($criteria as $key => $value) {
             $stmt->bindParam(":$key", $value);
         }
         // if ($is_array)
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        // else
+        //     $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
+
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+    public function findOneForEdit(array $criteria, bool $is_array = false): object|array|false
+    {
+        if (empty($criteria)) {
+            throw  new \Exception("Il faut passer au moins un critère");
+        }
+        // erreur edit stock
+        $sql_query = "SELECT * FROM {$this->table_name}   WHERE ";
+
+        $count = 0;
+        foreach ($criteria as $key => $value) {
+            $count++;
+            if ($count > 1) {
+                $sql_query .= " AND ";
+            }
+            $sql_query .= " $key = :$key ";
+        }
+
+        $stmt = $this->pdo->prepare($sql_query);
+        foreach ($criteria as $key => $value) {
+            $stmt->bindParam(":$key", $value);
+        }
+
+        // if ($is_array)
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        // else
+        //     $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
+
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+     public function findOneItemBy(array $criteria, bool $is_array = false): object|array|false
+    {
+        if (empty($criteria)) {
+            throw  new \Exception("Il faut passer au moins un critère");
+        }
+        // erreur edit stock
+        $sql_query = "SELECT * FROM {$this->table_name} WHERE ";
+
+        $count = 0;
+        foreach ($criteria as $key => $value) {
+            $count++;
+            if ($count > 1) {
+                $sql_query .= " AND ";
+            }
+            $sql_query .= " $key = :$key ";
+        }
+
+        $stmt = $this->pdo->prepare($sql_query);
+        foreach ($criteria as $key => $value) {
+            $stmt->bindParam(":$key", $value);
+        }
+
+        // if ($is_array)
+        $stmt->setFetchMode(\PDO::FETCH_OBJ);
         // else
         //     $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
 
@@ -282,37 +282,6 @@ abstract class Model
             'id' => $to_edit
         ]);
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-        return $stmt->fetch();
-    }
-
-    public function findOneForEdit(array $criteria, bool $is_array = false): object|array|false
-    {
-        if (empty($criteria)) {
-            throw  new \Exception("Il faut passer au moins un critère");
-        }
-        // erreur edit stock
-        $sql_query = "SELECT * FROM {$this->table_name}   WHERE ";
-
-        $count = 0;
-        foreach ($criteria as $key => $value) {
-            $count++;
-            if ($count > 1) {
-                $sql_query .= " AND ";
-            }
-            $sql_query .= " $key = :$key ";
-        }
-
-        $stmt = $this->pdo->prepare($sql_query);
-        foreach ($criteria as $key => $value) {
-            $stmt->bindParam(":$key", $value);
-        }
-
-        // if ($is_array)
-        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-        // else
-        //     $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
-
-        $stmt->execute();
         return $stmt->fetch();
     }
 }

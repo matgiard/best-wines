@@ -59,13 +59,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="./nos-vins" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Vins
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Rouges</a></li>
-                        <li><a class="dropdown-item" href="#">Blancs</a></li>
-                        <li><a class="dropdown-item" href="#">Champagnes</a></li>
+                        <li><a class="dropdown-item" href="./nos-vins/rouge">Rouges</a></li>
+                        <li><a class="dropdown-item" href="./nos-vins/blanc'">Blancs</a></li>
+                        <li><a class="dropdown-item" href="./nos-vins/nos-champagnes">Champagnes</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
