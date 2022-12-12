@@ -156,4 +156,16 @@ class Article extends Model
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
         return $stmt->fetch();
     }
+    public function findLast(): object|array|false
+    {
+           $stmt = $this->pdo->prepare("SELECT * FROM {$this->table_name} ORDER BY article.id DESC LIMIT 1");
+           
+        // if ($is_array)
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        // else
+        //     $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
+
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 }
