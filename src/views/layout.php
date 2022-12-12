@@ -42,6 +42,9 @@
                             <li class="dropdown-item-log">
                             <a class="nav-link" href="<?= BASE_DIR ?>/login">Se connecter</a>
                         </li>
+                        <li class="dropdown-item-log">
+                            <a class="nav-link" href="<?= BASE_DIR ?>/register">S'enregistrer</a>
+                        </li>
                         <?php endif ?>
                         <hr class="dropdown-divider">
                 </li>
