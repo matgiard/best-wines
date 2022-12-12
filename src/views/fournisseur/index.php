@@ -7,7 +7,7 @@
 <?php endif; ?>
 
 <h1>Nos Fournisseurs</h1>
-<a href="<?= BASE_DIR ?>/nos-fournisseurs" class="btn btn-warning">Ajouter un fournisseur</a>
+<a href="<?= BASE_DIR ?>/nos-fournisseurs/insert" class="btn btn-warning">Ajouter un fournisseur</a>
 <?php foreach ($suppliers as $supplier) : ?>
 
     <div class="border">
