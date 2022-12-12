@@ -52,6 +52,7 @@ abstract class Model
 
         $stmt->execute();
         return $stmt->fetchAll();
+       
     }
 
     public function findAllProduct(): array

@@ -1,10 +1,3 @@
-<div class="text-center p-3">
-    <a class='btn btn-danger' href="register">ajout utilisateur dans BDD</a>
-    <a class='btn btn-success' href="employe/stock">BDD PRODUITS</a>
-    <a class='btn btn-success' href="nos-vins">Nos Vins</a>
-    <a class='btn btn-success' href="blog">blog</a>
-</div>
-
 
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
         <div class="carousel-indicators">
@@ -177,4 +170,20 @@
             </div>
         </div>
     </div>
+</div>
+<div>
+
+<h1>Notre dernier article</h1>
+
+
+    <div class="border">
+        <div class="col-md-4">
+            <img src="<?= BASE_DIR ?>/uploads/blog/<?= $articles['photo_article']; ?>" alt="" class="img-fluid rounded-start">
+        </div>
+        <h2><?= $articles['title'] ?></h2>
+        <div><?= substr($articles['content'], 0, 300) ?></div>
+        <a href="<?= BASE_DIR ?>/blog/details?id=<?= $articles['id'] ?>">Voir plus</a>
+        <small>Ajouté le <?= date('d-m-Y H:i:s', strtotime($articles['date'])) ?></small>
+    </div>
+
 </div>
