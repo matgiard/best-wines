@@ -56,8 +56,8 @@
 <div></div>
 <div class="no-records">
 	<?php if (isset($_SESSION["cart_item"])) : ?>
-		<a href="/best-wines/pay" class="btn btn-danger">Valider commande</a>
+		<a href="/best-wines/pay" class="btn btn-danger">Valider la commande</a>
 		
 	<?php endif ?>
-	<a href="<?= $_SESSION['last_page'] ?>" class="btn btn-danger">Revenir aux Articles</a>
+	<a href="<?= $_SESSION['last_page'] ?>" class="btn btn-danger">Revenir à la page précédente</a>
 </div>
