@@ -162,6 +162,9 @@ min-height: 300px;
 	clear: both;
 	margin: 38px 0px;
 }
-
+.monCarrousel{
+	max-height: 450px; 
+	object-fit: cover;
+}
 
 /*# sourceMappingURL=style.css.map */
