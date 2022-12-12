@@ -1,3 +1,10 @@
+<div class="text-center p-3">
+    <a class='btn btn-danger' href="register">ajout utilisateur dans BDD</a>
+    <a class='btn btn-success' href="employe/stock">BDD PRODUITS</a>
+    <a class='btn btn-success' href="nos-vins">Nos Vins</a>
+    <a class='btn btn-success' href="blog">blog</a>
+</div>
+
 
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
         <div class="carousel-indicators">
@@ -34,6 +41,8 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+
+
 
 <div class="container mt-5">
     <div class="row row-cols-1 row-cols-md-4 g-4">
