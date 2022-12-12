@@ -26,10 +26,11 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="/best-wines/uploads/carrousel/3.png" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-
-            </div>
+            <a href="<?= BASE_DIR ?>/nos-vins/nos-champagnes">
+                <img src="/best-wines/uploads/carrousel/3.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </a>
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -111,7 +112,7 @@
 
 
 <div style="background-color: #9e121b">
-    <h1 class="p-1 text-light text-center"> Nos recommandations</h1>
+    <h1 class="p-1 text-light"> Nos recommandations</h1>
     <div class="container mt-1 ">
         <div class="row row-cols-1 row-cols-md-4 g-4">
             <div class="card mb-3" style="max-width: 540px; min-height: 300px">
@@ -179,12 +180,12 @@
 </div>
 <div>
 
-<h1>Notre dernier article</h1>
+    <h1 class="m-3">Notre dernier article</h1>
 
 
     <div class="border">
         <div class="col-md-4">
-            <img src="<?= BASE_DIR ?>/uploads/blog/<?= $articles['photo_article']; ?>" alt="" class="img-fluid rounded-start">
+            <img src="<?= BASE_DIR ?>/uploads/blog/<?= $articles['photo_article']; ?>" alt="" class="img-fluid rounded-start ">
         </div>
         <h2><?= $articles['title'] ?></h2>
         <div><?= substr($articles['content'], 0, 300) ?></div>

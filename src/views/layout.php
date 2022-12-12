@@ -118,7 +118,7 @@
     
 </body>
     <!-- Footer -->
-    <footer class="text-center text-lg-star footer bottom">
+    <footer class="text-center text-lg-star footer p-1">
         <!-- Section: Links  -->
         <section class="">
             <div class="container text-center text-md-start mt-5">
@@ -161,16 +161,18 @@
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto my-4">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
-                            Vins
+                        <a href="<?= BASE_DIR ?>/nos-vins/" class="text-reset">Notre catalogue</a>
+
                         </h6>
+
                         <p>
-                            <a href="#!" class="text-reset">Rouges</a>
+                            <a href="<?= BASE_DIR ?>/nos-vins/rouge" class="text-reset">Rouges</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Blancs</a>
+                            <a href="<?= BASE_DIR ?>/nos-vins/blanc" class="text-reset">Blancs</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Champagne</a>
+                            <a href="<?= BASE_DIR ?>/nos-vins/nos-champagnes" class="text-reset">Champagne</a>
                         </p>
                     </div>
                     <!-- Grid column -->
@@ -178,21 +180,10 @@
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto my-4">
                         <!-- Links -->
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            Coffrets
+                        <h6 class="text-uppercase fw-bold mb-4"><a href=""></a>
+                           <a href="<?= BASE_DIR ?>/nos-coffrets" class="text-reset">Coffrets</a> 
                         </h6>
-                        <p>
-                            <a href="#!" class="text-reset">Rouges</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">Blancs</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">Champagne</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">Multi</a>
-                        </p>
+                   
                     </div>
                     <!-- Grid column -->
 
