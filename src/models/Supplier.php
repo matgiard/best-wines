@@ -10,6 +10,7 @@ class Supplier extends Model
     private string $name;
     private string $content;
     private string $image_supp;
+    protected string $table_name = "supplier";
 
     /**
      * Get the value of id
