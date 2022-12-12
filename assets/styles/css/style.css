@@ -148,13 +148,16 @@ min-height: 300px;
 	object-fit: cover;
 }
 .color1{
-	color: #FFF;
+	color: #FFF !important;
 	background-color: #9e121b;	
 }
 
 .color1:hover{	
-	color: #FFF;
+	color: #FFF !important;
 	background-color: #9e121ba1;	
 }
-
-
+.accordion-button:not(.collapsed) {
+	background-color: #9e121b !important;
+	color:#FFF;
+	border-color: #9e121b;
+}
