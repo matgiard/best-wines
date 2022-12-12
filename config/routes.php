@@ -24,6 +24,7 @@ Router::register('/cart/empty', 'CartController::emptyCart');
 
 // Fournisseur 
 Router::register('/nos-fournisseurs', 'SupplierController::showFournisseur');
+Router::register('/nos-fournisseurs/detail', 'SupplierController::showOne');
 
 // Qui-sommes-nous
 Router::register('/nous-contacter', 'PresentationController::showContact');
