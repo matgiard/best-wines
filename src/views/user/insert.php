@@ -20,7 +20,7 @@
         <input type="texte" name="password" id="password" class="form-control">
     </div>
     <div class="form-group pt-3">
-        <input type="submit" name="submit" value="Enregistrer" class="btn btn-primary">
+        <input type="submit" name="submit" value="Enregistrer" class="btn color1">
     </div>
 
 

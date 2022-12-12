@@ -20,15 +20,15 @@
         </div>
 
         <!-- input for Submit -->
-        <div class="form-group">
-            <input type="submit" name="submit" value="Se connecter" class="btn btn-primary pt-3">
+        <div class="form-group pt-3">
+            <input type="submit" name="submit" value="Se connecter" class="btn color1">
         </div>
     </form>
 </div>
 
 <div class="container d-grid gap-3 mt-5">
     <p class="mb-3 mx-auto"> Si vous n'avez pas encore de compte, vous pouvez en créer un maintenant.</p>
-    <a class="btn btn-primary mb-3 mx-auto" role="button" aria-disabled="true" href="register">Créer un compte</a>
+    <a class="btn color1 mb-3 mx-auto" role="button" aria-disabled="true" href="register">Créer un compte</a>
 </div>
 
 <?php

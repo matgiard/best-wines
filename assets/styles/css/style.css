@@ -147,5 +147,14 @@ min-height: 300px;
 	max-height: 450px; 
 	object-fit: cover;
 }
+.color1{
+	color: #FFF;
+	background-color: #9e121b;	
+}
+
+.color1:hover{	
+	color: #FFF;
+	background-color: #9e121ba1;	
+}
 
 /*# sourceMappingURL=style.css.map */

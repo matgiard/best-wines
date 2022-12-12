@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -13,9 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Best wines</title>
 </head>
-
 <!-- A MODIFIER -->
-
 <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container-fluid">
         <a class="navbar-brand" href="/best-wines">Best Wines</a>
@@ -28,7 +25,6 @@
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-light" type="submit">Rechercher</button>
                 </form>
-
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Menu
@@ -48,9 +44,7 @@
                         <?php endif ?>
                         <hr class="dropdown-divider">
                 </li>
-         
             </ul>
-
             </li>
             </ul>
         </div>
@@ -77,10 +71,19 @@
                     <a class="nav-link" href="<?= BASE_DIR ?>/nos-coffrets" role="button">
                         Coffrets
                     </a>
-
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Nos fournisseurs</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="./nos-vins" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Qui sommes nous
+                    </a>
+                    <ul class="dropdown-menu ">
+                        <li><a class="dropdown-item" href="<?= BASE_DIR ?>/qui-sommes-nous">Présentation BestWynes</a></li>
+                        <li><a class="dropdown-item" href="<?= BASE_DIR ?>/presse">La presse parle de nous</a></li>
+                        <li><a class="dropdown-item" href="<?= BASE_DIR ?>/mentions-legales">Les mentions légales</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="aboutUs">Qui sommes nous</a>
@@ -105,22 +108,19 @@
         </div>
     </div>
 </nav>
-
-
-
 <body>
 
     <?= $content ?>
 
     <!-- Footer -->
-    <footer class="text-center text-lg-star footer">
+    <footer class="text-center text-lg-star footer ">
         <!-- Section: Links  -->
         <section class="">
             <div class="container text-center text-md-start mt-5">
                 <!-- Grid row -->
                 <div class="row mt-3">
                     <!-- Grid column -->
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto my-4">
                         <!-- Content -->
                         <h6 class="text-uppercase fw-bold mb-4">
                             <i class="fas fa-gem me-3 text-secondary"></i>Best Wines
@@ -153,7 +153,7 @@
                     <!-- Grid column -->
 
                     <!-- Grid column -->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto my-4">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
                             Vins
@@ -171,7 +171,7 @@
                     <!-- Grid column -->
 
                     <!-- Grid column -->
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto my-4">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
                             Coffrets
@@ -192,7 +192,7 @@
                     <!-- Grid column -->
 
                     <!-- Grid column -->
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto my-4">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
                             Aide
