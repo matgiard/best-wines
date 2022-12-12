@@ -1,9 +1,52 @@
 <div class="text-center p-3">
-<a class='btn btn-danger' href="register">ajout utilisateur dans BDD</a>
-<a class='btn btn-success' href="employe/stock">BDD PRODUITS</a>
-<a class='btn btn-success' href="nos-vins">Nos Vins</a>
-<a class='btn btn-success' href="blog">blog</a>
+    <a class='btn btn-danger' href="register">ajout utilisateur dans BDD</a>
+    <a class='btn btn-success' href="employe/stock">BDD PRODUITS</a>
+    <a class='btn btn-success' href="nos-vins">Nos Vins</a>
+    <a class='btn btn-success' href="blog">blog</a>
 </div>
+
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner monCarrousel ">
+            <div class="carousel-item active">
+                <img src="/best-wines/uploads/carrousel/car3.jpg" class="d-block w-100 img-fluid" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>Some representative placeholder content for the first slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/best-wines/uploads/carrousel/NOEL.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Second slide label</h5>
+                    <p>Some representative placeholder content for the second slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/best-wines/uploads/carrousel/car2.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Third slide label</h5>
+                    <p>Some representative placeholder content for the third slide.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+
 <div class="container mt-5">
     <div class="row row-cols-1 row-cols-md-4 g-4">
         <div class="card mb-3" style="max-width: 540px; min-height: 300px">
@@ -72,69 +115,69 @@
 
 
 <div style="background-color: #9e121b">
-<h1 class="p-1 text-light"> Nos recommandations</h1>
-<div class="container mt-1 ">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-        <div class="card mb-3" style="max-width: 540px; min-height: 300px">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="uploads/<?= $featuredWhiteWine['photo'] ?>" alt="<?= $featuredWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+    <h1 class="p-1 text-light"> Nos recommandations</h1>
+    <div class="container mt-1 ">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="card mb-3" style="max-width: 540px; min-height: 300px">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="uploads/<?= $featuredWhiteWine['photo'] ?>" alt="<?= $featuredWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+                    </div>
+                    <div class="col-md-8">
+                        <h5 class="card-title"><?= $featuredWhiteWine['name'] ?></h5>
+                        <p class="card-text">description: <?= $featuredWhiteWine['description'] ?></p>
+                        <p class="card-text">Pourcentage d'alcool: <?= $featuredWhiteWine['alcohol_percentage'] ?>%</p>
+                        <p class="card-text">Région: <?= $featuredWhiteWine['region_name'] ?></p>
+                        <p class="card-text">Prix Unitaire: <?= $featuredWhiteWine['price'] ?>€</p>
+                        <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $featuredWhiteWine['name'] ?>" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x ">Détails</a>
+                    </div>
                 </div>
-                <div class="col-md-8">
-                    <h5 class="card-title"><?= $featuredWhiteWine['name'] ?></h5>
-                    <p class="card-text">description: <?= $featuredWhiteWine['description'] ?></p>
-                    <p class="card-text">Pourcentage d'alcool: <?= $featuredWhiteWine['alcohol_percentage'] ?>%</p>
-                    <p class="card-text">Région: <?= $featuredWhiteWine['region_name'] ?></p>
-                    <p class="card-text">Prix Unitaire: <?= $featuredWhiteWine['price'] ?>€</p>
-                    <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $featuredWhiteWine['name'] ?>" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x ">Détails</a>
+            </div>
+            <div class="card mb-3" style="max-width: 540px; min-height: 300px">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="uploads/<?= $featuredRedWine['photo'] ?>" alt="<?= $featuredRedWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+                    </div>
+                    <div class="col-md-8">
+                        <h5 class="card-title"><?= $featuredRedWine['name'] ?></h5>
+                        <p class="card-text">description: <?= $featuredRedWine['description'] ?></p>
+                        <p class="card-text">Pourcentage d'alcool: <?= $featuredRedWine['alcohol_percentage'] ?>%</p>
+                        <p class="card-text">Région: <?= $featuredRedWine['region_name'] ?></p>
+                        <p class="card-text">Prix Unitaire: <?= $featuredRedWine['price'] ?>€</p>
+                        <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $featuredRedWine['name'] ?>" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x ">Détails</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 540px; min-height: 300px">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="uploads/<?= $featuredChampagne['photo'] ?>" alt="<?= $featuredChampagne['name'] ?>" srcset="" class="img-fluid rounded-start">
+                    </div>
+                    <div class="col-md-8">
+                        <h5 class="card-title"><?= $featuredChampagne['name'] ?></h5>
+                        <p class="card-text">description: <?= $featuredChampagne['description'] ?></p>
+                        <p class="card-text">Pourcentage d'alcool: <?= $featuredChampagne['alcohol_percentage'] ?>%</p>
+                        <p class="card-text">Région: <?= $featuredChampagne['region_name'] ?></p>
+                        <p class="card-text">Prix Unitaire: <?= $featuredChampagne['price'] ?>€</p>
+                        <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $featuredChampagne['name'] ?>" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x ">Détails</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 540px; min-height: 300px">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="uploads/<?= $featuredBox['photo'] ?>" alt="<?= $featuredBox['name'] ?>" srcset="" class="img-fluid rounded-start">
+                    </div>
+                    <div class="col-md-8">
+                        <h5 class="card-title"><?= $featuredBox['name'] ?></h5>
+                        <p class="card-text">description: <?= $featuredBox['description'] ?></p>
+                        <p class="card-text">Pourcentage d'alcool: <?= $featuredBox['alcohol_percentage'] ?>%</p>
+                        <p class="card-text">Région: <?= $featuredBox['region_name'] ?></p>
+                        <p class="card-text">Prix Unitaire: <?= $featuredBox['price'] ?>€</p>
+                        <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $featuredBox['name'] ?>" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x ">Détails</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="card mb-3" style="max-width: 540px; min-height: 300px">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="uploads/<?= $featuredRedWine['photo'] ?>" alt="<?= $featuredRedWine['name'] ?>" srcset="" class="img-fluid rounded-start">
-                </div>
-                <div class="col-md-8">
-                    <h5 class="card-title"><?= $featuredRedWine['name'] ?></h5>
-                    <p class="card-text">description: <?= $featuredRedWine['description'] ?></p>
-                    <p class="card-text">Pourcentage d'alcool: <?= $featuredRedWine['alcohol_percentage'] ?>%</p>
-                    <p class="card-text">Région: <?= $featuredRedWine['region_name'] ?></p>
-                    <p class="card-text">Prix Unitaire: <?= $featuredRedWine['price'] ?>€</p>
-                    <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $featuredRedWine['name'] ?>" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x ">Détails</a>
-                </div>
-            </div>
-        </div>
-        <div class="card mb-3" style="max-width: 540px; min-height: 300px">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="uploads/<?= $featuredChampagne['photo'] ?>" alt="<?= $featuredChampagne['name'] ?>" srcset="" class="img-fluid rounded-start">
-                </div>
-                <div class="col-md-8">
-                    <h5 class="card-title"><?= $featuredChampagne['name'] ?></h5>
-                    <p class="card-text">description: <?= $featuredChampagne['description'] ?></p>
-                    <p class="card-text">Pourcentage d'alcool: <?= $featuredChampagne['alcohol_percentage'] ?>%</p>
-                    <p class="card-text">Région: <?= $featuredChampagne['region_name'] ?></p>
-                    <p class="card-text">Prix Unitaire: <?= $featuredChampagne['price'] ?>€</p>
-                    <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $featuredChampagne['name'] ?>" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x ">Détails</a>
-                </div>
-            </div>
-        </div>
-        <div class="card mb-3" style="max-width: 540px; min-height: 300px">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="uploads/<?= $featuredBox['photo'] ?>" alt="<?= $featuredBox['name'] ?>" srcset="" class="img-fluid rounded-start">
-                </div>
-                <div class="col-md-8">
-                    <h5 class="card-title"><?= $featuredBox['name'] ?></h5>
-                    <p class="card-text">description: <?= $featuredBox['description'] ?></p>
-                    <p class="card-text">Pourcentage d'alcool: <?= $featuredBox['alcohol_percentage'] ?>%</p>
-                    <p class="card-text">Région: <?= $featuredBox['region_name'] ?></p>
-                    <p class="card-text">Prix Unitaire: <?= $featuredBox['price'] ?>€</p>
-                    <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $featuredBox['name'] ?>" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x ">Détails</a>
-                </div>
-            </div>
-        </div>
-    </div>
     </div>
 </div>
