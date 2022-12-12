@@ -1,8 +1,8 @@
-<header class="container d-grid gap-3 mt-5">
+<div class="container d-grid gap-3 mt-5">
     <div class="mb-3 mx-auto">
         <h1> Veuillez saisir vos identifiants pour vous connecter</h1>
     </div>
-</header>
+</div>
 
 <div class="container">
 <?php $errors ?>

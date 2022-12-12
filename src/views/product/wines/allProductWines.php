@@ -31,19 +31,19 @@
                     <div class="form-check text-start">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                         <label class="form-check-label" for="reverseCheck1">
-                            Notre séléction vin rouge
+                            Notre sélection vin rouge
                         </label>
                     </div>
                     <div class="form-check text-start">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                         <label class="form-check-label" for="reverseCheck2">
-                            Notre séléction de vin Blanc
+                            Notre sélection de vin Blanc
                         </label>
                     </div>
                     <div class="form-check text-start">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                         <label class="form-check-label" for="reverseCheck2">
-                            Notre séléction de champagne
+                            Notre sélection de champagne
                         </label>
                     </div>
                 </div>

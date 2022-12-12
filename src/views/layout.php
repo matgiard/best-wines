@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -13,8 +14,10 @@
     <title>Best wines</title>
 </head>
 <!-- A MODIFIER -->
-<nav class="navbar navbar-expand-lg navbar-custom">
-    <div class="container-fluid">
+<header>
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
         <a class="navbar-brand" href="/best-wines">Best Wines</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -32,20 +35,19 @@
                     <ul class="dropdown-menu droplog">
                         <?php if (isset($_SESSION['user']['is_logged']) && $_SESSION['user']['is_logged']) : ?>
                             <li class="dropdown-item-log">
-                            <a class="nav-link" href="<?= BASE_DIR ?>/logout">Se déconnecter</a>
-                        </li>
+                                <a class="nav-link" href="<?= BASE_DIR ?>/logout">Se déconnecter</a>
+                            </li>
                         <?php else : ?>
                             <li class="dropdown-item-log">
-                            <a class="nav-link" href="<?= BASE_DIR ?>/login">Se connecter</a>
-                        </li>
-                        <li class="dropdown-item-log">
-                            <a class="nav-link" href="<?= BASE_DIR ?>/register">S'enregistrer</a>
-                        </li>
+                                <a class="nav-link" href="<?= BASE_DIR ?>/login">Se connecter</a>
+                            </li>
+                            <li class="dropdown-item-log">
+                                <a class="nav-link" href="<?= BASE_DIR ?>/register">S'enregistrer</a>
+                            </li>
                         <?php endif ?>
                         <hr class="dropdown-divider">
+                    </ul>
                 </li>
-            </ul>
-            </li>
             </ul>
         </div>
     </div>
@@ -58,10 +60,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="./nos-vins" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="" data-bs-toggle="dropdown" aria-expanded="false">
                         Vins
                     </a>
                     <ul class="dropdown-menu ">
+                        <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins">Notre catalogue</a></li>
                         <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/rouge">Rouges</a></li>
                         <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/blanc">Blancs</a></li>
                         <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/nos-champagnes">Champagnes</a></li>
@@ -73,7 +76,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Nos fournisseurs</a>
+                    <a class="nav-link" href="<?= BASE_DIR ?>/nos-fournisseurs">Nos fournisseurs</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="./nos-vins" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -82,11 +85,10 @@
                     <ul class="dropdown-menu ">
                         <li><a class="dropdown-item" href="<?= BASE_DIR ?>/qui-sommes-nous">Présentation BestWynes</a></li>
                         <li><a class="dropdown-item" href="<?= BASE_DIR ?>/presse">La presse parle de nous</a></li>
+                        <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nous-contacter">Nous contacter</a></li>
                         <li><a class="dropdown-item" href="<?= BASE_DIR ?>/mentions-legales">Les mentions légales</a></li>
+                        <li><a class="dropdown-item" href="<?= BASE_DIR ?>/faq">Vos questions</a></li>
                     </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="aboutUs">Qui sommes nous</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= BASE_DIR ?>/blog">Blog</a>
@@ -96,24 +98,27 @@
                         Panier
                         <?php
                         if (isset($_SESSION["cart_item"])) {
-                        $total_quantity = 0;
-                        foreach ($_SESSION["cart_item"] as $item) {
-                            $total_quantity += $item["quantity"];
-                        }
-                        echo "(" .  $total_quantity . ")";
-                        }?>
+                            $total_quantity = 0;
+                            foreach ($_SESSION["cart_item"] as $item) {
+                                $total_quantity += $item["quantity"];
+                            }
+                            echo "(" .  $total_quantity . ")";
+                        } ?>
                     </a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+</header>
 <body>
 
+    
     <?= $content ?>
-
+    
+</body>
     <!-- Footer -->
-    <footer class="text-center text-lg-star footer ">
+    <footer class="text-center text-lg-star footer bottom">
         <!-- Section: Links  -->
         <section class="">
             <div class="container text-center text-md-start mt-5">
