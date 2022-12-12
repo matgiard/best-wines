@@ -1,4 +1,4 @@
-<!doctype html>
+-<!doctype html>
 <html lang="fr">
 
 <head>
@@ -11,7 +11,11 @@
     <!-- CSS for quill -->
     <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
+    
     <title>Best wines</title>
+   
 </head>
 
 <!-- A MODIFIER -->
@@ -111,6 +115,53 @@
 <body>
 
     <?= $content ?>
+
+    <style>
+    /* Formatting search box */
+    .search-box{
+        width: 300px;
+        position: relative;
+        display: inline-block;
+        font-size: 14px;
+    }
+    .search-box input[type="text"]{
+        height: 32px;
+        padding: 5px 10px;
+        border: 1px solid #CCCCCC;
+        font-size: 14px;
+    }
+    .result{
+        position: absolute;        
+        z-index: 999;
+        top: 100%;
+        left: 0;
+    }
+    .search-box input[type="text"], .result{
+        width: 100%;
+        box-sizing: border-box;
+    }
+    /* Formatting result items */
+    .result p{
+        margin: 0;
+        padding: 7px 10px;
+        border: 1px solid #CCCCCC;
+        border-top: none;
+        cursor: pointer;
+    }
+    .result p:hover{
+        background: #f2f2f2;
+    }
+</style>
+
+
+<body>
+
+
+
+  
+    
+
+
 
     <!-- Footer -->
     <footer class="text-center text-lg-star footer">
@@ -231,8 +282,6 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
-
-    <script src="/assets/js/app.js"></script>
 
 
 

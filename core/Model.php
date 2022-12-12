@@ -287,4 +287,24 @@ abstract class Model
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
         return $stmt->fetch();
     }
+
+    public function searchProduct(){
+    
+        $stmt = $this->pdo->prepare("SELECT * FROM product WHERE `name` LIKE :term");
+       
+        $stmt->execute(array(
+            'term'=>$_REQUEST["term"]. '%'
+        ));
+       
+        if($stmt->rowCount() > 0){
+            while($row = $stmt->fetch()){
+                echo "<p>" . $row["name"] . "</p>";
+            }
+        } else{
+            echo "<p>No matches found</p>";
+        }
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        return $stmt->fetchAll();
+    }
 }
+

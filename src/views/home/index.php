@@ -42,7 +42,10 @@
         </button>
     </div>
 
-
+    <div class="search-box">!!TEST RECHERCHE!!
+        <input type="text" autocomplete="off" placeholder="Rechercher un produit..." />
+        <div class="result"></div>
+    </div>
 
 <div class="container mt-5">
     <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -194,3 +197,33 @@
     </div>
 
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.1.js"
+type="text/javascript" ></script>
+  
+
+<script>
+        $(document).ready(function() {
+            $('.search-box input[type="text"]').on("keyup input", function() {
+                /* Get input value on change */
+                var inputVal = $(this).val();
+                var resultDropdown = $(this).siblings(".result");
+                if (inputVal.length) {
+                    $.get("src/views/backend-search.php", {
+                        term: inputVal
+                    }).done(function(data) {
+                        // Display the returned data in browser
+                        resultDropdown.html(data);
+                    });
+                } else {
+                    resultDropdown.empty();
+                }
+            });
+
+            // Set search input value on click of result item
+            $(document).on("click", ".result p", function() {
+                $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+                $(this).parent(".result").empty();
+            });
+        });
+    </script>
