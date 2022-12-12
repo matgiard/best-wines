@@ -60,11 +60,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="./nos-vins" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="nav-item dropdown" id="dropdown-nav" href="./nos-vins">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Vins
                     </a>
-                    <ul class="dropdown-menu ">
+                    <ul class="dropdown-menu" id="dropdown-nav-content">
                         <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/rouge">Rouges</a></li>
                         <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/blanc">Blancs</a></li>
                         <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/nos-champagnes">Champagnes</a></li>
