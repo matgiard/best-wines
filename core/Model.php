@@ -198,6 +198,7 @@ abstract class Model
         $stmt->execute();
         return $stmt->fetch();
     }
+    
     public function findOneForEdit(array $criteria, bool $is_array = false): object|array|false
     {
         if (empty($criteria)) {

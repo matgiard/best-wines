@@ -99,17 +99,12 @@
     <div> Mettre en vedette</div>
 
     <div class="form-check">
-        <label class="form-check-label" for="is_featured">Non</label> <input class="form-check-input" name="is_featured" id="is_featured" type="radio" value="0" aria-label="Non" <?php if (($edit_temp['is_featured'] !== 1)) {
-                                                                                                                                                                                        echo "checked";
-                                                                                                                                                                                    } ?> if>
-    </div>
+        <label class="form-check-label" for="is_featured">Non</label> <input class="form-check-input" name="is_featured" id="is_featured" type="radio" value="0" aria-label="Non" <?php if (($edit_temp['is_featured'] !== 1)): ?> <?= "checked" ?>><?php endif;?>
     <div class="form-check">
-        <label class="form-check-label" for="is_featured">Oui</label> <input class="form-check-input" name="is_featured" id="is_featured" type="radio" value="1" aria-label="Oui" <?php if (($edit_temp['is_featured'] == 1)) {
-                                                                                                                                                                                        echo "checked";
-                                                                                                                                                                                    } ?>>
+        <label class="form-check-label" for="is_featured">Oui</label> <input class="form-check-input" name="is_featured" id="is_featured" type="radio" value="1" aria-label="Oui" <?php if (($edit_temp['is_featured'] == 1)): ?> <?= "checked" ?>><?php endif;?>>
 
     </div>
-    </div>
+
     <?php if (isset($message)) : ?>
 
         <div> <?= $message ?></div>

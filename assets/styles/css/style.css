@@ -166,5 +166,17 @@ min-height: 300px;
 	max-height: 450px; 
 	object-fit: cover;
 }
+.color1{
+	color: #FFF !important;
+	background-color: #9e121b;	
+}
 
-/*# sourceMappingURL=style.css.map */
+.color1:hover{	
+	color: #FFF !important;
+	background-color: #9e121ba1;	
+}
+.accordion-button:not(.collapsed) {
+	background-color: #9e121b !important;
+	color:#FFF;
+	border-color: #9e121b;
+}
