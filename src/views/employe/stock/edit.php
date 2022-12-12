@@ -97,14 +97,18 @@
         <input type="number" name="price" id="price" value="<?= $edit_temp['price'] ?>">
     </div>
     <div> Mettre en vedette</div>
-            
-                    <div class="form-check">
-                        <label class="form-check-label" for="is_featured">Non</label> <input class="form-check-input" name="is_featured" id="is_featured" type="radio" value="0" aria-label="Non" <?php if(($edit_temp['is_featured']!==1)){echo "checked";} ?> if>
-                </div>
-                <div class="form-check">
-                      <label class="form-check-label" for="is_featured">Oui</label> <input class="form-check-input" name="is_featured" id="is_featured" type="radio" value="1" aria-label="Oui" <?php if(($edit_temp['is_featured'] == 1)){echo "checked";} ?>>
-                      
-                    </div>
+
+    <div class="form-check">
+        <label class="form-check-label" for="is_featured">Non</label> <input class="form-check-input" name="is_featured" id="is_featured" type="radio" value="0" aria-label="Non" <?php if (($edit_temp['is_featured'] !== 1)) {
+                                                                                                                                                                                        echo "checked";
+                                                                                                                                                                                    } ?> if>
+    </div>
+    <div class="form-check">
+        <label class="form-check-label" for="is_featured">Oui</label> <input class="form-check-input" name="is_featured" id="is_featured" type="radio" value="1" aria-label="Oui" <?php if (($edit_temp['is_featured'] == 1)) {
+                                                                                                                                                                                        echo "checked";
+                                                                                                                                                                                    } ?>>
+
+    </div>
     </div>
     <?php if (isset($message)) : ?>
 
@@ -123,7 +127,7 @@
         <br>
         <small class="file_info text-muted"></small>
     </div>
-    
+
 
 </form>
 

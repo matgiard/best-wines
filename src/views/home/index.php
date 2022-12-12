@@ -14,24 +14,21 @@
         </div>
         <div class="carousel-inner monCarrousel ">
             <div class="carousel-item active">
-                <img src="/best-wines/uploads/carrousel/car3.jpg" class="d-block w-100 img-fluid" alt="...">
+                <img src="/best-wines/uploads/carrousel/1.png" class="d-block w-100 img-fluid" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+              
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="/best-wines/uploads/carrousel/NOEL.png" class="d-block w-100" alt="...">
+                <img src="/best-wines/uploads/carrousel/2.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
+        
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="/best-wines/uploads/carrousel/car2.jpg" class="d-block w-100" alt="...">
+                <img src="/best-wines/uploads/carrousel/3.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
+      
                 </div>
             </div>
         </div>
@@ -180,4 +177,20 @@
             </div>
         </div>
     </div>
+</div>
+<div>
+
+<h1>Notre dernier article</h1>
+
+
+    <div class="border">
+        <div class="col-md-4">
+            <img src="<?= BASE_DIR ?>/uploads/blog/<?= $articles['photo_article']; ?>" alt="" class="img-fluid rounded-start">
+        </div>
+        <h2><?= $articles['title'] ?></h2>
+        <div><?= substr($articles['content'], 0, 300) ?></div>
+        <a href="<?= BASE_DIR ?>/blog/details?id=<?= $articles['id'] ?>">Voir plus</a>
+        <small>Ajouté le <?= date('d-m-Y H:i:s', strtotime($articles['date'])) ?></small>
+    </div>
+
 </div>

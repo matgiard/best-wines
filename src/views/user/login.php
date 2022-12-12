@@ -21,7 +21,7 @@
 
         <!-- input for Submit -->
         <div class="form-group">
-            <input type="submit" name="submit" value="Se connecter" class="btn btn-primary">
+            <input type="submit" name="submit" value="Se connecter" class="btn btn-primary pt-3">
         </div>
     </form>
 </div>

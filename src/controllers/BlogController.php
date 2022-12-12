@@ -86,7 +86,6 @@ class BlogController extends Controller
             $article = new Article;
             $article->setTitle(htmlentities($_POST['title']));
             $article->setContent(($_POST['content']));
-            // $article->setDate(htmlentities($_POST['date']));
             $article->setPhoto_article($_FILES['image']['name']);
 
 
