@@ -35,8 +35,6 @@
         </button>
     </div>
 
-
-
 <div class="container mt-5">
     <div class="row row-cols-1 row-cols-md-4 g-4">
         <div class="card mb-3" style="max-width: 540px; min-height: 300px">
