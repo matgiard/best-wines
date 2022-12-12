@@ -45,7 +45,7 @@
                         <?php endif ?>
                         <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+         
             </ul>
 
             </li>
@@ -71,7 +71,7 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="./nos-coffrets" role="button">
+                    <a class="nav-link" href="<?= BASE_DIR ?>/nos-coffrets" role="button">
                         Coffrets
                     </a>
 
@@ -83,7 +83,7 @@
                     <a class="nav-link" href="aboutUs">Qui sommes nous</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Blog</a>
+                    <a class="nav-link" href="<?= BASE_DIR ?>/blog">Blog</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/best-wines/cart">
@@ -231,6 +231,6 @@
 
     <script src="/assets/js/app.js"></script>
 
-</body>
+
 
 </html>
