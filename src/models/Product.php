@@ -21,7 +21,7 @@ class Product extends Model
     private int $id_comment;
     private int $id_type;
     private float $price;
-    private int $is_featured;
+    private bool $is_featured;
     protected string $table_name = "product";
 
 
@@ -290,22 +290,22 @@ class Product extends Model
     {
         $this->price = $price;
     }
-  /**
+    /**
      * Get the value of is_featured
-     * @return int
+     * @return bool
      */
-    public function getIsFeatured(): int
+    public function getIsFeatured(): bool
     {
         return $this->is_featured;
     }
 
     /**
      * Set the value of is_featured
-     * @param int is_featured
+     * @param bool is_featured
      *
-     * @return float
+     * @return bool
      */
-    public function setIsFeatured(float $is_featured): void
+    public function setIsFeatured(bool $is_featured): void
     {
         $this->is_featured = $is_featured;
     }
