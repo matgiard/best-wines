@@ -1,4 +1,4 @@
--<!doctype html>
+<!doctype html>
 <html lang="fr">
 
 <head>
@@ -13,110 +13,111 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 
-    
+
     <title>Best wines</title>
-   
+
 </head>
 <!-- A MODIFIER -->
 <header>
 
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container-fluid">
-        <a class="navbar-brand" href="/best-wines">Best Wines</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit">Rechercher</button>
-                </form>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Menu
-                    </a>
-                    <ul class="dropdown-menu droplog">
-                        <?php if (isset($_SESSION['user']['is_logged']) && $_SESSION['user']['is_logged']) : ?>
-                            <li class="dropdown-item-log">
-                                <a class="nav-link" href="<?= BASE_DIR ?>/logout">Se déconnecter</a>
-                            </li>
-                        <?php else : ?>
-                            <li class="dropdown-item-log">
-                                <a class="nav-link" href="<?= BASE_DIR ?>/login">Se connecter</a>
-                            </li>
-                            <li class="dropdown-item-log">
-                                <a class="nav-link" href="<?= BASE_DIR ?>/register">S'enregistrer</a>
-                            </li>
-                        <?php endif ?>
-                        <hr class="dropdown-divider">
-                    </ul>
-                </li>
-            </ul>
+            <a class="navbar-brand" href="/best-wines">Best Wines</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-light" type="submit">Rechercher</button>
+                    </form>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Menu
+                        </a>
+                        <ul class="dropdown-menu droplog">
+                            <?php if (isset($_SESSION['user']['is_logged']) && $_SESSION['user']['is_logged']) : ?>
+                                <li class="dropdown-item-log">
+                                    <a class="nav-link" href="<?= BASE_DIR ?>/logout">Se déconnecter</a>
+                                </li>
+                            <?php else : ?>
+                                <li class="dropdown-item-log">
+                                    <a class="nav-link" href="<?= BASE_DIR ?>/login">Se connecter</a>
+                                </li>
+                                <li class="dropdown-item-log">
+                                    <a class="nav-link" href="<?= BASE_DIR ?>/register">S'enregistrer</a>
+                                </li>
+                            <?php endif ?>
+                            <hr class="dropdown-divider">
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
-<nav class="navbar navbar-expand-lg navbar-custom">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown" id="dropdown-nav" href="./nos-vins">
-                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Vins
-                    </a>
-                    <ul class="dropdown-menu ">
-                        <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/rouge">Rouges</a></li>
-                        <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/blanc">Blancs</a></li>
-                        <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/nos-champagnes">Champagnes</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="<?= BASE_DIR ?>/nos-coffrets" role="button">
-                        Coffrets
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= BASE_DIR ?>/nos-fournisseurs">Nos fournisseurs</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="./nos-vins" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Qui sommes nous
-                    </a>
-                    <ul class="dropdown-menu ">
-                        <li><a class="dropdown-item" href="<?= BASE_DIR ?>/qui-sommes-nous">Présentation BestWynes</a></li>
-                        <li><a class="dropdown-item" href="<?= BASE_DIR ?>/presse">La presse parle de nous</a></li>
-                        <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nous-contacter">Nous contacter</a></li>
-                        <li><a class="dropdown-item" href="<?= BASE_DIR ?>/mentions-legales">Les mentions légales</a></li>
-                        <li><a class="dropdown-item" href="<?= BASE_DIR ?>/faq">Vos questions</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= BASE_DIR ?>/blog">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/best-wines/cart">
-                        Panier
-                        <?php
-                        if (isset($_SESSION["cart_item"])) {
-                            $total_quantity = 0;
-                            foreach ($_SESSION["cart_item"] as $item) {
-                                $total_quantity += $item["quantity"];
-                            }
-                            echo "(" .  $total_quantity . ")";
-                        } ?>
-                    </a>
-                </li>
-            </ul>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown" id="dropdown-nav" href="./nos-vins">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Vins
+                        </a>
+                        <ul class="dropdown-menu ">
+                            <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/rouge">Rouges</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/blanc">Blancs</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/nos-champagnes">Champagnes</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="<?= BASE_DIR ?>/nos-coffrets" role="button">
+                            Coffrets
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= BASE_DIR ?>/nos-fournisseurs">Nos fournisseurs</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="./nos-vins" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Qui sommes nous
+                        </a>
+                        <ul class="dropdown-menu ">
+                            <li><a class="dropdown-item" href="<?= BASE_DIR ?>/qui-sommes-nous">Présentation BestWynes</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_DIR ?>/presse">La presse parle de nous</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nous-contacter">Nous contacter</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_DIR ?>/mentions-legales">Les mentions légales</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_DIR ?>/faq">Vos questions</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= BASE_DIR ?>/blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/best-wines/cart">
+                            Panier
+                            <?php
+                            if (isset($_SESSION["cart_item"])) {
+                                $total_quantity = 0;
+                                foreach ($_SESSION["cart_item"] as $item) {
+                                    $total_quantity += $item["quantity"];
+                                }
+                                echo "(" .  $total_quantity . ")";
+                            } ?>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 </header>
+
 <body>
 
-    
+
     <?= $content ?>
 
     <!-- Footer -->
@@ -163,7 +164,7 @@
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto my-4">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
-                        <a href="<?= BASE_DIR ?>/nos-vins/" class="text-reset">Notre catalogue</a>
+                            <a href="<?= BASE_DIR ?>/nos-vins/" class="text-reset">Notre catalogue</a>
 
                         </h6>
 
@@ -183,9 +184,9 @@
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto my-4">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4"><a href=""></a>
-                           <a href="<?= BASE_DIR ?>/nos-coffrets" class="text-reset">Coffrets</a> 
+                            <a href="<?= BASE_DIR ?>/nos-coffrets" class="text-reset">Coffrets</a>
                         </h6>
-                   
+
                     </div>
                     <!-- Grid column -->
 
