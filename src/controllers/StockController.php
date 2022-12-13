@@ -10,11 +10,16 @@ use App\Models\Cepage;
 use App\Models\Taste;
 use App\Models\Association;
 use App\Models\TypeProduct;
+use Core\Partials\CheckLog;
 
 class StockController extends Controller
 {
+
+    
     public function showAll()
     {
+
+        CheckLog::checkIsEmployee();
 
         $product = new Product();
 
@@ -31,6 +36,8 @@ class StockController extends Controller
 
     public function insert()
     {
+
+        CheckLog::checkIsEmployee();
 
         $region = new Region();
         $regions = $region->findAll();
@@ -99,6 +106,7 @@ class StockController extends Controller
 
     public function edit()
     {
+        CheckLog::checkIsEmployee();
         $id = $_GET['id'];
 
         $to_edit = new Product;
@@ -158,6 +166,7 @@ class StockController extends Controller
 
     public function delete()
     {
+        CheckLog::checkIsEmployee();
         $id = $_GET['id'];
         $to_delete = new Product;
         $to_delete->delete($id);
@@ -166,9 +175,17 @@ class StockController extends Controller
 
     public function showAllRegion()
     {
+        CheckLog::checkIsEmployee();
 
         $region = new Region();
         $regions = $region->findAll();
         $this->renderView('employe/stock/insert', compact('regions'));
+    }
+
+    public function index()
+    {
+        CheckLog::checkIsEmployee();
+
+        $this->renderView('employe/index');
     }
 }

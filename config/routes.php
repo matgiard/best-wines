@@ -48,7 +48,7 @@ Router::register('/logout', 'UserController::logout');
 Router::register('/region', 'StockController::showAllRegion');
 
 // Accueil espace employé
-Router::register('/employe', 'EmployeeController::index');
+Router::register('/employe', 'StockController::index');
 
 // espace employé Commandes
 Router::register('/employe/commandes', 'OrderTrackingController::showAll');

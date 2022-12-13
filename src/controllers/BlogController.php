@@ -4,8 +4,7 @@ namespace App\Controllers;
 
 use Core\Controller;
 use App\Models\Article;
-
-
+use Core\Partials\CheckLog;
 
 class BlogController extends Controller
 {
@@ -25,6 +24,8 @@ class BlogController extends Controller
 
     public function detailArticle()
     {
+
+        CheckLog::checkIsEmployee();
         $id = $_GET['id'];
         $article = new Article;
         $article_blog = $article->find($id);
@@ -34,6 +35,8 @@ class BlogController extends Controller
 
     public function editArticle()
     {
+
+        CheckLog::checkIsEmployee();
         $id = $_GET['id'];
         $article_to_edit = new Article;
         $edit_temp = $article_to_edit->findOneForEdit(['id' => $id]);
@@ -79,6 +82,8 @@ class BlogController extends Controller
 
     public function insertArticle()
     {
+
+        CheckLog::checkIsEmployee();
 
         if (isset($_POST['submit'])) {
 
