@@ -72,13 +72,16 @@
     </div>
     <div>
         <label for="price">Prix</label>
-        <input type="number" name="price" id="price">
+        <input type="text" name="price" id="price">
+    </div>
+    <p>Mettre en vedette :</p>
+    <div class="form-check">
+
+        <label class="form-check-label" for="is_featured">Non</label> <input class="form-check-input" name="is_featured" id="is_featured" type="radio" value="0" aria-label="Non">
     </div>
     <div class="form-check">
-        <input class="form-check-input" name='is_featured' type="checkbox" value="1" id="is_featured">
-        <label class="form-check-label" for="is_featured">
-            Mettre en vedette
-        </label>
+        <label class="form-check-label" for="is_featured">Oui</label> <input class="form-check-input" name="is_featured" id="is_featured" type="radio" value="1" aria-label="Oui">
+
     </div>
     <div>Ajouter photo vin:
         <label for="image_browser">
