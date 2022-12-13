@@ -180,3 +180,7 @@ min-height: 300px;
 	color:#FFF;
 	border-color: #9e121b;
 }
+
+.result p {
+	color: black;
+}
