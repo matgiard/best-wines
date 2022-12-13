@@ -1,4 +1,4 @@
--<!doctype html>
+<!doctype html>
 <html lang="fr">
 
 <head>
@@ -11,11 +11,7 @@
     <!-- CSS for quill -->
     <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-
-    
     <title>Best wines</title>
-   
 </head>
 <!-- A MODIFIER -->
 <header>
@@ -63,11 +59,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown" id="dropdown-nav" href="./nos-vins">
-                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="" data-bs-toggle="dropdown" aria-expanded="false">
                         Vins
                     </a>
                     <ul class="dropdown-menu ">
+                        <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins">Notre catalogue</a></li>
                         <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/rouge">Rouges</a></li>
                         <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/blanc">Blancs</a></li>
                         <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/nos-champagnes">Champagnes</a></li>
@@ -118,7 +115,8 @@
 
     
     <?= $content ?>
-
+    
+</body>
     <!-- Footer -->
     <footer class="text-center text-lg-star footer p-1">
         <!-- Section: Links  -->
@@ -229,6 +227,8 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
+
+    <script src="/assets/js/app.js"></script>
 
 
 
