@@ -15,3 +15,9 @@
 
 <h2>Gestion des promotions</h2>
 <a href="<?= BASE_DIR ?>/employe/promotion" class="btn btn-primary">promotions</a>
+
+
+
+<h2>Espace Admin</h2>
+
+<a href="<?= BASE_DIR ?>/administrateur" class="btn btn-primary">Gestion des employés</a>
