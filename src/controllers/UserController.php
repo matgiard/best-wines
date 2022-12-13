@@ -28,7 +28,9 @@ class UserController extends Controller
                     $_SESSION['user'] = [
                         'is_logged' => TRUE,
                         'email' => $user->email,
-                        'id' => $user->id
+                        'id' => $user->id,
+                        "is_employee" => $user->is_employee,
+                        "is_admin" => $user->is_admin
                     ];
 
                     header('Location: /best-wines');
@@ -37,7 +39,7 @@ class UserController extends Controller
                     $_SESSION['errors'][] = "Le mot de passe est erroné";
                 }
             }
-         }// else {
+        } // else {
         //     // $_SESSION['errors'][] = "Tous les champs sont obligatoires";
         // }
         $errors = CheckLog::errors();
@@ -96,6 +98,4 @@ class UserController extends Controller
 
         return $user;
     }
-
-
 }
