@@ -4,14 +4,14 @@ namespace App\Controllers;
 
 use Core\Controller;
 use App\Models\User;
-
-
+use Core\Partials\CheckLog;
 
 class AdminController extends Controller
 {
 
     public function insertEmployee()
     {
+        CheckLog::checkIsAdmin();
         $message ="";
         if (isset($_POST['submit'])) {
             $user = new User();
@@ -33,6 +33,7 @@ class AdminController extends Controller
 
     public function showAll()
     {
+        CheckLog::checkIsAdmin();
         $user = new User();
         $all_users = $user->findAll();
         $this->renderView('administrateur/index', compact('all_users'));
@@ -41,6 +42,7 @@ class AdminController extends Controller
 
     public function delete()
     {
+        CheckLog::checkIsAdmin();
         $id = $_GET['id'];
         $to_delete = new User;
         $to_delete->delete($id);
@@ -48,6 +50,7 @@ class AdminController extends Controller
     }
     public function edit()
     {
+        CheckLog::checkIsAdmin();
 
 
         $this->renderView('administrateur/index');

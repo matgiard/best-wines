@@ -12,6 +12,8 @@ class UserController extends Controller
     public function login()
     {
 
+        $_SESSION['last_page'] = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'index.php';
+
         $errors = null;
 
         echo "ceci est la méthode login";
@@ -33,9 +35,11 @@ class UserController extends Controller
                         "is_admin" => $user->is_admin
                     ];
 
-                    header('Location: /best-wines');
+                    
+                    header('Location: ' . $_SESSION['last_page']);
                     exit;
                 } else {
+                    
                     $_SESSION['errors'][] = "Le mot de passe est erroné";
                 }
             }
@@ -57,11 +61,10 @@ class UserController extends Controller
     {
         if (!empty($_SESSION['user']['is_logged'])) {
             CheckLog::logoutUser();
-            echo "Bye";
+            header('Location: /best-wines');
         } else {
             echo "Vous n'êtes même pas connecté ! ";
         }
-        $this->renderView('user/logout');
     }
 
 

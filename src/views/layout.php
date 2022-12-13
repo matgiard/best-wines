@@ -42,17 +42,31 @@
                                     <li class="dropdown-item-log">
                                         <a class="nav-link" href="<?= BASE_DIR ?>/logout">Se déconnecter</a>
                                     </li>
-                                <?php else : ?>
-                                    <li class="dropdown-item-log">
-                                        <a class="nav-link" href="<?= BASE_DIR ?>/login">Se connecter</a>
-                                    </li>
-                                    <li class="dropdown-item-log">
-                                        <a class="nav-link" href="<?= BASE_DIR ?>/register">S'enregistrer</a>
-                                    </li>
-                                <?php endif ?>
-                                <hr class="dropdown-divider">
-                            </ul>
+                                    <?php else : ?>
+                                        <li class="dropdown-item-log">
+                                            <a class="nav-link" href="<?= BASE_DIR ?>/login">Se connecter</a>
+                                        </li>
+                                        <hr class="dropdown-divider">
+                                        <li class="dropdown-item-log">
+                                            <a class="nav-link" href="<?= BASE_DIR ?>/register">S'enregistrer</a>
+                                        </li>
+                                        <?php endif ?>
+                                       
+                                    </ul>
+                                </li>
+                                <?php if (isset($_SESSION['user']['is_admin']) && $_SESSION['user']['is_admin']) : ?>
+                                    <li class="nav-item dropdown">
+                            <a class="nav-link" href="<?= BASE_DIR ?>/employe" role="button">
+                                Espace administrateur
+                            </a>
                         </li>
+                        <?php elseif (isset($_SESSION['user']['is_employee']) && $_SESSION['user']['is_employee']) : ?>
+                                <li class="nav-item dropdown">
+                            <a class="nav-link" href="<?= BASE_DIR ?>/employe" role="button">
+                                Espace employé
+                            </a>
+                        </li>
+                        <?php endif ?>
                     </ul>
                 </div>
             </div>
@@ -69,6 +83,7 @@
                                 Vins
                             </a>
                             <ul class="dropdown-menu ">
+                                <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins">Notre catalogue</a></li>
                                 <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/rouge">Rouges</a></li>
                                 <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/blanc">Blancs</a></li>
                                 <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nos-vins/nos-champagnes">Champagnes</a></li>

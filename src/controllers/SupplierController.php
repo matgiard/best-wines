@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use Core\Controller;
 use App\Models\Supplier;
+use Core\Partials\CheckLog;
 
 class SupplierController extends Controller
 
@@ -11,6 +12,8 @@ class SupplierController extends Controller
 
     public function showFournisseur()
     {
+        
+        CheckLog::checkIsEmployee();
         $supplier = new Supplier;
         $suppliers =  $supplier->findAll();
 
@@ -18,6 +21,8 @@ class SupplierController extends Controller
     }
     public function showOne()
     {
+        
+        CheckLog::checkIsEmployee();
         $id = $_GET['id'];
         $article = new Supplier;
         $article_blog = $article->find($id);
@@ -27,6 +32,8 @@ class SupplierController extends Controller
     }
     public function insertSupplier()
     {
+        
+        CheckLog::checkIsEmployee();
         if (isset($_POST['submit'])) {
 
 
@@ -64,8 +71,11 @@ class SupplierController extends Controller
 
         $this->renderView('fournisseur/insert');
     }
+
     public function EditSupplier()
     {
+        
+        CheckLog::checkIsEmployee();
 
         $id = $_GET['id'];
         $supplier_to_edit = new Supplier;
