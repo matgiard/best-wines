@@ -48,11 +48,28 @@ class AdminController extends Controller
         $to_delete->delete($id);
         header('Location: /best-wines/administrateur');
     }
+    
     public function edit()
     {
         CheckLog::checkIsAdmin();
+        $id = $_GET['id'];
+        $employe_edit = new User;
+        $edit_temp = $employe_edit->findOneForEdit(['id' => $id]);
 
+        if (isset($_POST['submit'])) {
 
-        $this->renderView('administrateur/index');
+            $employe_edit->edit($id);
+            $result = $employe_edit->edit($id);
+
+            if ($result) {
+                $message =  "Le statut de l'employé a bien été modifié";
+            } else {
+                $message =  "échec de la modification";
+            };
+            $employe_edit->findOneForEdit(['id' => $id]);
+            $edit_temp = $employe_edit->findOneForEdit(['id' => $id]);
+            $this->renderView('employe/promotion/edit', compact('id', 'edit_temp', 'message'));
+        }
+        $this->renderView('administrateur/edit', compact('id', 'edit_temp'));
     }
 }

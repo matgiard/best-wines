@@ -106,7 +106,7 @@ class User extends Model
         $this->is_employee = $is_employee;
     }
 
-    
+
     /**
      * Insérer un utilisateur dans la BDD
      * @return int|false  l'id du dernier élément inséré ou false dans le cas d'échec
@@ -136,5 +136,25 @@ class User extends Model
             "is_employee" => true
         ]);
         return $this->pdo->lastInsertId();
+    }
+
+    //Modification d'un code de promotion
+    public function edit(int $employe_edit)
+    {
+
+        $stmt = $this->pdo->prepare("UPDATE user SET `email` = :new_email,`is_admin`=:new_is_admin WHERE id = :id");
+
+        $stmt->execute(array(
+            'new_email' => $_POST['email'],
+            'new_is_admin' => $_POST['is_admin'],
+            'id' => $employe_edit
+        ));
+
+        $stmt = $this->pdo->prepare("SELECT * FROM promotion WHERE id = :id");
+        $stmt->execute([
+            'id' => $employe_edit
+        ]);
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        return $stmt->fetch();
     }
 }
