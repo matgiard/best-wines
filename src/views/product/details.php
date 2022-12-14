@@ -37,7 +37,7 @@
                 <div class="col-md-8">
                     <h5 class="card-title"></h5>
                     <div class="col-md-4">
-                        <img src="<?= BASE_DIR ?>/uploads/<?= $lastWhiteWine['photo'] ?>" alt="<?= $lastWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+                        <img src="<?= BASE_DIR ?>/uploads/vins/<?= $lastWhiteWine['photo'] ?>" alt="<?= $lastWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
                     </div>
                     <p class="card-title"><?= $lastWhiteWine['name'] ?></p>
                     <p class="card-text"><?= $lastWhiteWine['price'] ?>€</p>
