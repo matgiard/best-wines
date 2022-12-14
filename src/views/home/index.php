@@ -1,4 +1,3 @@
-
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -36,16 +35,16 @@
     </button>
 </div>
 
-    
 
-   
+
+
 
 <div class="container mt-5">
     <div class="row row-cols-1 row-cols-md-4 g-4">
         <div class="card mb-3" style="max-width: 540px; min-height: 300px">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="uploads/<?= $lastWhiteWine['photo'] ?>" alt="<?= $lastWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+                    <img src="uploads/vins/<?= $lastWhiteWine['photo'] ?>" alt="<?= $lastWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
                 </div>
                 <div class="col-md-8">
                     <h5 class="card-title"><?= $lastWhiteWine['name'] ?></h5>
@@ -60,7 +59,7 @@
         <div class="card mb-3" style="max-width: 540px; min-height: 300px">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="uploads/<?= $lastRedWine['photo'] ?>" alt="<?= $lastRedWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+                    <img src="uploads/vins/<?= $lastRedWine['photo'] ?>" alt="<?= $lastRedWine['name'] ?>" srcset="" class="img-fluid rounded-start">
                 </div>
                 <div class="col-md-8">
                     <h5 class="card-title"><?= $lastRedWine['name'] ?></h5>
@@ -75,7 +74,7 @@
         <div class="card mb-3" style="max-width: 540px; min-height: 300px">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="uploads/<?= $lastChampagne['photo'] ?>" alt="<?= $lastChampagne['name'] ?>" srcset="" class="img-fluid rounded-start">
+                    <img src="uploads/vins/<?= $lastChampagne['photo'] ?>" alt="<?= $lastChampagne['name'] ?>" srcset="" class="img-fluid rounded-start">
                 </div>
                 <div class="col-md-8">
                     <h5 class="card-title"><?= $lastChampagne['name'] ?></h5>
@@ -90,7 +89,7 @@
         <div class="card mb-3" style="max-width: 540px; min-height: 300px">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="uploads/<?= $lastBox['photo'] ?>" alt="<?= $lastBox['name'] ?>" srcset="" class="img-fluid rounded-start">
+                    <img src="uploads/vins/<?= $lastBox['photo'] ?>" alt="<?= $lastBox['name'] ?>" srcset="" class="img-fluid rounded-start">
                 </div>
                 <div class="col-md-8">
                     <h5 class="card-title"><?= $lastBox['name'] ?></h5>
@@ -113,7 +112,7 @@
             <div class="card mb-3" style="max-width: 540px; min-height: 300px">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="uploads/<?= $featuredWhiteWine['photo'] ?>" alt="<?= $featuredWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+                        <img src="uploads/vins/<?= $featuredWhiteWine['photo'] ?>" alt="<?= $featuredWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
                     </div>
                     <div class="col-md-8">
                         <h5 class="card-title"><?= $featuredWhiteWine['name'] ?></h5>
@@ -128,7 +127,7 @@
             <div class="card mb-3" style="max-width: 540px; min-height: 300px">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="uploads/<?= $featuredRedWine['photo'] ?>" alt="<?= $featuredRedWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+                        <img src="uploads/vins/<?= $featuredRedWine['photo'] ?>" alt="<?= $featuredRedWine['name'] ?>" srcset="" class="img-fluid rounded-start">
                     </div>
                     <div class="col-md-8">
                         <h5 class="card-title"><?= $featuredRedWine['name'] ?></h5>
@@ -143,7 +142,7 @@
             <div class="card mb-3" style="max-width: 540px; min-height: 300px">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="uploads/<?= $featuredChampagne['photo'] ?>" alt="<?= $featuredChampagne['name'] ?>" srcset="" class="img-fluid rounded-start">
+                        <img src="uploads/vins/<?= $featuredChampagne['photo'] ?>" alt="<?= $featuredChampagne['name'] ?>" srcset="" class="img-fluid rounded-start">
                     </div>
                     <div class="col-md-8">
                         <h5 class="card-title"><?= $featuredChampagne['name'] ?></h5>
@@ -158,7 +157,7 @@
             <div class="card mb-3" style="max-width: 540px; min-height: 300px">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="uploads/<?= $featuredBox['photo'] ?>" alt="<?= $featuredBox['name'] ?>" srcset="" class="img-fluid rounded-start">
+                        <img src="uploads/vins/<?= $featuredBox['photo'] ?>" alt="<?= $featuredBox['name'] ?>" srcset="" class="img-fluid rounded-start">
                     </div>
                     <div class="col-md-8">
                         <h5 class="card-title"><?= $featuredBox['name'] ?></h5>
@@ -174,16 +173,17 @@
     </div>
 </div>
 <div>
-<div class="container-fluid p-5">
-    <div class="row content">
-    <div class="col-sm-3 border border-3 text-center bg-light">
-    <img src="<?= BASE_DIR ?>/uploads/blog/<?= $articles['photo_article']; ?>" alt="" class="rounded">
-    </div>
-    <div class="col-sm-9 ">        <h2><?= $articles['title'] ?></h2>
-        <div><?= substr($articles['content'], 0, 300) ?>...</div>
-        <a href="<?= BASE_DIR ?>/blog/details?id=<?= $articles['id'] ?>">Voir plus</a>
-        <div>Ajouté le <?= date('d-m-Y H:i:s', strtotime($articles['date'])) ?></div>
-    </div>
-    </div>
+    <div class="container-fluid p-5">
+        <div class="row content">
+            <div class="col-sm-3 border border-3 text-center bg-light">
+                <img src="<?= BASE_DIR ?>/uploads/blog/<?= $articles['photo_article']; ?>" alt="" class="rounded">
+            </div>
+            <div class="col-sm-9 ">
+                <h2><?= $articles['title'] ?></h2>
+                <div><?= substr($articles['content'], 0, 300) ?>...</div>
+                <a href="<?= BASE_DIR ?>/blog/details?id=<?= $articles['id'] ?>">Voir plus</a>
+                <div>Ajouté le <?= date('d-m-Y H:i:s', strtotime($articles['date'])) ?></div>
+            </div>
+        </div>
 
-</div>
+    </div>
