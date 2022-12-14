@@ -139,6 +139,8 @@
 
     <!-- Footer -->
     <footer class="text-center text-lg-star footer p-1">
+        <h3>L'ABUS D'ALCOOL EST DANGEREUX POUR LA SANTÉ, À CONSOMMER AVEC MODÉRATION.</h3>
+        <img src="<?= BASE_DIR ?>/assets/img/bandeau_boissons_alcooliques" alt="" srcset="">
         <!-- Section: Links  -->
         <section class="">
             <div class="container text-center text-md-start mt-2">
