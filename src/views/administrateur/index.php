@@ -1,4 +1,3 @@
-<div>Ceci est la page Index des employées géré par l'admin</div>
 <div class="container">
     <h1 class="text-center p-5">Gestion des employés par l'administrateur</h1>
     <a class='btn btn-success' href=" <?= BASE_DIR ?>/administrateur/insert">Ajouter un employé</a>

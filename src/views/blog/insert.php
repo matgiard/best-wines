@@ -1,4 +1,3 @@
-<div>Ceci est la page du blog pour insérer un article</div>
 <?php if (isset($message)) : ?>
     <div>
         <p class="text-center"><?= $message ?></p>
