@@ -1,6 +1,10 @@
 <div class="container">
     <h1 class="text-center p-5">Gestion des codes de promotion</h1>
-    <a class='btn color1 ' href=" <?= BASE_DIR ?>/employe/promotion/insert">Ajouter un code de promotion</a>
+    <form role="search">
+        <a class='btn color1 ' href=" <?= BASE_DIR ?>/employe/promotion/insert">Ajouter un code de promotion</a>
+                            <input class="" type="search" placeholder="Rechercher un code" aria-label="Search">
+                            <button class="btn color1" type="submit">Recherche un code</button>
+                        </form>
     <table class="table">
         <thead >
             <tr>
