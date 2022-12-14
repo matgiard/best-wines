@@ -1,5 +1,3 @@
-<div>Ceci est la page contact</div>
-
 <div class="container">
     <h1 class="text-center">Nous contacter</h1>
 

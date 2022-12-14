@@ -1,5 +1,3 @@
-<!-- <div>Ceci est la page d'insertion des employées géré par l'admin</div> -->
-
 <div class="container text-center pt-5">
     <a class='btn btn-success' href=" <?= BASE_DIR ?>/administrateur">Retour à la liste des employés</a>
     <?php if (isset($message)) : ?>

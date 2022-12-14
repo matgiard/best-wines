@@ -1,4 +1,3 @@
-<H1>insert Fournisseur</H1>
 <?php if (isset($message)) : ?>
     <div>
         <span><?= $message ?></span>
