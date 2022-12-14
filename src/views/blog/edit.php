@@ -1,11 +1,13 @@
-<div>Ceci est la page du blog pour éditer les articles.</div>
 <?php if (isset($message)) : ?>
     <div>
-        <span><?= $message ?></span>
+        <p class="text-center"><?= $message ?></p>
+        <div class="text-center">
+            <a href="<?= BASE_DIR ?>/blog" class="btn btn-warning">Retourner à l'index </a>
+        </div>
     </div>
 
 <?php endif; ?>
-
+<h1 class="text-center m-3">Modifier un articles</h1>
 <!-- Create the editor container -->
 <form method="POST" action="<?= BASE_DIR ?>/blog/edit?id=<?= $id ?>" enctype="multipart/form-data">
 

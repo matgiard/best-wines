@@ -15,7 +15,7 @@ use Core\Partials\CheckLog;
 class StockController extends Controller
 {
 
-    
+
     public function showAll()
     {
 
@@ -74,13 +74,16 @@ class StockController extends Controller
             $product->setPhoto($_FILES['image']['name']);
             $product->setIsFeatured($_POST['is_featured']);
 
+
+
             if (count($_FILES) > 0) {
                 $allowed[] = "image/jpeg";
                 $allowed[] = "image/png";
+                $allowed[] = "image/jpg";
 
                 if ($_FILES['image']['error'] == 0 && in_array($_FILES['image']['type'], $allowed)) {
 
-                    $folder = "uploads/";
+                    $folder = "uploads/vins/";
                     if (!file_exists($folder)) {
                         mkdir($folder, 0777, true);
                     }
@@ -93,7 +96,7 @@ class StockController extends Controller
             $result = $product->insert();
 
             if ($result) {
-                $message =  "insertion bien effectuée";
+                $message =  "Insertion bien effectuée";
             } else {
                 $message =  "échec de l'insertion";
             }
@@ -135,10 +138,11 @@ class StockController extends Controller
             if (count($_FILES) > 0) {
                 $allowed[] = "image/jpeg";
                 $allowed[] = "image/png";
+                $allowed[] = "image/jpg";
 
                 if ($_FILES['image']['error'] == 0 && in_array($_FILES['image']['type'], $allowed)) {
 
-                    $folder = "uploads/";
+                    $folder = "uploads/vins/";
                     if (!file_exists($folder)) {
                         mkdir($folder, 0777, true);
                     }
@@ -149,7 +153,7 @@ class StockController extends Controller
             }
 
             if ($result) {
-                $message =  "edit bien effectuée";
+                $message =  "Modification bien effectuée";
             } else {
                 $message =  "échec de l'édit";
             };

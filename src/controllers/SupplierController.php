@@ -62,7 +62,7 @@ class SupplierController extends Controller
             $result = $supplier->insertSupp();
 
             if ($result) {
-                $message =  "insertion bien effectuée";
+                $message =  "Insertion bien effectuée";
             } else {
                 $message =  "échec";
             };
@@ -103,7 +103,8 @@ class SupplierController extends Controller
             }
 
             if ($result) {
-                $message =  "edit bien effectuée";
+                $message =  "Modification bien effectuée";
+                
             } else {
                 $message =  "échec de l'édit";
             };

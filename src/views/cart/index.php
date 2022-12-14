@@ -54,10 +54,10 @@
 	?>
 </div>
 <div></div>
-<div class="no-records">
+<div class="no-records p-4">
 	<?php if (isset($_SESSION["cart_item"])) : ?>
-		<a href="/best-wines/pay" class="btn btn-danger">Valider la commande</a>
+		<a href="/best-wines/pay" class="btn color1">Valider la commande</a>
 		
 	<?php endif ?>
-	<a href="<?= $_SESSION['last_page'] ?>" class="btn btn-danger">Revenir à la page précédente</a>
+	<a href="<?= $_SESSION['last_page'] ?>" class="btn color1">Continuer mes achats</a>
 </div>

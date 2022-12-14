@@ -1,8 +1,9 @@
-<div>Ceci est la page edit du stock</div>
-
 <?php if (isset($message)) : ?>
     <div>
-        <span><?= $message ?></span>
+        <p class="text-center"><?= $message ?></p>
+        <div class="text-center">
+            <a href="<?= BASE_DIR ?>/employe/stock" class="btn btn-warning">Retourner à l'index </a>
+        </div>
     </div>
 
 <?php endif; ?>
@@ -99,10 +100,10 @@
     <div> Mettre en vedette</div>
 
     <div class="form-check">
-      <label class="form-check-label" for="is_featured">Non</label> <input class="form-check-input" name="is_featured" id="is_featured" type="radio" value="0" aria-label="Non" <?php if (($edit_temp['is_featured'] !== 1)): ?> <?= "checked" ?>><?php endif;?>
+        <label class="form-check-label" for="is_featured">Non</label> <input class="form-check-input" name="is_featured" id="is_featured" type="radio" value="0" aria-label="Non" <?php if (($edit_temp['is_featured'] !== 1)) : ?> <?= "checked" ?>><?php endif; ?>
     </div>
-        <div class="form-check">
-        <label class="form-check-label" for="is_featured">Oui</label> <input class="form-check-input" name="is_featured" id="is_featured" type="radio" value="1" aria-label="Oui" <?php if (($edit_temp['is_featured'] == 1)): ?> <?= "checked" ?>><?php endif;?>>
+    <div class="form-check">
+        <label class="form-check-label" for="is_featured">Oui</label> <input class="form-check-input" name="is_featured" id="is_featured" type="radio" value="1" aria-label="Oui" <?php if (($edit_temp['is_featured'] == 1)) : ?> <?= "checked" ?>><?php endif; ?>>
 
     </div>
 

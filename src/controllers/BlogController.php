@@ -25,7 +25,7 @@ class BlogController extends Controller
     public function detailArticle()
     {
 
-        CheckLog::checkIsEmployee();
+
         $id = $_GET['id'];
         $article = new Article;
         $article_blog = $article->find($id);
@@ -63,7 +63,7 @@ class BlogController extends Controller
             }
 
             if ($result) {
-                $message =  "edit bien effectuée";
+                $message =  "Modification bien effectuée";
             } else {
                 $message =  "échec de l'édit";
             };
@@ -113,7 +113,7 @@ class BlogController extends Controller
             $result = $article->insertArticle();
 
             if ($result) {
-                $message =  "insertion bien effectuée";
+                $message =  "Insertion bien effectuée";
             } else {
                 $message =  "échec";
             };

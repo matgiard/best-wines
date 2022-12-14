@@ -1,4 +1,3 @@
-<div>nos fournisseurs</div>
 <?php if (isset($message)) : ?>
     <div>
         <span><?= $message ?></span>
@@ -6,18 +5,28 @@
 
 <?php endif; ?>
 
-<h1>Nos Fournisseurs</h1>
+<h1 class="text-center m-3">Nos Fournisseurs</h1>
+<?php if (isset($_SESSION['user']['is_admin']) || isset($_SESSION['user']['is_admin'])) : ?>
+<div class="text-center">
 <a href="<?= BASE_DIR ?>/nos-fournisseurs/insert" class="btn btn-warning">Ajouter un fournisseur</a>
+</div>
+<?php endif; ?>
 <?php foreach ($suppliers as $supplier) : ?>
 
-    <div class="border">
-        <div class="col-md-4">
-            <img src="uploads/supplier/<?= $supplier['image_supp']; ?>" alt="" class="img-fluid rounded-start">
-        </div>
-        <h2><?= $supplier['name'] ?></h2>
-        <div><?= substr($supplier['content'], 0, 300) ?></div>
-        <a href="<?= BASE_DIR ?>/nos-fournisseurs/details?id=<?= $supplier['id'] ?>">Voir plus</a>
+    <div class="container-fluid p-5">
+        <div class="row content">
+            <div class="col-sm-3 border border-3 text-center bg-light ">
+                <img src="<?= BASE_DIR ?>/uploads/blog/<?= $supplier['image_supp']; ?>" alt="" class="rounded card-bw">
+            </div>
+            <div class="col-sm-9 ">
+                <h2><?= $supplier['name'] ?></h2>
+                <div class="h4"><?= substr($supplier['content'], 0, 300) ?>...</div>
+                <a href="<?= BASE_DIR ?>/blog/details?id=<?= $supplier['id'] ?>">Voir plus</a>
+                <?php if (isset($_SESSION['user']['is_admin']) || isset($_SESSION['user']['is_admin'])) : ?>
+                <a href="<?= BASE_DIR ?>/nos-fournisseurs/edit?id=<?= $supplier['id'] ?>" class="btn btn-warning">Modifier</a>
+                <?php endif; ?>
+            </div>
 
-        <a href="<?= BASE_DIR ?>/nos-fournisseurs/edit?id=<?= $supplier['id'] ?>" class="btn btn-warning">Modifier</a>
+        </div>
     </div>
-<?php endforeach ?>
+<?php endforeach ?><div>
