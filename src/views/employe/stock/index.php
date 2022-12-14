@@ -1,11 +1,10 @@
-<div>Ceci est la page Index du stock</div>
 <a class='btn btn-success' href=" <?= BASE_DIR ?>/employe/stock/insert">Ajouter un produit</a>
 
 
-<form class="d-flex" role="search">                            
+<form class="d-flex" role="search">
     <input class="form-control me-2" type="search" placeholder="Rechercher un produit..." aria-label="Search">
     <div class="result"></div>
-    <button class="btn btn-outline-light" type="submit">Rechercher</button>                        
+    <button class="btn btn-outline-light" type="submit">Rechercher</button>
 </form>
 
 <table class="table">

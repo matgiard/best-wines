@@ -1,5 +1,3 @@
-<div>Ceci est la page insert du stock</div>
-
 <?php if (isset($message)) : ?>
     <div>
         <span><?= $message ?></span>

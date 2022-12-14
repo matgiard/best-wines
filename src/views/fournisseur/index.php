@@ -1,4 +1,3 @@
-<div>nos fournisseurs</div>
 <?php if (isset($message)) : ?>
     <div>
         <span><?= $message ?></span>
