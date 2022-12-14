@@ -2,7 +2,7 @@
     <h1 class="text-center p-5">Gestion des codes de promotion</h1>
     <a class='btn color1 ' href=" <?= BASE_DIR ?>/employe/promotion/insert">Ajouter un code de promotion</a>
     <table class="table">
-        <thead>
+        <thead >
             <tr>
                 <th scope="col">Nom du code</th>
                 <th scope="col">date de début</th>

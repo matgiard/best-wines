@@ -259,6 +259,31 @@ abstract class Model
         $stmt->execute();
         return $stmt->fetch();
     }
+
+    
+    //Modification d'un code de promotion
+    public function editPromo(int $to_edit)
+    {
+
+        $stmt = $this->pdo->prepare("UPDATE promotion SET `promotion_name` = :new_promotion_name, `start_date` = :new_start_date,`end_date`=:new_end_date, `percentage` = :new_percentage,`alcohol_percentage` = :new_alcohol_percentage, `id_region`= :new_id_region,`id_cepage`=:new_id_cepage, `id_taste`=:new_id_taste, `id_association`=:new_id_association,`id_type`=:new_id_type,`price`=:new_price, `is_featured`=:new_is_featured WHERE id = :id");
+
+        $stmt->execute(array(
+            'new_name' => $_POST['name'],
+            'new_start_date' => $_POST['start_date'],
+            'end_datetock' => $_POST['end_date'],
+            'end_percentage' => $_POST['percentage'],
+            'id' => $to_edit
+        ));
+
+        $stmt = $this->pdo->prepare("SELECT * FROM promotion WHERE id = :id");
+        $stmt->execute([
+            'id' => $to_edit
+        ]);
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        return $stmt->fetch();
+    }
+
+
     public function edit(int $to_edit)
     {
 

@@ -42,7 +42,7 @@ class Promotion extends Model
      */
     public function setPromotionName(string $promotion_name): void
     {
-        
+
         $this->promotion_name = $promotion_name;
     }
 
@@ -62,7 +62,7 @@ class Promotion extends Model
      */
     public function setStartDate(string $start_date): void
     {
-        
+
         $this->start_date = $start_date;
     }
 
@@ -82,7 +82,7 @@ class Promotion extends Model
      */
     public function setEndDate(string $end_date): void
     {
-        
+
         $this->end_date = $end_date;
     }
 
@@ -108,7 +108,7 @@ class Promotion extends Model
         $this->percentage = $percentage;
     }
 
-    
+
     /**
      * Insérer un code de promotion dans la BDD
      * @return int|false  l'id du dernier élément inséré ou false dans le cas d'échec
@@ -123,10 +123,31 @@ class Promotion extends Model
             "start_date" => $this->start_date,
             "end_date" => $this->end_date,
             "percentage" => $this->percentage,
-            
+
         ]);
         return $this->pdo->lastInsertId();
     }
 
 
+    //Modification d'un code de promotion
+    public function edit(int $promotion_edit)
+    {
+
+        $stmt = $this->pdo->prepare("UPDATE promotion SET `promotion_name` = :new_promotion_name, `start_date` = :new_start_date,`end_date`=:new_end_date, `percentage` = :new_percentage WHERE id = :id");
+
+        $stmt->execute(array(
+            'new_promotion_name' => $_POST['promotion_name'],
+            'new_start_date' => $_POST['start_date'],
+            'new_end_date' => $_POST['end_date'],
+            'new_percentage' => $_POST['percentage'],
+            'id' => $promotion_edit
+        ));
+
+        $stmt = $this->pdo->prepare("SELECT * FROM promotion WHERE id = :id");
+        $stmt->execute([
+            'id' => $promotion_edit
+        ]);
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        return $stmt->fetch();
+    }
 }
