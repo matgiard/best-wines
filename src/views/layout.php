@@ -139,6 +139,8 @@
 
     <!-- Footer -->
     <footer class="text-center text-lg-star footer p-1">
+        <h3>L'ABUS D'ALCOOL EST DANGEREUX POUR LA SANTÉ, À CONSOMMER AVEC MODÉRATION.</h3>
+        <img src="<?= BASE_DIR ?>/assets/img/bandeau_boissons_alcooliques" alt="" srcset="">
         <!-- Section: Links  -->
         <section class="">
             <div class="container text-center text-md-start mt-2">
@@ -206,16 +208,16 @@
                             Aide
                         </h6>
                         <p>
-                            <a href="faq" class="text-reset">FAQ</a>
+                            <a href="<?= BASE_DIR ?>/faq" class="text-reset">FAQ</a>
                         </p>
                         <p>
-                            <a href="mentionLegal" class="text-reset">Mentions légales</a>
+                            <a href="<?= BASE_DIR ?>/mentions-legales" class="text-reset">Mentions légales</a>
                         </p>
                         <p>
-                            <a href="presse" class="text-reset">Presse</a>
+                            <a href="<?= BASE_DIR ?>/presse" class="text-reset">Presse</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Politique de confidentialité</a>
+                            <a href="<?= BASE_DIR ?>/qui-sommes-nous" class="text-reset">Présentation</a>
                         </p>
                     </div>
                     <!-- Grid column -->
