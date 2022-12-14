@@ -106,6 +106,7 @@ class User extends Model
         $this->is_employee = $is_employee;
     }
 
+    
     /**
      * Insérer un utilisateur dans la BDD
      * @return int|false  l'id du dernier élément inséré ou false dans le cas d'échec
