@@ -9,7 +9,7 @@ class User extends Model
     private int $id;
     private string $email;
     private string $password;
-    private bool $is_admin;
+    private int $is_admin;
     private bool $is_employee;
     protected string $table_name = "user";
 
@@ -69,16 +69,16 @@ class User extends Model
 
     /**
      * Get the value of is_admin
-     * @return bool
+     * @return int
      */
-    public function getIs_admin(): bool
+    public function getIs_admin(): int
     {
         return $this->is_admin;
     }
 
     /**
      * Set the value of is_admin
-     * @param bool $is_admin
+     * @param int $is_admin
      *
      * @return void
      */
@@ -133,13 +133,13 @@ class User extends Model
         $stmt->execute([
             "email" => $this->email,
             "password" => password_hash($this->password, PASSWORD_ARGON2ID),
-            "is_employee" => true
+            "is_employee" => 1
         ]);
         return $this->pdo->lastInsertId();
     }
 
-    //Modification d'un code de promotion
-    public function edit(int $employe_edit)
+    //Modification du statut administrateur de l'employé
+    public function editEmploye(int $employe_edit)
     {
 
         $stmt = $this->pdo->prepare("UPDATE user SET `email` = :new_email,`is_admin`=:new_is_admin WHERE id = :id");
@@ -150,7 +150,7 @@ class User extends Model
             'id' => $employe_edit
         ));
 
-        $stmt = $this->pdo->prepare("SELECT * FROM promotion WHERE id = :id");
+        $stmt = $this->pdo->prepare("SELECT * FROM user WHERE id = :id");
         $stmt->execute([
             'id' => $employe_edit
         ]);

@@ -12,7 +12,7 @@ class AdminController extends Controller
     public function insertEmployee()
     {
         CheckLog::checkIsAdmin();
-        $message ="";
+        $message = "";
         if (isset($_POST['submit'])) {
             $user = new User();
             $user->setEmail(htmlentities($_POST['email']));
@@ -48,19 +48,17 @@ class AdminController extends Controller
         $to_delete->delete($id);
         header('Location: /best-wines/administrateur');
     }
-    
+
     public function edit()
     {
         CheckLog::checkIsAdmin();
         $id = $_GET['id'];
         $employe_edit = new User;
+        
         $edit_temp = $employe_edit->findOneForEdit(['id' => $id]);
-
         if (isset($_POST['submit'])) {
-
-            $employe_edit->edit($id);
-            $result = $employe_edit->edit($id);
-
+            $employe_edit->editEmploye($id);
+            $result = $employe_edit->editEmploye($id);
             if ($result) {
                 $message =  "Le statut de l'employé a bien été modifié";
             } else {
@@ -68,7 +66,7 @@ class AdminController extends Controller
             };
             $employe_edit->findOneForEdit(['id' => $id]);
             $edit_temp = $employe_edit->findOneForEdit(['id' => $id]);
-            $this->renderView('employe/promotion/edit', compact('id', 'edit_temp', 'message'));
+            $this->renderView('administrateur/edit', compact('id', 'edit_temp', 'message'));
         }
         $this->renderView('administrateur/edit', compact('id', 'edit_temp'));
     }

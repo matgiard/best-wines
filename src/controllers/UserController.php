@@ -12,12 +12,12 @@ class UserController extends Controller
     public function login()
     {
 
-        
+
 
         $errors = null;
 
         CheckLog::checkIsNotLogged();
-        
+
 
         if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password'])) {
             $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
@@ -36,14 +36,14 @@ class UserController extends Controller
                     header('Location: ' . $_SESSION['last_page']);
                     exit;
                 } else {
-                    
+
                     $_SESSION['errors'][] = "Le mot de passe est erroné";
                 }
             }
         } // else {
         //     // $_SESSION['errors'][] = "Tous les champs sont obligatoires";
         // }
-        
+
         $_SESSION['last_page'] = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'index.php';
         $errors = CheckLog::errors();
 
@@ -75,8 +75,6 @@ class UserController extends Controller
     public function insert()
     {
 
-       
-
         if (isset($_POST['submit'])) {
             $user = new User();
             $user->setEmail(htmlentities($_POST['email']));
@@ -85,7 +83,7 @@ class UserController extends Controller
             $result = $user->insert();
 
             if ($result) {
-            $message =  "insertion bien effectuée";
+                $message =  "insertion bien effectuée";
                 $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
                 $user = UserController::findOneByEmail($email);
                 if (!$user) {
@@ -109,8 +107,6 @@ class UserController extends Controller
             $this->renderView('user/insert', [
                 'message' => $message
             ]);
-            
-      
         }
         $this->renderView('user/insert');
     }

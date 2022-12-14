@@ -32,7 +32,7 @@
         <div class="card mb-3" style="max-width: 540px; min-height: 300px">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="uploads/<?= $lastWhiteWine['photo'] ?>" alt="<?= $lastWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+                    <img src="uploads/vins/<?= $lastWhiteWine['photo'] ?>" alt="<?= $lastWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
                 </div>
                 <div class="col-md-8">
                     <h5 class="card-title"><?= $lastWhiteWine['name'] ?></h5>
@@ -47,7 +47,7 @@
         <div class="card mb-3" style="max-width: 540px; min-height: 300px">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="uploads/<?= $lastRedWine['photo'] ?>" alt="<?= $lastRedWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+                    <img src="uploads/vins/<?= $lastRedWine['photo'] ?>" alt="<?= $lastRedWine['name'] ?>" srcset="" class="img-fluid rounded-start">
                 </div>
                 <div class="col-md-8">
                     <h5 class="card-title"><?= $lastRedWine['name'] ?></h5>
@@ -62,7 +62,7 @@
         <div class="card mb-3" style="max-width: 540px; min-height: 300px">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="uploads/<?= $lastChampagne['photo'] ?>" alt="<?= $lastChampagne['name'] ?>" srcset="" class="img-fluid rounded-start">
+                    <img src="uploads/vins/<?= $lastChampagne['photo'] ?>" alt="<?= $lastChampagne['name'] ?>" srcset="" class="img-fluid rounded-start">
                 </div>
                 <div class="col-md-8">
                     <h5 class="card-title"><?= $lastChampagne['name'] ?></h5>
@@ -77,7 +77,7 @@
         <div class="card mb-3" style="max-width: 540px; min-height: 300px">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="uploads/<?= $lastBox['photo'] ?>" alt="<?= $lastBox['name'] ?>" srcset="" class="img-fluid rounded-start">
+                    <img src="uploads/vins/<?= $lastBox['photo'] ?>" alt="<?= $lastBox['name'] ?>" srcset="" class="img-fluid rounded-start">
                 </div>
                 <div class="col-md-8">
                     <h5 class="card-title"><?= $lastBox['name'] ?></h5>
