@@ -1,11 +1,14 @@
 <div>Ceci est la page du blog pour insérer un article</div>
 <?php if (isset($message)) : ?>
     <div>
-        <span><?= $message ?></span>
+        <p class="text-center"><?= $message ?></p>
+        <div class="text-center">
+            <a href="<?= BASE_DIR ?>/blog" class="btn btn-warning">Retourner à l'index </a>
+        </div>
     </div>
-
 <?php endif; ?>
 
+<h1 class="text-center m-3">Ajouter un Articles</h1>
 <!-- Create the editor container -->
 <form method="POST" action="<?= BASE_DIR ?>/blog/insert" enctype="multipart/form-data">
     <div>

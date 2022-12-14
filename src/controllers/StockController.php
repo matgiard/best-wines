@@ -93,7 +93,7 @@ class StockController extends Controller
             $result = $product->insert();
 
             if ($result) {
-                $message =  "insertion bien effectuée";
+                $message =  "Insertion bien effectuée";
             } else {
                 $message =  "échec de l'insertion";
             }
@@ -149,7 +149,7 @@ class StockController extends Controller
             }
 
             if ($result) {
-                $message =  "edit bien effectuée";
+                $message =  "Modification bien effectuée";
             } else {
                 $message =  "échec de l'édit";
             };

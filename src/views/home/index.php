@@ -177,7 +177,7 @@
 <div class="container-fluid p-5">
     <div class="row content">
     <div class="col-sm-3 border border-3 text-center bg-light">
-    <img src="<?= BASE_DIR ?>/uploads/blog/<?= $articles['photo_article']; ?>" alt="" class="rounded">
+    <img src="<?= BASE_DIR ?>/uploads/blog/<?= $articles['photo_article']; ?>" alt="" class="rounded card-bw">
     </div>
     <div class="col-sm-9 ">        <h2><?= $articles['title'] ?></h2>
         <div><?= substr($articles['content'], 0, 300) ?>...</div>

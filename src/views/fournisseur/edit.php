@@ -1,12 +1,15 @@
-<div>Ceci est la page du blog pour éditer les articles.</div>
 <?php if (isset($message)) : ?>
     <div>
-        <span><?= $message ?></span>
+        <p class="text-center"><?= $message ?></p>
+        <div class="text-center">
+            <a href="<?= BASE_DIR ?>/nos-fournisseurs" class="btn btn-warning">Retourner à l'index </a>
+        </div>
     </div>
 
 <?php endif; ?>
 
 <!-- Create the editor container -->
+<h1 class="text-center m-3">Modifier un fournisseur</h1>
 <form method="POST" action="<?= BASE_DIR ?>/nos-fournisseurs/edit?id=<?= $id ?>" enctype="multipart/form-data">
 
     <div>

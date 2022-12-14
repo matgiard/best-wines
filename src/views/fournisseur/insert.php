@@ -1,11 +1,12 @@
-<H1>insert Fournisseur</H1>
 <?php if (isset($message)) : ?>
     <div>
-        <span><?= $message ?></span>
+        <p class="text-center"><?= $message ?></p>
+        <div class="text-center">
+            <a href="<?= BASE_DIR ?>/nos-fournisseurs" class="btn btn-warning">Retourner à l'index </a>
+        </div>
     </div>
-
 <?php endif; ?>
-
+<h1 class="text-center m-3">Ajouter un fournisseur</h1>
 <!-- Create the editor container -->
 <form method="POST" action="<?= BASE_DIR ?>/nos-fournisseurs/insert" enctype="multipart/form-data">
     <div>

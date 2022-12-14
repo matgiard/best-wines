@@ -2,7 +2,10 @@
 
 <?php if (isset($message)) : ?>
     <div>
-        <span><?= $message ?></span>
+        <p class="text-center"><?= $message ?></p>
+        <div class="text-center">
+            <a href="<?= BASE_DIR ?>/employe/stock" class="btn btn-warning">Retourner à l'index </a>
+        </div>
     </div>
 
 <?php endif; ?>
