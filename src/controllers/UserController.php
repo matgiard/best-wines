@@ -45,7 +45,6 @@ class UserController extends Controller
         // }
         
         $_SESSION['last_page'] = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'index.php';
-
         $errors = CheckLog::errors();
 
         $this->renderView('user/login', compact('errors'));

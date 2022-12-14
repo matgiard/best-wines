@@ -54,7 +54,7 @@
 	?>
 </div>
 <div></div>
-<div class="no-records">
+<div class="no-records p-4">
 	<?php if (isset($_SESSION["cart_item"])) : ?>
 		<a href="/best-wines/pay" class="btn color1">Valider la commande</a>
 		
