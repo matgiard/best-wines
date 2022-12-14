@@ -12,79 +12,85 @@
                 <img src="/best-wines/uploads/carrousel/3.png" class="d-block w-100" alt="message promotionnel">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
-    <div class="container mt-5">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="card mb-3" style="max-width: 540px; min-height: 300px">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="uploads/vins/<?= $lastWhiteWine['photo'] ?>" alt="<?= $lastWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
-                    </div>
-                    <div class="col-md-8">
-                        <h5 class="card-title"><?= $lastWhiteWine['name'] ?></h5>
-                        <p class="card-text">description: <?= $lastWhiteWine['description'] ?></p>
-                        <p class="card-text">Pourcentage d'alcool: <?= $lastWhiteWine['alcohol_percentage'] ?>%</p>
-                        <p class="card-text">Région: <?= $lastWhiteWine['region_name'] ?></p>
-                        <p class="card-text">Prix Unitaire: <?= $lastWhiteWine['price'] ?>€</p>
-                        <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $lastWhiteWine['name'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
-                    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+    
+
+   
+
+<div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="card mb-3" style="max-width: 540px; min-height: 300px">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="uploads/<?= $lastWhiteWine['photo'] ?>" alt="<?= $lastWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-8">
+                    <h5 class="card-title"><?= $lastWhiteWine['name'] ?></h5>
+                    <p class="card-text">description: <?= $lastWhiteWine['description'] ?></p>
+                    <p class="card-text">Pourcentage d'alcool: <?= $lastWhiteWine['alcohol_percentage'] ?>%</p>
+                    <p class="card-text">Région: <?= $lastWhiteWine['region_name'] ?></p>
+                    <p class="card-text">Prix Unitaire: <?= $lastWhiteWine['price'] ?>€</p>
+                    <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $lastWhiteWine['name'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
                 </div>
             </div>
-            <div class="card mb-3" style="max-width: 540px; min-height: 300px">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="uploads/vins/<?= $lastRedWine['photo'] ?>" alt="<?= $lastRedWine['name'] ?>" srcset="" class="img-fluid rounded-start">
-                    </div>
-                    <div class="col-md-8">
-                        <h5 class="card-title"><?= $lastRedWine['name'] ?></h5>
-                        <p class="card-text">description: <?= $lastRedWine['description'] ?></p>
-                        <p class="card-text">Pourcentage d'alcool: <?= $lastRedWine['alcohol_percentage'] ?>%</p>
-                        <p class="card-text">Région: <?= $lastRedWine['region_name'] ?></p>
-                        <p class="card-text">Prix Unitaire: <?= $lastRedWine['price'] ?>€</p>
-                        <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $lastRedWine['name'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
-                    </div>
+        </div>
+        <div class="card mb-3" style="max-width: 540px; min-height: 300px">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="uploads/<?= $lastRedWine['photo'] ?>" alt="<?= $lastRedWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-8">
+                    <h5 class="card-title"><?= $lastRedWine['name'] ?></h5>
+                    <p class="card-text">description: <?= $lastRedWine['description'] ?></p>
+                    <p class="card-text">Pourcentage d'alcool: <?= $lastRedWine['alcohol_percentage'] ?>%</p>
+                    <p class="card-text">Région: <?= $lastRedWine['region_name'] ?></p>
+                    <p class="card-text">Prix Unitaire: <?= $lastRedWine['price'] ?>€</p>
+                    <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $lastRedWine['name'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
                 </div>
             </div>
-            <div class="card mb-3" style="max-width: 540px; min-height: 300px">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="uploads/vins/<?= $lastChampagne['photo'] ?>" alt="<?= $lastChampagne['name'] ?>" srcset="" class="img-fluid rounded-start">
-                    </div>
-                    <div class="col-md-8">
-                        <h5 class="card-title"><?= $lastChampagne['name'] ?></h5>
-                        <p class="card-text">description: <?= $lastChampagne['description'] ?></p>
-                        <p class="card-text">Pourcentage d'alcool: <?= $lastChampagne['alcohol_percentage'] ?>%</p>
-                        <p class="card-text">Région: <?= $lastChampagne['region_name'] ?></p>
-                        <p class="card-text">Prix Unitaire: <?= $lastChampagne['price'] ?>€</p>
-                        <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $lastChampagne['name'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
-                    </div>
+        </div>
+        <div class="card mb-3" style="max-width: 540px; min-height: 300px">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="uploads/<?= $lastChampagne['photo'] ?>" alt="<?= $lastChampagne['name'] ?>" srcset="" class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-8">
+                    <h5 class="card-title"><?= $lastChampagne['name'] ?></h5>
+                    <p class="card-text">description: <?= $lastChampagne['description'] ?></p>
+                    <p class="card-text">Pourcentage d'alcool: <?= $lastChampagne['alcohol_percentage'] ?>%</p>
+                    <p class="card-text">Région: <?= $lastChampagne['region_name'] ?></p>
+                    <p class="card-text">Prix Unitaire: <?= $lastChampagne['price'] ?>€</p>
+                    <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $lastChampagne['name'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
                 </div>
             </div>
-            <div class="card mb-3" style="max-width: 540px; min-height: 300px">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="uploads/vins/<?= $lastBox['photo'] ?>" alt="<?= $lastBox['name'] ?>" srcset="" class="img-fluid rounded-start">
-                    </div>
-                    <div class="col-md-8">
-                        <h5 class="card-title"><?= $lastBox['name'] ?></h5>
-                        <p class="card-text">description: <?= $lastBox['description'] ?></p>
-                        <p class="card-text">Pourcentage d'alcool: <?= $lastBox['alcohol_percentage'] ?>%</p>
-                        <p class="card-text">Région: <?= $lastBox['region_name'] ?></p>
-                        <p class="card-text">Prix Unitaire: <?= $lastBox['price'] ?>€</p>
-                        <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $lastBox['name'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
-                    </div>
+        </div>
+        <div class="card mb-3" style="max-width: 540px; min-height: 300px">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="uploads/<?= $lastBox['photo'] ?>" alt="<?= $lastBox['name'] ?>" srcset="" class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-8">
+                    <h5 class="card-title"><?= $lastBox['name'] ?></h5>
+                    <p class="card-text">description: <?= $lastBox['description'] ?></p>
+                    <p class="card-text">Pourcentage d'alcool: <?= $lastBox['alcohol_percentage'] ?>%</p>
+                    <p class="card-text">Région: <?= $lastBox['region_name'] ?></p>
+                    <p class="card-text">Prix Unitaire: <?= $lastBox['price'] ?>€</p>
+                    <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $lastBox['name'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
     <div style="background-color: #9e121b">
