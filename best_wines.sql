@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mer. 14 déc. 2022 à 13:48
--- Version du serveur : 5.7.40
--- Version de PHP : 8.0.26
+-- Hôte : 127.0.0.1
+-- Généré le : jeu. 15 déc. 2022 à 10:29
+-- Version du serveur : 10.4.24-MariaDB
+-- Version de PHP : 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,17 +27,14 @@ SET time_zone = "+00:00";
 -- Structure de la table `article`
 --
 
-DROP TABLE IF EXISTS `article`;
-CREATE TABLE IF NOT EXISTS `article` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `article` (
+  `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date` timestamp NOT NULL DEFAULT current_timestamp(),
   `id_user` int(11) DEFAULT NULL,
-  `photo_article` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+  `photo_article` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `article`
@@ -53,18 +50,16 @@ INSERT INTO `article` (`id`, `title`, `content`, `date`, `id_user`, `photo_artic
 -- Structure de la table `association`
 --
 
-DROP TABLE IF EXISTS `association`;
-CREATE TABLE IF NOT EXISTS `association` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `association_name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+CREATE TABLE `association` (
+  `id_association` int(11) NOT NULL,
+  `association_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `association`
 --
 
-INSERT INTO `association` (`id`, `association_name`) VALUES
+INSERT INTO `association` (`id_association`, `association_name`) VALUES
 (1, 'Viande rouge'),
 (2, 'Viande blanche'),
 (3, 'Crustacé'),
@@ -77,18 +72,16 @@ INSERT INTO `association` (`id`, `association_name`) VALUES
 -- Structure de la table `cepage`
 --
 
-DROP TABLE IF EXISTS `cepage`;
-CREATE TABLE IF NOT EXISTS `cepage` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cepage_name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+CREATE TABLE `cepage` (
+  `id_cepage` int(11) NOT NULL,
+  `cepage_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `cepage`
 --
 
-INSERT INTO `cepage` (`id`, `cepage_name`) VALUES
+INSERT INTO `cepage` (`id_cepage`, `cepage_name`) VALUES
 (1, 'Riesling'),
 (2, 'Chardonnay'),
 (3, 'Sauvignon blanc'),
@@ -108,16 +101,12 @@ INSERT INTO `cepage` (`id`, `cepage_name`) VALUES
 -- Structure de la table `comment`
 --
 
-DROP TABLE IF EXISTS `comment`;
-CREATE TABLE IF NOT EXISTS `comment` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `comment` (
+  `id` int(11) NOT NULL,
   `note` int(11) NOT NULL,
   `text_comment` text NOT NULL,
   `id_product` int(11) NOT NULL,
-  `id_sale` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_product` (`id_product`),
-  KEY `id_sale` (`id_sale`)
+  `id_sale` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -126,16 +115,12 @@ CREATE TABLE IF NOT EXISTS `comment` (
 -- Structure de la table `invoice`
 --
 
-DROP TABLE IF EXISTS `invoice`;
-CREATE TABLE IF NOT EXISTS `invoice` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+CREATE TABLE `invoice` (
+  `id` int(11) NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
   `total_price` float NOT NULL,
   `id_sale` int(11) NOT NULL,
-  `id_promotion` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_sale` (`id_sale`),
-  KEY `id_promotion` (`id_promotion`)
+  `id_promotion` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -144,13 +129,10 @@ CREATE TABLE IF NOT EXISTS `invoice` (
 -- Structure de la table `order_tracking`
 --
 
-DROP TABLE IF EXISTS `order_tracking`;
-CREATE TABLE IF NOT EXISTS `order_tracking` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `order_tracking` (
+  `id` int(11) NOT NULL,
   `order_state` varchar(255) NOT NULL,
-  `id_receipt` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_receipt` (`id_receipt`)
+  `id_receipt` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -159,9 +141,8 @@ CREATE TABLE IF NOT EXISTS `order_tracking` (
 -- Structure de la table `product`
 --
 
-DROP TABLE IF EXISTS `product`;
-CREATE TABLE IF NOT EXISTS `product` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `note_final` float DEFAULT NULL,
@@ -175,15 +156,8 @@ CREATE TABLE IF NOT EXISTS `product` (
   `id_comment` int(11) DEFAULT NULL,
   `id_type` int(11) NOT NULL,
   `price` float NOT NULL,
-  `is_featured` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_region` (`id_region`),
-  KEY `id_cepage` (`id_cepage`),
-  KEY `id_taste` (`id_taste`),
-  KEY `id_association` (`id_association`),
-  KEY `id_comment` (`id_comment`),
-  KEY `id_type` (`id_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=10020 DEFAULT CHARSET=utf8;
+  `is_featured` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `product`
@@ -216,14 +190,12 @@ INSERT INTO `product` (`id`, `name`, `description`, `note_final`, `photo`, `stoc
 -- Structure de la table `promotion`
 --
 
-DROP TABLE IF EXISTS `promotion`;
-CREATE TABLE IF NOT EXISTS `promotion` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `promotion` (
+  `id` int(11) NOT NULL,
   `promotion_name` varchar(255) NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
-  `percentage` float NOT NULL,
-  PRIMARY KEY (`id`)
+  `percentage` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -232,18 +204,16 @@ CREATE TABLE IF NOT EXISTS `promotion` (
 -- Structure de la table `region`
 --
 
-DROP TABLE IF EXISTS `region`;
-CREATE TABLE IF NOT EXISTS `region` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `region_name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+CREATE TABLE `region` (
+  `id_region` int(11) NOT NULL,
+  `region_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `region`
 --
 
-INSERT INTO `region` (`id`, `region_name`) VALUES
+INSERT INTO `region` (`id_region`, `region_name`) VALUES
 (1, 'Auvergne-Rhône-Alpes'),
 (2, 'Bourgogne-Franche-Comté'),
 (3, 'Bretagne'),
@@ -264,18 +234,14 @@ INSERT INTO `region` (`id`, `region_name`) VALUES
 -- Structure de la table `sale`
 --
 
-DROP TABLE IF EXISTS `sale`;
-CREATE TABLE IF NOT EXISTS `sale` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `sale` (
+  `id` int(11) NOT NULL,
   `id_product` int(11) NOT NULL,
   `id_user` int(11) DEFAULT NULL,
   `quantity` int(11) NOT NULL,
   `price_total_product` float DEFAULT NULL,
-  `quantity_total_sold` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_product` (`id_product`),
-  KEY `id_user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `quantity_total_sold` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `sale`
@@ -290,14 +256,12 @@ INSERT INTO `sale` (`id`, `id_product`, `id_user`, `quantity`, `price_total_prod
 -- Structure de la table `supplier`
 --
 
-DROP TABLE IF EXISTS `supplier`;
-CREATE TABLE IF NOT EXISTS `supplier` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `supplier` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `content` text NOT NULL,
-  `image_supp` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+  `image_supp` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `supplier`
@@ -313,18 +277,16 @@ INSERT INTO `supplier` (`id`, `name`, `content`, `image_supp`) VALUES
 -- Structure de la table `taste`
 --
 
-DROP TABLE IF EXISTS `taste`;
-CREATE TABLE IF NOT EXISTS `taste` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `taste_name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+CREATE TABLE `taste` (
+  `id_taste` int(11) NOT NULL,
+  `taste_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `taste`
 --
 
-INSERT INTO `taste` (`id`, `taste_name`) VALUES
+INSERT INTO `taste` (`id_taste`, `taste_name`) VALUES
 (1, 'Fruité et charnu'),
 (2, 'Fruité et frais'),
 (3, 'Fruité et léger'),
@@ -338,12 +300,10 @@ INSERT INTO `taste` (`id`, `taste_name`) VALUES
 -- Structure de la table `type_product`
 --
 
-DROP TABLE IF EXISTS `type_product`;
-CREATE TABLE IF NOT EXISTS `type_product` (
-  `id_type` int(11) NOT NULL AUTO_INCREMENT,
-  `type_name` varchar(250) NOT NULL,
-  PRIMARY KEY (`id_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+CREATE TABLE `type_product` (
+  `id_type` int(11) NOT NULL,
+  `type_name` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `type_product`
@@ -361,15 +321,13 @@ INSERT INTO `type_product` (`id_type`, `type_name`) VALUES
 -- Structure de la table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `is_admin` tinyint(1) NOT NULL DEFAULT '0',
-  `is_employee` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+  `is_admin` tinyint(1) NOT NULL DEFAULT 0,
+  `is_employee` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `user`
@@ -384,6 +342,196 @@ INSERT INTO `user` (`id`, `email`, `password`, `is_admin`, `is_employee`) VALUES
 (8, 'jdousse@hotmail.fr', '$argon2id$v=19$m=65536,t=4,p=1$bzJGRWhNTnJyVUxjOTQxQw$hCJ1vHDwY+xPnCtqcoh8sN9ltv4I4kIMha8XFRH8QAw', 1, 1),
 (9, 'jdousse2@hotmail.fr', '$argon2id$v=19$m=65536,t=4,p=1$dWN1WThWcjd3VDd6S1NjUg$OejhNhqCMGBuNkQG7C2DnjzX+qb7MYOonUB2P1SnnQM', 0, 1),
 (10, '', '$argon2id$v=19$m=65536,t=4,p=1$ckRDOGRKdFVxbTVkZjN5TQ$24PLlibICnjbsI31o187kiRF/sdXFp6cm9UUm1NCG7o', 0, 0);
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `article`
+--
+ALTER TABLE `article`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user`);
+
+--
+-- Index pour la table `association`
+--
+ALTER TABLE `association`
+  ADD PRIMARY KEY (`id_association`);
+
+--
+-- Index pour la table `cepage`
+--
+ALTER TABLE `cepage`
+  ADD PRIMARY KEY (`id_cepage`);
+
+--
+-- Index pour la table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_product` (`id_product`),
+  ADD KEY `id_sale` (`id_sale`);
+
+--
+-- Index pour la table `invoice`
+--
+ALTER TABLE `invoice`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_sale` (`id_sale`),
+  ADD KEY `id_promotion` (`id_promotion`);
+
+--
+-- Index pour la table `order_tracking`
+--
+ALTER TABLE `order_tracking`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_receipt` (`id_receipt`);
+
+--
+-- Index pour la table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_region` (`id_region`),
+  ADD KEY `id_cepage` (`id_cepage`),
+  ADD KEY `id_taste` (`id_taste`),
+  ADD KEY `id_association` (`id_association`),
+  ADD KEY `id_comment` (`id_comment`),
+  ADD KEY `id_type` (`id_type`);
+
+--
+-- Index pour la table `promotion`
+--
+ALTER TABLE `promotion`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `region`
+--
+ALTER TABLE `region`
+  ADD PRIMARY KEY (`id_region`);
+
+--
+-- Index pour la table `sale`
+--
+ALTER TABLE `sale`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_product` (`id_product`),
+  ADD KEY `id_user` (`id_user`);
+
+--
+-- Index pour la table `supplier`
+--
+ALTER TABLE `supplier`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `taste`
+--
+ALTER TABLE `taste`
+  ADD PRIMARY KEY (`id_taste`);
+
+--
+-- Index pour la table `type_product`
+--
+ALTER TABLE `type_product`
+  ADD PRIMARY KEY (`id_type`);
+
+--
+-- Index pour la table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `article`
+--
+ALTER TABLE `article`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT pour la table `association`
+--
+ALTER TABLE `association`
+  MODIFY `id_association` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `cepage`
+--
+ALTER TABLE `cepage`
+  MODIFY `id_cepage` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT pour la table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `invoice`
+--
+ALTER TABLE `invoice`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `order_tracking`
+--
+ALTER TABLE `order_tracking`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10020;
+
+--
+-- AUTO_INCREMENT pour la table `promotion`
+--
+ALTER TABLE `promotion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `region`
+--
+ALTER TABLE `region`
+  MODIFY `id_region` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT pour la table `sale`
+--
+ALTER TABLE `sale`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `supplier`
+--
+ALTER TABLE `supplier`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT pour la table `taste`
+--
+ALTER TABLE `taste`
+  MODIFY `id_taste` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT pour la table `type_product`
+--
+ALTER TABLE `type_product`
+  MODIFY `id_type` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Contraintes pour les tables déchargées
@@ -419,11 +567,11 @@ ALTER TABLE `order_tracking`
 -- Contraintes pour la table `product`
 --
 ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`id_region`) REFERENCES `region` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`id_association`) REFERENCES `association` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`id_cepage`) REFERENCES `cepage` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`id_region`) REFERENCES `region` (`id_region`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`id_association`) REFERENCES `association` (`id_association`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`id_cepage`) REFERENCES `cepage` (`id_cepage`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `product_ibfk_4` FOREIGN KEY (`id_comment`) REFERENCES `comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `product_ibfk_5` FOREIGN KEY (`id_taste`) REFERENCES `taste` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_ibfk_5` FOREIGN KEY (`id_taste`) REFERENCES `taste` (`id_taste`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `product_ibfk_6` FOREIGN KEY (`id_type`) REFERENCES `type_product` (`id_type`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --

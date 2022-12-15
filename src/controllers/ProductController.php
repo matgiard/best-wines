@@ -70,17 +70,17 @@ class ProductController extends Controller
         $this->renderView('home/index', compact('lastWhiteWine', 'lastRedWine', 'lastChampagne', 'lastBox'));
     }
     public function showOne()
-    {
-        $name = $_GET['name'];
+    {   
+        $id = $_GET['id'];
         $product = new Product();
 
-        $lastWhiteWine = $product->findLastBy(['id_type' => 1], ['id' => 'id-1']);
+        $lastWhiteWine = $product->findLastBy(['id_type' => 1]);
         $lastRedWine = $product->findLastBy(['id_type' => 2]);
         $lastChampagne = $product->findLastBy(['id_type' => 3]);
         $lastBox = $product->findLastBy(['id_type' => 4]);
 
 
-        $products = $product->findOneBy(['name' => $name]);
+        $products = $product->findOneBy(['id' => $id]);
 
         $this->renderView('product/details', compact('products', 'lastWhiteWine', 'lastRedWine', 'lastChampagne', 'lastBox'));
     }

@@ -32,10 +32,10 @@
         <select name="id_region" class="form-select" aria-label="Default select example">
             <option selected>Choisissez une option</option>
             <?php foreach ($regions as $region) : ?>
-                <?php if ($edit_temp['id_region'] == $region['id']) : ?>
-                    <option selected name="<?= $region['id'] ?>" value="<?= $region['id'] ?>"><?= $region['region_name'] ?></option>
+                <?php if ($edit_temp['id_region'] == $region['id_region']) : ?>
+                    <option selected name="<?= $region['id_region'] ?>" value="<?= $region['id_region'] ?>"><?= $region['region_name'] ?></option>
                 <?php else : ?>
-                    <option name="<?= $region['id'] ?>" value="<?= $region['id'] ?>"><?= $region['region_name'] ?></option>
+                    <option name="<?= $region['id_region'] ?>" value="<?= $region['id_region'] ?>"><?= $region['region_name'] ?></option>
                 <?php endif ?>
             <?php endforeach ?>
         </select>
@@ -46,10 +46,10 @@
         <select name="id_cepage" class="form-select" aria-label="Default select example">
             <option selected>Choisissez une option</option>
             <?php foreach ($cepages as $cepage) : ?>
-                <?php if ($edit_temp['id_cepage'] == $cepage['id']) : ?>
-                    <option selected name="<?= $cepage['id'] ?>" value="<?= $cepage['id'] ?>"><?= $cepage['cepage_name'] ?></option>
+                <?php if ($edit_temp['id_cepage'] == $cepage['id_cepage']) : ?>
+                    <option selected name="<?= $cepage['id_cepage'] ?>" value="<?= $cepage['id_cepage'] ?>"><?= $cepage['cepage_name'] ?></option>
                 <?php else : ?>
-                    <option name="<?= $cepage['id'] ?>" value="<?= $cepage['id'] ?>"><?= $cepage['cepage_name'] ?></option>
+                    <option name="<?= $cepage['id_cepage'] ?>" value="<?= $cepage['id_cepage'] ?>"><?= $cepage['cepage_name'] ?></option>
                 <?php endif ?>
             <?php endforeach ?>
         </select>
@@ -60,10 +60,10 @@
         <select name="id_taste" class="form-select" aria-label="Default select example">
             <option selected>Choisissez le goût</option>
             <?php foreach ($tastes as $taste) : ?>
-                <?php if ($edit_temp['id_taste'] == $taste['id']) : ?>
-                    <option selected name="<?= $taste['id'] ?>" value="<?= $taste['id'] ?>"><?= $taste['taste_name'] ?></option>
+                <?php if ($edit_temp['id_taste'] == $taste['id_taste']) : ?>
+                    <option selected name="<?= $taste['id_taste'] ?>" value="<?= $taste['id_taste'] ?>"><?= $taste['taste_name'] ?></option>
                 <?php else : ?>
-                    <option name="<?= $taste['id'] ?>" value="<?= $taste['id'] ?>"><?= $taste['taste_name'] ?></option>
+                    <option name="<?= $taste['id_taste'] ?>" value="<?= $taste['id_taste'] ?>"><?= $taste['taste_name'] ?></option>
                 <?php endif ?>
             <?php endforeach ?>
         </select>
@@ -73,10 +73,10 @@
         <select name="id_association" class="form-select" aria-label="Default select example">
             <option selected>Choisissez l'accord</option>
             <?php foreach ($associations as $association) : ?>
-                <?php if ($edit_temp['id_association'] == $association['id']) : ?>
-                    <option selected name="<?= $association['id'] ?>" value="<?= $association['id'] ?>"><?= $association['association_name'] ?></option>
+                <?php if ($edit_temp['id_association'] == $association['id_association']) : ?>
+                    <option selected name="<?= $association['id_association'] ?>" value="<?= $association['id_association'] ?>"><?= $association['association_name'] ?></option>
                 <?php else : ?>
-                    <option name="<?= $association['id'] ?>" value="<?= $association['id'] ?>"><?= $association['association_name'] ?></option>
+                    <option name="<?= $association['id_association'] ?>" value="<?= $association['id_association'] ?>"><?= $association['association_name'] ?></option>
                 <?php endif ?>
             <?php endforeach ?>
         </select>

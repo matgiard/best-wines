@@ -34,7 +34,7 @@
                         <p class="card-text">Pourcentage d'alcool: <?= $lastWhiteWine['alcohol_percentage'] ?>%</p>
                         <p class="card-text">Région: <?= $lastWhiteWine['region_name'] ?></p>
                         <p class="card-text">Prix Unitaire: <?= $lastWhiteWine['price'] ?>€</p>
-                        <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $lastWhiteWine['name'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
+                        <a href="<?= BASE_DIR ?>/nos-vins/detail?id=<?= $lastWhiteWine['id'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                         <p class="card-text">Pourcentage d'alcool: <?= $lastRedWine['alcohol_percentage'] ?>%</p>
                         <p class="card-text">Région: <?= $lastRedWine['region_name'] ?></p>
                         <p class="card-text">Prix Unitaire: <?= $lastRedWine['price'] ?>€</p>
-                        <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $lastRedWine['name'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
+                        <a href="<?= BASE_DIR ?>/nos-vins/detail?id=<?= $lastRedWine['id'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                         <p class="card-text">Pourcentage d'alcool: <?= $lastChampagne['alcohol_percentage'] ?>%</p>
                         <p class="card-text">Région: <?= $lastChampagne['region_name'] ?></p>
                         <p class="card-text">Prix Unitaire: <?= $lastChampagne['price'] ?>€</p>
-                        <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $lastChampagne['name'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
+                        <a href="<?= BASE_DIR ?>/nos-vins/detail?id=<?= $lastChampagne['id'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                         <p class="card-text">Pourcentage d'alcool: <?= $lastBox['alcohol_percentage'] ?>%</p>
                         <p class="card-text">Région: <?= $lastBox['region_name'] ?></p>
                         <p class="card-text">Prix Unitaire: <?= $lastBox['price'] ?>€</p>
-                        <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $lastBox['name'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
+                        <a href="<?= BASE_DIR ?>/nos-vins/detail?id=<?= $lastBox['id'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
                     </div>
                 </div>
             </div>
@@ -102,7 +102,7 @@
                             <p class="card-text">Pourcentage d'alcool: <?= $featuredWhiteWine['alcohol_percentage'] ?>%</p>
                             <p class="card-text">Région: <?= $featuredWhiteWine['region_name'] ?></p>
                             <p class="card-text">Prix Unitaire: <?= $featuredWhiteWine['price'] ?>€</p>
-                            <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $featuredWhiteWine['name'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
+                            <a href="<?= BASE_DIR ?>/nos-vins/detail?id=<?= $featuredWhiteWine['id'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
                         </div>
                     </div>
                 </div>
@@ -117,7 +117,7 @@
                             <p class="card-text">Pourcentage d'alcool: <?= $featuredRedWine['alcohol_percentage'] ?>%</p>
                             <p class="card-text">Région: <?= $featuredRedWine['region_name'] ?></p>
                             <p class="card-text">Prix Unitaire: <?= $featuredRedWine['price'] ?>€</p>
-                            <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $featuredRedWine['name'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
+                            <a href="<?= BASE_DIR ?>/nos-vins/detail?id=<?= $featuredRedWine['id'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
                         </div>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                             <p class="card-text">Pourcentage d'alcool: <?= $featuredChampagne['alcohol_percentage'] ?>%</p>
                             <p class="card-text">Région: <?= $featuredChampagne['region_name'] ?></p>
                             <p class="card-text">Prix Unitaire: <?= $featuredChampagne['price'] ?>€</p>
-                            <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $featuredChampagne['name'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
+                            <a href="<?= BASE_DIR ?>/nos-vins/detail?id=<?= $featuredChampagne['id'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
                         </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                             <p class="card-text">Pourcentage d'alcool: <?= $featuredBox['alcohol_percentage'] ?>%</p>
                             <p class="card-text">Région: <?= $featuredBox['region_name'] ?></p>
                             <p class="card-text">Prix Unitaire: <?= $featuredBox['price'] ?>€</p>
-                            <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $featuredBox['name'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
+                            <a href="<?= BASE_DIR ?>/nos-vins/detail?id=<?= $featuredBox['id'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
                         </div>
                     </div>
                 </div>
@@ -157,10 +157,10 @@
     <div>
         <div class="container-fluid p-5">
             <div class="row content">
-                <div class="col-sm-3 border border-3 text-center bg-light">
+                <div class="col-lg-3 centerCard ">
                     <img src="<?= BASE_DIR ?>/uploads/blog/<?= $articles['photo_article']; ?>" alt="" class="rounded card-bw">
                 </div>
-                <div class="col-sm-9 ">
+                <div class="col-lg-9 ">
                     <h2><?= $articles['title'] ?></h2>
                     <div><?= substr($articles['content'], 0, 300) ?>...</div>
                     <a href="<?= BASE_DIR ?>/blog/details?id=<?= $articles['id'] ?>">Voir plus</a>

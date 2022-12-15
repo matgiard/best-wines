@@ -31,7 +31,9 @@
 .card-bw {
 	
 	max-height: 250px !important;
-	max-width: 250px !important;
+	max-width: 350px !important;
+	height: 100%;
+	width: 100%;
 }
 
 body {
@@ -186,4 +188,9 @@ min-height: 300px;
 
 .result p {
 	color: black;
+}
+.centerCard{
+    display: flex !important;
+    justify-content: center !important;
+    align-content: center !important;
 }

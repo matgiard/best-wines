@@ -15,10 +15,10 @@
 
     <div class="container-fluid p-5">
         <div class="row content">
-            <div class="col-sm-3 border border-3 text-center bg-light ">
+            <div class="col-lg-3 centerCard ">
                 <img src="<?= BASE_DIR ?>/uploads/blog/<?= $supplier['image_supp']; ?>" alt="" class="rounded card-bw">
             </div>
-            <div class="col-sm-9 ">
+            <div class="col-lg-9 ">
                 <h2><?= $supplier['name'] ?></h2>
                 <div class="h4"><?= substr($supplier['content'], 0, 300) ?>...</div>
                 <a href="<?= BASE_DIR ?>/blog/details?id=<?= $supplier['id'] ?>">Voir plus</a>

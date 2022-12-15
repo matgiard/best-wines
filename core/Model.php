@@ -7,11 +7,11 @@ abstract class Model
     protected \PDO $pdo;
 
     protected string $table_name;
-    protected string $regionJoin = 'region ON product.id_region=region.id';
-    protected string $cepage = 'cepage ON product.id_cepage=cepage.id';
-    protected string $association = 'association ON product.id_association=association.id';
+    protected string $regionJoin = 'region ON product.id_region=region.id_region';
+    protected string $cepage = 'cepage ON product.id_cepage=cepage.id_cepage';
+    protected string $association = 'association ON product.id_association=association.id_association';
     protected string $type_product = 'type_product ON product.id_type=type_product.id_type';
-    protected string $taste = 'taste ON product.id_taste=taste.id';
+    protected string $taste = 'taste ON product.id_taste=taste.id_taste';
 
     public function __construct()
     {
@@ -164,7 +164,7 @@ abstract class Model
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
         // else
         //     $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
-
+        
         $stmt->execute();
         return $stmt->fetch();
     }

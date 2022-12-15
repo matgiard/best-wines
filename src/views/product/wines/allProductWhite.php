@@ -12,7 +12,7 @@
                         <p class="card-text">Pourcentage d'alcool: <?= $product['alcohol_percentage'] ?>%</p>
                         <p class="card-text">Région: <?= $product['region_name'] ?></p>
                         <p class="card-text">Prix Unitaire: <?= $product['price'] ?>€</p>
-                        <a href="<?= BASE_DIR ?>/nos-vins/detail?name=<?= $product['name'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
+                        <a href="<?= BASE_DIR ?>/nos-vins/detail?id=<?= $product['id'] ?>" class="btn color1 position-absolute bottom-0 start-50 translate-middle-x mb-3">Détails</a>
                     </div>
                 </div>
             </div>
