@@ -60,7 +60,7 @@ $result = $searchModel->getAllPosts($start, Config::LIMIT_PER_PAGE);
 
     <tbody id='table-body'>
 	<?php
-		if (!empty($result)) {
+
 			foreach ($result as $row) {
 	?>
 				<tr class='table-row'>
@@ -76,7 +76,7 @@ $result = $searchModel->getAllPosts($start, Config::LIMIT_PER_PAGE);
 			    </tr>
 				<?php
 					    }
-					}
+					
 				?>
 </tbody>    
 </table>

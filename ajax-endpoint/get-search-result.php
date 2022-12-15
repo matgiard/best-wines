@@ -47,20 +47,16 @@ if (! empty($_POST["page"])) {
                 $new_description = $row['name'];
                 $post_at = $row['stock'];
             }
-            ?>
-    <tr class='table-row'>
-        <td><?php echo $post_title ?></td>
-        <td><?php echo $new_description ?></td>
-        <td><?php echo $post_at ?></td>
-        <td>
-            <a href="#" class="btn btn-warning">Modifier</a>
-        </td>
-        <td>
-            <a href="#" class="btn btn-danger">Supprimer</a>
-        </td>
-    </tr>
-    <?php
-            }
-        }
-    }
-    ?>
+            echo "<tr class='table-row'>
+            <td>".$post_title."</td>
+            <td>".$new_description."</td>
+            <td>".$post_at."</td>
+            <td><a href='/best-wines/employe/stock/edit?id=". $row['id']."'class='btn btn-warning'>Modifier</a></td>
+            <td><a href='/best-wines/employe/stock/delete?id=". $row['id']."'class='btn btn-danger'>Supprimer</a></td>
+            </tr>";
+   
+                  
+
+        }}
+    } ?>
+    
