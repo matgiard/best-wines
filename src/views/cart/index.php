@@ -22,7 +22,7 @@
 					$item_price = $item["quantity"] * $item["price"];
 				?>
 					<tr>
-						<td><img src="/best-wines/uploads/<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
+						<td><img src="/best-wines/uploads/vins/<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
 						<td><?php echo $item["id"]; ?></td>
 						<td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
 						<td style="text-align:right;"><?php echo $item["price"] . " €"; ?></td>
