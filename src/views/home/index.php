@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-    <div class="container mt-5">
+    <div class="container-fluid mt-5">
         <div class="row row-cols-1 row-cols-md-4 g-4">
             <div class="card mb-3" style="max-width: 540px; min-height: 300px">
                 <div class="row g-0">
@@ -84,12 +84,12 @@
         <h1 class="p-1 text-light"> Nos recommandations</h1>
         <div class="container-fluid mt-1 ">
             <div class="row row-cols-1 row-cols-md-4 g-4">
-                <div class="card mb-3" style="max-width: 540px; min-height: 300px">
+                <div class="card mb-3 me-1" style="min-width: 270px; min-height: 350px">
                     <div class="row g-0">
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <img src="uploads/vins/<?= $featuredWhiteWine['photo'] ?>" alt="<?= $featuredWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-10">
                             <h5 class="card-title"><?= $featuredWhiteWine['name'] ?></h5>
                             <p class="card-text">description: <?= $featuredWhiteWine['description'] ?></p>
                             <p class="card-text">Pourcentage d'alcool: <?= $featuredWhiteWine['alcohol_percentage'] ?>%</p>
@@ -99,12 +99,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="card mb-3" style="max-width: 540px; min-height: 300px">
+                <div class="card mb-3 me-1" style="max-width: 540px; min-height: 300px">
                     <div class="row g-0">
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <img src="uploads/vins/<?= $featuredRedWine['photo'] ?>" alt="<?= $featuredRedWine['name'] ?>" srcset="" class="img-fluid rounded-start">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-10">
                             <h5 class="card-title"><?= $featuredRedWine['name'] ?></h5>
                             <p class="card-text">description: <?= $featuredRedWine['description'] ?></p>
                             <p class="card-text">Pourcentage d'alcool: <?= $featuredRedWine['alcohol_percentage'] ?>%</p>
@@ -114,12 +114,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="card mb-3" style="max-width: 540px; min-height: 300px">
+                <div class="card mb-3 me-1" style="max-width: 540px; min-height: 300px">
                     <div class="row g-0">
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <img src="uploads/vins/<?= $featuredChampagne['photo'] ?>" alt="<?= $featuredChampagne['name'] ?>" srcset="" class="img-fluid rounded-start">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-10">
                             <h5 class="card-title"><?= $featuredChampagne['name'] ?></h5>
                             <p class="card-text">description: <?= $featuredChampagne['description'] ?></p>
                             <p class="card-text">Pourcentage d'alcool: <?= $featuredChampagne['alcohol_percentage'] ?>%</p>
@@ -129,12 +129,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="card mb-3" style="max-width: 540px; min-height: 300px">
+                <div class="card mb-3 me-1" style="max-width: 540px; min-height: 300px">
                     <div class="row g-0">
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <img src="uploads/vins/<?= $featuredBox['photo'] ?>" alt="<?= $featuredBox['name'] ?>" srcset="" class="img-fluid rounded-start">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-10">
                             <h5 class="card-title"><?= $featuredBox['name'] ?></h5>
                             <p class="card-text">description: <?= $featuredBox['description'] ?></p>
                             <p class="card-text">Pourcentage d'alcool: <?= $featuredBox['alcohol_percentage'] ?>%</p>

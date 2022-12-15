@@ -152,7 +152,10 @@ min-height: 300px;
     padding: 15px 15px 0px 15px;
     overflow: auto;
 }
+.bg-products {
+background-color: #9e121b !important;
 
+}
 .cart-item-image {
 	width: 100px;
     height: 100px;

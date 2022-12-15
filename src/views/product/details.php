@@ -1,35 +1,44 @@
-
-<div class="container" id="product-section">
-    <div class="row">
-        <div class="col-md-6">
-            <img src="<?= BASE_DIR ?>/uploads/vins/<?= $products['photo']; ?>" alt="<?= $products['name'] ?>">
+<div class="container-fluid bg-products border border-light p-1" id="product-section">
+    <div class="row m-3">
+        <div class="col-md-4">
+            <img class="img-fluid border  rounded bg-light" src="<?= BASE_DIR ?>/uploads/vins/<?= $products['photo']; ?>" alt="<?= $products['name'] ?>">
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="col-md-12">
-                <h1><?= $products['name'] ?></h1>
+                <h1 class="h2 text-center text-light"><?= $products['name'] ?></h1>
             </div>
-            <div><?= $products['description'] ?></div>
-            <div>Pourcentage d'alcool: <?= $products['alcohol_percentage'] ?>%</div>
-            <h2 class="product-price"><?= $products['price'] ?>€</h2>
-            <h2 class="product-price"><?= $products['region_name'] ?></h2>
-            <section>
-                <form action="/best-wines/cart/add?name=<?= $products['name'] ?>" method="POST">
-                    <p class="qty">
-                        <label for="qty">Quantity:</label>
+            <div class="row m-3">
+                <div class="bg-light border rounded col-md-7 mt-2 me-2 h5">
+                    <div><?= $products['description'] ?></div>
+                    <div>Pourcentage d'alcool: <?= $products['alcohol_percentage'] ?>%</div>
+                    <div class=""> Région :    <?= $products['region_name'] ?></div>
+                    <div>
+                        <h2 class="product-price mt-3">Prix : <?= $products['price'] ?>€ /unité</h2>
+                    </div>
 
-                        <input type="number" name="qty" id="qty" min="1" max="30" step="1" value="1">
+                </div>
+                <div class=" bg-light border rounded col-md-4 mt-2 h5">
+                    <sectionc class="m-3">
+                        <form action="/best-wines/cart/add?name=<?= $products['name'] ?>" method="POST">
+                            <div class="qty">
+                                <label for="qty">Quantité : </label>
 
-                        <button type="input" class="btn btn-success">Ajouter au panier</button>
-                    </p>
-                </form>
-            </section>
+                                <input type="number" name="qty" id="qty" min="1" max="30" step="1" value="1">
 
+                                <button type="input" class="btn btn-success mt-2">Ajouter au panier</button>
+                            </div>
+                        </form>
+
+                    </sectionc>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
-<h4>Autres Vins conseillés</h4>
+<div class="text-center p-5">
+<h2>Autres Vins conseillés</h2>
+</div>
 <div class="container mt-5">
     <div class="row row-cols-1 row-cols-md-4 g-4">
         <div class="card mb-3" style="max-width: 540px;">
