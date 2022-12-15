@@ -12,14 +12,6 @@
                 <img src="/best-wines/uploads/carrousel/3.png" class="d-block w-100" alt="message promotionnel">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
     <div class="container mt-5">
         <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -85,6 +77,7 @@
             </div>
         </div>
     </div>
+</div>
 
 
     <div style="background-color: #9e121b">
