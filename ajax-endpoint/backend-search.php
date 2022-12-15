@@ -22,7 +22,7 @@ try{
         $stmt->execute();
         if($stmt->rowCount() > 0){
             while($row = $stmt->fetch()){
-                echo "<p><a href='./nos-vins/detail?name=" . $row["name"] . "'>" . $row["name"] . "</a></p>";
+                echo "<p><a href='./nos-vins/detail?id=" . $row["id"] . "'>" . $row["name"] . "</a></p>";
             }
         } else{
             echo "<p>No matches found</p>";

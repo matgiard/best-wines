@@ -20,7 +20,6 @@ function submitSearch(event) {
 	getResult(1);
 }
 
-console.log('coucou');
 
 $(document).ready(function(){
     $('.search-box input[type="text"]').on("keyup input", function(){
