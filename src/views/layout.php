@@ -31,10 +31,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-light" type="submit">Rechercher</button>
-                        </form>
+                    <div class="search-box">
+                        <input type="text" class="form-control me-2" autocomplete="off" placeholder="Rechercher un nom de produit..." />
+                        <div class="result"></div>
+                    </div>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Menu
