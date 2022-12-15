@@ -23,10 +23,10 @@ class CartController extends Controller
 
         $product = new Product; 
 
-        $name = $_GET['name'];
+        $id = $_GET['id'];
         
         if(!empty($_POST["qty"])) {
-			$productByName = $product->findOneItemBy(['name' => $name]);
+			$productByName = $product->findOneItemBy(['id' => $id]);
 			
 
 			$itemArray = array($productByName->name => array('name'=>$productByName->name, 'name'=>$productByName->name, 'id'=>$productByName->id, 'quantity'=>$_POST["qty"], 'price'=>$productByName->price, 'image'=>$productByName->photo));
@@ -58,15 +58,16 @@ class CartController extends Controller
 
     public function removeProduct()
     {
+
+		dd($_SESSION['cart_item']);
+		
         if(!empty($_SESSION["cart_item"])) {
 			foreach($_SESSION["cart_item"] as $k => $v) {
-					if($_GET["name"] == $k)
+					if($_GET["id"] == $v['id'])
 						unset($_SESSION["cart_item"][$k]);				
 					if(empty($_SESSION["cart_item"]))
 						unset($_SESSION["cart_item"]);
 			}
-
-			
 		}
 
         header('Location: /best-wines/cart');

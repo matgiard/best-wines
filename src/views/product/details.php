@@ -20,7 +20,7 @@
                 </div>
                 <div class=" bg-light border rounded col-md-4 mt-2 h5">
                     <sectionc class="m-3">
-                        <form action="/best-wines/cart/add?name=<?= $products['name'] ?>" method="POST">
+                        <form action="/best-wines/cart/add?id=<?= $products['id'] ?>" method="POST">
                             <div class="qty">
                                 <label for="qty">Quantité : </label>
 

@@ -27,7 +27,7 @@
 						<td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
 						<td style="text-align:right;"><?php echo $item["price"] . " €"; ?></td>
 						<td style="text-align:right;"><?php echo number_format($item_price, 2) . " €"; ?></td>
-						<td style="text-align:center;"><a href="/best-wines/cart/remove?name=<?php echo $item["name"]; ?>" class="btnRemoveAction"><img src="uploads/icon-delete.png" alt="Remove Item" /></a></td>
+						<td style="text-align:center;"><a href="/best-wines/cart/remove?id=<?php echo $item["id"]; ?>" class="btnRemoveAction"><img src="uploads/icon-delete.png" alt="Remove Item" /></a></td>
 					</tr>
 				<?php
 					$total_quantity += $item["quantity"];
