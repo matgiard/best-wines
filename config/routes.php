@@ -57,6 +57,8 @@ Router::register('/employe/commandes/details', 'OrderTrackingController::showOne
 // Gestion des paiements
 Router::register('/employe/paiements', 'PaiementsController::index');
 Router::register('/pay', 'PayController::index');
+Router::register('/pay/paypal', 'PayController::paypal');
+
 
 // Gestion des stocks
 Router::register('/employe/stock', 'StockController::showAll');
