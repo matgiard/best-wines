@@ -57,10 +57,7 @@ class CartController extends Controller
 
 
     public function removeProduct()
-    {
-
-		dd($_SESSION['cart_item']);
-		
+    {		
         if(!empty($_SESSION["cart_item"])) {
 			foreach($_SESSION["cart_item"] as $k => $v) {
 					if($_GET["id"] == $v['id'])

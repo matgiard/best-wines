@@ -8,13 +8,7 @@
     paypal.Buttons({
       // Sets up the transaction when a payment button is clicked
       createOrder: (data, actions) => {
-        return actions.order.create({
-          purchase_units: [{
-            amount: {
-              value: '<?= $total ?>' // Can also reference a variable or function
-            }
-          }]
-        });
+        return actions.order.create(<?= $order ?>);
       },
       // Finalize the transaction after payer approval
       onApprove: (data, actions) => {
