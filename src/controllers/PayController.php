@@ -22,11 +22,11 @@ class PayController extends Controller
 
         CheckLog::checkClientIsLogged();
         $total = $_SESSION['total_price'];
-        $item_paypal_array = [];
+        $paypal_items_array = [];
 
         foreach($_SESSION["cart_item"] as $k => $v ) { 
             
-            $item_paypal_array[] = [
+            $paypal_items_array[] = [
 
                     'name' => $v['name'],
                     'unit_amount' => [
@@ -40,7 +40,7 @@ class PayController extends Controller
         $order = json_encode([
             'purchase_units' => [[
                 'description' => "Panier de l'utilisateur n°" . $_SESSION['user']['id'],
-                'items' => $item_paypal_array,
+                'items' => $paypal_items_array,
                 'amount' => [
                     'currency_code' => 'EUR',
                     'value' => $total,
@@ -86,11 +86,11 @@ class PayController extends Controller
 
     public function stripe()
     {
-        $item_stripe_array = [];
+        $stripe_items_array = [];
 
         foreach($_SESSION["cart_item"] as $k => $v) { 
             
-            $item_stripe_array[] = [
+            $stripe_items_array[] = [
                     'quantity' => $v['quantity'],
                     'price_data' => [
                         'currency' => 'EUR',
@@ -106,7 +106,7 @@ class PayController extends Controller
         Stripe::setApiVersion('2022-11-15');
 
        $session = Session::create([
-        'line_items' =>  $item_stripe_array,
+        'line_items' =>  $stripe_items_array,
         'mode' => 'payment',
         'success_url' => 'http://localhost/best-wines/pay/success',
         'cancel_url' => 'http://localhost/best-wines',
