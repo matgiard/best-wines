@@ -15,7 +15,7 @@
         return actions.order.capture().then(function(orderData) {
           // Successful capture! For dev/demo purposes:
           console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-          const transaction = orderData.purchase_units[0].payments.captures[0];
+          // const transaction = orderData.purchase_units[0].payments.captures[0];
           // alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
           // When ready to go live, remove the alert and show a success message within this page. For example:
           // const element = document.getElementById('paypal-button-container');
