@@ -59,6 +59,8 @@ Router::register('/employe/paiements', 'PaiementsController::index');
 Router::register('/pay', 'PayController::index');
 Router::register('/pay/paypal', 'PayController::paypal');
 Router::register('/pay/stripe', 'PayController::stripe');
+Router::register('/pay/success', 'PayController::success');
+
 
 
 // Gestion des stocks

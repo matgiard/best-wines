@@ -127,4 +127,8 @@ class PayController extends Controller
        header('Location: ' . $session->url);
 
     }
+    public function success()
+    {
+        $this->renderView('pay/success');
+    }
 }
