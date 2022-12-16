@@ -9,6 +9,7 @@ Router::register('/', 'HomeController::showLast');
 // show all products 
 Router::register('/nos-vins', 'ProductController::showAllWines');
 Router::register('/nos-coffrets', 'ProductController::showAllboxes');
+
 // product wines
 Router::register('/nos-vins/blanc', 'ProductController::showAllWhiteWines');
 Router::register('/nos-vins/rouge', 'ProductController::showAllRedWines');
@@ -49,6 +50,9 @@ Router::register('/region', 'StockController::showAllRegion');
 
 // Accueil espace employé
 Router::register('/employe', 'StockController::index');
+
+// Accueil espace client
+Router::register('/mon-compte', 'UserController::showHistory');
 
 // espace employé Commandes
 Router::register('/employe/commandes', 'OrderTrackingController::showAll');

@@ -68,6 +68,12 @@
                                     Espace employé
                                 </a>
                             </li>
+                        <?php elseif (isset($_SESSION['user']['is_logged']) && $_SESSION['user']['is_logged']) : ?>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="<?= BASE_DIR ?>/mon-compte" role="button">
+                                    Mon compte
+                                </a>
+                            </li>
                         <?php endif ?>
                     </ul>
                 </div>
