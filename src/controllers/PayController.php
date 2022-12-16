@@ -26,7 +26,7 @@ class PayController extends Controller
             
             $item_paypal_array[] = [
 
-                'name' => $v['name'],
+                    'name' => $v['name'],
                     'unit_amount' => [
                         'value' => $v['price'],
                         'currency_code' => 'EUR'
@@ -34,7 +34,7 @@ class PayController extends Controller
                     'quantity' => $v['quantity']
                 ];            
         }
-        
+
         $order = json_encode([
             'purchase_units' => [[
                 'description' => "Panier de l'utilisateur n°" . $_SESSION['user']['id'],
@@ -55,6 +55,8 @@ class PayController extends Controller
         
         $this->renderView('pay/index', compact('order'));
     }
+
+    
     public function paypal()
     {
         

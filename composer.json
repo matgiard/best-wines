@@ -6,7 +6,8 @@
     "require": {
         "vlucas/phpdotenv": "^5.5",
         "phpmailer/phpmailer": "^6.7",
-        "paypal/paypal-checkout-sdk": "^1.0"
+        "paypal/paypal-checkout-sdk": "^1.0",
+        "stripe/stripe-php": "^10.2"
     },
     "autoload": {
         "psr-4": {
