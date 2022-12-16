@@ -67,10 +67,10 @@
                     <div class="col-md-8">
                         <h5 class="card-title"></h5>
                         <div class="col-md-4">
-                            <img src="<?= BASE_DIR ?>/uploads/vins/<?= $lastWhiteWine['photo'] ?>" alt="<?= $lastWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+                            <img src="<?= BASE_DIR ?>/uploads/vins/<?= $lastRedWine['photo'] ?>" alt="<?= $lastRedWine['name'] ?>" srcset="" class="img-fluid rounded-start">
                         </div>
-                        <p class="card-title"><?= $lastWhiteWine['name'] ?></p>
-                        <p class="card-text"><?= $lastWhiteWine['price'] ?>€</p>
+                        <p class="card-title"><?= $lastRedWine['name'] ?></p>
+                        <p class="card-text"><?= $lastRedWine['price'] ?>€</p>
                         <p class="card-text"></p>
                         <a href="#" class="btn btn-primary">Détails</a>
                     </div>
@@ -86,10 +86,10 @@
                     <div class="col-md-8">
                         <h5 class="card-title"></h5>
                         <div class="col-md-4">
-                            <img src="<?= BASE_DIR ?>/uploads/vins/<?= $lastWhiteWine['photo'] ?>" alt="<?= $lastWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+                            <img src="<?= BASE_DIR ?>/uploads/vins/<?= $lastChampagne['photo'] ?>" alt="<?= $lastChampagne['name'] ?>" srcset="" class="img-fluid rounded-start">
                         </div>
-                        <p class="card-title"><?= $lastWhiteWine['name'] ?></p>
-                        <p class="card-text"><?= $lastWhiteWine['price'] ?>€</p>
+                        <p class="card-title"><?= $lastChampagne['name'] ?></p>
+                        <p class="card-text"><?= $lastChampagne['price'] ?>€</p>
                         <p class="card-text"></p>
                         <a href="#" class="btn btn-primary">Détails</a>
                     </div>
@@ -105,10 +105,10 @@
                     <div class="col-md-8">
                         <h5 class="card-title"></h5>
                         <div class="col-md-4">
-                            <img src="<?= BASE_DIR ?>/uploads/vins/<?= $lastWhiteWine['photo'] ?>" alt="<?= $lastWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+                            <img src="<?= BASE_DIR ?>/uploads/vins/<?= $lastBox['photo'] ?>" alt="<?= $lastBox['name'] ?>" srcset="" class="img-fluid rounded-start">
                         </div>
-                        <p class="card-title"><?= $lastWhiteWine['name'] ?></p>
-                        <p class="card-text"><?= $lastWhiteWine['price'] ?>€</p>
+                        <p class="card-title"><?= $lastBox['name'] ?></p>
+                        <p class="card-text"><?= $lastBox['price'] ?>€</p>
                         <p class="card-text"></p>
                         <a href="#" class="btn btn-primary">Détails</a>
                     </div>
