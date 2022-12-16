@@ -1,6 +1,10 @@
 <?php
 
-class Sale
+namespace App\Models;
+
+use Core\Model;
+
+class Sale extends Model
 {
 
     private int $id;
@@ -8,6 +12,7 @@ class Sale
     private int $id_user;
     private int $quantity_sold;
     private float $price_total_product;
+    protected string $table_name = "Sale";
 
     /**
      * Get the value of id
@@ -94,5 +99,16 @@ class Sale
     public function setPrice_Total_Product(float $price_total_product): void
     {
         $this->$price_total_product = $price_total_product;
+    }
+
+
+    public function findProductBySale()
+    {
+        $sql_query = "SELECT * FROM {$this->table_name} JOIN product ON sale.id_product= product.id";
+        $stmt = $this->pdo->prepare($sql_query);
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    
     }
 }

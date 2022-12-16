@@ -109,8 +109,4 @@ class UserController extends Controller
     }
 
 
-    public function showHistory(){
-        CheckLog::checkClientIsLogged();
-        $this->renderView('user/compte');
-    }
 }

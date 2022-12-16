@@ -1,12 +1,18 @@
 <?php
 
-class Receipt
+namespace App\Models;
+
+
+use Core\Model;
+
+class Invoice extends Model
 {
 
     private int $id;
     private string $date; //date ?
     private float $total_price;
     private int $id_sale;
+    protected string $table_name = "invoice";
 
     /**
      * Get the value of id
@@ -77,4 +83,18 @@ class Receipt
     {
         $this->id_sale = $id_sale;
     }
+
+    public function findInvoiceByUser()
+    {
+        $sql_query = "SELECT * FROM {$this->table_name} JOIN sale ON invoice.id_sale = sale.id JOIN user ON sale.id_user = user.id";
+        $stmt = $this->pdo->prepare($sql_query);
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    
+    }
+
+
+
+
 }
