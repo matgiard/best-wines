@@ -20,26 +20,25 @@ class PayController extends Controller
 
         CheckLog::checkClientIsLogged();
         $total = $_SESSION['total_price'];
+        $item_paypal_array = [];
+
+        foreach($_SESSION["cart_item"] as $k => $v ) { 
+            
+            $item_paypal_array[] = [
+
+                'name' => $v['name'],
+                    'unit_amount' => [
+                        'value' => $v['price'],
+                        'currency_code' => 'EUR'
+                    ],
+                    'quantity' => $v['quantity']
+                ];            
+        }
+        
         $order = json_encode([
             'purchase_units' => [[
                 'description' => "Panier de l'utilisateur n°" . $_SESSION['user']['id'],
-                // 'items' => [
-                //     [
-                //     'name' => 'abc',
-                //     'unit_amount' => [
-                //         'value' => 28,
-                //         'currency_code' => 'EUR'
-                //     ],
-                //     'quantity' => 1
-                // ],
-                // [
-                //     'name' => 'bcd',
-                //     'unit_amount' => [
-                //         'value' => 29,
-                //         'currency_code' => 'EUR'
-                //     ],
-                //     'quantity' => 1
-                // ]],
+                'items' => $item_paypal_array,
                 'amount' => [
                     'currency_code' => 'EUR',
                     'value' => $total,
