@@ -8,6 +8,8 @@ use Core\Partials\CheckLog;
 use PayPalCheckoutSdk\Core\PayPalHttpClient;
 use PayPalCheckoutSdk\Core\SandboxEnvironment;
 use PayPalCheckoutSdk\Orders\OrdersGetRequest;
+use Stripe\Checkout\Session;
+use Stripe\Stripe;
 
 class PayController extends Controller
 {
@@ -56,7 +58,7 @@ class PayController extends Controller
         $this->renderView('pay/index', compact('order'));
     }
 
-    
+
     public function paypal()
     {
         
@@ -84,6 +86,45 @@ class PayController extends Controller
 
     public function stripe()
     {
+        $item_stripe_array = [];
+
+        foreach($_SESSION["cart_item"] as $k => $v) { 
+            
+            $item_stripe_array[] = [
+                    'quantity' => $v['quantity'],
+                    'price_data' => [
+                        'currency' => 'EUR',
+                        'product_data' => [
+                            'name' => $v['name']
+                        ],
+                        'unit_amount' => $v['price']*100
+                    ]
+                ];            
+        }
+
+        Stripe::setApiKey('sk_test_51MFSr6DqvB6uQCmLYh57hTz529jASvKBjeORVylUg6190E6aIXaknfUa6ymuIaa24UA2LUUVZNvwuSsWhyrlHwUG002d6u3Qq0');
+        Stripe::setApiVersion('2022-11-15');
+
+       $session = Session::create([
+        'line_items' =>  $item_stripe_array,
+        'mode' => 'payment',
+        'success_url' => 'http://localhost/best-wines/pay/success',
+        'cancel_url' => 'http://localhost/best-wines',
+        // 'billing_adress_collection' => 'required',
+        'shipping_address_collection' => [
+            'allowed_countries' => ['FR']
+        ],
+        // 'automatic_tax' => [
+        //     'enabled'
+        // ],
+        'metadata' => [
+            'userId' => $_SESSION['user']['id']
+        ]
+
+       ]);
+
+       header("HTTP/1.1 303 See Other");
+       header('Location: ' . $session->url);
 
     }
 }
