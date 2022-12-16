@@ -2,9 +2,11 @@
 
 namespace App\Controllers;
 
+use App\Models\StripePayment;
 use Core\Controller;
 use Core\Partials\CheckLog;
-
+use Nyholm\Psr7\Factory\Psr17Factory;
+use Nyholm\Psr7Server\ServerRequestCreator;
 use PayPalCheckoutSdk\Core\PayPalHttpClient;
 use PayPalCheckoutSdk\Core\SandboxEnvironment;
 use PayPalCheckoutSdk\Orders\OrdersGetRequest;
@@ -87,46 +89,21 @@ class PayController extends Controller
     }
 
     public function stripe()
-    {
-        $stripe_items_array = [];
-
-        foreach($_SESSION["cart_item"] as $k => $v) { 
-            
-            $stripe_items_array[] = [
-                    'quantity' => $v['quantity'],
-                    'price_data' => [
-                        'currency' => 'EUR',
-                        'product_data' => [
-                            'name' => $v['name']
-                        ],
-                        'unit_amount' => $v['price']*100
-                    ]
-                ];            
-        }
-
-        Stripe::setApiKey('sk_test_51MFSr6DqvB6uQCmLYh57hTz529jASvKBjeORVylUg6190E6aIXaknfUa6ymuIaa24UA2LUUVZNvwuSsWhyrlHwUG002d6u3Qq0');
-        Stripe::setApiVersion('2022-11-15');
-
-       $session = Session::create([
-        'line_items' =>  $stripe_items_array,
-        'mode' => 'payment',
-        'success_url' => 'http://localhost/best-wines/pay/success',
-        'cancel_url' => 'http://localhost/best-wines',
-        // 'billing_adress_collection' => 'required',
-        'shipping_address_collection' => [
-            'allowed_countries' => ['FR']
-        ],
-        // 'automatic_tax' => [
-        //     'enabled'
-        // ],
-        'metadata' => [
-            'userId' => $_SESSION['user']['id']
-        ]
-
-       ]);
-
-       header("HTTP/1.1 303 See Other");
-       header('Location: ' . $session->url);
+    {   $psr17Factory = new Psr17Factory();
+        $creator = new ServerRequestCreator(
+            $psr17Factory,
+            $psr17Factory,
+            $psr17Factory,
+            $psr17Factory);
+        $request = $creator->fromGlobals();
+        $webhookSecret="whsec_965cb64d94e375389a66fdb6794f9ab58e0fbb247d4d2150d95e84f8c37b314d";
+        $clientSecret = "sk_test_51MEasAEPDX7SWVQZvPHBXeSIey6CjzcXyZAOhfNjVNDMmL5StAzpzdmcJuWCnHu4gSNm0pAnBqL12Th9ms1ze6hY00kyOL5ex1";
+        $cart = $_SESSION['cart_item'];
+        $payment = new StripePayment($clientSecret, $webhookSecret);
+        $stripePayment = $payment->startPayment($cart);
+        $test = $payment->handle($request);
+        dd($test);
+        $this->renderView('pay/index', compact('total', 'stripePayment', 'payment','test','psr17Factory','creator','request' ));
 
     }
 
@@ -144,6 +121,8 @@ class PayController extends Controller
     
     public function success()
     {
+        
         $this->renderView('pay/success');
+      
     }
 }
