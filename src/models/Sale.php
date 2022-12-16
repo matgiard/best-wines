@@ -1,6 +1,8 @@
 <?php
 
-class Sale
+use Core\Model;
+
+class Sale extends Model
 {
 
     private int $id;
@@ -8,6 +10,7 @@ class Sale
     private int $id_user;
     private int $quantity_sold;
     private float $price_total_product;
+    protected string $table_name = "sale";
 
     /**
      * Get the value of id
@@ -94,5 +97,19 @@ class Sale
     public function setPrice_Total_Product(float $price_total_product): void
     {
         $this->$price_total_product = $price_total_product;
+    }
+
+    public function InsertSale()
+    {
+        $stmt = $this->pdo->prepare("INSERT INTO sale (`id_product`, `quantity`) VALUES (:id_product, :quantity)");
+
+        $stmt->execute([
+            "id_product" => $this->id_product,
+            "quantity" => $this->quantity_sold,
+
+        ]);
+
+
+        return $this->pdo->lastInsertId();
     }
 }
