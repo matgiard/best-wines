@@ -8,8 +8,10 @@ use Core\Partials\CheckLog;
 use PayPalCheckoutSdk\Core\PayPalHttpClient;
 use PayPalCheckoutSdk\Core\SandboxEnvironment;
 use PayPalCheckoutSdk\Orders\OrdersGetRequest;
+use Psr\Http\Message\ServerRequestInterface;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
+use Stripe\Webhook;
 
 class PayController extends Controller
 {
@@ -127,6 +129,19 @@ class PayController extends Controller
        header('Location: ' . $session->url);
 
     }
+
+    // public function stripeHandle(ServerRequestInterface $request)
+    
+    // {
+    //     $signature = $request->getHeaderLine('stripe-signature');
+    //     $body = (string)$request->getBody();
+    //     $event = Webhook::constructEvent(
+    //         $body,
+    //         $signature,
+    //     );
+
+    // }
+    
     public function success()
     {
         $this->renderView('pay/success');
