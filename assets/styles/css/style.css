@@ -234,3 +234,7 @@ background-color: #9e121b !important;
 	text-decoration: none;
 	color: black;
 }
+
+#row-card-details {
+	--bs-gutter-x: -1.5rem !important;
+}

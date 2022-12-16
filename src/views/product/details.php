@@ -37,24 +37,83 @@
     </div>
 </div>
 <div class="text-center p-5">
-<h2>Autres Vins conseillés</h2>
+    <h2>Autres Vins conseillés</h2>
 </div>
-<div class="container mt-5">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4"></div>
-                <div class="col-md-8">
-                    <h5 class="card-title"></h5>
-                    <div class="col-md-4">
-                        <img src="<?= BASE_DIR ?>/uploads/vins/<?= $lastWhiteWine['photo'] ?>" alt="<?= $lastWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+<div class="container d-flex">   
+    
+        <div class="row" id="row-card-details">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8">
+                        <h5 class="card-title"></h5>
+                        <div class="col-md-4">
+                            <img src="<?= BASE_DIR ?>/uploads/vins/<?= $lastWhiteWine['photo'] ?>" alt="<?= $lastWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+                        </div>
+                        <p class="card-title"><?= $lastWhiteWine['name'] ?></p>
+                        <p class="card-text"><?= $lastWhiteWine['price'] ?>€</p>
+                        <p class="card-text"></p>
+                        <a href="<?= BASE_DIR ?>/nos-vins/detail?id=<?= $lastWhiteWine['id'] ?>" class="btn btn-primary">Détails</a>
                     </div>
-                    <p class="card-title"><?= $lastWhiteWine['name'] ?></p>
-                    <p class="card-text"><?= $lastWhiteWine['price'] ?>€</p>
-                    <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">Détails</a>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    
+    
+        <div class="row" id="row-card-details">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8">
+                        <h5 class="card-title"></h5>
+                        <div class="col-md-4">
+                            <img src="<?= BASE_DIR ?>/uploads/vins/<?= $lastWhiteWine['photo'] ?>" alt="<?= $lastWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+                        </div>
+                        <p class="card-title"><?= $lastWhiteWine['name'] ?></p>
+                        <p class="card-text"><?= $lastWhiteWine['price'] ?>€</p>
+                        <p class="card-text"></p>
+                        <a href="#" class="btn btn-primary">Détails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div class="row" id="row-card-details">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8">
+                        <h5 class="card-title"></h5>
+                        <div class="col-md-4">
+                            <img src="<?= BASE_DIR ?>/uploads/vins/<?= $lastWhiteWine['photo'] ?>" alt="<?= $lastWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+                        </div>
+                        <p class="card-title"><?= $lastWhiteWine['name'] ?></p>
+                        <p class="card-text"><?= $lastWhiteWine['price'] ?>€</p>
+                        <p class="card-text"></p>
+                        <a href="#" class="btn btn-primary">Détails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div class="row" id="row-card-details">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8">
+                        <h5 class="card-title"></h5>
+                        <div class="col-md-4">
+                            <img src="<?= BASE_DIR ?>/uploads/vins/<?= $lastWhiteWine['photo'] ?>" alt="<?= $lastWhiteWine['name'] ?>" srcset="" class="img-fluid rounded-start">
+                        </div>
+                        <p class="card-title"><?= $lastWhiteWine['name'] ?></p>
+                        <p class="card-text"><?= $lastWhiteWine['price'] ?>€</p>
+                        <p class="card-text"></p>
+                        <a href="#" class="btn btn-primary">Détails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</div>    
