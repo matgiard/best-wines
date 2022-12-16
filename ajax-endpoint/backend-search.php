@@ -25,7 +25,7 @@ try{
                 echo "<p><a href='./nos-vins/detail?id=" . $row["id"] . "'>" . $row["name"] . "</a></p>";
             }
         } else{
-            echo "<p>No matches found</p>";
+            echo "<p>Aucun résultat trouvé</p>";
         }
     }
 } catch(PDOException $e){
