@@ -12,13 +12,12 @@ use App\Models\Association;
 use App\Models\TypeProduct;
 use Core\Partials\CheckLog;
 
+//Gestion du stock par les employés
 class StockController extends Controller
 {
-
-
+//Affichage de tous les produits
     public function showAll()
     {
-
         CheckLog::checkIsEmployee();
         $product = new Product();
         $products = $product->findAll();
@@ -87,7 +86,7 @@ class StockController extends Controller
         $this->renderView('employe/stock/insert', compact('message', 'regions', 'cepages', 'tastes', 'associations', 'type_products'));
     }
 
-
+//Modification d'un produit
     public function edit()
     {
         CheckLog::checkIsEmployee();
@@ -136,7 +135,7 @@ class StockController extends Controller
         $this->renderView('employe/stock/edit', compact('id', 'edit_temp', 'regions', 'cepages', 'tastes', 'associations', 'type_products'));
     }
 
-
+//Suppression d'un produit
     public function delete()
     {
         CheckLog::checkIsEmployee();
@@ -146,20 +145,10 @@ class StockController extends Controller
         header('Location: /best-wines/employe/stock');
     }
 
-
-    public function showAllRegion()
-    {
-        CheckLog::checkIsEmployee();
-        $region = new Region();
-        $regions = $region->findAll();
-        $this->renderView('employe/stock/insert', compact('regions'));
-    }
-
-    
+//Affichage de la page espace employé
     public function index()
     {
         CheckLog::checkIsEmployee();
-
         $this->renderView('employe/index');
     }
 }

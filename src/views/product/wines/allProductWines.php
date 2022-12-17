@@ -51,7 +51,6 @@
             <button type="submit">Filtrer</button>
     </form>
 </div>
-
 <div class="container mt-5">
     <div class="row row-cols-1 row-cols-md-4 g-4">
         <?php foreach ($products as $product) : ?>

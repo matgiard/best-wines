@@ -122,33 +122,28 @@ class Article extends Model
     }
 
 
-
+    //Insertion d'un article dans le blog
     public function insertArticle(): int|false
     {
         $stmt = $this->pdo->prepare("INSERT INTO `article` (`title`, `content`, `photo_article`) VALUES (:title, :content,:photo_article)");
-
         $stmt->execute([
             "title" => $this->title,
             "content" => $this->content,
             "photo_article" => $this->photo_article,
         ]);
-
-
         return $this->pdo->lastInsertId();
     }
 
+    //Modification d'un article du blog
     public function editArticleBlog(int $article_to_edit)
     {
-
         $stmt = $this->pdo->prepare("UPDATE article SET `title` = :new_title, `content` = :new_content,`photo_article`= :new_photo_article WHERE id = :id");
-
         $stmt->execute(array(
             'new_title' => $_POST['title'],
             'new_content' => $_POST['content'],
             'new_photo_article' => $_FILES['image']['name'],
             'id' => $article_to_edit
         ));
-
         $stmt = $this->pdo->prepare("SELECT * FROM article WHERE id = :id");
         $stmt->execute([
             'id' => $article_to_edit
@@ -156,15 +151,12 @@ class Article extends Model
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
         return $stmt->fetch();
     }
+
+    //Affichage du dernier article du blog
     public function findLast(): object|array|false
     {
-           $stmt = $this->pdo->prepare("SELECT * FROM {$this->table_name} ORDER BY article.id DESC LIMIT 1");
-           
-        // if ($is_array)
+        $stmt = $this->pdo->prepare("SELECT * FROM {$this->table_name} ORDER BY article.id DESC LIMIT 1");
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
-        // else
-        //     $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
-
         $stmt->execute();
         return $stmt->fetch();
     }

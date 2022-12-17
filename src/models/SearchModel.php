@@ -5,9 +5,8 @@ class SearchModel
 {
 
     private $ds;
-
     private $perPage;
-
+    
     function __construct()
     {
         require_once __DIR__ . '/../../core/DataSource.php';

@@ -5,9 +5,9 @@ namespace App\Models;
 use Core\Model;
 use Core\Partials\CheckLog;
 
+//Gestion des promotions
 class Promotion extends Model
 {
-
     private int $id;
     private string $promotion_name;
     private string $start_date;
@@ -42,7 +42,6 @@ class Promotion extends Model
      */
     public function setPromotionName(string $promotion_name): void
     {
-
         $this->promotion_name = $promotion_name;
     }
 
@@ -82,10 +81,8 @@ class Promotion extends Model
      */
     public function setEndDate(string $end_date): void
     {
-
         $this->end_date = $end_date;
     }
-
 
     /**
      * Get the value of $percentage
@@ -117,13 +114,11 @@ class Promotion extends Model
     {
         CheckLog::checkIsEmployee();
         $stmt = $this->pdo->prepare("INSERT INTO promotion (`promotion_name`, `start_date`, `end_date`, `percentage`) VALUES (:promotion_name, :start_date, :end_date, :percentage)");
-
         $stmt->execute([
             "promotion_name" => $this->promotion_name,
             "start_date" => $this->start_date,
             "end_date" => $this->end_date,
             "percentage" => $this->percentage,
-
         ]);
         return $this->pdo->lastInsertId();
     }
@@ -132,9 +127,7 @@ class Promotion extends Model
     //Modification d'un code de promotion
     public function edit(int $promotion_edit)
     {
-
         $stmt = $this->pdo->prepare("UPDATE promotion SET `promotion_name` = :new_promotion_name, `start_date` = :new_start_date,`end_date`=:new_end_date, `percentage` = :new_percentage WHERE id = :id");
-
         $stmt->execute(array(
             'new_promotion_name' => $_POST['promotion_name'],
             'new_start_date' => $_POST['start_date'],
@@ -142,7 +135,6 @@ class Promotion extends Model
             'new_percentage' => $_POST['percentage'],
             'id' => $promotion_edit
         ));
-
         $stmt = $this->pdo->prepare("SELECT * FROM promotion WHERE id = :id");
         $stmt->execute([
             'id' => $promotion_edit

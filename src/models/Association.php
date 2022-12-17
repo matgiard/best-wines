@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Core\Model;
 
+//Gestion des associations des vins
 class Association extends Model
 {
 

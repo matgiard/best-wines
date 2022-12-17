@@ -5,30 +5,25 @@ namespace App\Controllers;
 use Core\Controller;
 use App\Models\Product;
 
-
+//Gestion du panier
 
 class CartController extends Controller
 {
 
-	public function index()
-	{
+	//affichage du panier
+	public function index()	{
 		$_SESSION['last_page'] = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'index.php';
-
 		$this->renderView('cart/index');
 	}
 
+	//Ajout d'un produit
 	public function addProduct()
 	{
 		$_SESSION['last_page'] = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'index.php';
-
 		$product = new Product;
-
 		$id = $_GET['id'];
-
 		if (!empty($_POST["qty"])) {
 			$productById = $product->findOneItemBy(['id' => $id]);
-
-
 			$itemArray = array(
 				array(
 					'id' => $productById->id,
@@ -38,8 +33,6 @@ class CartController extends Controller
 					'image' => $productById->photo
 				)
 			);
-
-
 			if (!empty($_SESSION["cart_item"])) {
 				if (in_array($productById->id, array_keys($_SESSION["cart_item"]))) {
 					foreach ($_SESSION["cart_item"] as $k => $v) {
@@ -57,12 +50,11 @@ class CartController extends Controller
 				$_SESSION["cart_item"] = $itemArray;
 			}
 		}
-
 		header('Location: /best-wines/cart');
 		exit;
 	}
 
-
+//Suppression d'un produit
 	public function removeProduct()
 	{
 		if (!empty($_SESSION["cart_item"])) {
@@ -73,15 +65,14 @@ class CartController extends Controller
 					unset($_SESSION["cart_item"]);
 			}
 		}
-
 		header('Location: /best-wines/cart');
 		exit;
 	}
 
+//Vider le panier
 	public function emptyCart()
 	{
 		unset($_SESSION["cart_item"]);
-
 		header('Location: /best-wines/cart');
 		exit;
 	}

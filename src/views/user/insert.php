@@ -2,7 +2,6 @@
     <div>
         <span><?= $message ?></span>
     </div>
-
 <?php endif; ?>
 <div class="container d-grid gap-3 mt-5">
     <div class="mb-3 mx-auto">

@@ -6,9 +6,11 @@ use App\Models\User;
 use Core\Controller;
 use Core\Partials\CheckLog;
 
+// à améliorer
+//Gestion de l'utilisateur
 class UserController extends Controller
 {
-
+//Connexion
     public function login()
     {
         $errors = null;
@@ -41,13 +43,7 @@ class UserController extends Controller
         $this->renderView('user/login', compact('errors'));
     }
 
-
-    public function register()
-    {
-        echo "ceci est la méthode register";
-    }
-
-
+//Déconnexion
     public function logout()
     {
         if (!empty($_SESSION['user']['is_logged'])) {
@@ -100,13 +96,11 @@ class UserController extends Controller
         $this->renderView('user/insert');
     }
 
-
+//Vérification émail déjà dans la BDD
     public static function findOneByEmail(string $email): object|array|false
     {
         $user_to_find = new User();
         $user = $user_to_find->findOneItemBy(['email' => $email]);
         return $user;
     }
-
-
 }

@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Groupe1 DWWM">
+    <meta name="description" content="Bienvenue sur BestWines, site de commerce de vin en ligne">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= BASE_DIR ?>/assets/styles/css/style.css">
@@ -13,15 +15,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-
-
-
     <title>Best wines</title>
-
 </head>
 
 <body>
-    <!-- A MODIFIER -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-custom">
             <div class="container-fluid">
@@ -31,10 +28,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <div class="search-box">
-                        <input type="text" class="form-control me-2" autocomplete="off" placeholder="Rechercher un nom de produit..." />
-                        <div class="result"></div>
-                    </div>
+                        <div class="search-box">
+                            <input type="text" class="form-control me-2" autocomplete="off" placeholder="Rechercher un nom de produit..." />
+                            <div class="result"></div>
+                        </div>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Menu
@@ -53,7 +50,6 @@
                                         <a class="nav-link" href="<?= BASE_DIR ?>/register">S'enregistrer</a>
                                     </li>
                                 <?php endif ?>
-
                             </ul>
                         </li>
                         <?php if (isset($_SESSION['user']['is_admin']) && $_SESSION['user']['is_admin']) : ?>
@@ -139,22 +135,15 @@
         </nav>
     </header>
 
-
-
     <?= $content ?>
 
-    <!-- Footer -->
     <footer class="text-center text-lg-star footer p-1">
         <h3>L'ABUS D'ALCOOL EST DANGEREUX POUR LA SANTÉ, À CONSOMMER AVEC MODÉRATION.</h3>
-        <img src="<?= BASE_DIR ?>/assets\img\bandeau_boissons_alcooliques.jpg" alt="" srcset="">
-        <!-- Section: Links  -->
+        <img src="<?= BASE_DIR ?>/assets\img\bandeau_boissons_alcooliques.jpg" alt="bandeau de prévention contre l'abus d'alcool">
         <section class="">
             <div class="container text-center text-md-start mt-2">
-                <!-- Grid row -->
                 <div class="row mt-3">
-                    <!-- Grid column -->
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto my-2">
-                        <!-- Content -->
                         <h6 class="text-uppercase fw-bold mb-4">
                             <i class="fas fa-gem me-3 text-secondary"></i>Best Wines
                         </h6>
@@ -183,9 +172,7 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Grid column -->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto my-2">
-                        <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
                             <a href="<?= BASE_DIR ?>/nos-vins" class="text-reset">Notre catalogue</a>
                         </h6>
@@ -199,17 +186,12 @@
                             <a href="<?= BASE_DIR ?>/nos-vins/nos-champagnes" class="text-reset">Champagne</a>
                         </p>
                     </div>
-                    <!-- Grid column -->
-                    <!-- Grid column -->
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto my-2">
-                        <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4"><a href=""></a>
                             <a href="<?= BASE_DIR ?>/nos-coffrets" class="text-reset">Coffrets</a>
                         </h6>
                     </div>
-                    <!-- Grid column -->
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto my-2">
-                        <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
                             Aide
                         </h6>
@@ -226,21 +208,14 @@
                             <a href="<?= BASE_DIR ?>/qui-sommes-nous" class="text-reset">Présentation</a>
                         </p>
                     </div>
-                    <!-- Grid column -->
                 </div>
-                <!-- Grid row -->
             </div>
         </section>
-        <!-- Section: Links  -->
-        <!-- Copyright -->
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
             © 2022 Copyright:
             <a class="text-reset fw-bold" href="https://www.afpa.fr/">DWWM 22032 - Groupe 1</a>
         </div>
-        <!-- Copyright -->
     </footer>
-    <!-- Footer -->
-    <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
     <script src="<?= BASE_DIR ?>/assets/js/app.js"></script>

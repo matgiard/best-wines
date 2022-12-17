@@ -8,7 +8,7 @@ use App\Models\Sale;
 use App\Models\Invoice;
 use Core\Partials\CheckLog;
 
-
+//Gestions des ventes
 class SaleController extends Controller
 {
 
@@ -18,8 +18,6 @@ class SaleController extends Controller
         CheckLog::checkClientIsLogged();
         $sale = new Sale();
         $all_sales = $sale->findProductBySale();
-
-
         $this->renderView('user/compteDetails', compact('all_sales'));
     }
 }

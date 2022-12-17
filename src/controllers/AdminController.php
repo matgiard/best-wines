@@ -6,9 +6,11 @@ use Core\Controller;
 use App\Models\User;
 use Core\Partials\CheckLog;
 
+//Gestion depuis un compte administrateur
 class AdminController extends Controller
 {
 
+    //insertion d'un employé
     public function insertEmployee()
     {
         CheckLog::checkIsAdmin();
@@ -19,7 +21,6 @@ class AdminController extends Controller
             $user->setPassword(htmlentities($_POST['password']));
             $user->setIs_employee(1);
             $result = $user->insertEmployee();
-
             if ($result) {
                 $message =  "L'insertion a été prise en compte";
             } else {
@@ -31,6 +32,8 @@ class AdminController extends Controller
         ]);
     }
 
+
+    //Affichage de tous les employés et administrateurs
     public function showAll()
     {
         CheckLog::checkIsAdmin();
@@ -39,7 +42,7 @@ class AdminController extends Controller
         $this->renderView('administrateur/index', compact('all_users'));
     }
 
-
+    //Suppression d'un employé ou administrateur
     public function delete()
     {
         CheckLog::checkIsAdmin();
@@ -49,12 +52,12 @@ class AdminController extends Controller
         header('Location: /best-wines/administrateur');
     }
 
+    //Modifiaction du statut de l'employé ou administrateur
     public function edit()
     {
         CheckLog::checkIsAdmin();
         $id = $_GET['id'];
         $employe_edit = new User;
-        
         $edit_temp = $employe_edit->findOneForEdit(['id' => $id]);
         if (isset($_POST['submit'])) {
             $employe_edit->editEmploye($id);

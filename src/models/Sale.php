@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Core\Model;
 
+//Gestion du détails des vents
 class Sale extends Model
 {
-
     private int $id;
     private int $id_product;
     private int $id_user;
@@ -101,19 +101,18 @@ class Sale extends Model
         $this->$price_total_product = $price_total_product;
     }
 
+    //Ajout d'une ligne de vente
     public function InsertSale(): int|false
     {
-
         $stmt = $this->pdo->prepare("INSERT INTO sale (`id_product`, `quantity`) VALUES (:id_product, :quantity)");
-
         $stmt->execute([
             "id_product" => $this->id_product,
             "quantity" => $this->quantity,
         ]);
-
-
         return $this->pdo->lastInsertId();
     }
+
+//Trouver le détail d'une ligne de vente
     public function findProductBySale()
     {
         $sql_query = "SELECT * FROM {$this->table_name} JOIN product ON sale.id_product= product.id";

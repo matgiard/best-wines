@@ -1,6 +1,5 @@
 <div id="shopping-cart">
 	<div class="txt-heading">Panier de Produits</div>
-
 	<a id="btnEmpty" href="cart/empty">Vider Panier</a>
 	<?php
 	if (isset($_SESSION["cart_item"])) {
@@ -35,7 +34,6 @@
 				}
 				$_SESSION['total_price'] = $total_price ;
 				?>
-
 				<tr>
 					<td colspan="2" align="right">Total:</td>
 					<td align="right"><?php

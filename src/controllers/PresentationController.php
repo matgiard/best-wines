@@ -4,11 +4,9 @@ namespace App\Controllers;
 
 use Core\Controller;
 
-
+//Affichage des pages du menu "qui sommes nous"
 class PresentationController extends Controller
-
 {
-
     public function showContact()
     {
         $this->renderView('presentation/contact');

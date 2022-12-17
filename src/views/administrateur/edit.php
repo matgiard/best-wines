@@ -12,10 +12,6 @@
                 <label for="email">email:</label>
                 <input type="text" name="email" id="email" value="<?= $edit_temp['email'] ?> ">
             </div>
-            <!-- <div class="col-6">
-                <label for="password">mot de passe:</label>
-                <input type="texte" name="password" id="password" value="<?= $edit_temp['password'] ?>">
-            </div> -->
             <div> Mettre en administrateur</div>
             <div class="form-check">
                 <label class="" for="is_admin">Non</label>

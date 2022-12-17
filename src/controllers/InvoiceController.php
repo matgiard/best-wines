@@ -8,19 +8,17 @@ use App\Models\Sale;
 use App\Models\Invoice;
 use Core\Partials\CheckLog;
 
+//En cours de réalisation
+//Gestion des factures
+class InvoiceController extends Controller
+{
 
-class InvoiceController extends Controller{
-
-// Function qui rencoit l'historique des commandes pour un utilisateur
-public function showOrders(){
-    CheckLog::checkClientIsLogged();
-    $invoice = new Invoice();
-    $all_invoices = $invoice->findInvoiceByUser();
-
-    
-    $this->renderView('user/compte', compact('all_invoices'));
-}
-
-
-
+    // Function qui renvoit l'historique des commandes pour un utilisateur
+    public function showOrders()
+    {
+        CheckLog::checkClientIsLogged();
+        $invoice = new Invoice();
+        $all_invoices = $invoice->findInvoiceByUser();
+        $this->renderView('user/compte', compact('all_invoices'));
+    }
 }

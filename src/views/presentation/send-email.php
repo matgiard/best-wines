@@ -1,8 +1,4 @@
 <?php
-
-
-
-
 $name = $_POST["name"];
 $email = $_POST["email"];
 $subject = $_POST["subject"];
@@ -48,5 +44,5 @@ $mail->send();
 
 echo "Message envoyé";
 
-?>
+
 

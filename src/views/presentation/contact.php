@@ -1,6 +1,5 @@
 <div class="container">
     <h1 class="text-center">Nous contacter</h1>
-
     <form id="contact-form" action="<?= BASE_DIR ?>/src/views/presentation/send-email.php" method="post">
         <div class="form-group">
             <label for="email">Email</label>

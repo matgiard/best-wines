@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Core\Model;
 
+//Gestion du goût des vins
 class Taste extends Model
 {
 

@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Core\Model;
 
+//Gestion des régions
 class Region extends Model
 {
-
     private int $id;
     private string $region_name;
     protected string $table_name = "region";

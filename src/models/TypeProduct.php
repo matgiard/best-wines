@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Core\Model;
 
+//Gestion du type des vins
 class TypeProduct extends Model
 {
-
     private int $id;
     private string $type_name;
     protected string $table_name = "type_product";

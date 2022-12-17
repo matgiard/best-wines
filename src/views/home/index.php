@@ -1,5 +1,4 @@
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner monCarrousel">
             <div class="carousel-item active">
@@ -86,8 +85,6 @@
         </div>
     </div>
 </div>
-
-
 <div class="pb-5" style="background-color: #9e121b">
     <h1 class="text-center pt-5 text-light"> Nos recommandations</h1>
     <div class="container-fluid mt-5 ">
@@ -177,3 +174,4 @@
             </div>
         </div>
     </div>
+</div>

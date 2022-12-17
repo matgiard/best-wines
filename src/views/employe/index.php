@@ -1,7 +1,5 @@
 <div class="container p-5">
-
     <h1 class="text-center">Page employé</h1>
-
     <h2>Gestion des commandes</h2>
     <a href="<?= BASE_DIR ?>/employe/commandes" class="btn color1">Commandes</a>
     <h2>Gestion du stock</h2>

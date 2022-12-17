@@ -6,6 +6,8 @@ use Core\Controller;
 use App\Models\Promotion;
 use Core\Partials\CheckLog;
 
+//Gestion des promotions
+
 class PromotionController extends Controller
 {
     //Fonction affichage de toutes les promotions
@@ -29,7 +31,6 @@ class PromotionController extends Controller
             $promotion->setEndDate($_POST['end_date']);
             $promotion->setPercentage($_POST['percentage']);
             $result = $promotion->insert();
-
             if ($result) {
                 $message =  "Le code a bien été enregistré";
             } else {
@@ -48,12 +49,9 @@ class PromotionController extends Controller
         $id = $_GET['id'];
         $promotion_edit = new Promotion;
         $edit_temp = $promotion_edit->findOneForEdit(['id' => $id]);
-
         if (isset($_POST['submit'])) {
-
             $promotion_edit->edit($id);
             $result = $promotion_edit->edit($id);
-
             if ($result) {
                 $message =  "Le code de promotion a bien été modifié";
             } else {

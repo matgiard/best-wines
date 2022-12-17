@@ -2,10 +2,6 @@
 
 namespace Core\Partials;
 
-// use Core\Partials\StartSession;
-
-
-
 class CheckLog
 {
     //Verification si l'utilisateur est un employé
