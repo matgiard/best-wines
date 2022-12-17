@@ -1,7 +1,7 @@
 <div class="container">
     <h1 class="text-center">Nous contacter</h1>
 
-    <form id="contact-form" action="">
+    <form id="contact-form" action="<?= BASE_DIR ?>/src/views/presentation/send-email.php" method="post">
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Entrer votre adresse mail">
@@ -19,7 +19,7 @@
             <textarea class="form-control" name="message" id="message" rows="4" placeholder="Entrer votre message"></textarea>
         </div>
         <div class="py-3 text-center">
-            <button type="submit" class="btn color1" id="send-form">Envoyer le message</button>
+            <button type="submit" class="btn color1" id="submit">Envoyer le message</button>
         </div>
     </form>
 </div>

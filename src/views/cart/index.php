@@ -59,5 +59,5 @@
 		<a href="/best-wines/pay" class="btn color1 p-1">Valider la commande</a>
 		
 	<?php endif ?>
-	<a href="<?= $_SESSION['last_page'] ?>" class="btn color1 p-1">Continuer mes achats</a>
+	<a href="javascript:history.go(-1)" class="btn color1 p-1">Continuer mes achats</a>
 </div>
