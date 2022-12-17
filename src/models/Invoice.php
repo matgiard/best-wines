@@ -8,10 +8,13 @@ use Core\Model;
 class Invoice extends Model
 {
 
-    private int $id;
+    private int $id_invoice;
     private string $date; //date ?
+    private string $clientName;
+    private string $billingAddress;
     private float $total_price;
     private int $id_sale;
+    private string $orderId_Invoice;
     protected string $table_name = "invoice";
 
     /**
@@ -43,7 +46,42 @@ class Invoice extends Model
     {
         $this->date = $date;
     }
+    /**
+     * Get the value of clientName
+     *  @return string
+     */ 
+    public function getClientName()
+    {
+        return $this->clientName;
+    }
 
+    /**
+     * Set the value of clientName
+     * @param string
+     * @return  self
+     */ 
+    public function setClientName($clientName):void
+    {
+        $this->clientName = $clientName;
+    }
+        /**
+     * Get the value of billingAddress
+      * @return string
+       */
+    public function getBillingAddress()
+    {
+        return $this->billingAddress;
+    }
+
+    /**
+     * Set the value of billingAddress
+     * @param string
+     * @return  void
+     */ 
+    public function setBillingAddress($billingAddress):void
+    {
+        $this->billingAddress = $billingAddress;
+    }
     /**
      * Get the value of total_price
      * 
@@ -72,8 +110,26 @@ class Invoice extends Model
     public function getId_sale(): int
     {
         return $this->id_sale;
+    }  /**
+    * Get the value of orderId_Invoice
+    */ 
+
+    public function getOrderId_Invoice()
+    {
+        return $this->orderId_Invoice;
     }
 
+    /**
+     * Set the value of orderId_Invoice
+     * @param string
+     * @return  void
+     */ 
+    public function setOrderId_Invoice($orderId_Invoice): void
+    {
+        $this->orderId_Invoice = $orderId_Invoice;
+
+
+    }
     /**
      * Set the value of id_sale
      *@param int $id_sale
@@ -94,7 +150,35 @@ class Invoice extends Model
     
     }
 
+       //Ajout d'une ligne de facture
+       public function InsertInvoice(): int|false
+       {
+           $stmt = $this->pdo->prepare("INSERT INTO invoice ( `clientName`, `billingAddress`,`total_price`, `orderId_Invoice`) VALUES (:clientName, :billingAddress, :total_price, :orderId_Invoice)");
+           $stmt->execute([
+
+               "clientName" => $this->clientName,
+               "billingAddress" => $this->billingAddress,
+               "total_price" => $this->total_price,
+               "orderId_Invoice"   => $this->orderId_Invoice,
+           ]);
+           return $this->pdo->lastInsertId();
+       }
+   
+            
+       public function findLastInvoice(): object|array|false
+       {
+           $stmt = $this->pdo->prepare("SELECT * FROM {$this->table_name} ORDER BY invoice.id_invoice DESC LIMIT 1");
+           $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+           $stmt->execute();
+           return $stmt->fetch();
+       }
+   }
+  
 
 
 
-}
+
+
+  
+
+

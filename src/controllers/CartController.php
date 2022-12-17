@@ -30,7 +30,8 @@ class CartController extends Controller
 					'name' => $productById->name,
 					'quantity' => $_POST["qty"],
 					'price' => $productById->price,
-					'image' => $productById->photo
+					'image' => $productById->photo,
+					'total_price' => $_POST["qty"]*$productById->price
 				)
 			);
 			if (!empty($_SESSION["cart_item"])) {

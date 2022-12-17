@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Invoice;
 use App\Models\StripePayment;
 use Core\Controller;
 use Core\Partials\CheckLog;
@@ -63,24 +64,50 @@ class PayController extends Controller
         $client = new PayPalHttpClient($environment);
         $request = new OrdersGetRequest($_GET['orderId']);
         $response = $client->execute($request);
+        $OrderId = $response->result->id;
+        // dd($response);
         if ($response->result->status == 'COMPLETED') {
             $sale = new Sale();
+            $invoice = new Invoice();
             $i = 0;
             while ($i < count($_SESSION["cart_item"])) {
+   
                 foreach ($_SESSION["cart_item"][$i] as $k => $v) {
                     $k = 'id';
                     $v = $sale->setId_product($_SESSION["cart_item"][$i]['id']);
                     $k = "quantity";
                     $v = $sale->setQuantity($_SESSION["cart_item"][$i]['quantity']);
+                    $k = 'total_price';
+                    $v = $sale->setPrice_Total_Product($_SESSION["cart_item"][$i]['total_price']);
+                    $k = 'orderId';
+                    $v = $sale->setOrderId($OrderId);
                 }
                 $i = $i + 1;
                 $sale->InsertSale();
             }
-            $this->renderView('pay/success');
+                $clientfullname = $response->result->payer->name->given_name.' '. $response->result->payer->name->surname;
+                $clientfullAddress = $response->result->purchase_units[0]->shipping->address->address_line_1.' '.$response->result->purchase_units[0]->shipping->address->admin_area_2.' '.$response->result->purchase_units[0]->shipping->address->postal_code;
+                $totalpricepaid = $response->result->purchase_units[0]->amount->value;
+                foreach ($_SESSION["cart_item"] as $k => $v) {
+                    $k = 'clientName';
+                    $v = $invoice->setClientName($clientfullname);
+                    $k = "billingAddress";
+                    $v = $invoice->setBillingAddress($clientfullAddress);
+                    $k = 'total_price';
+                    $v = $invoice->setTotal_price($totalpricepaid);
+                    $k = 'orderId_Invoice';
+                    $v = $invoice->setOrderId_Invoice($OrderId);
+                }
+                $i = $i + 1;
+                $invoice->InsertInvoice();
+            $invoice = new Invoice;
+            $lastInvoice= $invoice->findLastInvoice();
+            $this->renderView('pay/success', compact('lastInvoice'));
         } else {
             echo 'echec du paiement';
         }
-        $this->renderView('pay/success');
+        $this->renderView('pay/success', compact('lastInvoice'));
+
     }
 
     //En cours de réalisation

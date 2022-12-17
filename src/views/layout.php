@@ -106,7 +106,7 @@
                                 Qui sommes nous
                             </a>
                             <ul class="dropdown-menu ">
-                                <li><a class="dropdown-item" href="<?= BASE_DIR ?>/qui-sommes-nous">Présentation BestWynes</a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_DIR ?>/qui-sommes-nous">Présentation BestWines</a></li>
                                 <li><a class="dropdown-item" href="<?= BASE_DIR ?>/presse">La presse parle de nous</a></li>
                                 <li><a class="dropdown-item" href="<?= BASE_DIR ?>/nous-contacter">Nous contacter</a></li>
                                 <li><a class="dropdown-item" href="<?= BASE_DIR ?>/mentions-legales">Les mentions légales</a></li>

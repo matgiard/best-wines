@@ -1,5 +1,5 @@
 <div class=" container py-5">
-    <H1 class="text-center">BestWynes, 1ère entreprise de vente en ligne</H1>
+    <H1 class="text-center">BestWines, 1ère entreprise de vente en ligne</H1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et omnis obcaecati excepturi nisi voluptates quis nostrum, sapiente odio mollitia! Quod adipisci natus vero, nemo minus quaerat aliquam ducimus esse aliquid.
         Voluptatibus eligendi minus necessitatibus. Illo mollitia quis labore facere doloremque. Fuga nulla accusamus dolores expedita eum! Sed, reiciendis, esse qui possimus amet quas necessitatibus velit cum ullam doloribus placeat. Accusamus!
         Impedit vel ab facere voluptatibus suscipit voluptatem dolore aut nisi aliquid pariatur debitis cupiditate possimus voluptas dolores quidem molestiae necessitatibus libero culpa, maxime, ea error accusamus sint repudiandae. Hic, in?</p>

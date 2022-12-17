@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mer. 14 déc. 2022 à 10:28
--- Version du serveur : 5.7.40
--- Version de PHP : 8.0.26
+-- Hôte : 127.0.0.1
+-- Généré le : sam. 17 déc. 2022 à 18:36
+-- Version du serveur : 10.4.24-MariaDB
+-- Version de PHP : 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,9 +27,8 @@ SET time_zone = "+00:00";
 -- Structure de la table `product`
 --
 
-DROP TABLE IF EXISTS `product`;
-CREATE TABLE IF NOT EXISTS `product` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `note_final` float DEFAULT NULL,
@@ -43,15 +42,8 @@ CREATE TABLE IF NOT EXISTS `product` (
   `id_comment` int(11) DEFAULT NULL,
   `id_type` int(11) NOT NULL,
   `price` float NOT NULL,
-  `is_featured` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_region` (`id_region`),
-  KEY `id_cepage` (`id_cepage`),
-  KEY `id_taste` (`id_taste`),
-  KEY `id_association` (`id_association`),
-  KEY `id_comment` (`id_comment`),
-  KEY `id_type` (`id_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=10020 DEFAULT CHARSET=utf8;
+  `is_featured` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `product`
@@ -79,6 +71,32 @@ INSERT INTO `product` (`id`, `name`, `description`, `note_final`, `photo`, `stoc
 (10019, 'COFFRET TRIO - ALSACE LES INDISPENSABLES', 'Coffret 3 bouteilles / France / Alsace', NULL, 'coffret-trio-alsace-les-indispensables.png', 150, 14, 6, 7, 1, 2, NULL, 4, 31, 1);
 
 --
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_region` (`id_region`),
+  ADD KEY `id_cepage` (`id_cepage`),
+  ADD KEY `id_taste` (`id_taste`),
+  ADD KEY `id_association` (`id_association`),
+  ADD KEY `id_comment` (`id_comment`),
+  ADD KEY `id_type` (`id_type`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10021;
+
+--
 -- Contraintes pour les tables déchargées
 --
 
@@ -86,11 +104,11 @@ INSERT INTO `product` (`id`, `name`, `description`, `note_final`, `photo`, `stoc
 -- Contraintes pour la table `product`
 --
 ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`id_region`) REFERENCES `region` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`id_association`) REFERENCES `association` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`id_cepage`) REFERENCES `cepage` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`id_region`) REFERENCES `region` (`id_region`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`id_association`) REFERENCES `association` (`id_association`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`id_cepage`) REFERENCES `cepage` (`id_cepage`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `product_ibfk_4` FOREIGN KEY (`id_comment`) REFERENCES `comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `product_ibfk_5` FOREIGN KEY (`id_taste`) REFERENCES `taste` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_ibfk_5` FOREIGN KEY (`id_taste`) REFERENCES `taste` (`id_taste`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `product_ibfk_6` FOREIGN KEY (`id_type`) REFERENCES `type_product` (`id_type`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 

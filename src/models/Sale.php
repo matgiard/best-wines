@@ -12,6 +12,7 @@ class Sale extends Model
     private int $id_user;
     private int $quantity;
     private float $price_total_product;
+    private string $orderId;
     protected string $table_name = "sale";
 
     /**
@@ -92,22 +93,44 @@ class Sale extends Model
 
     /**
      * Set the value of price_total_product
-     * @param float $price_total_product
+     * @param float price_total_product
      *
      * @return  void
      */
     public function setPrice_Total_Product(float $price_total_product): void
     {
-        $this->$price_total_product = $price_total_product;
+        $this->price_total_product = $price_total_product;
+    }
+ /**
+     * Get the value of orderId
+     * @return string
+     */ 
+    public function getOrderId(): string
+    {
+        return $this->orderId;
     }
 
+    /**
+     * Set the value of orderId
+       * @param string $orderId
+     *
+     * @return  void
+     */
+ 
+    public function setOrderId(string $orderId): void
+    {
+        $this->orderId = $orderId;
+
+    }
     //Ajout d'une ligne de vente
     public function InsertSale(): int|false
     {
-        $stmt = $this->pdo->prepare("INSERT INTO sale (`id_product`, `quantity`) VALUES (:id_product, :quantity)");
+        $stmt = $this->pdo->prepare("INSERT INTO sale (`id_product`, `quantity`,`price_total_product`, `orderId`) VALUES (:id_product, :quantity, :price_total_product, :orderId)");
         $stmt->execute([
             "id_product" => $this->id_product,
             "quantity" => $this->quantity,
+            "price_total_product" => $this->price_total_product,
+            "orderId"   => $this->orderId,
         ]);
         return $this->pdo->lastInsertId();
     }
@@ -121,4 +144,6 @@ class Sale extends Model
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+
 }
