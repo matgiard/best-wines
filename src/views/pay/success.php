@@ -63,6 +63,7 @@ if (isset(($_SESSION["cart_item"])) && isset($lastInvoice)): ?>
 		icon: 'success',
 		html:
 			'<a style="visibility: visible;" class = "btn color1" href="/best-wines/">Retourner à l\'accueil</a> ',
+		background: '#000',
 		showConfirmButton: false
 		})
 		</script>
