@@ -34,8 +34,9 @@ if (!empty($row_count)) {
     $per_page_html .= "</div>";
 }
 $result = $searchModel->getAllPosts($start, Config::LIMIT_PER_PAGE);
-?>
+?><div class="text-center m-3">
 <a class='btn btn-success' href=" <?= BASE_DIR ?>/employe/stock/insert">Ajouter un produit</a>
+</div>
 <form class="d-flex" role="search" name='frmSearch' action='' method='post' onSubmit="submitSearch(event)">
     <input class="form-control me-2" type='text' name='search' id='keyword' placeholder="Rechercher un produit..." aria-label="Search">
     <div class="result"></div>
@@ -54,9 +55,9 @@ $result = $searchModel->getAllPosts($start, Config::LIMIT_PER_PAGE);
         foreach ($result as $row) {
         ?>
             <tr class='table-row'>
-                <td><?php echo $row['id']; ?></td>
-                <td><?php echo $row['name']; ?></td>
-                <td><?php echo $row['stock']; ?></td>
+                <td><?= $row['id']; ?></td>
+                <td><?= $row['name']; ?></td>
+                <td><?= $row['stock']; ?></td>
                 <td>
                     <a href="<?= BASE_DIR ?>/employe/stock/edit?id=<?= $row['id'] ?>" class="btn btn-warning">Modifier</a>
                 </td>

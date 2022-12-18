@@ -172,6 +172,12 @@ class Invoice extends Model
            $stmt->execute();
            return $stmt->fetch();
        }
+       public function deleteInvoice(int $id): void
+       {
+        $stmt = $this->pdo->prepare("DELETE FROM {$this->table_name} WHERE id_invoice = :id_invoice ");
+        $stmt->bindParam(':id_invoice', $id);
+        $stmt->execute();
+    }
    }
   
 

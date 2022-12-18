@@ -21,4 +21,6 @@ class InvoiceController extends Controller
         $all_invoices = $invoice->findInvoiceByUser();
         $this->renderView('user/compte', compact('all_invoices'));
     }
+ 
+
 }

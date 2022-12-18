@@ -58,6 +58,7 @@ Router::register('/mon-compte/details', 'SaleController::showSales');
 // espace employé Commandes
 Router::register('/employe/commandes', 'OrderTrackingController::showAll');
 Router::register('/employe/commandes/details', 'OrderTrackingController::showOne');
+Router::register('/employe/commandes/delete', 'OrderTrackingController::delete');
 
 // Gestion des paiements
 Router::register('/employe/paiements', 'PaiementsController::index');
