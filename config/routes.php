@@ -1,6 +1,5 @@
 <?php
 
-use App\Controllers\ProductController;
 use Core\Router;
 
 //Home

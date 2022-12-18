@@ -19,6 +19,7 @@ class StripePayment
         Stripe::setApiVersion('2022-11-15');
     }
 
+    // Session de paiement stripe
     public function startPayment()
     {
        
@@ -61,6 +62,7 @@ class StripePayment
         header('Location: ' . $session->url);
     }
 
+    //création d'évenemenr avec webhook
     public function handle(ServerRequestInterface $request)
     {
        
