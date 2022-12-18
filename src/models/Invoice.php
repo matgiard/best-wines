@@ -178,6 +178,19 @@ class Invoice extends Model
         $stmt->bindParam(':id_invoice', $id);
         $stmt->execute();
     }
+    public function findOneInvoiceBy($criteria): object|array|false
+    {
+        if (empty($criteria)) {
+            throw  new \Exception("Il faut passer au moins un critère");
+        }
+        $sql_query = "SELECT * FROM sale JOIN invoice ON invoice.orderId_Invoice=sale.orderId JOIN product ON sale.id_product = product.id WHERE sale.orderId = '$criteria' ";
+       
+        $stmt = $this->pdo->prepare($sql_query);
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
    }
   
 

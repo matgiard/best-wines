@@ -13,11 +13,12 @@ $page = 1;
 $start = 0;
 if (!empty($_POST["page"])) {
     $page = $_POST["page"];
+
     $start = ($page - 1) * Config::LIMIT_PER_PAGE;
 }
 
 $searchModel = new SearchModel();
-$row_count = $searchModel->getCount();
+$row_count = $searchModel->getCountInvoice();
 $limit = " limit " . $start . "," . Config::LIMIT_PER_PAGE;
 if (!empty($row_count)) {
     $per_page_html .= "<div style='text-align:center;margin:20px 0px;'>";
@@ -33,7 +34,6 @@ if (!empty($row_count)) {
     }
     $per_page_html .= "</div>";
 }
-$result = $searchModel->getAllPosts($start, Config::LIMIT_PER_PAGE);
 ?>
 
 <table class="table">
@@ -43,23 +43,21 @@ $result = $searchModel->getAllPosts($start, Config::LIMIT_PER_PAGE);
             <th scope="col">Date</th>
             <th scope="col">Etat</th>
             <th scope="col">Remboursement</th>
+            <th scope="col">Détail</th>
         </tr>
     </thead>
     <tbody id='table-body'>
         <?php
-        foreach ($invoices as $row) {
-        ?>
+        foreach ($invoices as $row): ?>
+
             <tr class='table-row'>
                 <td><?= $row['id_invoice']; ?></td>
                 <td><?= $row['date']; ?></td>
                 <td><a href="" class="btn btn-success">Terminé</a></button></td>
-                <td><a href="<?= BASE_DIR ?>/employe/commandes/delete?id=<?= $row['id_invoice'] ?>" class="btn btn-danger">"Rembourser"</a>
-                </td>
+                <td><a href="<?= BASE_DIR ?>/employe/commandes/delete?id=<?= $row['id_invoice'] ?>" class="btn btn-danger">"Rembourser"</a></td>
+                <td><a href="<?= BASE_DIR ?>/employe/commandes/details?id=<?= $row['orderId_Invoice'] ?>" class="btn btn-warning">Détails</a></td>
             </tr>
-        <?php
-        }
-
-        ?>
+        <?php ; endforeach?>
     </tbody>
 </table>
 <?php echo $per_page_html; ?>

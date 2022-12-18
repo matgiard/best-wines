@@ -22,5 +22,4 @@ class InvoiceController extends Controller
         $this->renderView('user/compte', compact('all_invoices'));
     }
  
-
 }

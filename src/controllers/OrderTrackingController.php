@@ -24,8 +24,12 @@ class OrderTrackingController extends Controller
 
 
     public function showOne()
-    {
-        $this->renderView('employe/commandes/details');
+    {   
+
+        $id = $_GET['id'];
+        $invoice = new Invoice();
+        $invoices = $invoice->findOneInvoiceBy($id);        
+        $this->renderView('employe/commandes/details', compact('invoices'));
     }
     public function delete()
     {
