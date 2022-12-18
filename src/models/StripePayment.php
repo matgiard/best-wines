@@ -62,7 +62,7 @@ class StripePayment
         header('Location: ' . $session->url);
     }
 
-    //création d'évenemenr avec webhook
+    //création d'évènement avec webhook
     public function handle(ServerRequestInterface $request)
     {
        

@@ -64,6 +64,7 @@ if (isset(($_SESSION["cart_item"])) && isset($lastInvoice)): ?>
 		html:
 			'<a style="visibility: visible;" class = "btn color1" href="/best-wines/">Retourner à l\'accueil</a> ',
 		background: '#211a1a',
+		color: '#f3f3f3',
 		showConfirmButton: false
 		})
 		</script>
