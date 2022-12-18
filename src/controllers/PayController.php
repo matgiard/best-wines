@@ -29,7 +29,6 @@ class PayController extends Controller
         $paypal_items_array = [];
         foreach ($_SESSION["cart_item"] as $k => $v) {
             $paypal_items_array[] = [
-                'id' => $v['id'],
                 'name' => $v['name'],
                 'unit_amount' => [
                     'value' => $v['price'],
@@ -38,6 +37,7 @@ class PayController extends Controller
                 'quantity' => $v['quantity']
             ];
         }
+        
         $order = json_encode([
             'purchase_units' => [[
                 'description' => "Panier de l'utilisateur n°" . $_SESSION['user']['id'],
@@ -66,19 +66,30 @@ class PayController extends Controller
         $response = $client->execute($request);
         $OrderId = $response->result->id;
         // dd($response);
+
         if ($response->result->status == 'COMPLETED') {
             $sale = new Sale();
             $invoice = new Invoice();
+            $invoice_array = [];
+
+            foreach ($_SESSION["cart_item"] as $k => $v) {
+                $invoice_array[] = [
+                    'id' => $v['id'],
+                    // 'name' => $v['name'],
+                    'quantity' => $v['quantity'],
+                    'total_price' => $v['total_price']
+                ];
+            }
             $i = 0;
-            while ($i < count($_SESSION["cart_item"])) {
+            while ($i < count($invoice_array)) {
    
-                foreach ($_SESSION["cart_item"][$i] as $k => $v) {
+                foreach ($invoice_array[$i] as $k => $v) {
                     $k = 'id';
-                    $v = $sale->setId_product($_SESSION["cart_item"][$i]['id']);
+                    $v = $sale->setId_product($invoice_array[$i]['id']);
                     $k = "quantity";
-                    $v = $sale->setQuantity($_SESSION["cart_item"][$i]['quantity']);
+                    $v = $sale->setQuantity($invoice_array[$i]['quantity']);
                     $k = 'total_price';
-                    $v = $sale->setPrice_Total_Product($_SESSION["cart_item"][$i]['total_price']);
+                    $v = $sale->setPrice_Total_Product($invoice_array[$i]['total_price']*$invoice_array[$i]['id']);
                     $k = 'orderId';
                     $v = $sale->setOrderId($OrderId);
                 }
@@ -112,40 +123,38 @@ class PayController extends Controller
 
     //En cours de réalisation
     //Paiement avec stripe
-    public function stripe()
-    {
-        $psr17Factory = new Psr17Factory();
-        $creator = new ServerRequestCreator(
-            $psr17Factory,
-            $psr17Factory,
-            $psr17Factory,
-            $psr17Factory
-        );
-        $request = $creator->fromGlobals();
-        $webhookSecret = "whsec_965cb64d94e375389a66fdb6794f9ab58e0fbb247d4d2150d95e84f8c37b314d";
-        $clientSecret = "sk_test_51MEasAEPDX7SWVQZvPHBXeSIey6CjzcXyZAOhfNjVNDMmL5StAzpzdmcJuWCnHu4gSNm0pAnBqL12Th9ms1ze6hY00kyOL5ex1";
-        $cart = $_SESSION['cart_item'];
-        $payment = new StripePayment($clientSecret, $webhookSecret);
-        $stripePayment = $payment->startPayment($cart);
-        $test = $payment->handle($request);
-        dd($test);
-        $this->renderView('pay/index', compact('total', 'stripePayment', 'payment', 'test', 'psr17Factory', 'creator', 'request'));
-        header("HTTP/1.1 303 See Other");
-        // header('Location: ' . $session->url);
-    }
+    public function stripePayment()
 
-    // public function stripeHandle(ServerRequestInterface $request)
-    // {
-    //     $signature = $request->getHeaderLine('stripe-signature');
-    //     $body = (string)$request->getBody();
-    //     $event = Webhook::constructEvent(
-    //         $body,
-    //         $signature,
-    //     );
-    // }
+    {
+        $payment = new StripePayment('sk_test_51MFSr6DqvB6uQCmLYh57hTz529jASvKBjeORVylUg6190E6aIXaknfUa6ymuIaa24UA2LUUVZNvwuSsWhyrlHwUG002d6u3Qq0', 'whsec_01c59bc18dc792fcd543427e5eaa98e55dd08975e5d7b3205a242bf83d78a4ff');
+        $payment->startPayment();
+    }
 
     public function success()
     {
+
+        
+
         $this->renderView('pay/success');
     }
+
+    public function webhook()
+    {
+        $psr17Factory = new Psr17Factory();
+
+        $creator = new ServerRequestCreator(
+            $psr17Factory, // ServerRequestFactory
+            $psr17Factory, // UriFactory
+            $psr17Factory, // UploadedFileFactory
+            $psr17Factory  // StreamFactory
+        );
+
+        $request = $creator->fromGlobals();
+        
+        $payment = new StripePayment('sk_test_51MFSr6DqvB6uQCmLYh57hTz529jASvKBjeORVylUg6190E6aIXaknfUa6ymuIaa24UA2LUUVZNvwuSsWhyrlHwUG002d6u3Qq0', 'whsec_01c59bc18dc792fcd543427e5eaa98e55dd08975e5d7b3205a242bf83d78a4ff');
+        $payment->handle($request);
+    }
+
+
+    
 }
