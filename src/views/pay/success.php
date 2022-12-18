@@ -1,6 +1,7 @@
 
 <?php
-if (isset(($_SESSION["cart_item"]))): ?>
+$paypalLink='/best-wines/pay/paypal';
+if ($_SERVER['REDIRECT_URL'] == $paypalLink) : ?>
 <div>
 <div>
 <h1 class="h1 text-center p-3"> Félicitations, le paiement a bien été effectué !</h1>
@@ -51,8 +52,26 @@ if (isset(($_SESSION["cart_item"]))): ?>
     </div>
 </div>
 <?php  unset($_SESSION["cart_item"]); ?>
-<?php else :
-		header('Location: /best-wines/cart');
- endif ?>
+
+ <?php endif ?>
+ <?php  if (isset($_SESSION["cart_item"])):?>
+		
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<div class=stripeSuccess>
+		<script>
+		Swal.fire({
+		title: 'Paiement validé ! \n Vous allez recevoir un mail de confirmation ',
+		icon: 'success',
+		html:
+			'<a style="visibility: visible;" class = "btn color1" href="/best-wines/">Retourner à l\'accueil</a> ',
+		background: '#211a1a',
+		color: '#f3f3f3',
+		showConfirmButton: false
+		})
+		</script>
+		</div>
+		<?php	unset($_SESSION["cart_item"]) ?>
+
+		<?php endif ?>
 
 

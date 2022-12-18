@@ -2,40 +2,32 @@
 
 namespace App\Models;
 
-use Core\Model;
-use Nyholm\Psr7\Factory\Psr17Factory;
-use Nyholm\Psr7Server\ServerRequestCreator;
 use Psr\Http\Message\ServerRequestInterface;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
 use Stripe\StripeClient;
 use Stripe\Webhook;
 
-$psr17Factory = new Psr17Factory();
-
-$creator = new ServerRequestCreator(
-    $psr17Factory,
-    $psr17Factory,
-    $psr17Factory,
-    $psr17Factory
-);
-
-//En cours de réalisation
-//Gestion des paiements par Stripe
 class StripePayment
 {
 
-    public function __construct(private string $clientSecret, private string $webhookSecret = '')
+    public function __construct(readonly private string $clientSecret, readonly private string $webhookSecret = '')
     {
+
+
         Stripe::setApiKey($this->clientSecret);
         Stripe::setApiVersion('2022-11-15');
     }
 
-    public function startPayment($cart)
+    // Session de paiement stripe
+    public function startPayment()
     {
-        $cart = [];
+       
+        $stripe_items_array = [];
+
         foreach ($_SESSION["cart_item"] as $k => $v) {
-            $cart[] = [
+
+            $stripe_items_array[] = [
                 'quantity' => $v['quantity'],
                 'price_data' => [
                     'currency' => 'EUR',
@@ -45,47 +37,57 @@ class StripePayment
                     'unit_amount' => $v['price'] * 100
                 ]
             ];
-
-            $session = Session::create([
-                'mode' => 'payment',
-                'line_items' =>  $cart,
-                'success_url' => 'http://localhost/best-wines/pay/success',
-                'cancel_url' => 'http://localhost/best-wines/src/views/cart/cancel.php',
-                'billing_address_collection' => 'required',
-                'shipping_address_collection' => ['allowed_countries' => ['FR']],
-            ]);
-            header("HTTP/1.1 303 See Other");
-            header('Location:' . $session->url);
         }
+
+
+        $session = Session::create([
+            'line_items' =>  $stripe_items_array,
+            'mode' => 'payment',
+            'success_url' => 'http://localhost/best-wines/pay/success',
+            'cancel_url' => 'http://localhost/best-wines',
+            // 'billing_adress_collection' => 'required',
+            'shipping_address_collection' => [
+                'allowed_countries' => ['FR']
+            ],
+            // 'automatic_tax' => [
+            //     'enabled'
+            // ],
+            'metadata' => [
+                'userId' => $_SESSION['user']['id']
+            ]
+
+        ]);
+
+        header("HTTP/1.1 303 See Other");
+        header('Location: ' . $session->url);
     }
 
+    //création d'évènement avec webhook
     public function handle(ServerRequestInterface $request)
     {
+       
+
         $signature = $request->getHeaderLine('stripe-signature');
+        
         $body = (string)$request->getBody();
         $event = Webhook::constructEvent(
             $body,
             $signature,
-            $this->webhookSecret
+            'whsec_01c59bc18dc792fcd543427e5eaa98e55dd08975e5d7b3205a242bf83d78a4ff'
         );
-        if ($event->type !== 'checkout.session.completed') {
-            return;
-        }
+
+        
+    
         $data = $event->data['object'];
-        $client = new StripeClient($this->clientSecret);
+        $client = new StripeClient('sk_test_51MFSr6DqvB6uQCmLYh57hTz529jASvKBjeORVylUg6190E6aIXaknfUa6ymuIaa24UA2LUUVZNvwuSsWhyrlHwUG002d6u3Qq0');
         $items = $client->checkout->sessions->allLineItems($data['id']);
         foreach ($items as $item) {
             dump($item->description);
+        
         }
-            // On retrouve la commande dans la base de données
-            // On la marque comme payé
-        ;
-        switch ($event->type) {
-            case 'payment_intent.succeeded':
-                $paymentIntent = $event->data->object;
-                // ... handle other event types
-            default:
-                echo 'Received unknown event type ' . $event->type;
-        }
+        // On retrouve la commande dans la base de données
+        // On la marque comme payé
+    
+        dd($items);
     }
 }
