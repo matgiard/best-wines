@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 15 déc. 2022 à 10:29
--- Version du serveur : 10.4.24-MariaDB
--- Version de PHP : 8.0.19
+-- Généré le : dim. 18 déc. 2022 à 15:21
+-- Version du serveur : 10.4.27-MariaDB
+-- Version de PHP : 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,14 +34,14 @@ CREATE TABLE `article` (
   `date` timestamp NOT NULL DEFAULT current_timestamp(),
   `id_user` int(11) DEFAULT NULL,
   `photo_article` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `article`
 --
 
 INSERT INTO `article` (`id`, `title`, `content`, `date`, `id_user`, `photo_article`) VALUES
-(19, 'Dans le Muscadet, une prÃ©taille manuelle pour soulager les tailleurs confirmÃ©s', '<p>On coupe la branche fruiti&egrave;re &agrave; la base, on la sort du palissage, on la d&eacute;bite en quelques morceaux et on la jette dans l\'interrang &raquo;, explique, s&eacute;cateur &eacute;lectrique &agrave; la main, S&eacute;bastien Renaudin, chef de culture au Ch&acirc;teau du Cl&eacute;ray, &agrave; Vallet (Loire-Atlantique). En quatre ou cinq coups de s&eacute;cateur, la pr&eacute;taille est faite et le cep pr&ecirc;t &agrave; &ecirc;tre taill&eacute;.</p>\r\n<p>Depuis octobre, dans les vignes nantaises, des &eacute;quipes s\'attellent &agrave; ce travail. Cette t&acirc;che, appel&eacute;e localement d&eacute;racage, est r&eacute;alis&eacute;e par des ouvriers souvent peu qualifi&eacute;s, pay&eacute;s au cep. Dans beaucoup de domaines, ils reviendront pour le pliage. Entre-temps, des salari&eacute;s ou des prestataires confirm&eacute;s s\'occuperont de la taille. Une particularit&eacute; locale : dans les autres vignobles, les vignerons et leurs &eacute;quipes s\'attaquent g&eacute;n&eacute;ralement directement &agrave; la taille, avant de c&eacute;der la place &agrave; des ouvriers moins form&eacute;s, r&eacute;mun&eacute;r&eacute;s pour tirer les bois.</p>\r\n<p>Pour la pr&eacute;taille, commenc&eacute;e &agrave; la mi-octobre sur les 90 ha de son domaine, S&eacute;bastien Renaudin travaille g&eacute;n&eacute;ralement avec un Esat (&eacute;tablissement ou service d\'aide par le travail) ou un atelier de r&eacute;insertion. &laquo; Ils s\'en occupent jusqu\'&agrave; fin f&eacute;vrier, puis font le pliage jusqu\'&agrave; fin avril, en commen&ccedil;ant par les parcelles les moins g&eacute;lives, et ils encha&icirc;nent sur l\'&eacute;bourgeonnage &raquo;, pr&eacute;cise le viticulteur.</p>\r\n<p>Les sept permanents, lui compris, taillent depuis mi-novembre et nettoient les baguettes de fa&ccedil;on qu&rsquo;elles soient pr&ecirc;tes &agrave; &ecirc;tre pli&eacute;es. Sur certaines parcelles, le syst&egrave;me est diff&eacute;rent : des prestataires font la taille compl&egrave;te (pr&eacute;taille-taille-pliage), puis l\'&eacute;bourgeonnage et le relevage.</p>\r\n<p>La fatigue physique est r&eacute;duite</p>\r\n<p>S&eacute;bastien Renaudin taille en Guyot simple, avec deux coursons et une baguette &agrave; 8 &agrave; 10 yeux pour le melon de Bourgogne, et &agrave; 12 yeux pour le sauvignon et le chardonnay. Le melon, pr&eacute;sent sur la moiti&eacute; du vignoble, est paliss&eacute; &agrave; un fil et le reste (sauvignon, chardonnay et jeunes vignes) &agrave; trois fils, un porteur et deux releveurs. Ces derniers sont d&eacute;paliss&eacute;s m&eacute;caniquement apr&egrave;s les vendanges, avec un outil fait maison mont&eacute; sur un tracteur enjambeur qui passe derri&egrave;re les releveurs et arrache les vrilles qui s&rsquo;y sont accroch&eacute;es. &laquo; Ce passage diminue fortement la fatigue physique pour le tirage des bois, ajoute S&eacute;bastien Renaudin. Avec toute cette organisation, nous affectons nos permanents aux t&acirc;ches les plus qualifiantes. &raquo;</p>\r\n<p>Une raison invoqu&eacute;e aussi par Thierry Martin, du domaine Martin Luneau, 32 ha &agrave; Gorges (44) : &laquo; au lieu de passer deux minutes &agrave; tailler un cep, on n&rsquo;en passe qu&rsquo;une. On gagne du temps et on peut r&eacute;server les salari&eacute;s form&eacute;s &agrave; la taille pour ce travail &raquo;.</p>\r\n<p>Lui aussi est en Guyot simple, avec un cep &agrave; trois t&ecirc;tes, deux coursons et une baguette de 10 &agrave; 12 yeux. La moiti&eacute; de sa surface est paliss&eacute;e en un fil, et le reste en trois. Ici, les fils releveurs sont descendus et accroch&eacute;s &agrave; une vingtaine de centim&egrave;tres sous le fil porteur de suite apr&egrave;s les vendanges. &laquo; Les vrilles ne sont pas compl&egrave;tement ao&ucirc;t&eacute;es, ainsi on lib&egrave;re facilement les sarments &raquo;, indique Thierry Martin.</p>\r\n<p>Au domaine Martin Luneau, seule la moiti&eacute; des vignes est d&eacute;raqu&eacute;e. &laquo; On enl&egrave;ve la baguette &agrave; fruit sur les vignes tr&egrave;s vigoureuses, comme les cabernets, sauvignon et chardonnay, et sur celles o&ugrave; elles sont enroul&eacute;es et attach&eacute;es serr&eacute; sur le fil, souvent des jeunes vignes. C&rsquo;est l&agrave; qu&rsquo;on gagne le plus de temps &raquo;, pr&eacute;cise le viticulteur. Sur le reste, la taille se fait en un seul passage, car la branche fruiti&egrave;re est plus facile &agrave; enlever.</p>\r\n<p>Taylorisation</p>\r\n<p>Par le pass&eacute;, le d&eacute;racage &eacute;tait de mise sur tout le domaine. Le mode op&eacute;ratoire a chang&eacute; avec l\'arriv&eacute;e d\'un attacheur &eacute;lectrique, qui lie moins serr&eacute;. Les deux salari&eacute;s du domaine sont habituellement d&eacute;di&eacute;s &agrave; la taille tandis que des ouvriers roumains employ&eacute;s via le groupement Valore d&eacute;palissent et pr&eacute;taillent. &laquo; Mais, cette ann&eacute;e, les vendanges pr&eacute;coces nous ont laiss&eacute;s le temps de tout faire nous-m&ecirc;me &raquo;, ajoute Thierry Martin.</p>\r\n<p>Quant au risque d\'erreurs &agrave; confier un s&eacute;cateur &agrave; des &eacute;quipes peu form&eacute;es, il est quasi inexistant assurent les viticulteurs. &laquo; C\'est hypersimple. Tu montres le travail pendant trente minutes et &ccedil;a roule &raquo;, affirme Laurent Bouchaud, install&eacute; sur deux sites totalisant 30 ha au Pallet (44). De m&ecirc;me, interrog&eacute;s sur l\'impact sur les maladies du bois, les producteurs ne font pas &eacute;tat de probl&egrave;mes particuliers.</p>\r\n<p>Pour Romain Mayet, ing&eacute;nieur agronome &agrave; la F&eacute;d&eacute;ration des vins de Nantes, la pratique du d&eacute;racage pourrait s\'expliquer par la densit&eacute; &eacute;lev&eacute;e dans le Muscadet et par la surface importante des domaines, n&eacute;cessitant de commencer t&ocirc;t la taille et de finir tard. &laquo; Il peut y avoir un int&eacute;r&ecirc;t &agrave; &ldquo;tayloriser&rdquo; les t&acirc;ches, en s&eacute;parant le d&eacute;racage de la taille. Il n\'y a pas besoin d\'&ecirc;tre un expert pour trouver la branche principale et la couper. &raquo; Autre hypoth&egrave;se : en commen&ccedil;ant t&ocirc;t, on peut embaucher les salari&eacute;s ayant fait les vendanges. Difficile d\'&eacute;tablir une raison historique claire &agrave; la pratique du d&eacute;racage. &laquo; Peut-&ecirc;tre que c\'est juste un usage &raquo;, ajoute Romain Mayet.</p>', '2022-12-14 12:49:06', NULL, 'gr_1670835387_LQ10014720C.jpg'),
+(19, 'Dans le Muscadet, une prétaille manuelle pour soulager les tailleurs confirmés', '<p>On coupe la branche fruiti&egrave;re &agrave; la base, on la sort du palissage, on la d&eacute;bite en quelques morceaux et on la jette dans l\'interrang &raquo;, explique, s&eacute;cateur &eacute;lectrique &agrave; la main, S&eacute;bastien Renaudin, chef de culture au Ch&acirc;teau du Cl&eacute;ray, &agrave; Vallet (Loire-Atlantique). En quatre ou cinq coups de s&eacute;cateur, la pr&eacute;taille est faite et le cep pr&ecirc;t &agrave; &ecirc;tre taill&eacute;.</p>\r\n<p>Depuis octobre, dans les vignes nantaises, des &eacute;quipes s\'attellent &agrave; ce travail. Cette t&acirc;che, appel&eacute;e localement d&eacute;racage, est r&eacute;alis&eacute;e par des ouvriers souvent peu qualifi&eacute;s, pay&eacute;s au cep. Dans beaucoup de domaines, ils reviendront pour le pliage. Entre-temps, des salari&eacute;s ou des prestataires confirm&eacute;s s\'occuperont de la taille. Une particularit&eacute; locale : dans les autres vignobles, les vignerons et leurs &eacute;quipes s\'attaquent g&eacute;n&eacute;ralement directement &agrave; la taille, avant de c&eacute;der la place &agrave; des ouvriers moins form&eacute;s, r&eacute;mun&eacute;r&eacute;s pour tirer les bois.</p>\r\n<p>Pour la pr&eacute;taille, commenc&eacute;e &agrave; la mi-octobre sur les 90 ha de son domaine, S&eacute;bastien Renaudin travaille g&eacute;n&eacute;ralement avec un Esat (&eacute;tablissement ou service d\'aide par le travail) ou un atelier de r&eacute;insertion. &laquo; Ils s\'en occupent jusqu\'&agrave; fin f&eacute;vrier, puis font le pliage jusqu\'&agrave; fin avril, en commen&ccedil;ant par les parcelles les moins g&eacute;lives, et ils encha&icirc;nent sur l\'&eacute;bourgeonnage &raquo;, pr&eacute;cise le viticulteur.</p>\r\n<p>Les sept permanents, lui compris, taillent depuis mi-novembre et nettoient les baguettes de fa&ccedil;on qu&rsquo;elles soient pr&ecirc;tes &agrave; &ecirc;tre pli&eacute;es. Sur certaines parcelles, le syst&egrave;me est diff&eacute;rent : des prestataires font la taille compl&egrave;te (pr&eacute;taille-taille-pliage), puis l\'&eacute;bourgeonnage et le relevage.</p>\r\n<p>La fatigue physique est r&eacute;duite</p>\r\n<p>S&eacute;bastien Renaudin taille en Guyot simple, avec deux coursons et une baguette &agrave; 8 &agrave; 10 yeux pour le melon de Bourgogne, et &agrave; 12 yeux pour le sauvignon et le chardonnay. Le melon, pr&eacute;sent sur la moiti&eacute; du vignoble, est paliss&eacute; &agrave; un fil et le reste (sauvignon, chardonnay et jeunes vignes) &agrave; trois fils, un porteur et deux releveurs. Ces derniers sont d&eacute;paliss&eacute;s m&eacute;caniquement apr&egrave;s les vendanges, avec un outil fait maison mont&eacute; sur un tracteur enjambeur qui passe derri&egrave;re les releveurs et arrache les vrilles qui s&rsquo;y sont accroch&eacute;es. &laquo; Ce passage diminue fortement la fatigue physique pour le tirage des bois, ajoute S&eacute;bastien Renaudin. Avec toute cette organisation, nous affectons nos permanents aux t&acirc;ches les plus qualifiantes. &raquo;</p>\r\n<p>Une raison invoqu&eacute;e aussi par Thierry Martin, du domaine Martin Luneau, 32 ha &agrave; Gorges (44) : &laquo; au lieu de passer deux minutes &agrave; tailler un cep, on n&rsquo;en passe qu&rsquo;une. On gagne du temps et on peut r&eacute;server les salari&eacute;s form&eacute;s &agrave; la taille pour ce travail &raquo;.</p>\r\n<p>Lui aussi est en Guyot simple, avec un cep &agrave; trois t&ecirc;tes, deux coursons et une baguette de 10 &agrave; 12 yeux. La moiti&eacute; de sa surface est paliss&eacute;e en un fil, et le reste en trois. Ici, les fils releveurs sont descendus et accroch&eacute;s &agrave; une vingtaine de centim&egrave;tres sous le fil porteur de suite apr&egrave;s les vendanges. &laquo; Les vrilles ne sont pas compl&egrave;tement ao&ucirc;t&eacute;es, ainsi on lib&egrave;re facilement les sarments &raquo;, indique Thierry Martin.</p>\r\n<p>Au domaine Martin Luneau, seule la moiti&eacute; des vignes est d&eacute;raqu&eacute;e. &laquo; On enl&egrave;ve la baguette &agrave; fruit sur les vignes tr&egrave;s vigoureuses, comme les cabernets, sauvignon et chardonnay, et sur celles o&ugrave; elles sont enroul&eacute;es et attach&eacute;es serr&eacute; sur le fil, souvent des jeunes vignes. C&rsquo;est l&agrave; qu&rsquo;on gagne le plus de temps &raquo;, pr&eacute;cise le viticulteur. Sur le reste, la taille se fait en un seul passage, car la branche fruiti&egrave;re est plus facile &agrave; enlever.</p>\r\n<p>Taylorisation</p>\r\n<p>Par le pass&eacute;, le d&eacute;racage &eacute;tait de mise sur tout le domaine. Le mode op&eacute;ratoire a chang&eacute; avec l\'arriv&eacute;e d\'un attacheur &eacute;lectrique, qui lie moins serr&eacute;. Les deux salari&eacute;s du domaine sont habituellement d&eacute;di&eacute;s &agrave; la taille tandis que des ouvriers roumains employ&eacute;s via le groupement Valore d&eacute;palissent et pr&eacute;taillent. &laquo; Mais, cette ann&eacute;e, les vendanges pr&eacute;coces nous ont laiss&eacute;s le temps de tout faire nous-m&ecirc;me &raquo;, ajoute Thierry Martin.</p>\r\n<p>Quant au risque d\'erreurs &agrave; confier un s&eacute;cateur &agrave; des &eacute;quipes peu form&eacute;es, il est quasi inexistant assurent les viticulteurs. &laquo; C\'est hypersimple. Tu montres le travail pendant trente minutes et &ccedil;a roule &raquo;, affirme Laurent Bouchaud, install&eacute; sur deux sites totalisant 30 ha au Pallet (44). De m&ecirc;me, interrog&eacute;s sur l\'impact sur les maladies du bois, les producteurs ne font pas &eacute;tat de probl&egrave;mes particuliers.</p>\r\n<p>Pour Romain Mayet, ing&eacute;nieur agronome &agrave; la F&eacute;d&eacute;ration des vins de Nantes, la pratique du d&eacute;racage pourrait s\'expliquer par la densit&eacute; &eacute;lev&eacute;e dans le Muscadet et par la surface importante des domaines, n&eacute;cessitant de commencer t&ocirc;t la taille et de finir tard. &laquo; Il peut y avoir un int&eacute;r&ecirc;t &agrave; &ldquo;tayloriser&rdquo; les t&acirc;ches, en s&eacute;parant le d&eacute;racage de la taille. Il n\'y a pas besoin d\'&ecirc;tre un expert pour trouver la branche principale et la couper. &raquo; Autre hypoth&egrave;se : en commen&ccedil;ant t&ocirc;t, on peut embaucher les salari&eacute;s ayant fait les vendanges. Difficile d\'&eacute;tablir une raison historique claire &agrave; la pratique du d&eacute;racage. &laquo; Peut-&ecirc;tre que c\'est juste un usage &raquo;, ajoute Romain Mayet.</p>', '2022-12-14 12:49:06', NULL, 'gr_1670835387_LQ10014720C.jpg'),
 (20, 'Le bois dans tous ses &eacute;tats au salon Vinitech', '<h4>Un march&eacute; en ligne de f&ucirc;ts d&rsquo;occasion, un syst&egrave;me de b&acirc;tonnage surprenant, de nouvelles douelles et barriques, et de quoi masquer les &eacute;thylph&eacute;nols&nbsp;: les innovations ne manquent pas pour l&rsquo;&eacute;levage !</h4>\r\n<p>&nbsp;</p>\r\n<p>La tonnellerie Baron sort de sa zone de confort avec le lancement du site internet Reoaked, premier march&eacute; en ligne de f&ucirc;ts d&rsquo;occasion pour vignerons et distillateurs. <em>&laquo;&nbsp;L&rsquo;expertise est notre valeur ajout&eacute;e, ce n&rsquo;est pas un simple site de petites annonces &raquo;,</em>&nbsp;assure Lionel Kreff, directeur commercial de la tonnellerie. Le vendeur, dont l&rsquo;anonymat est garanti, fixe le prix de son lot en pr&eacute;cisant la contenance, l&rsquo;origine du bois et la date de fabrication de f&ucirc;ts, et le type de vin qu&rsquo;ils ont contenu. &Agrave; cela s&rsquo;ajoute une commission Reoaked pour l&rsquo;inspection olfactive et visuelle de 20 % des f&ucirc;ts du lot, choisis al&eacute;atoirement. Pour 4 &euro; de plus par barrique, Reoaked inspecte 100 % du lot. Pour une expertise encore plus pouss&eacute;e, avec analyse et contr&ocirc;le microbiologique (Brett, TCA et TCP), il faut encore ajouter 15 &euro; de plus par barrique. Une fois le lot expertis&eacute; chez le vendeur, Reoaked organise livraison jusqu&rsquo;&agrave; l&rsquo;acheteur. Ce site est lanc&eacute; en deux phases&nbsp;: si les vendeurs peuvent d&eacute;j&agrave; s&rsquo;inscrire, les acheteurs, eux, devront attendre le 5 janvier.</p>\r\n<p>En attendant, il y a du neuf chez Seguin Moreau. Apr&egrave;s trois ans d&rsquo;essais, cet autre tonnelier lance sa gamme&nbsp;<em>&laquo;&nbsp;&Eacute;l&eacute;ment&nbsp;&raquo;</em>, qui apporte moins de bois&eacute; pour r&eacute;pondre aux attentes des consommateurs. Destin&eacute;s aux vins rouges, ces f&ucirc;ts laisseront s&rsquo;exprimer le fruit&eacute; et le terroir. Seguin Moreau propose trois barriques &ndash; F1, cintrage feu/chauffe moyenne, F2 cintrage feu/chauffe moyenne +, V3, cintrage vapeur/chauffe longue &ndash; et deux s&eacute;lections de grains de ch&ecirc;ne fran&ccedil;ais, fins ou extrafins. Le tonnelier conseille la chauffe V3 pour les vins concentr&eacute;s et les grains extrafins pour les &eacute;levages de 18 mois ou plus. Les douelles font 27 mm d&rsquo;&eacute;paisseur en vue d&rsquo;un second usage sur d&rsquo;autres vins et spiritueux. Et afin de r&eacute;duire le bilan carbone, Seguin Moreau n&rsquo;emploie que quatre cercles, principale source d&rsquo;&eacute;mission carbone des barriques. Il faut compter entre 850 et 900 &euro; pour une barrique de la gamme &Eacute;l&eacute;ment.</p>\r\n<p><img id=\"imgShown_2\" class=\"drImgMain loading\" title=\"Seguin Moreau.JPG\" src=\"https://cip-dam.swyp.fr/permalink/v1/10/57381/thumbnail/221201FAI_004.JPG.JPG?token=QrxuQBZPmYH4vY5hNkXWY2fGuDblBFlJDwsGEH1czgPzcOrbEF8FPrgGSVkNDeZt\" alt=\"Seguin Moreau.JPG\" data-ignore=\"true\"></p>\r\n<p><strong>Barrique Element de Seguin Moreau (Cr&eacute;dit photo C. Faimali)</strong></p>\r\n<p>Sur le stand du groupe Charlois, de nombreuses personnes ont pu constater la simplicit&eacute; du nouveau syst&egrave;me de b&acirc;tonnage con&ccedil;u par l&rsquo;Atelier du Foudrier : elles n&rsquo;avaient qu&rsquo;&agrave; tourner une manivelle pour l&rsquo;actionner ! Adaptable sur n&rsquo;importe quel foudre, une h&eacute;lice oblongue pos&eacute;e au fond, remet les lies en suspension et en douceur d&egrave;s qu&rsquo;on tourne la manivelle. Ainsi, ce syst&egrave;me limite les risques d&rsquo;oxydation et prot&egrave;ge les ar&ocirc;mes fermentaires. Le temps de b&acirc;tonnage est estim&eacute; &agrave; environ une minute et un contr&ocirc;le visuel peut &ecirc;tre effectu&eacute; gr&acirc;ce au remontage du vin dans la bonde. Ce syst&egrave;me est d&eacute;j&agrave; sur le march&eacute; &agrave; un prix compris entre 3 500 et 4 000 &euro;.</p>\r\n<p>&nbsp;</p>\r\n<p>Pour ceux qui choisissent d&rsquo;utiliser les douelles, Vivelys a pr&eacute;sent&eacute; sa nouvelle douelle Boise #20.HD Haute D&eacute;finition. Fruit de trois ans de recherche, elle apporte de fa&ccedil;on r&eacute;p&eacute;table, volume, sucrosit&eacute; et longueur en bouche avec un profil moka et toast&eacute;. Elle s&rsquo;utilise entre 1 et 2 douelles/hl sur rouge et chardonnay, moiti&eacute; moins sur les autres vins blancs. Toutes les douelles sont 100 % PEFC, en ch&ecirc;ne 100 % fran&ccedil;ais, torr&eacute;fi&eacute;es &agrave; l&rsquo;&eacute;nergie solaire. Un positionnement haut de gamme, pour un prix de 14,70 &euro; l&rsquo;unit&eacute;.</p>\r\n<p>Les copeaux peuvent &eacute;galement servir &agrave; masquer les ph&eacute;nols volatils dans les vins finis&nbsp;: c&rsquo;est ce que propose Oakwise avec son nouveau blend &laquo;&nbsp;Phi&nbsp;&raquo;. Cet assemblage de copeaux vendus par sac d&rsquo;infusion de 10 kg s&rsquo;ajoute &agrave; la dose d&rsquo;1,5 &agrave; 2,5g/l. Pour garantir une efficacit&eacute; maximale, il doit &ecirc;tre utilis&eacute; entre 15-16&deg;C, c&rsquo;est-&agrave;-dire en fin de vinification ou au printemps.</p>\r\n<p>&nbsp;</p>\r\n<p>Ce m&eacute;lange masque les d&eacute;viations organoleptiques de type \"&eacute;curie\" ou \"gouache\", tout en apportant la sucrosit&eacute; et la rondeur n&eacute;cessaires pour att&eacute;nuer la s&eacute;cheresse qui accompagne ces d&eacute;fauts. La dur&eacute;e de traitement varie entre six et huit semaines. Un brassage doit &ecirc;tre r&eacute;alis&eacute; une fois par semaine.&nbsp;<em>&laquo;&nbsp;Ce blend fonctionne &eacute;galement sur le go&ucirc;t de souris&nbsp;&raquo;,</em>&nbsp;avance l&rsquo;&oelig;nologue Vincent Maestri, mais ne dispense &eacute;videmment pas d&rsquo;un traitement en amont (filtration tangentielle, chitosan, &hellip;). Le co&ucirc;t d&rsquo;utilisation est compris entre 2 et 3 &euro;/hl.</p>\r\n<p>&nbsp;</p>', '2022-12-14 13:39:51', NULL, 'article_bois.jpg');
 
 -- --------------------------------------------------------
@@ -53,7 +53,7 @@ INSERT INTO `article` (`id`, `title`, `content`, `date`, `id_user`, `photo_artic
 CREATE TABLE `association` (
   `id_association` int(11) NOT NULL,
   `association_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `association`
@@ -75,7 +75,7 @@ INSERT INTO `association` (`id_association`, `association_name`) VALUES
 CREATE TABLE `cepage` (
   `id_cepage` int(11) NOT NULL,
   `cepage_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `cepage`
@@ -107,7 +107,7 @@ CREATE TABLE `comment` (
   `text_comment` text NOT NULL,
   `id_product` int(11) NOT NULL,
   `id_sale` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -116,12 +116,25 @@ CREATE TABLE `comment` (
 --
 
 CREATE TABLE `invoice` (
-  `id` int(11) NOT NULL,
+  `id_invoice` int(11) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
+  `clientName` varchar(255) DEFAULT NULL,
+  `billingAddress` varchar(255) DEFAULT NULL,
   `total_price` float NOT NULL,
+  `orderId_Invoice` varchar(255) DEFAULT NULL,
   `id_sale` int(11) NOT NULL,
   `id_promotion` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Déchargement des données de la table `invoice`
+--
+
+INSERT INTO `invoice` (`id_invoice`, `date`, `clientName`, `billingAddress`, `total_price`, `orderId_Invoice`, `id_sale`, `id_promotion`) VALUES
+(1004, '2022-12-18 09:28:54', 'Jean Deau', 'Av. de la Pelouse, 87648672 Mayet Paris 75002', 18, '6LC02809MC4375301', 0, NULL),
+(1005, '2022-12-18 10:09:18', 'Jean Deau', 'Av. de la Pelouse, 87648672 Mayet Paris 75002', 53, '50429440HW1574202', 0, NULL),
+(1006, '2022-12-18 10:41:03', 'Jean Deau', 'Av. de la Pelouse, 87648672 Mayet Paris 75002', 420, '5WC293457J513863Y', 0, NULL),
+(1007, '2022-12-18 11:07:06', 'Jean Deau', '25 Dans ton cul Trouville 88000', 102, '4MD176625L674734S', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -133,7 +146,7 @@ CREATE TABLE `order_tracking` (
   `id` int(11) NOT NULL,
   `order_state` varchar(255) NOT NULL,
   `id_receipt` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -157,7 +170,7 @@ CREATE TABLE `product` (
   `id_type` int(11) NOT NULL,
   `price` float NOT NULL,
   `is_featured` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `product`
@@ -196,7 +209,7 @@ CREATE TABLE `promotion` (
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `percentage` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -207,7 +220,7 @@ CREATE TABLE `promotion` (
 CREATE TABLE `region` (
   `id_region` int(11) NOT NULL,
   `region_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `region`
@@ -240,15 +253,29 @@ CREATE TABLE `sale` (
   `id_user` int(11) DEFAULT NULL,
   `quantity` int(11) NOT NULL,
   `price_total_product` float DEFAULT NULL,
-  `quantity_total_sold` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `orderId` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `sale`
 --
 
-INSERT INTO `sale` (`id`, `id_product`, `id_user`, `quantity`, `price_total_product`, `quantity_total_sold`) VALUES
-(3, 10007, NULL, 25, 25, 40);
+INSERT INTO `sale` (`id`, `id_product`, `id_user`, `quantity`, `price_total_product`, `orderId`) VALUES
+(92, 10005, NULL, 1, 18, '8SY82833L5431761T'),
+(93, 10006, NULL, 1, 8, '8SY82833L5431761T'),
+(94, 10005, NULL, 1, 18, '01F925718Y998981L'),
+(95, 10001, NULL, 1, 27, '01F925718Y998981L'),
+(96, 10005, NULL, 1, 18, '3VR11975UP6344318'),
+(97, 10015, NULL, 1, 33, '3VR11975UP6344318'),
+(98, 10005, NULL, 1, 18, '6LC02809MC4375301'),
+(99, 10010, NULL, 1, 12, '50429440HW1574202'),
+(100, 10015, NULL, 1, 33, '50429440HW1574202'),
+(101, 10006, NULL, 1, 8, '50429440HW1574202'),
+(102, 10006, NULL, 3, 24, '5WC293457J513863Y'),
+(103, 10015, NULL, 12, 396, '5WC293457J513863Y'),
+(104, 10010, NULL, 1, 12, '4MD176625L674734S'),
+(105, 10001, NULL, 1, 27, '4MD176625L674734S'),
+(106, 10016, NULL, 1, 63, '4MD176625L674734S');
 
 -- --------------------------------------------------------
 
@@ -261,7 +288,7 @@ CREATE TABLE `supplier` (
   `name` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `image_supp` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `supplier`
@@ -280,7 +307,7 @@ INSERT INTO `supplier` (`id`, `name`, `content`, `image_supp`) VALUES
 CREATE TABLE `taste` (
   `id_taste` int(11) NOT NULL,
   `taste_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `taste`
@@ -303,7 +330,7 @@ INSERT INTO `taste` (`id_taste`, `taste_name`) VALUES
 CREATE TABLE `type_product` (
   `id_type` int(11) NOT NULL,
   `type_name` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `type_product`
@@ -327,21 +354,18 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT 0,
   `is_employee` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`id`, `email`, `password`, `is_admin`, `is_employee`) VALUES
-(3, 'jdousse2@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$MGp3TVhWRE1YY0tRWDlsTA$LXep2ZQ0VKxAFFfnrWnF53feXn/TW6Q49xY34zRSEnk', 1, 1),
-(4, 'julien@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$ekdhbWFGOWsyYVJoSkZwUQ$9/Exfz/tprVfm4IGeGZNJGSLRoymkT/U4OEiQYam2b8', 1, 1),
 (5, 'afpa@afpa.fr', '$argon2id$v=19$m=65536,t=4,p=1$a3lqekZiZDBNcncublJpUg$RkyeX1QgciCLyHDFfQC9qe5shQR+OWrs8OqzN/qmfag', 1, 1),
-(6, 'jdousse@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$UUxFTjdEUk83SkpkMFQ5Mw$o4edphyBvsZ1DHo84NeR8jgOthM1o7FesWuTk3BHCFI', 1, 1),
 (7, 'jdousse3@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$emxmT3IzdVZjVllxTzZzdA$phIqk1Bt5LvBm1I1SPrRivNfCYH0iWrpHax+Wp/Cqy8', 0, 0),
-(8, 'jdousse@hotmail.fr', '$argon2id$v=19$m=65536,t=4,p=1$bzJGRWhNTnJyVUxjOTQxQw$hCJ1vHDwY+xPnCtqcoh8sN9ltv4I4kIMha8XFRH8QAw', 1, 1),
-(9, 'jdousse2@hotmail.fr', '$argon2id$v=19$m=65536,t=4,p=1$dWN1WThWcjd3VDd6S1NjUg$OejhNhqCMGBuNkQG7C2DnjzX+qb7MYOonUB2P1SnnQM', 0, 1),
-(10, '', '$argon2id$v=19$m=65536,t=4,p=1$ckRDOGRKdFVxbTVkZjN5TQ$24PLlibICnjbsI31o187kiRF/sdXFp6cm9UUm1NCG7o', 0, 0);
+(11, 'utlisateur@afpa.fr', '$argon2id$v=19$m=65536,t=4,p=1$cGtFWWdjNzJIQlJYSEEzOQ$s1ouWFT6iC1Xm6nTLuLsT6NFcPtixmO11n/i85RyaJA', 0, 0),
+(12, 'employe@afpa.fr', '$argon2id$v=19$m=65536,t=4,p=1$bkRXdkF6SFZSUkVGdEwxUQ$S1XCvAWTunX2SkUW07MxUL1e5pSDwBV83pRxL1P89T0', 0, 1),
+(13, 'admin@afpa.fr', '$argon2id$v=19$m=65536,t=4,p=1$SU1acmE5Ly83WHBlM001bw$FfszFo4N5AWiM0973OxiCaCc3/CAWzUg2n1+3DvyQUY', 1, 1);
 
 --
 -- Index pour les tables déchargées
@@ -378,7 +402,7 @@ ALTER TABLE `comment`
 -- Index pour la table `invoice`
 --
 ALTER TABLE `invoice`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id_invoice`),
   ADD KEY `id_sale` (`id_sale`),
   ADD KEY `id_promotion` (`id_promotion`);
 
@@ -477,7 +501,7 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT pour la table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_invoice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1008;
 
 --
 -- AUTO_INCREMENT pour la table `order_tracking`
@@ -489,7 +513,7 @@ ALTER TABLE `order_tracking`
 -- AUTO_INCREMENT pour la table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10020;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10021;
 
 --
 -- AUTO_INCREMENT pour la table `promotion`
@@ -507,7 +531,7 @@ ALTER TABLE `region`
 -- AUTO_INCREMENT pour la table `sale`
 --
 ALTER TABLE `sale`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT pour la table `supplier`
@@ -531,7 +555,7 @@ ALTER TABLE `type_product`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Contraintes pour les tables déchargées
@@ -551,17 +575,10 @@ ALTER TABLE `comment`
   ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`id_sale`) REFERENCES `sale` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `invoice`
---
-ALTER TABLE `invoice`
-  ADD CONSTRAINT `invoice_ibfk_1` FOREIGN KEY (`id_sale`) REFERENCES `sale` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `invoice_ibfk_2` FOREIGN KEY (`id_promotion`) REFERENCES `promotion` (`id`);
-
---
 -- Contraintes pour la table `order_tracking`
 --
 ALTER TABLE `order_tracking`
-  ADD CONSTRAINT `order_tracking_ibfk_1` FOREIGN KEY (`id_receipt`) REFERENCES `invoice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `order_tracking_ibfk_1` FOREIGN KEY (`id_receipt`) REFERENCES `invoice` (`id_invoice`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `product`
