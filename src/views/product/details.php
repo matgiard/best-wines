@@ -64,7 +64,7 @@
                     <p class="card-title"><?= $lastRedWine['name'] ?></p>
                     <p class="card-text"><?= $lastRedWine['price'] ?>€</p>
                     <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">Détails</a>
+                    <a href="<?= BASE_DIR ?>/nos-vins/detail?id=<?= $lastRedWine['id'] ?>" class="btn btn-primary">Détails</a>
                 </div>
             </div>
         </div>
@@ -81,7 +81,7 @@
                     <p class="card-title"><?= $lastChampagne['name'] ?></p>
                     <p class="card-text"><?= $lastChampagne['price'] ?>€</p>
                     <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">Détails</a>
+                    <a href="<?= BASE_DIR ?>/nos-vins/detail?id=<?= $lastChampagne['id'] ?>" class="btn btn-primary">Détails</a>
                 </div>
             </div>
         </div>
@@ -98,7 +98,7 @@
                     <p class="card-title"><?= $lastBox['name'] ?></p>
                     <p class="card-text"><?= $lastBox['price'] ?>€</p>
                     <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">Détails</a>
+                    <a href="<?= BASE_DIR ?>/nos-vins/detail?id=<?= $lastBox['id'] ?>" class="btn btn-primary">Détails</a>
                 </div>
             </div>
         </div>
