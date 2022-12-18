@@ -1,6 +1,7 @@
 
 <?php
-if (isset(($_SESSION["cart_item"])) && isset($lastInvoice)): ?>
+$paypalLink='/best-wines/pay/paypal';
+if ($_SERVER['REDIRECT_URL'] == $paypalLink) : ?>
 <div>
 <div>
 <h1 class="h1 text-center p-3"> Félicitations, le paiement a bien été effectué !</h1>
