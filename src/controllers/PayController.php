@@ -78,10 +78,12 @@ class PayController extends Controller
             }
             $i = 0;
             while ($i < count($invoice_array)) {
-   
+
                 foreach ($invoice_array[$i] as $k => $v) {
                     $k = 'id';
                     $v = $sale->setId_product($invoice_array[$i]['id']);
+                    $k = 'id_user';
+                    $v = $sale->setId_user($_SESSION["user"]["id"]);
                     $k = "quantity";
                     $v = $sale->setQuantity($invoice_array[$i]['quantity']);
                     $k = 'total_price';

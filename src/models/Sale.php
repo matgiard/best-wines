@@ -125,9 +125,10 @@ class Sale extends Model
     //Ajout d'une ligne de vente
     public function InsertSale(): int|false
     {
-        $stmt = $this->pdo->prepare("INSERT INTO sale (`id_product`, `quantity`,`price_total_product`, `orderId`) VALUES (:id_product, :quantity, :price_total_product, :orderId)");
+        $stmt = $this->pdo->prepare("INSERT INTO sale (`id_product`,`id_user`, `quantity`,`price_total_product`, `orderId`) VALUES (:id_product,:id_user, :quantity, :price_total_product, :orderId)");
         $stmt->execute([
             "id_product" => $this->id_product,
+            "id_user" =>$this->id_user,
             "quantity" => $this->quantity,
             "price_total_product" => $this->price_total_product,
             "orderId"   => $this->orderId,

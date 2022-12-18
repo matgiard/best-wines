@@ -1,4 +1,6 @@
-
+<div class="text-center p-1">
+<a href="javascript:history.go(-1)"><button class="btn btn-warning" ><< Retour</button></a>
+</div>
 <div class="p-5">
     <h2>Détail de la commande #<?=$invoices[0]['id_invoice'] ?></h2>
     <ul>
@@ -22,7 +24,7 @@
         <?php  foreach ($invoices as $item) :?>
 
 					<tr>
-						<td><img src="/best-wines/uploads/vins/<?= $item["photo"]; ?>" class="cart-item-image" /><?= $item["name"]; ?></td>
+						<td><img src="/best-wines/uploads/vins/<?= $item["photo"]; ?>" class="cart-item-image bg-light" /><?= $item["name"]; ?></td>
 						<td><?= $item["id_product"]; ?></td>
 						<td style="text-align:right;"><?= $item["quantity"]; ?></td>
 						<td style="text-align:right;"><?= $item["price"] . " €"; ?></td>

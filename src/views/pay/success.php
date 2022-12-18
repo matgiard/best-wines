@@ -51,7 +51,8 @@ if ($_SERVER['REDIRECT_URL'] == $paypalLink) : ?>
     <a href="/best-wines/" class="btn color1 p-1">Retourner à l'accueil</a>
     </div>
 </div>
-<?php  unset($_SESSION["cart_item"]); ?>
+<?php  unset($_SESSION["cart_item"]);
+ ?>
 
  <?php endif ?>
  <?php  if (isset($_SESSION["cart_item"])):?>
@@ -72,6 +73,10 @@ if ($_SERVER['REDIRECT_URL'] == $paypalLink) : ?>
 		</div>
 		<?php	unset($_SESSION["cart_item"]) ?>
 
-		<?php endif ?>
+		<?php 
+		if (empty(($_SESSION["cart_item"]))){
+				} ?>
+
+			<?php endif ?>
 
 

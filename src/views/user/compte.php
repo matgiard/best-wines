@@ -5,7 +5,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Reference</th>               
+                <th scope="col">No facture</th>               
                 <th scope="col">Prix total</th>
                 <th scope="col">Date</th>
                 <th></th>
@@ -16,11 +16,11 @@
                 <?php foreach ($all_invoices as $invoice) : ?>
                     <?php if ($_SESSION["user"]["id"] == $invoice["id_user"]) : ?>
                         <tr>
-                            <td><?= $invoice['id'] ?></td>
+                            <td><?= $invoice['id_invoice'] ?></td>
                             <td><?= $invoice['total_price'] ?> €</td>
                             <td><?= $invoice['date'] ?></td>
                             <td>
-                                <a href="<?= BASE_DIR ?>/mon-compte/details?id=<?= $invoice['id'] ?>" class="btn btn-warning">Détails</a>
+                                <a href="<?= BASE_DIR ?>/mon-compte/details?id=<?= $invoice['orderId'] ?>" class="btn btn-warning">Détails</a>
                             </td>
                         </tr>
                     <?php endif ?>

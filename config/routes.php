@@ -52,7 +52,7 @@ Router::register('/employe', 'StockController::index');
 
 // Accueil espace client
 Router::register('/mon-compte', 'InvoiceController::showOrders');
-Router::register('/mon-compte/details', 'SaleController::showSales');
+Router::register('/mon-compte/details', 'InvoiceController::showOne');
 
 // espace employé Commandes
 Router::register('/employe/commandes', 'OrderTrackingController::showAll');

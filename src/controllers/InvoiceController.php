@@ -21,5 +21,12 @@ class InvoiceController extends Controller
         $all_invoices = $invoice->findInvoiceByUser();
         $this->renderView('user/compte', compact('all_invoices'));
     }
- 
+    public function showOne()
+    {   
+        CheckLog::checkClientIsLogged();
+        $id = $_GET['id'];
+        $invoice = new Invoice();
+        $invoices = $invoice->findOneInvoiceUserBy($id);        
+        $this->renderView('user/compteDetails', compact('invoices'));
+    }
 }

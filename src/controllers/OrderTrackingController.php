@@ -25,7 +25,7 @@ class OrderTrackingController extends Controller
 
     public function showOne()
     {   
-
+        CheckLog::checkIsEmployee();
         $id = $_GET['id'];
         $invoice = new Invoice();
         $invoices = $invoice->findOneInvoiceBy($id);        

@@ -142,7 +142,7 @@ class Invoice extends Model
 
     public function findInvoiceByUser()
     {
-        $sql_query = "SELECT * FROM {$this->table_name} JOIN sale ON invoice.id_sale = sale.id JOIN user ON sale.id_user = user.id";
+        $sql_query = "SELECT * FROM sale JOIN invoice ON invoice.orderId_Invoice=sale.orderId JOIN user ON  sale.id_user = user.id GROUP BY invoice.id_invoice";
         $stmt = $this->pdo->prepare($sql_query);
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
         $stmt->execute();
@@ -190,7 +190,18 @@ class Invoice extends Model
         $stmt->execute();
         return $stmt->fetchAll();
     }
-
+    public function findOneInvoiceUserBy($criteria): object|array|false
+    {
+        if (empty($criteria)) {
+            throw  new \Exception("Il faut passer au moins un critère");
+        }
+        $sql_query = "SELECT * FROM sale JOIN invoice ON invoice.orderId_Invoice=sale.orderId JOIN product ON sale.id_product = product.id  WHERE sale.orderId= '$criteria' ";
+       
+        $stmt = $this->pdo->prepare($sql_query);
+        $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
    }
   
 
