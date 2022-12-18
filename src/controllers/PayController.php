@@ -12,10 +12,6 @@ use PayPalCheckoutSdk\Core\PayPalHttpClient;
 use PayPalCheckoutSdk\Core\SandboxEnvironment;
 use PayPalCheckoutSdk\Orders\OrdersGetRequest;
 use App\Models\Sale;
-use Psr\Http\Message\ServerRequestInterface;
-use Stripe\Checkout\Session;
-use Stripe\Stripe;
-use Stripe\Webhook;
 
 //En cours de réalisation
 //Gestion des paiements
@@ -89,7 +85,7 @@ class PayController extends Controller
                     $k = "quantity";
                     $v = $sale->setQuantity($invoice_array[$i]['quantity']);
                     $k = 'total_price';
-                    $v = $sale->setPrice_Total_Product($invoice_array[$i]['total_price']*$invoice_array[$i]['id']);
+                    $v = $sale->setPrice_Total_Product($invoice_array[$i]['total_price']);
                     $k = 'orderId';
                     $v = $sale->setOrderId($OrderId);
                 }
@@ -132,9 +128,6 @@ class PayController extends Controller
 
     public function success()
     {
-
-        
-
         $this->renderView('pay/success');
     }
 
